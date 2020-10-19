@@ -19,4 +19,6 @@ private:
 	float m_vx;
 	float m_vy;
 	float m_posture;
+	int anime;
+	int anitime;
 };
