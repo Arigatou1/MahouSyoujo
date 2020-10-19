@@ -5,13 +5,14 @@
 using namespace GameL;
 
 //オブジェクト：主人公
-class CMagicalGirl : public CObj
+class CObjMagicalGirl : public CObj
 {
 	public:
-		CMagicalGirl() {};
-		~CMagicalGirl() {};
+		CObjMagicalGirl() {};
+		~CObjMagicalGirl() {};
 		void Init();   //イニシャライズ
 		void Action(); //アクション
 		void Draw();   //ドロー
 	private:
+		float gx;
 };

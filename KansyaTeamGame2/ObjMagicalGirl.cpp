@@ -4,26 +4,26 @@
 #include "GameL\SceneManager.h"
 
 #include "GameHead.h"
-#include "MagicalGirl.h"
+#include "ObjMagicalGirl.h"
 //#include "主人公のヘッダー？"
 
 //使用するネームスペース
 using namespace GameL;
 
 //イニシャライズ
-void CMagicalGirl::Init()
+void CObjMagicalGirl::Init()
 {
 
 }
 
 //アクション
-void CMagicalGirl::Action()
+void CObjMagicalGirl::Action()
 {
 
 }
 
 //ドロー
-void CMagicalGirl::Draw()
+void CObjMagicalGirl::Draw()
 {
 	//描画カラー
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
