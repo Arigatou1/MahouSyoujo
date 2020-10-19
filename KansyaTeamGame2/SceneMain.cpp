@@ -29,7 +29,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィックの読み込み
-	Draw::LoadImageW(L"", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj = new CObjMagicalGirl();
