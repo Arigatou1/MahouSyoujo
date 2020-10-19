@@ -2,6 +2,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "GameL\HitBoxManager.h"
 
 #include "GameHead.h"
 #include "ObjHero.h"
@@ -22,6 +23,9 @@ void CObjHero::Init()
 	atk_anime = 0;
 	atk_anitime = 0;
 
+	//あたり判定用Hitboxを作成
+	Hits::SetHitBox(this, m_px, m_py, 50, 50, ELEMENT_PLAYER, OBJ_HERO, 1);
+	
 }
 
 //アクション
@@ -45,7 +49,7 @@ void CObjHero::Action()
 
 		m_anitime += 1;
 
-	
+
 	}
 	//どちらも押していない場合は減速させる。
 	else
@@ -59,7 +63,7 @@ void CObjHero::Action()
 			if (m_vx <= 0)
 				m_vx = 0;
 
-			
+
 		}
 		if (m_vx < 0)//右方向に動いているとき
 		{
@@ -92,6 +96,22 @@ void CObjHero::Action()
 	}
 	else
 		atk_anime = 0;
+
+	//test用　画面外に行かないように
+	if (m_px > 750)
+	{
+		m_px = 750;
+		m_vx = 0;
+	}
+	else if (m_px < 0)
+	{
+		m_px = 0;
+		m_vx = 0;
+	}
+
+	//HitBoxの内容を更新
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_px, m_py);
 }
 //ドロー
 void CObjHero::Draw()
