@@ -17,6 +17,7 @@ void CObjHero::Init()
 	m_vx = 0;
 	m_vy = 0;
 	m_posture = 0;
+	anime = 0;
 }
 
 //アクション
@@ -27,15 +28,21 @@ void CObjHero::Action()
 	{
 		m_vx -= 0.1;
 		m_posture = 0;
+
+		anitime += 1;
 	}
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
 		m_vx += 0.1;
 		m_posture = 1;
+
+		anitime += 1;
 	}
 	//どちらも押していない場合は減速させる。
 	else
 	{
+
+		anime = 0;
 		if (m_vx > 0)//左方向に動いているとき
 		{
 			m_vx -= 0.2;
@@ -49,8 +56,15 @@ void CObjHero::Action()
 				m_vx = 0;
 		}
 	}
-	
+	if (anitime >= 10)
+	{
+		anime++;
 
+		anitime = 0;
+	}
+
+	if (anime > 1)
+		anime = 0;
 	//最高速度決定
 	if (m_vx >= 6)
 		m_vx = 6;
@@ -69,9 +83,9 @@ void CObjHero::Draw()
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	src.m_left = (anime*50)+0.0f;
+	src.m_right = (anime * 50) + 50.0f;
+	src.m_bottom = 50.0f;
 	//表示位置の設定
 	dst.m_top = 128.0f;
 	dst.m_left = (64.0*m_posture)+m_px;
