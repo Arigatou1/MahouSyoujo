@@ -14,5 +14,8 @@ class CObjMagicalGirl : public CObj
 		void Action(); //アクション
 		void Draw();   //ドロー
 	private:
-		float gx;
+		float m_postrue;//姿勢
+		float m_mp;//MP
+		
+		int m_mtime;//MP回復用時間
 };
