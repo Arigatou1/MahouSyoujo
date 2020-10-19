@@ -1,2 +1,8 @@
-﻿  MagicalGirl.cpp
+﻿  ObjHero.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(28,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(33,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(41,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(47,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(77,31): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(78,38): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\Debug\KansyaTeamGame2.exe

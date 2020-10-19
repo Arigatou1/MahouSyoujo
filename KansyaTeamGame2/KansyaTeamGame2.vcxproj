@@ -153,6 +153,7 @@
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="ObjMagicalGirl.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="ObjHero.h" />
     <ClInclude Include="SceneMain.h" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,7 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="SceneMain.cpp" />
   </ItemGroup>
