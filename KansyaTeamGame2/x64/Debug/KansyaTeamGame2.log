@@ -1,6 +1,1 @@
-﻿  ObjHero.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(39,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(47,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(61,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(70,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
