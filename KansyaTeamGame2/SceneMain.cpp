@@ -31,6 +31,10 @@ void CSceneMain::InitScene()
 	//グラフィックの読み込み
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 
+	//主人公オブジェクト作成
+	CObjHero* obj = new CObjHero();
+	Objs::InsertObj(obj, OBJ_HERO, 10);
+
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj = new CObjMagicalGirl();
 	Objs::InsertObj(obj, OBJ_MAGICALGIRL, 10);

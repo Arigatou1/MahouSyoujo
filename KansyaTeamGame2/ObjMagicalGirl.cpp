@@ -13,12 +13,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 0.0f;//位置（主人公の位置を収得？）
-	m_gy = 0.0f;
-
-	m_vx = 0.0f;//移動ベクトル
-	m_vy = 0.0f;
-
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
 }
 
@@ -31,12 +25,12 @@ void CObjMagicalGirl::Action()
 
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
-		m_postrue = 1.0f;
+		m_postrue = 0.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-		m_postrue = 0.0f;
+		m_postrue = 1.0f;
 	}
 }
 
@@ -56,10 +50,10 @@ void CObjMagicalGirl::Draw()
 	src.m_bottom = 64.0f;
 
 	//表示位置の設定
-	dst.m_top	 = 0.0f + m_gy;
-	dst.m_left   = (        64.0f * m_postrue);
-	dst.m_right  = (64.0f - 64.0f * m_postrue);
-	dst.m_bottom = 64.0f + m_gy;
+	dst.m_top	 = 0.0f;
+	dst.m_left   = ( 64.0f + 64.0f * m_postrue);
+	dst.m_right  = (128.0f - 64.0f * m_postrue);
+	dst.m_bottom = 64.0f;
 
 	//描画
 	Draw::Draw(0,&src,&dst,c,0.0f);
