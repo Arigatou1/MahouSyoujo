@@ -151,8 +151,11 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
-    <ClInclude Include="MagicalGirl.h" />
+    <ClInclude Include="MagicalGirl.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="main.h" />
+    <ClInclude Include="ObjHero.h" />
     <ClInclude Include="SceneMain.h" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +172,10 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="MagicalGirl.cpp" />
+    <ClCompile Include="ObjHero.cpp" />
+    <ClCompile Include="MagicalGirl.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="SceneMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
