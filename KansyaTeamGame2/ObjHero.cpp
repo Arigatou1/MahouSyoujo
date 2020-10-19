@@ -16,16 +16,46 @@ void CObjHero::Init()
 	m_py = 0;
 	m_vx = 0;
 	m_vy = 0;
+	m_posture = 0;
 }
 
 //アクション
 void CObjHero::Action()
 {
+	//キーを押すと移動
 	if (Input::GetVKey(VK_LEFT) == true)
-		m_vx -= 1;
-	if (Input::GetVKey(VK_RIGHT) == true)
-		m_vx += 1;
+	{
+		m_vx -= 0.1;
+		m_posture = 0;
+	}
+	else if (Input::GetVKey(VK_RIGHT) == true)
+	{
+		m_vx += 0.1;
+		m_posture = 1;
+	}
+	//どちらも押していない場合は減速させる。
+	else
+	{
+		if (m_vx > 0)//左方向に動いているとき
+		{
+			m_vx -= 0.2;
+			if (m_vx <= 0)
+				m_vx = 0;
+		}
+		if (m_vx < 0)//右方向に動いているとき
+		{
+			m_vx += 0.2;
+			if (m_vx >= 0)
+				m_vx = 0;
+		}
+	}
+	
 
+	//最高速度決定
+	if (m_vx >= 6)
+		m_vx = 6;
+	if (m_vx <= -6)
+		m_vx = -6;
 	m_px += m_vx;
 }
 //ドロー
@@ -43,10 +73,10 @@ void CObjHero::Draw()
 	src.m_right = 64.0f;
 	src.m_bottom = 64.0f;
 	//表示位置の設定
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f+m_px;
-	dst.m_right = 64.0f + m_px;
-	dst.m_bottom = 64.0f;
+	dst.m_top = 128.0f;
+	dst.m_left = (64.0*m_posture)+m_px;
+	dst.m_right = (64-64.0 * m_posture) + m_px;
+	dst.m_bottom = 192.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
