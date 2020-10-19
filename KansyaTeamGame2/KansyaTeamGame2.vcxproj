@@ -170,7 +170,8 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="MagicalGirl.cpp" />
+    <ClCompile Include="ObjHero.cpp" />
+    <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="SceneMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
