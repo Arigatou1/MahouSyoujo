@@ -33,12 +33,7 @@ void CObjSword::Init()
 void CObjSword::Action()
 {
 
-	
-	//攻撃する用のキー入力とかだったが、バグ発生中。
-
-
-	//キーを押すと攻撃
-	//テスト用Xキー
+	//m_fから真偽を受け取る
 	if (a_f == false)
 	{
 
