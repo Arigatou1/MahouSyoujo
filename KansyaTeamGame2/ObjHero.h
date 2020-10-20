@@ -23,4 +23,7 @@ private:
 	int m_anitime;
 	int atk_anime;
 	int atk_anitime;
+	int atk_time;
+	bool m_f;
     };
+
