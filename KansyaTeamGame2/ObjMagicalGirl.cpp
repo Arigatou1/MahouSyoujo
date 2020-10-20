@@ -64,10 +64,10 @@ void CObjMagicalGirl::Draw()
 	RECT_F dst; //描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top    = 0.0f;
+	src.m_top    = 112.0f;
 	src.m_left   = 0.0f;
-	src.m_right  = 50.0f;
-	src.m_bottom = 50.0f;
+	src.m_right  = 56.0f;
+	src.m_bottom = 168.0f;
 
 	//表示位置の設定
 	dst.m_top	 = m_gy-50.0f;
