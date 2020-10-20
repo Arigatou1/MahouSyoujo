@@ -37,6 +37,16 @@ void CObjHomingBullet::Action()
 	{
 		this->SetStatus(false);
 	}
+
+	if (m_by > 600.0f)
+	{
+		this->SetStatus(false);
+	}
+
+	if (m_by < 0.0f)
+	{
+		this->SetStatus(false);
+	}
 }
 
 //ƒhƒ[
