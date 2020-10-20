@@ -10,6 +10,7 @@ enum OBJ_NAME
 	OBJ_MAGICALGIRL,
 	OBJ_HOMINGBULLET,
 	OBJ_SWORD,
+	OBJ_ENEMY,
 };
 //------------------------------------------------
 
@@ -55,6 +56,8 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjHero.h"
 #include "ObjMagicalGirl.h"
+#include "CObjHomingBullet.h"
+#include "ObjEnemy.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
