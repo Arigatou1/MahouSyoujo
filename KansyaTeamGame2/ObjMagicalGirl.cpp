@@ -62,9 +62,9 @@ void CObjMagicalGirl::Draw()
 
 	//ï\é¶à íuÇÃê›íË
 	dst.m_top	 = 0.0f;
-	dst.m_left   = ( 64.0f + 64.0f * m_postrue);
-	dst.m_right  = (128.0f - 64.0f * m_postrue);
-	dst.m_bottom = 64.0f;
+	dst.m_left   = ( 50.0f + 50.0f * m_postrue);
+	dst.m_right  = (100.0f - 50.0f * m_postrue);
+	dst.m_bottom = 50.0f;
 
 	//ï`âÊ
 	Draw::Draw(0,&src,&dst,c,0.0f);
