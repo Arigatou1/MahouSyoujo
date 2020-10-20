@@ -13,13 +13,36 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
+	m_mp = 10;//MP総量
 
+	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
+
+	m_mtime = 0;
 }
 
 //アクション
 void CObjMagicalGirl::Action()
 {
+	m_mtime++;
 
+	if (m_mp < 100)
+	{
+		if (m_mtime % 60 == 0)
+		{
+			m_mtime = 0;
+			m_mp++;
+		}
+	}
+
+	if (Input::GetVKey(VK_RIGHT) == true)
+	{
+		m_postrue = 0.0f;
+	}
+
+	if (Input::GetVKey(VK_LEFT) == true)
+	{
+		m_postrue = 1.0f;
+	}
 }
 
 //ドロー
@@ -34,15 +57,15 @@ void CObjMagicalGirl::Draw()
 	//切り取り位置の設定
 	src.m_top    = 0.0f;
 	src.m_left   = 0.0f;
-	src.m_right  = 0.0f;
-	src.m_bottom = 0.0f;
+	src.m_right  = 50.0f;
+	src.m_bottom = 50.0f;
 
 	//表示位置の設定
-	dst.m_top    = 0.0f;
-	dst.m_left   = 0.0f;
-	dst.m_right  = 0.0f;
-	dst.m_bottom = 0.0f;
+	dst.m_top	 = 0.0f;
+	dst.m_left   = ( 64.0f + 64.0f * m_postrue);
+	dst.m_right  = (128.0f - 64.0f * m_postrue);
+	dst.m_bottom = 64.0f;
 
 	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(0,&src,&dst,c,0.0f);
 }

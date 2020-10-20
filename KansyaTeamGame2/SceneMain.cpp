@@ -28,12 +28,17 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	//グラフィック読み込み
+	//グラフィックの読み込み
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 10);
+
+	
+	//魔法少女オブジェクト作成
+	//CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
+	//Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
 }
 
 //実行中メソッド

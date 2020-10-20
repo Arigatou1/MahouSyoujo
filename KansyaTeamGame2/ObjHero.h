@@ -19,6 +19,10 @@ private:
 	float m_vx;
 	float m_vy;
 	float m_posture;
-	int anime;
-	int anitime;
-};
+	int m_anime;
+	int m_anitime;
+	int atk_anime;
+	int atk_anitime;
+	bool m_f;
+    };
+
