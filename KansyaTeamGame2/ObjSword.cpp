@@ -11,18 +11,19 @@ using namespace GameL;
 
 
 //コンストラクタ
-CObjSword::CObjSword(float x, float y,int posture)
+CObjSword::CObjSword(float x, float y,int posture,bool m_f)
 {
 	a_px = x;
 	a_py = y;
 
 	a_posture = posture;
+	a_f = m_f;
 }
 
 //イニシャライズ
 void CObjSword::Init()
 {
-	m_f = true;
+	
 	Hits::SetHitBox(this,a_px, a_py, 56, 56, ELEMENT_PLAYER, OBJ_SWORD, 1);
 	atk_time = 0;
 
@@ -38,20 +39,22 @@ void CObjSword::Action()
 
 	//キーを押すと攻撃
 	//テスト用Xキー
-	
-	
-	
-			//HitBoxの内容を更新
-			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(a_px+(a_posture*48), a_py);
-		
-	
+	if (a_f == false)
+	{
 
-	//m_f = true;
-	//this->SetStatus(false);
-	//Hits::DeleteHitBox(this);
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(a_px + (a_posture * 40), a_py);
 
-	
+		atk_time++;
+	}
+
+	if (atk_time>=10)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+
+	}
 
 }
 //ドロー

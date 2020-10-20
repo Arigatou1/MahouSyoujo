@@ -101,18 +101,24 @@ void CObjHero::Action()
 		m_f = false;
 		atk_anime = 1;
 
-		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture);
+		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture,m_f);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
 
 	}
-	else if (Input::GetVKey('X') == false)
+
+	if (m_f == false)
+		atk_time++;
+
+	
+	if (atk_time >= 10)
 	{
 		m_f = true;
-		atk_anime = 0;
-
-
-
+		atk_time = 0;
 	}
+	
+
+
+
 
 	//test用　画面外に行かないように
 	if (m_px > 744)
