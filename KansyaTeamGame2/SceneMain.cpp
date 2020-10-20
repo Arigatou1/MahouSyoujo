@@ -35,9 +35,13 @@ void CSceneMain::InitScene()
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
+	//敵1オブジェクト作成
+	CObjEnemy* obj_enemy = new CObjEnemy();
+	Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+	
 	//魔法少女オブジェクト作成
-	//CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
-	//Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
+	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
+	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
 }
 
 //実行中メソッド
