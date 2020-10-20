@@ -1,9 +1,8 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
-#include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
-
+#include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "ObjSword.h"
 
@@ -40,31 +39,20 @@ void CObjSword::Action()
 	//キーを押すと攻撃
 	//テスト用Xキー
 	
-	if (Input::GetVKey('X') == true && m_f == true)
-	{
+	
 	
 			//HitBoxの内容を更新
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(a_px+(a_posture*48), a_py);
 		
-		m_f = false;
-
-		
-	}
-
-
-	if (m_f == false)
-		atk_time++;
-
-	if (atk_time >= 10)
-	{
-		m_f = true;
 	
-		this->SetStatus(false);//自信に削除命令
-		Hits::DeleteHitBox(this);
 
-		atk_time = 0;
-	}
+	//m_f = true;
+	//this->SetStatus(false);
+	//Hits::DeleteHitBox(this);
+
+	
+
 }
 //ドロー
 void CObjSword::Draw()

@@ -94,26 +94,25 @@ void CObjHero::Action()
 	m_px += m_vx;
 	m_py += m_vy;
 	
-	/*
-	攻撃する用の処理だったが、バグ発生してるんで止めてます。
-	
-	
 
-	//キーを押すと攻撃
+	//test用　攻撃用
 	if (Input::GetVKey('X') == true && m_f==true)
 	{
+		m_f = false;
 		atk_anime = 1;
 
-		
-		//ソード作成
-		CObjSword* obj_b = new CObjSword(m_px,m_py,m_posture);
+		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
-		
-	
+
 	}
-	*/
+	else if (Input::GetVKey('X') == false)
+	{
+		m_f = true;
+		atk_anime = 0;
 
 
+
+	}
 
 	//test用　画面外に行かないように
 	if (m_px > 744)
