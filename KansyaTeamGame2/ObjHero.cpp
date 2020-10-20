@@ -35,6 +35,7 @@ void CObjHero::Init()
 void CObjHero::Action()
 {
 	
+	m_vy += 9.8 / (16.0f);
 
 	//キーを押すと移動
 	if (Input::GetVKey(VK_LEFT) == true)
@@ -59,22 +60,8 @@ void CObjHero::Action()
 	{
 
 		m_anime = 0;
-		if (m_vx > 0)//左方向に動いているとき
-		{
-			m_vx -= 0.2;
-
-			if (m_vx <= 0)
-				m_vx = 0;
-
-
-		}
-		if (m_vx < 0)//右方向に動いているとき
-		{
-			m_vx += 0.2;
-			if (m_vx >= 0)
-				m_vx = 0;
-
-		}
+		
+		m_vx = m_vx *0.9;
 	}
 	if (m_anitime >= 10)
 	{
@@ -90,8 +77,10 @@ void CObjHero::Action()
 		m_vx = 6;
 	if (m_vx <= -6)
 		m_vx = -6;
-	m_px += m_vx;
 
+	m_px += m_vx;
+	m_py += m_vy;
+	
 	//キーを押すと攻撃
 	if (Input::GetVKey('X') == true && m_f==true)
 	{
@@ -127,7 +116,11 @@ void CObjHero::Action()
 		m_px = 0;
 		m_vx = 0;
 	}
-
+	if (m_py >= 444)
+	{
+		m_py = 444;
+		m_vy = 0;
+	}
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);
@@ -147,10 +140,10 @@ void CObjHero::Draw()
 	src.m_right =(m_anime*56)+56.0f;
 	src.m_bottom = (atk_anime * 56) + 56.0f;
 	//表示位置の設定
-	dst.m_top = 0.0f;
+	dst.m_top = 0.0f+m_py;
 	dst.m_left =(28.0f*m_posture)+m_px+28.0f;
 	dst.m_right = (-28.0f*m_posture )+ m_px+28.0f;
-	dst.m_bottom = 56.0f;
+	dst.m_bottom = 56.0f+m_py;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
