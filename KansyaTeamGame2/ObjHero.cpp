@@ -6,6 +6,8 @@
 
 #include "GameHead.h"
 #include "ObjHero.h"
+#include "ObjSword.h"
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -17,27 +19,26 @@ void CObjHero::Init()
 	m_py = 0;
 	m_vx = 0;
 	m_vy = 0;
-	m_posture = 0;
+	m_posture = 1;
 	m_anime = 0;
 	m_anitime = 0;
 	atk_anime = 0;
 	atk_anitime = 0;
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_px, m_py, 50, 50, ELEMENT_PLAYER, OBJ_HERO, 1);
-	
+	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
 //アクション
 void CObjHero::Action()
 {
-
+	
 
 	//キーを押すと移動
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
 		m_vx -= 0.1;
-		m_posture = 0;
+		m_posture = -1;
 
 		m_anitime += 1;
 
@@ -89,18 +90,28 @@ void CObjHero::Action()
 		m_vx = -6;
 	m_px += m_vx;
 
-	//キーを押すと移動
-	if (Input::GetVKey('X') == true)
+	//キーを押すと攻撃
+	if (Input::GetVKey('X') == true )
 	{
 		atk_anime = 1;
+
+		
+		//ソード作成
+		CObjSword* obj_b = new CObjSword(m_px,m_py,m_posture);
+		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+
+		m_f = false;
 	}
 	else
-		atk_anime = 0;
-
-	//test用　画面外に行かないように
-	if (m_px > 750)
 	{
-		m_px = 750;
+		atk_anime = 0;
+		m_f = true;
+	
+	}
+	//test用　画面外に行かないように
+	if (m_px > 744)
+	{
+		m_px = 744;
 		m_vx = 0;
 	}
 	else if (m_px < 0)
@@ -123,16 +134,17 @@ void CObjHero::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top =(atk_anime*50)+0.0f;
-	src.m_left =(m_anime*50)+0.0f;
-	src.m_right =(m_anime*50)+50.0f;
-	src.m_bottom = (atk_anime * 50) + 50.0f;
+	src.m_top =(atk_anime*56)+0.0f;
+	src.m_left =(m_anime*56)+0.0f;
+	src.m_right =(m_anime*56)+56.0f;
+	src.m_bottom = (atk_anime * 56) + 56.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f;
-	dst.m_left =(50.0f*m_posture)+m_px;
-	dst.m_right = (50.0f - 50*m_posture )+ m_px;
-	dst.m_bottom = 50.0f;
+	dst.m_left =(28.0f*m_posture)+m_px+28.0f;
+	dst.m_right = (-28.0f*m_posture )+ m_px+28.0f;
+	dst.m_bottom = 56.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
+
