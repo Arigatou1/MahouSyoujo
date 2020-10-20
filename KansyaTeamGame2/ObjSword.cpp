@@ -34,11 +34,12 @@ void CObjSword::Action()
 {
 
 	
-
+	//攻撃する用のキー入力とかだったが、バグ発生中。
 
 
 	//キーを押すと攻撃
 	//テスト用Xキー
+	
 	if (Input::GetVKey('X') == true && m_f == true)
 	{
 	
@@ -58,9 +59,11 @@ void CObjSword::Action()
 	if (atk_time >= 10)
 	{
 		m_f = true;
-		atk_time = 0;
+	
 		this->SetStatus(false);//自信に削除命令
 		Hits::DeleteHitBox(this);
+
+		atk_time = 0;
 	}
 }
 //ドロー

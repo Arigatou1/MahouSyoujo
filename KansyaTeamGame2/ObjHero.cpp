@@ -26,6 +26,7 @@ void CObjHero::Init()
 	atk_anitime = 0;
 	atk_time = 0;
 	m_f = true;
+	isJump = true;
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -35,6 +36,14 @@ void CObjHero::Init()
 void CObjHero::Action()
 {
 	
+	//テスト用Zキーを押すとジャンプする処理
+	if (Input::GetVKey('Z') == true&&isJump==true)
+	{
+		m_vy = -15;
+		isJump = false;
+	}
+
+	//摩擦
 	m_vy += 9.8 / (16.0f);
 
 	//キーを押すと移動
@@ -63,6 +72,8 @@ void CObjHero::Action()
 		
 		m_vx = m_vx *0.9;
 	}
+
+	//歩く時のアニメーション anitimeが10になったとき、コマを1つ進める
 	if (m_anitime >= 10)
 	{
 		m_anime++;
@@ -72,15 +83,22 @@ void CObjHero::Action()
 
 	if (m_anime > 1)
 		m_anime = 0;
+
 	//最高速度決定
 	if (m_vx >= 6)
 		m_vx = 6;
 	if (m_vx <= -6)
 		m_vx = -6;
 
+	//ベクトルから座標に変換
 	m_px += m_vx;
 	m_py += m_vy;
 	
+	/*
+	攻撃する用の処理だったが、バグ発生してるんで止めてます。
+	
+	
+
 	//キーを押すと攻撃
 	if (Input::GetVKey('X') == true && m_f==true)
 	{
@@ -90,21 +108,13 @@ void CObjHero::Action()
 		//ソード作成
 		CObjSword* obj_b = new CObjSword(m_px,m_py,m_posture);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
-		m_f = false;
-
-
+		
+	
 	}
+	*/
 
 
-	if (m_f == false)
-		atk_time++;
 
-	if (atk_time >= 10)
-	{
-		m_f = true;
-		atk_anime = 0;
-		atk_time = 0;
-	}
 	//test用　画面外に行かないように
 	if (m_px > 744)
 	{
@@ -120,6 +130,7 @@ void CObjHero::Action()
 	{
 		m_py = 444;
 		m_vy = 0;
+		isJump = true;
 	}
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);

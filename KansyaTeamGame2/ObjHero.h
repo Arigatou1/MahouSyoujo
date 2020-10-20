@@ -14,16 +14,17 @@ public :
 	void Action();
 	void Draw();
 private:
-	float m_px;
-	float m_py;
-	float m_vx;
-	float m_vy;
-	float m_posture;
-	int m_anime;
-	int m_anitime;
-	int atk_anime;
-	int atk_anitime;
-	int atk_time;
-	bool m_f;
+	float m_px;		//プレイヤーの座標X
+	float m_py;		//プレイヤーの座標Y
+	float m_vx;		//プレイヤーのベクトルX
+	float m_vy;		//プレイヤーのベクトルY
+	float m_posture;//向いている方向用
+	int m_anime;	//歩くアニメーション
+	int m_anitime;	//歩くアニメーションの間隔
+	int atk_anime;	//剣を出す
+	int atk_anitime;//
+	int atk_time;	//攻撃の間隔
+	bool m_f;		//攻撃の間隔
+	bool isJump;//ジャンプできるかできないかを判断する
     };
 
