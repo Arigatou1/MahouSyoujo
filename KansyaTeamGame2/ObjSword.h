@@ -19,5 +19,6 @@ private:
 	float a_py;
 	int a_posture;
 	bool m_f;
+	int atk_time;
 };
 
