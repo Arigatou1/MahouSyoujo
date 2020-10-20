@@ -24,6 +24,8 @@ void CObjHero::Init()
 	m_anitime = 0;
 	atk_anime = 0;
 	atk_anitime = 0;
+	atk_time = 0;
+	m_f = true;
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -91,7 +93,7 @@ void CObjHero::Action()
 	m_px += m_vx;
 
 	//キーを押すと攻撃
-	if (Input::GetVKey('X') == true )
+	if (Input::GetVKey('X') == true && m_f==true)
 	{
 		atk_anime = 1;
 
@@ -99,14 +101,20 @@ void CObjHero::Action()
 		//ソード作成
 		CObjSword* obj_b = new CObjSword(m_px,m_py,m_posture);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
-
 		m_f = false;
+
+
 	}
-	else
+
+
+	if (m_f == false)
+		atk_time++;
+
+	if (atk_time >= 10)
 	{
-		atk_anime = 0;
 		m_f = true;
-	
+		atk_anime = 0;
+		atk_time = 0;
 	}
 	//test用　画面外に行かないように
 	if (m_px > 744)

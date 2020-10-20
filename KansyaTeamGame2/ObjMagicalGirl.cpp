@@ -39,8 +39,8 @@ void CObjMagicalGirl::Action()
 	if (Input::GetVKey('F') == true)
 	{
 		//ホーミング弾作成
-		CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx,m_gy,m_postrue);//ホーミング弾作成
-		Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
+		//CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx,m_gy,m_postrue);//ホーミング弾作成
+		//Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
 	}
 
 	if (Input::GetVKey(VK_RIGHT) == true)
