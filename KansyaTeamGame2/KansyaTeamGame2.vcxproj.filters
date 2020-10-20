@@ -23,6 +23,10 @@
     <ClCompile Include="ObjHero.cpp">
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp" />
+    <ClCompile Include="ObjGauge.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -56,8 +60,9 @@
     <ClInclude Include="CObjHomingBullet.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="ObjEnemy.h" />
+    <ClInclude Include="ObjGauge.h">
+      <Filter>主人公オブジェクト</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -113,9 +118,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjSword.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <Filter Include="主人公オブジェクト">
