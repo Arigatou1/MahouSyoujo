@@ -1,7 +1,7 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameHead.h"
-
+#include "GameL\HitBoxManager.h"
 #include "CObjHomingBullet.h"
 
 //使用するネームスペース
@@ -19,13 +19,24 @@ CObjHomingBullet::CObjHomingBullet(float x, float y,float m)
 void CObjHomingBullet::Init()
 {
 	m_vx = 0.0f;
+
+	//当たり判定用のHITBOXを作成
+	Hits::SetHitBox(this, m_bx-50.0f, m_by-50.0f, 50, 50, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
 }
 
 //アクション
 void CObjHomingBullet::Action()
 {
-	m_vx += 1.0f;
-	m_bx += m_vx;
+	if (m_bpostrue == 1.0f)
+	{
+		m_vx += 0.1f;
+		m_bx += m_vx;
+	}
+	else if(m_bpostrue == 0.0f)
+	{
+		m_vx -= 0.1f;
+		m_bx += m_vx;
+	}
 
 	//領域外に出たら弾丸を破棄する
 	if (m_bx > 800.0f)
@@ -37,6 +48,20 @@ void CObjHomingBullet::Action()
 	{
 		this->SetStatus(false);
 	}
+
+	if (m_by > 600.0f)
+	{
+		this->SetStatus(false);
+	}
+
+	if (m_by < 0.0f)
+	{
+		this->SetStatus(false);
+	}
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_bx-50.0f, m_by-50.0f);
 }
 
 //ドロー

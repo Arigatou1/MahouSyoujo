@@ -1,24 +1,20 @@
 #pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
-#include "ObjHero.h"
+
 //使用するネームスペース
 using namespace GameL;
 
 //オブジェクトソード
-class CObjSword :public CObj
+class CObjGaugeBase :public CObj
 {
 public:
-	CObjSword(float x,float y,int posture,bool m_f) ;
-	~CObjSword() {};
+	CObjGaugeBase() {};
+	~CObjGaugeBase() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
-	float a_px;
-	float a_py;
-	int a_posture;
-	bool a_f;
-	int atk_time;
+	
 };
 
