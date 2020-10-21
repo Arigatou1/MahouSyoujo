@@ -1,9 +1,8 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
-#include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
-
+#include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "ObjSword.h"
 
@@ -12,18 +11,19 @@ using namespace GameL;
 
 
 //コンストラクタ
-CObjSword::CObjSword(float x, float y,int posture)
+CObjSword::CObjSword(float x, float y,int posture,bool m_f)
 {
 	a_px = x;
 	a_py = y;
 
 	a_posture = posture;
+	a_f = m_f;
 }
 
 //イニシャライズ
 void CObjSword::Init()
 {
-	m_f = true;
+	
 	Hits::SetHitBox(this,a_px, a_py, 56, 56, ELEMENT_PLAYER, OBJ_SWORD, 1);
 	atk_time = 0;
 
@@ -33,38 +33,24 @@ void CObjSword::Init()
 void CObjSword::Action()
 {
 
-	
-	//攻撃する用のキー入力とかだったが、バグ発生中。
-
-
-	//キーを押すと攻撃
-	//テスト用Xキー
-	
-	if (Input::GetVKey('X') == true && m_f == true)
+	//m_fから真偽を受け取る
+	if (a_f == false)
 	{
-	
-			//HitBoxの内容を更新
-			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(a_px+(a_posture*48), a_py);
-		
-		m_f = false;
 
-		
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(a_px + (a_posture * 40), a_py);
+
+		atk_time++;
 	}
 
-
-	if (m_f == false)
-		atk_time++;
-
-	if (atk_time >= 10)
+	if (atk_time>=10)
 	{
-		m_f = true;
-	
-		this->SetStatus(false);//自信に削除命令
+		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-		atk_time = 0;
 	}
+
 }
 //ドロー
 void CObjSword::Draw()
