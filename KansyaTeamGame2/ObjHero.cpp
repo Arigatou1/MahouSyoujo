@@ -39,6 +39,8 @@ void CObjHero::Init()
 void CObjHero::Action()
 {
 	
+
+	
 	//テスト用Zキーを押すとジャンプする処理
 	if (Input::GetVKey('Z') == true&&isJump==true)
 	{
@@ -107,6 +109,7 @@ void CObjHero::Action()
 		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture,m_f);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
 
+		m_hp--;
 	}
 
 	if (m_f == false)
@@ -150,6 +153,13 @@ void CObjHero::Action()
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);
+
+	if (m_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
+	
 }
 //ドロー
 void CObjHero::Draw()
@@ -179,3 +189,12 @@ void CObjHero::Draw()
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
 
+int CObjHero::GetHP()
+{
+	return m_hp;
+}
+
+int CObjHero::GetMAXHP()
+{
+	return max_hp;
+}

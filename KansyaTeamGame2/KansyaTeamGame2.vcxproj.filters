@@ -27,6 +27,9 @@
     <ClCompile Include="ObjGaugeBase.cpp">
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
+    <ClCompile Include="ObjGaugeHP.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -62,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGaugeBase.h">
+      <Filter>主人公オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeHP.h">
       <Filter>主人公オブジェクト</Filter>
     </ClInclude>
   </ItemGroup>

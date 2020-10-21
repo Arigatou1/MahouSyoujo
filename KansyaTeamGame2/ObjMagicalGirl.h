@@ -20,4 +20,5 @@ class CObjMagicalGirl : public CObj
 		float m_mp;//MP
 		
 		int m_mtime;//MP回復用時間
+		int m_btime;//ホーミング弾用時間
 };

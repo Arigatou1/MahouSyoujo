@@ -13,6 +13,8 @@ public :
 	void Init();
 	void Action();
 	void Draw();
+	int GetHP();
+	int GetMAXHP();
 private:
 	float m_px;		//プレイヤーの座標X
 	float m_py;		//プレイヤーの座標Y
@@ -35,5 +37,7 @@ private:
 
 	bool m_f;		//攻撃の間隔
 	bool isJump;//ジャンプできるかできないかを判断する
+
+	
     };
 

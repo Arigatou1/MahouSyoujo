@@ -42,15 +42,19 @@ void CSceneMain::InitScene()
 	
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();
-	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 10);
+	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 50);
+
+	//HPゲージオブジェクト作成
+	CObjGaugeHP* obj_ghp = new CObjGaugeHP();
+	Objs::InsertObj(obj_ghp, OBJ_GAUGEHP, 51);
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
 	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
 	
 	//stageオブジェクト作成
-	//CObjstage* obj = new CObjstage();
-	//Objs::InsertObj(Obj_stage, OBJ_STAGE, 9);
+	CObjstage* obj_stage = new CObjstage();
+	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
 }
 
 //実行中メソッド
