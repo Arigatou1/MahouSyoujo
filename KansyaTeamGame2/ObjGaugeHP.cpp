@@ -4,6 +4,7 @@
 
 #include "GameHead.h"
 #include "ObjGaugeHP.h"
+#include "GameL\DrawFont.h"
 
 
 //使用するネームスペース
@@ -22,10 +23,10 @@ void CObjGaugeHP::Action()
 	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
+		
 
-
-		float HP = obj->GetHP();
-		float MAXHP = obj->GetMAXHP();
+		HP = obj->GetHP();
+		MAXHP = obj->GetMAXHP();
 
 		//MAXHPが100%とする
 
@@ -42,6 +43,9 @@ void CObjGaugeHP::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
+	wchar_t str[128];
+	swprintf_s(str, L"%.0lf/%.0lf", HP,MAXHP);//整数を文字列か
+	Font::StrDraw(str, 300, 2, 24, c);
 
 	//切り取り位置の設定
 	src.m_top = 50.4f;
