@@ -27,6 +27,9 @@ void CObjHero::Init()
 	atk_time = 0;
 	m_f = true;
 	isJump = true;
+	max_hp = 20;
+	m_hp = max_hp;
+	
 
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
