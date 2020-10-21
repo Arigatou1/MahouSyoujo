@@ -1,4 +1,2 @@
-﻿  ObjGaugeHP.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeHP.cpp(28,18): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeHP.cpp(29,24): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+﻿  CObjHomingBullet.cpp
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\Debug\KansyaTeamGame2.exe
