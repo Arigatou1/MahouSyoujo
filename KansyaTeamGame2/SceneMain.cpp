@@ -5,6 +5,7 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawTexture.h"
+#include "GameL\DrawFont.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -28,6 +29,10 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//HP用Font作成
+	Font::SetStrTex(L"1234567890/.+-");
+
+
 	//グラフィックの読み込み
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
@@ -41,8 +46,12 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
 	
 	//ゲージオブジェクト作成
-	CObjGauge* obj_g = new CObjGauge();
-	Objs::InsertObj(obj_g, OBJ_GAUGE, 10);
+	CObjGaugeBase* obj_gb = new CObjGaugeBase();
+	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 50);
+
+	//HPゲージオブジェクト作成
+	CObjGaugeHP* obj_ghp = new CObjGaugeHP();
+	Objs::InsertObj(obj_ghp, OBJ_GAUGEHP, 51);
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
@@ -50,7 +59,7 @@ void CSceneMain::InitScene()
 	
 	//stageオブジェクト作成
 	CObjstage* obj = new CObjstage();
-	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
+	Objs::InsertObj(Obj_stage, OBJ_STAGE, 9);
 }
 
 //実行中メソッド

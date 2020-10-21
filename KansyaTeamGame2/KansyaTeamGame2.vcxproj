@@ -153,12 +153,14 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="ObjEnemy.h" />
-    <ClInclude Include="ObjGauge.h">
+    <ClInclude Include="ObjGaugeBase.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="ObjGaugeHP.h" />
     <ClInclude Include="ObjMagicalGirl.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjHero.h" />
+    <ClInclude Include="ObjMana.h" />
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -180,11 +182,13 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
-    <ClCompile Include="ObjGauge.cpp">
+    <ClCompile Include="ObjGaugeBase.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ObjGaugeHP.cpp" />
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
+    <ClCompile Include="ObjMana.cpp" />
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>

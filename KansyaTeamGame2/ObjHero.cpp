@@ -27,6 +27,11 @@ void CObjHero::Init()
 	atk_time = 0;
 	m_f = true;
 	isJump = true;
+	max_hp = 20;
+	m_hp = max_hp;
+	mtk_jkn = 151;
+	m_mtk = false;
+	
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -35,6 +40,8 @@ void CObjHero::Init()
 //アクション
 void CObjHero::Action()
 {
+	
+
 	
 	//テスト用Zキーを押すとジャンプする処理
 	if (Input::GetVKey('Z') == true&&isJump==true)
@@ -104,6 +111,7 @@ void CObjHero::Action()
 		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture,m_f);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
 
+		
 	}
 
 	if (m_f == false)
@@ -144,9 +152,50 @@ void CObjHero::Action()
 		isJump = true;
 	}
 
-	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px, m_py);
+	
+	//テスト用 Dキー　ダメージ
+	//ここは本来、m_mtkはfalseになっていて、敵に当たった時に行うようにする。
+	if (Input::GetVKey('D') == true && m_mtk == false)
+	{
+		m_mtk = true;
+		m_hp -= 1;//敵の攻撃力
+
+	}
+	//無敵時間が無効になった時
+	if(m_mtk==false)
+	{
+		//HitBoxの内容を元に戻す
+		CHitBox* hit = Hits::GetHitBox(this);
+			hit->SetPos(m_px, m_py);
+
+		
+	}
+	//無敵がtrueになった時
+	if (m_mtk == true)
+	{
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_px + 9999, m_py);
+		mtk_jkn -= 1;
+		if (mtk_jkn <= 0)//無敵時間が0になったとき
+		{
+			m_mtk = false;
+			mtk_jkn = 151;
+		}
+	}
+
+
+	
+
+	//主人公のHPが無くなった時、消滅させる
+	if (m_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
+
+
+	
 }
 //ドロー
 void CObjHero::Draw()
@@ -156,7 +205,7 @@ void CObjHero::Draw()
 		1,0,2,0,
 	};
 		//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,mtk_jkn%3};
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
@@ -176,3 +225,12 @@ void CObjHero::Draw()
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
 
+int CObjHero::GetHP()
+{
+	return m_hp;
+}
+
+int CObjHero::GetMAXHP()
+{
+	return max_hp;
+}

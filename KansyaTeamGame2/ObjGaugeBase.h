@@ -6,11 +6,11 @@
 using namespace GameL;
 
 //オブジェクトソード
-class CObjGauge :public CObj
+class CObjGaugeBase :public CObj
 {
 public:
-	CObjGauge() {};
-	~CObjGauge() {};
+	CObjGaugeBase() {};
+	~CObjGaugeBase() {};
 	void Init();
 	void Action();
 	void Draw();

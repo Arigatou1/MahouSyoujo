@@ -24,7 +24,13 @@
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy.cpp" />
-    <ClCompile Include="ObjGauge.cpp">
+    <ClCompile Include="ObjGaugeBase.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeHP.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMana.cpp">
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
   </ItemGroup>
@@ -61,7 +67,13 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy.h" />
-    <ClInclude Include="ObjGauge.h">
+    <ClInclude Include="ObjGaugeBase.h">
+      <Filter>主人公オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeHP.h">
+      <Filter>主人公オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMana.h">
       <Filter>主人公オブジェクト</Filter>
     </ClInclude>
   </ItemGroup>
