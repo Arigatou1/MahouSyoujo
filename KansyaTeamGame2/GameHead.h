@@ -12,6 +12,7 @@ enum OBJ_NAME
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_GAUGEBASE,
+	OBJ_GAUGEHP
 };
 //------------------------------------------------
 
@@ -60,6 +61,7 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjGaugeBase.h"
+#include "ObjGaugeHP.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

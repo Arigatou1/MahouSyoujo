@@ -42,7 +42,11 @@ void CSceneMain::InitScene()
 	
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();
-	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 10);
+	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 50);
+
+	//HPゲージオブジェクト作成
+	CObjGaugeHP* obj_ghp = new CObjGaugeHP();
+	Objs::InsertObj(obj_ghp, OBJ_GAUGEHP, 51);
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
