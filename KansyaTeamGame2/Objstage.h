@@ -12,4 +12,5 @@ class CObjstage :public CObj
 		void Action() {};
 		void Draw() {};
 	private;
+	int m_b[10][10];//ステージのブロック
 };

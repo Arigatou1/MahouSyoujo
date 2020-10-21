@@ -50,7 +50,7 @@ void CSceneMain::InitScene()
 	
 	//stageオブジェクト作成
 	CObjstage* obj = new CObjstage();
-	Objs::InsertObj(Obj_stage, OBJ_STAGE, 9);
+	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
 }
 
 //実行中メソッド
