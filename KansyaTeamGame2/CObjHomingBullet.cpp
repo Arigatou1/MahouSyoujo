@@ -38,30 +38,36 @@ void CObjHomingBullet::Action()
 		m_bx += m_vx;
 	}
 
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_bx-50.0f, m_by-50.0f);
+
+
 	//領域外に出たら弾丸を破棄する
-	if (m_bx > 800.0f)
+	if (m_bx > 850.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	if (m_bx < 0.0f)
+	if (m_bx < 25.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	if (m_by > 600.0f)
+	if (m_by > 650.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
 	if (m_by < 0.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_bx-50.0f, m_by-50.0f);
 }
 
 //ドロー
