@@ -11,5 +11,5 @@ class CObjstage :public CObj
 		void Init() {};
 		void Action() {};
 		void Draw() {};
-	private;
+	private:
 };

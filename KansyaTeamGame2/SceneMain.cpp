@@ -49,8 +49,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
 	
 	//stageオブジェクト作成
-	CObjstage* obj = new CObjstage();
-	Objs::InsertObj(Obj_stage, OBJ_STAGE, 9);
+	CObjstage* obj_stage = new CObjstage();
+	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
 }
 
 //実行中メソッド
