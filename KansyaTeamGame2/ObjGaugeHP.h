@@ -15,8 +15,10 @@ public:
 	void Action();
 	void Draw();
 private:
-	int HP;
-	int MAXHP;
+	float HP;
+	float MAXHP;
 	float GaugePercent;
+
+
 };
 
