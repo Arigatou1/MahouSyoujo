@@ -9,7 +9,13 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjGaugeMANABase::CObjGaugeMANABase(float x, float y)
+{
+	gb_x = x;
+	gb_y = y;
 
+}
 
 
 //イニシャライズ
@@ -41,10 +47,10 @@ void CObjGaugeMANABase::Draw()
 	src.m_right = 300.0f;
 	src.m_bottom = 72.0f;
 	//表示位置の設定
-	dst.m_top = 572.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 300.0f;
-	dst.m_bottom = 596.0f;
+	dst.m_top = gb_y+56.0f;
+	dst.m_left = gb_x-116.0f;
+	dst.m_right = gb_x+184.0f;
+	dst.m_bottom = gb_y+80.0f;
 
 
 	//描画
