@@ -1,3 +1,3 @@
-﻿  ObjGaugeMana.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeMana.cpp(28,23): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+﻿  ObjMana.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(81,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

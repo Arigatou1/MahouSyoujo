@@ -10,7 +10,13 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjGaugeMANAHP::CObjGaugeMANAHP(float x, float y)
+{
+	gb_x = x;
+	gb_y = y;
 
+}
 //イニシャライズ
 void CObjGaugeMANAHP::Init()
 {
@@ -45,7 +51,7 @@ void CObjGaugeMANAHP::Draw()
 
 	wchar_t str[128];
 	swprintf_s(str, L"%.0lf", HP);//整数を文字列か
-	Font::StrDraw(str, 300, 2, 24, c);
+	Font::StrDraw(str, 2, 48, 24, c);
 
 	//切り取り位置の設定
 	src.m_top = 144.0f;
@@ -55,12 +61,12 @@ void CObjGaugeMANAHP::Draw()
 	src.m_right = GaugePercent + 4.0f;
 	src.m_bottom = 168.0f;
 	//表示位置の設定
-	dst.m_top = 144.0f;
+	dst.m_top = gb_y + 64.0f;
 	//0%位置
-	dst.m_left = 4.0f;
+	dst.m_left =gb_x - 112.0f;
 	//100%位置
-	dst.m_right = GaugePercent + 4.0f;
-	dst.m_bottom = 168.0f;
+	dst.m_right = GaugePercent + gb_x - 112.0f;
+	dst.m_bottom = gb_y + 88.0f;
 
 
 	//描画
