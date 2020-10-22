@@ -1,2 +1,38 @@
-﻿  ObjGaugeBaseMana.cpp
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  CObjHomingBullet.cpp
+  GameL_Main.cpp
+  ObjEnemy.cpp
+  ObjGaugeBaseMana.cpp
+  ObjGaugeHP.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeHP.cpp(28,18): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeHP.cpp(29,24): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjGaugeMana.cpp
+c1xx : fatal error C1083: ソース ファイルを開けません。'ObjGaugeMana.cpp':No such file or directory
+  ObjHero.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(57,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(62,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(70,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(83,15): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(114,48): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(213,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(213,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjMagicalGirl.cpp
+  ObjMana.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(27,30): error C2065: 'OBJ_MANABASE': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(77,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjSword.cpp
+  SceneMain.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(65,2): error C2065: 'CObjMana': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(65,12): error C2065: 'obj_mana': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(65,35): error C2061: 構文エラー: 識別子 'CObjMana'
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(66,18): error C2065: 'obj_mana': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(66,28): error C2065: 'OBJ_MANA': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(70,2): error C2065: 'CObjGaugeMANAHP': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(70,19): error C2065: 'obj_manahp': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(70,51): error C2061: 構文エラー: 識別子 'CObjGaugeMANAHP'
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(71,18): error C2065: 'obj_manahp': 定義されていない識別子です。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(71,30): error C2065: 'OBJ_MANA_HP': 定義されていない識別子です。
+  コードを生成中...
