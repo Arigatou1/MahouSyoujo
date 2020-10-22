@@ -1,9 +1,8 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
-#include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL\HitBoxManager.h"
-
+#include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "ObjSword.h"
 
@@ -12,44 +11,44 @@ using namespace GameL;
 
 
 //コンストラクタ
-CObjSword::CObjSword(float x, float y,int posture)
+CObjSword::CObjSword(float x, float y,int posture,bool m_f)
 {
 	a_px = x;
 	a_py = y;
 
 	a_posture = posture;
+	a_f = m_f;
 }
 
 //イニシャライズ
 void CObjSword::Init()
 {
-	m_f = true;
+	
 	Hits::SetHitBox(this,a_px, a_py, 56, 56, ELEMENT_PLAYER, OBJ_SWORD, 1);
+	atk_time = 0;
+
 }
 
 //アクション
 void CObjSword::Action()
 {
 
-	
-
-
-
-	//キーを押すと攻撃
-	if (Input::GetVKey('X') == true && m_f == true)
+	//m_fから真偽を受け取る
+	if (a_f == false)
 	{
-	
-			//HitBoxの内容を更新
-			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(a_px+(a_posture*26), a_py);
-		
-		m_f = false;
+
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(a_px + (a_posture * 40), a_py);
+
+		atk_time++;
 	}
-	else
+
+	if (atk_time>=10)
 	{
-		this->SetStatus(false);//自信に削除命令
+		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		m_f = true;
+
 	}
 
 }
@@ -65,8 +64,8 @@ void CObjSword::Draw()
 	//切り取り位置の設定
 	src.m_top =0.0f;
 	src.m_left =0.0f;
-	src.m_right = 56.0f;
-	src.m_bottom = 56.0f;
+	src.m_right = 0.0f;
+	src.m_bottom = 0.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;

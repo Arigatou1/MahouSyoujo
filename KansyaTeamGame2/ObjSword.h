@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjSword :public CObj
 {
 public:
-	CObjSword(float x,float y,int posture) ;
+	CObjSword(float x,float y,int posture,bool m_f) ;
 	~CObjSword() {};
 	void Init();
 	void Action();
@@ -18,6 +18,7 @@ private:
 	float a_px;
 	float a_py;
 	int a_posture;
-	bool m_f;
+	bool a_f;
+	int atk_time;
 };
 
