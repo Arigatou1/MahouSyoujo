@@ -20,8 +20,8 @@ void CObjstage::Init()
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,,0,0,0,0,0},
-		{1,1,1,1,1,1,1,1,1,1},
+		{0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0},
 		{1,1,1,1,1,1,1,1,1,1},
 	};
 	//
@@ -43,10 +43,10 @@ void CObjstage::Draw()
 	RECT_F dst;
 
 	//êÿÇËéÊÇËà íu
-	src.m_top =128.0f;
-	src.m_left = 64.0f;
-	src.m_right = src.m_left + 64.0f;
-	src.m_bottom = 192.0f;
+	src.m_top =280.0f;
+	src.m_left = .0f;
+	src.m_right = src.m_left + 100.0f;
+	src.m_bottom = 190.0f;
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -56,9 +56,9 @@ void CObjstage::Draw()
 			{	
 				//ï\é¶à íuÇÃê›íË
 				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+				dst.m_left = j * 50.0f;
+				dst.m_right = dst.m_left + 50.0;
+				dst.m_bottom = dst.m_top + 60.0;
 
 				//ï`âÊ
 				Draw::Draw(0, &src, &dst, c, 0.0f);
