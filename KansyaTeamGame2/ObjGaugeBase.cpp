@@ -37,12 +37,12 @@ void CObjGaugeBase::Draw()
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
 	src.m_right = 300.0f;
-	src.m_bottom = 50.4f;
+	src.m_bottom = 48.0f;
 	//ï\é¶à íuÇÃê›íË
 	dst.m_top = 0.0f;
 	dst.m_left = 0.0f;
 	dst.m_right = 300.0f;
-	dst.m_bottom = 50.4f;
+	dst.m_bottom = 48.0f;
 
 
 	//ï`âÊ
