@@ -4,7 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjMana.h"
 #include "GameHead.h"
-#include "ObjGaugeBaseMana.h"
+//#include "ObjGaugeBaseMana.h"
 
 //テスト用
 #include "GameL\WinInputs.h"
