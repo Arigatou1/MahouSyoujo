@@ -66,9 +66,7 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
 
 
-	//MANAHPゲージオブジェクト作成
-	CObjGaugeMANAHP* obj_manahp = new CObjGaugeMANAHP();
-	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
+	
 
 
 }
