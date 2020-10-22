@@ -34,7 +34,7 @@ void CObjHero::Init()
 	
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
+	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
 //アクション
@@ -166,7 +166,7 @@ void CObjHero::Action()
 	{
 		//HitBoxの内容を元に戻す
 		CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(m_px, m_py);
+			hit->SetPos(m_px+4, m_py+4);
 
 		
 	}
@@ -211,15 +211,15 @@ void CObjHero::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top =(atk_anime*56)+0.0f;
-	src.m_left =(AniData[m_anime]*56)+0.0f;
-	src.m_right =(AniData[m_anime] *56)+56.0f;
-	src.m_bottom = (atk_anime * 56) + 56.0f;
+	src.m_top =(atk_anime*64)+0.0f;
+	src.m_left =(AniData[m_anime]*64)+0.0f;
+	src.m_right =(AniData[m_anime] *64)+64.0f;
+	src.m_bottom = (atk_anime * 64) + 64.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f+m_py;
-	dst.m_left =(28.0f*m_posture)+m_px+28.0f;
-	dst.m_right = (-28.0f*m_posture )+ m_px+28.0f;
-	dst.m_bottom = 56.0f+m_py;
+	dst.m_left =(32.0f*m_posture)+m_px+32.0f;
+	dst.m_right = (-32.0f*m_posture )+ m_px+32.0f;
+	dst.m_bottom = 64.0f+m_py;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
