@@ -61,11 +61,10 @@ void CSceneMain::InitScene()
 	//CObjstage* obj_stage = new CObjstage();
 	//Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
 
-	//MANAオブジェクト作成
+
+	//mana作成
 	CObjMana* obj_mana = new CObjMana();
 	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
-
-
 	
 
 

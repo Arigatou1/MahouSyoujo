@@ -20,12 +20,12 @@ void CObjstage::Init()
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0},
 		{1,1,1,1,1,1,1,1,1,1},
 		{1,1,1,1,1,1,1,1,1,1},
 	};
 	//
-	memcpy(m_b, block_data, sizeof(int) * (10 * 10));
+	memcpy(m_b, block_data, sizeof(int) * (12 * 12));
 }
 
 void CObjstage::Action()
@@ -42,11 +42,13 @@ void CObjstage::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	//切り取り位置
-	src.m_top =128.0f;
-	src.m_left = 64.0f;
-	src.m_right = src.m_left + 64.0f;
+	//切り取り位置の設定
+	src.m_top = 128.0f;
+	src.m_left = 0.0f;
+	src.m_right = 64.0f;
 	src.m_bottom = 192.0f;
+
+	
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -55,10 +57,10 @@ void CObjstage::Draw()
 			if (m_b[i][j] > 0)
 			{	
 				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f;
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
+				dst.m_top = 0.0f+(64.0f*i) ;
+				dst.m_left = 0.0f+(64.0f*j) ;
+				dst.m_right = 64.0f ;
+				dst.m_bottom = 64.0f  ;
 
 				//描画
 				Draw::Draw(0, &src, &dst, c, 0.0f);

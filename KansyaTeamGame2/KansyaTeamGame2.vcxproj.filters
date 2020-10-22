@@ -39,6 +39,7 @@
     <ClCompile Include="ObjGaugeBaseMana.cpp">
       <Filter>マナ</Filter>
     </ClCompile>
+    <ClCompile Include="Objstage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -79,6 +80,7 @@
     <ClInclude Include="ObjGaugeMana.h">
       <Filter>マナ</Filter>
     </ClInclude>
+    <ClInclude Include="Objstage.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="主人公">
