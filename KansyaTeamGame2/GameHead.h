@@ -17,6 +17,7 @@ enum OBJ_NAME
 	OBJ_MANA,
 	OBJ_MANABASE,
 	OBJ_MANA_HP,
+	OBJ_TITLE,
 };
 //------------------------------------------------
 
@@ -70,13 +71,17 @@ struct UserData
 #include "ObjGaugeMana.h"
 #include "ObjMana.h"
 #include "ObjGaugeBaseMana.h"
+#include "ObjTitle.h"
+//#include "ObjGameOver.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
+#include "SceneTitle.h"
+//#include "SceneGameOver.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START CSceneMain
+#define SET_GAME_START CSceneTitle
 //-----------------------------------------------
