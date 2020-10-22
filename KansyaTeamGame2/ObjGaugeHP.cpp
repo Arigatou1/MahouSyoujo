@@ -48,19 +48,19 @@ void CObjGaugeHP::Draw()
 	Font::StrDraw(str, 300, 2, 24, c);
 
 	//切り取り位置の設定
-	src.m_top = 50.4f;
+	src.m_top = 72.0f;
 	//0%位置
 	src.m_left = 46.0f;
 	//100%位置
 	src.m_right = GaugePercent+46.0f;
-	src.m_bottom = 75.2f;
+	src.m_bottom = 96.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f;
 	//0%位置
 	dst.m_left = 46.0f;
 	//100%位置
 	dst.m_right = GaugePercent+46.0f;
-	dst.m_bottom = 25.2f;
+	dst.m_bottom = 24.0f;
 
 
 	//描画
