@@ -27,7 +27,7 @@ void CObjEnemy::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex + 10.0f, m_ey + 10.0f);
+	hit->SetPos(m_ex, m_ey);
 	
 	//特定の位置で停止（マナの情報を収得してやりたい）
 	if (m_ex == 268)
@@ -46,15 +46,15 @@ void CObjEnemy::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top    = 0.0f;
+	src.m_top    = 320.0f;
 	src.m_left   = 0.0f;
 	src.m_right  = 64.0f;
-	src.m_bottom = 64.0f;
+	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top    = m_ey;
-	dst.m_left	 = m_ex + 64.0f;
+	dst.m_left	 = m_ex + 50.0f;
 	dst.m_right  = m_ex;
-	dst.m_bottom = m_ey + 64.0f;
+	dst.m_bottom = m_ey + 50.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
