@@ -13,7 +13,7 @@ enum OBJ_NAME
 	OBJ_ENEMY,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
-	OBJ_STAGE,
+	//OBJ_STAGE,
 	OBJ_MANA,
 	OBJ_MANABASE,
 	OBJ_MANA_HP,
@@ -65,7 +65,7 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjGaugeBase.h"
-#include "Objstage.h"
+//#include "Objstage.h"
 #include "ObjGaugeHP.h"
 #include "ObjGaugeMana.h"
 #include "ObjMana.h"
