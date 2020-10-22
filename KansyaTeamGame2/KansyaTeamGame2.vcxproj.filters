@@ -16,15 +16,29 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
-    <ClCompile Include="ObjGaugeBase.cpp" />
-    <ClCompile Include="ObjGaugeHP.cpp" />
-    <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
-    <ClCompile Include="ObjMana.cpp" />
-    <ClCompile Include="ObjSword.cpp" />
     <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="ObjGaugeBaseMana.cpp" />
-    <ClCompile Include="ObjGaugeMana.cpp" />
+    <ClCompile Include="ObjGaugeHP.cpp">
+      <Filter>主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHero.cpp">
+      <Filter>主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSword.cpp">
+      <Filter>主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBase.cpp">
+      <Filter>主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMana.cpp">
+      <Filter>マナ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeMana.cpp">
+      <Filter>マナ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBaseMana.cpp">
+      <Filter>マナ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -41,15 +55,37 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="ObjEnemy.h" />
-    <ClInclude Include="ObjGaugeBase.h" />
-    <ClInclude Include="ObjGaugeHP.h" />
     <ClInclude Include="ObjMagicalGirl.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="ObjHero.h" />
-    <ClInclude Include="ObjMana.h" />
-    <ClInclude Include="ObjSword.h" />
     <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="ObjGaugeBaseMana.h" />
-    <ClInclude Include="ObjGaugeMana.h" />
+    <ClInclude Include="ObjGaugeHP.h">
+      <Filter>主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHero.h">
+      <Filter>主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSword.h">
+      <Filter>主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBase.h">
+      <Filter>主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMana.h">
+      <Filter>マナ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBaseMana.h">
+      <Filter>マナ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeMana.h">
+      <Filter>マナ</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="主人公">
+      <UniqueIdentifier>{48dea8dc-65e3-4627-8ce3-ac2cb564ec77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="マナ">
+      <UniqueIdentifier>{eafadc60-587c-4561-a9d9-29c1afb485d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
