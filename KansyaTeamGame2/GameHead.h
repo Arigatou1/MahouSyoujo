@@ -14,6 +14,9 @@ enum OBJ_NAME
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_STAGE,
+	OBJ_MANA,
+	OBJ_MANA_HP,
+	OBJ_MANABASE,
 };
 //------------------------------------------------
 
@@ -64,6 +67,10 @@ struct UserData
 #include "ObjGaugeBase.h"
 #include "Objstage.h"
 #include "ObjGaugeHP.h"
+#include "ObjMana.h"
+#include "ObjGaugeBaseMana.h"
+#include "ObjGaugeMana.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

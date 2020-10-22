@@ -60,6 +60,20 @@ void CSceneMain::InitScene()
 	//stageオブジェクト作成
 	CObjstage* obj_stage = new CObjstage();
 	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
+
+	//MANAオブジェクト作成
+	CObjMana* obj_mana = new CObjMana();
+	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
+
+	//MANAオブジェクト作成
+	CObjGaugeMANABase* obj_managb = new CObjGaugeMANABase();
+	Objs::InsertObj(obj_managb, OBJ_MANABASE, 9);
+
+	//MANAオブジェクト作成
+	CObjGaugeMANAHP* obj_manahp = new CObjGaugeMANAHP();
+	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 9);
+
+
 }
 
 //実行中メソッド

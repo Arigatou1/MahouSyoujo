@@ -161,14 +161,11 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjMana.h" />
-    <ClInclude Include="Objstage.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="Objstage.h" />
+    <ClInclude Include="stage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
@@ -193,14 +190,11 @@
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
-    <ClCompile Include="Objstage.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="Objstage.cpp" />
+    <ClCompile Include="stage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
