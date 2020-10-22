@@ -17,7 +17,7 @@ public:
 	int GetHP();
 	
 private:
-	int Mana_HP;
+	float Mana_HP;
 	float Mana_x;
 	float Mana_y;
 };
