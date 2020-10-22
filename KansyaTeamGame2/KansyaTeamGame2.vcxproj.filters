@@ -34,6 +34,12 @@
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
     <ClCompile Include="Objstage.cpp" />
+    <ClCompile Include="ObjGaugeMana.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBaseMana.cpp">
+      <Filter>主人公オブジェクト</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -78,6 +84,12 @@
       <Filter>主人公オブジェクト</Filter>
     </ClInclude>
     <ClInclude Include="Objstage.h" />
+    <ClInclude Include="ObjGaugeMana.h">
+      <Filter>主人公オブジェクト</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBaseMana.h">
+      <Filter>主人公オブジェクト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneMain.cpp">

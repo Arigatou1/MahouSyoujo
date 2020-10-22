@@ -5,7 +5,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクトソード
+//オブジェクトゲージベース
 class CObjGaugeBase :public CObj
 {
 public:
