@@ -33,6 +33,7 @@
     <ClCompile Include="ObjMana.cpp">
       <Filter>主人公オブジェクト</Filter>
     </ClCompile>
+    <ClCompile Include="Objstage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -76,6 +77,7 @@
     <ClInclude Include="ObjMana.h">
       <Filter>主人公オブジェクト</Filter>
     </ClInclude>
+    <ClInclude Include="Objstage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneMain.cpp">

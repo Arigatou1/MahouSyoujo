@@ -27,9 +27,12 @@ void CObjHero::Init()
 	atk_time = 0;
 	m_f = true;
 	isJump = true;
+	//最大HP
 	max_hp = 20;
 	m_hp = max_hp;
-	mtk_jkn = 151;
+	//無敵時間調整用
+	mtk_max = 100;
+	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
 
@@ -176,11 +179,13 @@ void CObjHero::Action()
 		//HitBoxの内容を更新
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(m_px + 9999, m_py);
+		//無敵時間を減らす
 		mtk_jkn -= 1;
+
 		if (mtk_jkn <= 0)//無敵時間が0になったとき
 		{
 			m_mtk = false;
-			mtk_jkn = 151;
+			mtk_jkn = mtk_max;
 		}
 	}
 
