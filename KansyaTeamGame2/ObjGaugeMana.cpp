@@ -46,20 +46,24 @@ void CObjGaugeMANAHP::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
+	wchar_t str[128];
+	swprintf_s(str, L"%.0lf", MANAHP);//整数を文字列か
+	Font::StrDraw(str, 300, 572, 24, c);
+
 	//切り取り位置の設定
 	src.m_top = 144.0f;
 	//0%位置
 	src.m_left = 4.0f;
 	//100%位置
 	src.m_right = GaugePercent+4.0f;
-	src.m_bottom = 208.0f;
+	src.m_bottom = 168.0f;
 	//表示位置の設定
-	dst.m_top = 4.0f;
+	dst.m_top = 572.0f;
 	//0%位置
 	dst.m_left = 4.0f;
 	//100%位置
-	dst.m_right = GaugePercent + 98.0f;
-	dst.m_bottom = 28.0f;
+	dst.m_right = GaugePercent + 4.0f;
+	dst.m_bottom = 596.0f;
 
 
 	//描画
