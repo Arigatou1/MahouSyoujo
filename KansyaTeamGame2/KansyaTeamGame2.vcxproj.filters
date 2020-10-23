@@ -78,6 +78,7 @@
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ゲームオーバー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="SceneGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
+    <ClInclude Include="ObjBackGround.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

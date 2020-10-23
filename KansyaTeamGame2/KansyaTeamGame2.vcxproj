@@ -152,6 +152,7 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="ObjBackGround.h" />
     <ClInclude Include="ObjEnemy.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjGaugeBase.h">
@@ -193,6 +194,7 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="ObjBackGround.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjGaugeBase.cpp">

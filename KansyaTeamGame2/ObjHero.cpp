@@ -28,10 +28,10 @@ void CObjHero::Init()
 	m_f = true;
 	isJump = true;
 	//Å‘åHP
-	max_hp = 20;
+	max_hp = 99;
 	m_hp = max_hp;
 	//–³“GŠÔ’²®—p
-	mtk_max = 100;
+	mtk_max = 1;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
