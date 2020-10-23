@@ -13,4 +13,5 @@ public:
 	void InitScene();
 	void Scene();
 private:
+	bool m_key_flag;//キーフラグ
 };

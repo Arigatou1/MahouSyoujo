@@ -13,4 +13,6 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+private:
+	bool m_key_flag;//キー用フラッグ
 };
