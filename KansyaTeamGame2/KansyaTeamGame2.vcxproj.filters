@@ -2,56 +2,178 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
-    <ClCompile Include="GameL\Audio.cpp" />
-    <ClCompile Include="GameL\DirectXDevice.cpp" />
-    <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
-    <ClCompile Include="GameL\DrawFont.cpp" />
-    <ClCompile Include="GameL\DrawTexture.cpp" />
-    <ClCompile Include="GameL\GameL_Main.cpp" />
-    <ClCompile Include="GameL\HitBoxManager.cpp" />
-    <ClCompile Include="GameL\MultiThread.cpp" />
-    <ClCompile Include="GameL\SceneManager.cpp" />
-    <ClCompile Include="GameL\SceneObjManager.cpp" />
-    <ClCompile Include="GameL\SetWindow.cpp" />
-    <ClCompile Include="GameL\UserData.cpp" />
-    <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
-    <ClCompile Include="ObjGaugeBase.cpp" />
-    <ClCompile Include="ObjGaugeHP.cpp" />
-    <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
-    <ClCompile Include="ObjMana.cpp" />
-    <ClCompile Include="ObjSword.cpp" />
     <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="ObjGaugeBaseMana.cpp" />
-    <ClCompile Include="ObjGaugeMana.cpp" />
+    <ClCompile Include="ObjGaugeHP.cpp">
+      <Filter>ゲーム\主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHero.cpp">
+      <Filter>ゲーム\主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSword.cpp">
+      <Filter>ゲーム\主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBase.cpp">
+      <Filter>ゲーム\主人公</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMana.cpp">
+      <Filter>ゲーム\マナ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeMana.cpp">
+      <Filter>ゲーム\マナ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBaseMana.cpp">
+      <Filter>ゲーム\マナ</Filter>
+    </ClCompile>
     <ClCompile Include="Objstage.cpp" />
+    <ClCompile Include="GameL\Audio.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\DirectXDevice.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\Draw2DTex_Source.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\DrawFont.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\DrawTexture.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\GameL_Main.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\HitBoxManager.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\MultiThread.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\SceneManager.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\SceneObjManager.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\SetWindow.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\UserData.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameL\WinInputs.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ゲームオーバー</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
     <ClInclude Include="GameHead.h" />
-    <ClInclude Include="GameL\Audio.h" />
-    <ClInclude Include="GameL\DirectXDevice.h" />
-    <ClInclude Include="GameL\DrawFont.h" />
-    <ClInclude Include="GameL\DrawTexture.h" />
-    <ClInclude Include="GameL\HitBoxManager.h" />
-    <ClInclude Include="GameL\MultiThread.h" />
-    <ClInclude Include="GameL\SceneManager.h" />
-    <ClInclude Include="GameL\SceneObjManager.h" />
-    <ClInclude Include="GameL\SetWindow.h" />
-    <ClInclude Include="GameL\UserData.h" />
-    <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="ObjEnemy.h" />
-    <ClInclude Include="ObjGaugeBase.h" />
-    <ClInclude Include="ObjGaugeHP.h" />
     <ClInclude Include="ObjMagicalGirl.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="ObjHero.h" />
-    <ClInclude Include="ObjMana.h" />
-    <ClInclude Include="ObjSword.h" />
     <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="ObjGaugeBaseMana.h" />
-    <ClInclude Include="ObjGaugeMana.h" />
+    <ClInclude Include="ObjGaugeHP.h">
+      <Filter>ゲーム\主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHero.h">
+      <Filter>ゲーム\主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSword.h">
+      <Filter>ゲーム\主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBase.h">
+      <Filter>ゲーム\主人公</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMana.h">
+      <Filter>ゲーム\マナ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBaseMana.h">
+      <Filter>ゲーム\マナ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeMana.h">
+      <Filter>ゲーム\マナ</Filter>
+    </ClInclude>
     <ClInclude Include="Objstage.h" />
+    <ClInclude Include="GameL\Audio.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\DirectXDevice.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\DrawFont.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\DrawTexture.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\HitBoxManager.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\MultiThread.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\SceneManager.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\SceneObjManager.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\SetWindow.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\UserData.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameL\WinInputs.h">
+      <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ゲームオーバー</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ソースファイル">
+      <UniqueIdentifier>{d0018083-95b2-42a2-9046-4dc8fbf305dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="タイトル">
+      <UniqueIdentifier>{0fea3ee9-e1ca-4ff2-ad61-d39e1acab4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲーム">
+      <UniqueIdentifier>{d4df604d-f285-4152-a673-ac39d974c515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲーム\マナ">
+      <UniqueIdentifier>{eafadc60-587c-4561-a9d9-29c1afb485d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲーム\主人公">
+      <UniqueIdentifier>{48dea8dc-65e3-4627-8ce3-ac2cb564ec77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームオーバー">
+      <UniqueIdentifier>{20ecb018-d294-4a25-a66f-286366ebb0ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

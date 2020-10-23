@@ -13,8 +13,8 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 200;
-	m_gy = 200;
+	m_gx = 300;
+	m_gy = 440;
 	m_mp = 100;//MP総量100
 
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f

@@ -21,7 +21,7 @@ void CObjHomingBullet::Init()
 	m_vx = 0.0f;
 
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_bx, m_by, 50, 50, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
+	Hits::SetHitBox(this, m_bx, m_by, 40, 40, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
 }
 
 //アクション
@@ -30,23 +30,24 @@ void CObjHomingBullet::Action()
 	if (m_bpostrue == 1.0f)
 	{
 		//移動方向
-		m_vx = +1.0f;
+		m_vx = +3.0f;
 		m_vy = 0.0f;
 		m_bx += m_vx;
 		m_by += m_vy;
+		//HitBOxの内容を変更
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_bx, m_by+10.0f);
 	}
 	else if(m_bpostrue == 0.0f)
 	{
-		m_vx = -1.0f;
+		m_vx = -3.0f;
 		m_vy = 0.0f;
 		m_bx += m_vx;
 		m_by += m_vy;
+		//HitBOxの内容を変更
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_bx+10.0f, m_by+10.0f);
 	}
-
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_bx, m_by);
-
 
 	//領域外に出たら弾丸を破棄する
 	if (m_bx > 775.0f)
