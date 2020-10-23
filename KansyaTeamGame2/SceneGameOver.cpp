@@ -1,4 +1,4 @@
-/*//STLデバッグ機能OFFにする
+//STLデバッグ機能OFFにする
 
 #define _SECURE_SCL (O)
 #define _HAS_ITERATOR_DEBUGGING(O)
@@ -19,15 +19,24 @@ CSceneGameOver::CSceneGameOver()
 {
 
 }
+//デストラクタ
 CSceneGameOver::~CSceneGameOver()
 {
 
 }
+//初期化メソッド
 void CSceneGameOver::InitScene()
 {
+	//出力させる文字のグラフィックを作成
+	Font::SetStrTex(L"YOU LOSE");
+	Font::SetStrTex(L"GAME OVER");
 
+	//ゲームオーバーオブジェクト作成
+	CObjGameOver* obj = new CObjGameOver();
+	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
 }
+//実行中メソッド
 void CSceneGameOver::Scene()
 {
 
-}*/
+}

@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 //使用するヘッダーファイル
 #include "GameL\SceneManager.h"
 
@@ -6,11 +6,11 @@
 using namespace GameL;
 
 //シーン：ゲームオーバー
-class CSceneGamePver :public CScene
+class CSceneGameOver :public CScene
 {
 public:
 	CSceneGameOver();
 	~CSceneGameOver();
 	void InitScene();//初期化メソッド
 	void Scene();	//実行中メソッド
-};*/
+};
