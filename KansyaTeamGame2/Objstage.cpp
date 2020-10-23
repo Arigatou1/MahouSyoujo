@@ -42,6 +42,19 @@ void CObjstage::Draw()
 	RECT_F src;
 	RECT_F dst;
 
+	//îwåiï\é¶
+	//îwåiï\é¶
+	src.m_top = 256.0f;
+	src.m_left = 0.0f;
+	src.m_right = 512.0f;
+	src.m_bottom = 521.0f;
+	dst.m_top = 0.0f;
+	dst.m_left = 0.0f;
+	dst.m_right = 0.0f;
+	dst.m_bottom = 600.0f;
+	Draw::Draw(0, &src, &dst, c, 0.0f);
+		
+
 	//êÿÇËéÊÇËà íuÇÃê›íË
 	src.m_top = 128.0f;
 	src.m_left = 0.0f;

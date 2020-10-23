@@ -36,6 +36,7 @@ void CSceneMain::InitScene()
 	//グラフィックの読み込み
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
+	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
@@ -66,7 +67,9 @@ void CSceneMain::InitScene()
 	CObjMana* obj_mana = new CObjMana();
 	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
 	
-
+	//背景オブジェクト作成
+	CObjBackGround* obj_bg = new CObjBackGround();
+	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
 }
 

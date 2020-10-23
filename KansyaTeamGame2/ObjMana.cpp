@@ -29,6 +29,9 @@ void CObjMana::Init()
 	//MANAゲージオブジェクト作成
 	CObjGaugeMANAHP* obj_manahp = new CObjGaugeMANAHP(Mana_x, Mana_y);
 	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
+
+	//あたり判定用Hitboxを作成
+	Hits::SetHitBox(this, Mana_x+4 , Mana_y+4, 56, 56, ELEMENT_FIELD, OBJ_MANA, 1);
 }
 
 //アクション
@@ -49,7 +52,25 @@ void CObjMana::Action()
 		Mana_HP = 0;
 	}
 
+
+	//HitBoxの内容を元に戻す
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(Mana_x,Mana_y);
+
+	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+	{
+		Mana_HP-=0.5;
+
+	}
 	
+	//主人公のHPが無くなった時、消滅させる
+	if (Mana_HP <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+
+		Scene::SetScene(new CSceneGameOver());
+	}
 }
 //ドロー
 void CObjMana::Draw()

@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "ObjTitle.h"
+#include "GameL\MultiThread.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -12,18 +13,27 @@ using namespace GameL;
 //イニシャライズ
 void CObjTitle::Init()
 {
-
+	m_key_flag = false;//キーフラグ
 }
 
 //アクション
 void CObjTitle::Action()
 {
-	//エンターキーを押してシーン：ゲームメインに移行する
+	
+	//エンターキーを押してシーン:ゲームTitleに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-		Scene::SetScene(new CSceneMain());
+		if (m_key_flag == true)
+		{
+			Scene::SetScene(new CSceneMain());
+			m_key_flag = false;
+		}
 	}
-
+	
+	else
+	{
+		m_key_flag = true;
+	}
 }
 
 //ドロー

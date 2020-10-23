@@ -72,7 +72,13 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="SceneGameOver.cpp" />
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ゲームオーバー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -144,7 +150,13 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="SceneGameOver.h" />
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ゲームオーバー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBackGround.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">
@@ -161,6 +173,9 @@
     </Filter>
     <Filter Include="ゲーム\主人公">
       <UniqueIdentifier>{48dea8dc-65e3-4627-8ce3-ac2cb564ec77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームオーバー">
+      <UniqueIdentifier>{20ecb018-d294-4a25-a66f-286366ebb0ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

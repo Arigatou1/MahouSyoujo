@@ -28,10 +28,10 @@ void CObjHero::Init()
 	m_f = true;
 	isJump = true;
 	//Å‘åHP
-	max_hp = 20;
+	max_hp = 99;
 	m_hp = max_hp;
 	//–³“GŽžŠÔ’²®—p
-	mtk_max = 100;
+	mtk_max = 1;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
@@ -156,14 +156,8 @@ void CObjHero::Action()
 	}
 
 	
-	//ƒeƒXƒg—p DƒL[@ƒ_ƒ[ƒW
-	//‚±‚±‚Í–{—ˆAm_mtk‚Ífalse‚É‚È‚Á‚Ä‚¢‚ÄA“G‚É“–‚½‚Á‚½Žž‚És‚¤‚æ‚¤‚É‚·‚éB
-	if (Input::GetVKey('D') == true && m_mtk == false)
-	{
-		m_mtk = true;
-		m_hp -= 1;//“G‚ÌUŒ‚—Í
-
-	}
+	//“G‚É“–‚½‚Á‚½Žž‚És‚¤‚æ‚¤‚É‚·‚éB
+	
 	//–³“GŽžŠÔ‚ª–³Œø‚É‚È‚Á‚½Žž
 	if(m_mtk==false)
 	{
@@ -171,7 +165,12 @@ void CObjHero::Action()
 		CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(m_px+4, m_py+4);
 
-		
+			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 1;//“G‚ÌUŒ‚—Í
+
+			}
 	}
 	//–³“G‚ªtrue‚É‚È‚Á‚½Žž
 	if (m_mtk == true)
@@ -197,6 +196,8 @@ void CObjHero::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+
+			Scene::SetScene(new CSceneGameOver());
 	}
 
 
