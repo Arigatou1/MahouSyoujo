@@ -1,3 +1,48 @@
-﻿  ObjMana.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(81,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  CObjHomingBullet.cpp
+  Audio.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\Audio.cpp(357,60): warning C4267: '初期化中': 'size_t' から 'unsigned int' に変換しました。データが失われているかもしれません。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\Audio.cpp(357,60): warning C4267: '初期化中': 'size_t' から 'const unsigned int' に変換しました。データが失われているかもしれません。
+  DirectXDevice.cpp
+  Draw2DTex_Source.cpp
+  DrawFont.cpp
+  DrawTexture.cpp
+  GameL_Main.cpp
+  HitBoxManager.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\HitBoxManager.cpp(348,11): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\HitBoxManager.cpp(357,15): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  MultiThread.cpp
+  SceneManager.cpp
+  SceneObjManager.cpp
+  SetWindow.cpp
+  UserData.cpp
+  WinInputs.cpp
+  ObjEnemy.cpp
+  ObjGaugeBaseMana.cpp
+  ObjGaugeHP.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(28,18): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(29,24): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjGaugeMana.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMana.cpp(34,23): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjHero.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(57,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(62,14): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(70,14): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(83,15): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(114,48): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(213,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(213,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjMagicalGirl.cpp
+  コードを生成中...
+  コンパイル中...
+  ObjMana.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(81,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Objstage.cpp
+  ObjSword.cpp
+  SceneMain.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  コードを生成中...
+  ObjGaugeBase.cpp
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

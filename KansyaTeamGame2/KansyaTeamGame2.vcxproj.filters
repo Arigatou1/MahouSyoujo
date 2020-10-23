@@ -25,6 +25,7 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="ObjGaugeBaseMana.cpp" />
     <ClCompile Include="ObjGaugeMana.cpp" />
+    <ClCompile Include="Objstage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -51,5 +52,6 @@
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="ObjGaugeBaseMana.h" />
     <ClInclude Include="ObjGaugeMana.h" />
+    <ClInclude Include="Objstage.h" />
   </ItemGroup>
 </Project>
