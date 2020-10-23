@@ -12,7 +12,7 @@ using namespace GameL;
 void CObjEnemy::Init()
 {
 	m_ex = 0.0f;
-	m_ey = 400.0f;
+	m_ey = 440.0f;
 	m_vx = 0.5f;
 	m_vy = 0.0f;
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ğì¬
