@@ -25,14 +25,20 @@ void CObjEnemy::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
-	
 	//特定の位置で停止（マナの情報を収得してやりたい）
 	if (m_ex == 268)
 	{
 		m_vx = 0.0f;
+	}
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_ex, m_ey);
+
+	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 }
 
