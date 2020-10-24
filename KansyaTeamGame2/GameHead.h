@@ -14,13 +14,14 @@ enum OBJ_NAME
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
-	//OBJ_STAGE,
+	OBJ_STAGE,
 	OBJ_MANA,
 	OBJ_MANABASE,
 	OBJ_MANA_HP,
 	OBJ_TITLE,
 	OBJ_GAME_OVER,
 	OBJ_BG,
+	OBJ_GAME_CLEAR,
 };
 //------------------------------------------------
 
@@ -69,7 +70,7 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjGaugeBase.h"
-//#include "Objstage.h"
+#include "Objstage.h"
 #include "ObjGaugeHP.h"
 #include "ObjGaugeMP.h"
 #include "ObjGaugeMana.h"
@@ -78,12 +79,14 @@ struct UserData
 #include "ObjTitle.h"
 #include "ObjGameOver.h"
 #include "ObjBackGround.h"
+#include "ObjGameClear.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
+#include "SceneGameClear.h"
 
 //-----------------------------------------------
 

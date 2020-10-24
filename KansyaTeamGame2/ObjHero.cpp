@@ -28,10 +28,10 @@ void CObjHero::Init()
 	m_f = true;
 	isJump = true;
 	//最大HP
-	max_hp = 99;
+	max_hp = 20;
 	m_hp = max_hp;
 	//無敵時間調整用
-	mtk_max = 1;
+	mtk_max = 100;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
@@ -47,7 +47,7 @@ void CObjHero::Action()
 
 	
 	//テスト用Zキーを押すとジャンプする処理
-	if (Input::GetVKey('Z') == true&&isJump==true)
+	if (Input::GetVKey(' ') == true&&isJump==true)
 	{
 		m_vy = -15;
 		isJump = false;
@@ -106,7 +106,7 @@ void CObjHero::Action()
 	
 
 	//test用　攻撃用
-	if (Input::GetVKey('X') == true && m_f==true)
+	if (Input::GetVKey('F') == true && m_f==true)
 	{
 		m_f = false;
 		atk_anime = 1;

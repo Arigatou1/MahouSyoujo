@@ -37,15 +37,7 @@ void CObjMana::Init()
 //アクション
 void CObjMana::Action()
 {
-	//ここは本来、m_mtkはfalseになっていて、敵に当たった時に行うようにする。
-	if (Input::GetVKey('D') == true)
-	{
-
-		Mana_HP -= 1;//敵の攻撃力
-
-	}
-	else
-		;
+	
 
 	if (Mana_HP <= 0)
 	{
@@ -63,7 +55,7 @@ void CObjMana::Action()
 
 	}
 	
-	//主人公のHPが無くなった時、消滅させる
+	//マナのHPが無くなった時、消滅させる
 	if (Mana_HP <= 0)
 	{
 		this->SetStatus(false);

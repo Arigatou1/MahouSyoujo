@@ -40,7 +40,7 @@ void CSceneMain::InitScene()
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
-	Objs::InsertObj(obj, OBJ_HERO, 10);
+	Objs::InsertObj(obj, OBJ_HERO, 12);
 
 	//敵1オブジェクト作成
 	CObjEnemy* obj_enemy = new CObjEnemy();
@@ -56,16 +56,16 @@ void CSceneMain::InitScene()
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
-	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 10);
+	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
 	
 	//stageオブジェクト作成
-	//CObjstage* obj_stage = new CObjstage();
-	//Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
+	CObjstage* obj_stage = new CObjstage();
+	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
 
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
-	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
+	Objs::InsertObj(obj_mana, OBJ_MANA, 10);
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();

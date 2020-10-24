@@ -82,6 +82,12 @@
     <ClCompile Include="ObjGaugeMP.cpp">
       <Filter>ゲーム\マナ</Filter>
     </ClCompile>
+    <ClCompile Include="SceneGameClear.cpp">
+      <Filter>ゲームクリア</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameClear.cpp">
+      <Filter>ゲームクリア</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -163,6 +169,12 @@
     <ClInclude Include="ObjGaugeMP.h">
       <Filter>ゲーム\マナ</Filter>
     </ClInclude>
+    <ClInclude Include="SceneGameClear.h">
+      <Filter>ゲームクリア</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameClear.h">
+      <Filter>ゲームクリア</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">
@@ -182,6 +194,9 @@
     </Filter>
     <Filter Include="ゲームオーバー">
       <UniqueIdentifier>{20ecb018-d294-4a25-a66f-286366ebb0ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームクリア">
+      <UniqueIdentifier>{42dfcae1-ee3a-4b7b-b3c3-63f0c54e1056}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
