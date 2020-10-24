@@ -45,6 +45,10 @@ void CSceneMain::InitScene()
 	//敵1オブジェクト作成
 	CObjEnemy* obj_enemy = new CObjEnemy();
 	Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+
+	//敵2オブジェクト作成
+	CObjEnemy2* obj_enemy2 = new CObjEnemy2();
+	Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
 	
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();

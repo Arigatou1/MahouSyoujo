@@ -155,6 +155,7 @@
     <ClInclude Include="ObjBackGround.h" />
     <ClInclude Include="ObjGameClear.h" />
     <ClInclude Include="ObjEnemy.h" />
+    <ClInclude Include="ObjEnemy2.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjGaugeBase.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -200,6 +201,7 @@
     <ClCompile Include="ObjBackGround.cpp" />
     <ClCompile Include="ObjGameClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
+    <ClCompile Include="ObjEnemy2.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjGaugeBase.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
