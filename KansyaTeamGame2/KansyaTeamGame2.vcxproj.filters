@@ -82,6 +82,7 @@
     <ClCompile Include="ObjGaugeMP.cpp">
       <Filter>ゲーム\マナ</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="ObjGaugeMP.h">
       <Filter>ゲーム\マナ</Filter>
     </ClInclude>
+    <ClInclude Include="ObjEnemy2.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

@@ -11,6 +11,7 @@ enum OBJ_NAME
 	OBJ_HOMINGBULLET,
 	OBJ_SWORD,
 	OBJ_ENEMY,
+	OBJ_ENEMY2,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
@@ -68,6 +69,7 @@ struct UserData
 #include "ObjMagicalGirl.h"
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
+#include "ObjEnemy2.h"
 #include "ObjGaugeBase.h"
 //#include "Objstage.h"
 #include "ObjGaugeHP.h"
