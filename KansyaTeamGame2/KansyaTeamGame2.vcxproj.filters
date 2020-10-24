@@ -79,6 +79,9 @@
       <Filter>ゲームオーバー</Filter>
     </ClCompile>
     <ClCompile Include="ObjBackGround.cpp" />
+    <ClCompile Include="ObjGaugeMP.cpp">
+      <Filter>ゲーム\マナ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
@@ -157,6 +160,9 @@
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
     <ClInclude Include="ObjBackGround.h" />
+    <ClInclude Include="ObjGaugeMP.h">
+      <Filter>ゲーム\マナ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

@@ -5,7 +5,6 @@
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
-//#include "主人公のヘッダー？"
 
 //使用するネームスペース
 using namespace GameL;
@@ -13,14 +12,20 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 300;
-	m_gy = 440;
-	m_mp = 100;//MP総量100
+	m_gx = 300;//x位置
+	m_gy = 440;//y位置
+	m_maxmp = 100;//MP総量100
+	m_mp = m_maxmp;
+	//m_mp = 50;               //テスト用
 
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
 
 	m_mtime = 1;
 	m_btime = 1;
+
+	//MPゲージオブジェクト作成
+	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
+	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 51);
 }
 
 //アクション
@@ -29,16 +34,29 @@ void CObjMagicalGirl::Action()
 	m_mtime++;
 	m_btime++;
 
-	if (m_mp < 100)
+	//MPが100未満だったら1ずつ回復する
+	if (m_mp < m_maxmp)
 	{
-		m_mtime = 1;
 		if (m_mtime % 60 == 0)
 		{
+			m_mtime = 0;
 			m_mp++;
 		}
 	}
+
+	//主人公が右見たら左を見る
+	if (Input::GetVKey(VK_RIGHT) == true)
+	{
+		m_postrue = 0.0f;
+	}
+	//主人公が左見ると右を見る
+	if (Input::GetVKey(VK_LEFT) == true)
+	{
+		m_postrue = 1.0f;
+	}
+
 	//魔法少女の通常攻撃
-	if (m_btime % 120 == 0 )
+	if (m_btime % 150 == 0 )
 	{
 		if (m_postrue == 0.0f)
 		{
@@ -55,15 +73,6 @@ void CObjMagicalGirl::Action()
 		m_btime = 1;
 	}
 
-	if (Input::GetVKey(VK_RIGHT) == true)
-	{
-		m_postrue = 0.0f;
-	}
-
-	if (Input::GetVKey(VK_LEFT) == true)
-	{
-		m_postrue = 1.0f;
-	}
 }
 
 //ドロー
@@ -89,4 +98,14 @@ void CObjMagicalGirl::Draw()
 
 	//描画
 	Draw::Draw(0,&src,&dst,c,0.0f);
+}
+
+int CObjMagicalGirl::GetMP()
+{
+	return m_mp;
+}
+
+int CObjMagicalGirl::GetMaxMP()
+{
+	return m_maxmp;
 }

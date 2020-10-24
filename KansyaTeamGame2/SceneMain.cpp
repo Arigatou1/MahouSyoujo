@@ -66,6 +66,10 @@ void CSceneMain::InitScene()
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
 	Objs::InsertObj(obj_mana, OBJ_MANA, 9);
+
+	//MPゲージオブジェクト作成
+	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
+	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 50);
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
