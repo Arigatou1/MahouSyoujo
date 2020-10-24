@@ -40,6 +40,12 @@ void CObjEnemy::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 	}
+
+	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
 }
 
 //ƒhƒ[
