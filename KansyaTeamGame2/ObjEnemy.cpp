@@ -32,7 +32,7 @@ void CObjEnemy::Action()
 	m_ex += m_vx;
 
 	//特定の位置で停止（マナの情報を収得してやりたい）
-	if (m_ex == 268)
+	if (m_ex == 400)
 	{
 		m_vx = 0.0f;
 	}
@@ -45,14 +45,14 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
+		//Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
+		//Amount++;
 	}
 }
 
@@ -80,3 +80,7 @@ void CObjEnemy::Draw()
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
 
+//int CObjEnemy::EneAmo()
+//{
+//	return Amount;
+//}
