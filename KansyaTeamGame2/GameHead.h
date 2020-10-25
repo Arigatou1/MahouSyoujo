@@ -11,6 +11,19 @@ enum OBJ_NAME
 	OBJ_HOMINGBULLET,
 	OBJ_SWORD,
 	OBJ_ENEMY,
+	OBJ_ENEMY2,
+	OBJ_GAUGEBASE,
+	OBJ_GAUGEHP,
+	OBJ_GAUGEMP,
+	OBJ_STAGE,
+	OBJ_MANA,
+	OBJ_MANABASE,
+	OBJ_MANA_HP,
+	OBJ_TITLE,
+	OBJ_GAME_OVER,
+	OBJ_BG,
+	OBJ_GAME_CLEAR,
+	OBJ_ENEMYAMOUNT,
 };
 //------------------------------------------------
 
@@ -58,13 +71,30 @@ struct UserData
 #include "ObjMagicalGirl.h"
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
+#include "ObjEnemy2.h"
+#include "ObjGaugeBase.h"
+#include "Objstage.h"
+#include "ObjGaugeHP.h"
+#include "ObjGaugeMP.h"
+#include "ObjGaugeMana.h"
+#include "ObjMana.h"
+#include "ObjGaugeBaseMana.h"
+#include "ObjTitle.h"
+#include "ObjGameOver.h"
+#include "ObjBackGround.h"
+#include "ObjGameClear.h"
+#include "ObjEnemyAmount.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
+#include "SceneTitle.h"
+#include "SceneGameOver.h"
+#include "SceneGameClear.h"
+
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START CSceneMain
+#define SET_GAME_START CSceneTitle
 //-----------------------------------------------

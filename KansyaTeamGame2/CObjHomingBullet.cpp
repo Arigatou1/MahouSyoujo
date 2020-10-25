@@ -1,7 +1,7 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameHead.h"
-
+#include "GameL\HitBoxManager.h"
 #include "CObjHomingBullet.h"
 
 //使用するネームスペース
@@ -19,33 +19,71 @@ CObjHomingBullet::CObjHomingBullet(float x, float y,float m)
 void CObjHomingBullet::Init()
 {
 	m_vx = 0.0f;
+
+	//当たり判定用のHITBOXを作成
+	Hits::SetHitBox(this, m_bx, m_by, 40, 40, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
 }
 
 //アクション
 void CObjHomingBullet::Action()
 {
-	m_vx += 1.0f;
-	m_bx += m_vx;
+	if (m_bpostrue == 1.0f)
+	{
+		//移動方向
+		m_vx = +3.0f;
+		m_vy = 0.0f;
+		m_bx += m_vx;
+		m_by += m_vy;
+		//HitBOxの内容を変更
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_bx, m_by + 10.0f);
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+	     }
+	}
+	else if(m_bpostrue == 0.0f)
+	{
+		m_vx = -3.0f;
+		m_vy = 0.0f;
+		m_bx += m_vx;
+		m_by += m_vy;
+		//HitBOxの内容を変更
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_bx+10.0f, m_by+10.0f);
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
+	}
 
 	//領域外に出たら弾丸を破棄する
-	if (m_bx > 800.0f)
+	if (m_bx > 775.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	if (m_bx < 0.0f)
+	if (m_bx < -25.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	if (m_by > 600.0f)
+	if (m_by > 575.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
-	if (m_by < 0.0f)
+	if (m_by < -25.0f)
 	{
 		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 }
 
@@ -65,10 +103,10 @@ void CObjHomingBullet::Draw()
 	src.m_bottom = 50.0f;
 
 	//表示位置の設定
-	dst.m_top    = m_by - 50.0f;
-	dst.m_left   = (m_bx - 50.f + 50.0f * m_bpostrue);
-	dst.m_right  = (m_bx - 50.0f * m_bpostrue);
-	dst.m_bottom = m_by;
+	dst.m_top    =0.0f  + m_by;
+	dst.m_left   =0.0f  + (m_bx + 50.0f * m_bpostrue);
+	dst.m_right  =50.0f + (m_bx - 50.0f * m_bpostrue);
+	dst.m_bottom =50.0f + m_by;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
