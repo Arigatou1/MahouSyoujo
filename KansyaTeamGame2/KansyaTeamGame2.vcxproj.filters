@@ -1,32 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="CObjHomingBullet.cpp" />
-    <ClCompile Include="ObjEnemy.cpp" />
-    <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="ObjGaugeHP.cpp">
-      <Filter>ゲーム\主人公</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjHero.cpp">
-      <Filter>ゲーム\主人公</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjSword.cpp">
-      <Filter>ゲーム\主人公</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjGaugeBase.cpp">
-      <Filter>ゲーム\主人公</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjMana.cpp">
-      <Filter>ゲーム\マナ</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjGaugeMana.cpp">
-      <Filter>ゲーム\マナ</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjGaugeBaseMana.cpp">
-      <Filter>ゲーム\マナ</Filter>
-    </ClCompile>
-    <ClCompile Include="Objstage.cpp" />
     <ClCompile Include="GameL\Audio.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
@@ -51,6 +26,39 @@
     <ClCompile Include="GameL\MultiThread.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjGaugeBase.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBaseMana.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeHP.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeMana.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeMP.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjHero.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMagicalGirl.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMana.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSword.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
     <ClCompile Include="GameL\SceneManager.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
@@ -72,46 +80,31 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>タイトル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBackGround.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="CObjHomingBullet.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="Objstage.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ゲームオーバー</Filter>
     </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ゲームオーバー</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBackGround.cpp" />
-    <ClCompile Include="ObjGaugeMP.cpp">
-      <Filter>ゲーム\マナ</Filter>
+    <ClCompile Include="ObjGameClear.cpp">
+      <Filter>ゲームクリア</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy2.cpp" />
+    <ClCompile Include="SceneGameClear.cpp">
+      <Filter>ゲームクリア</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CObjHomingBullet.h" />
     <ClInclude Include="GameHead.h" />
-    <ClInclude Include="ObjEnemy.h" />
-    <ClInclude Include="ObjMagicalGirl.h" />
     <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="ObjGaugeHP.h">
-      <Filter>ゲーム\主人公</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjHero.h">
-      <Filter>ゲーム\主人公</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjSword.h">
-      <Filter>ゲーム\主人公</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjGaugeBase.h">
-      <Filter>ゲーム\主人公</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjMana.h">
-      <Filter>ゲーム\マナ</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjGaugeBaseMana.h">
-      <Filter>ゲーム\マナ</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjGaugeMana.h">
-      <Filter>ゲーム\マナ</Filter>
-    </ClInclude>
-    <ClInclude Include="Objstage.h" />
     <ClInclude Include="GameL\Audio.h">
       <Filter>ソースファイル</Filter>
     </ClInclude>
@@ -132,6 +125,39 @@
     </ClInclude>
     <ClInclude Include="GameL\MultiThread.h">
       <Filter>ソースファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBase.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBaseMana.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeHP.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeMana.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeMP.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy2.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjHero.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMagicalGirl.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMana.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSword.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="GameL\SceneManager.h">
       <Filter>ソースファイル</Filter>
@@ -154,36 +180,46 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>タイトル</Filter>
     </ClInclude>
+    <ClInclude Include="ObjBackGround.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="CObjHomingBullet.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="Objstage.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
     <ClInclude Include="SceneGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
-    <ClInclude Include="ObjBackGround.h" />
-    <ClInclude Include="ObjGaugeMP.h">
-      <Filter>ゲーム\マナ</Filter>
+    <ClInclude Include="ObjGameClear.h">
+      <Filter>ゲームクリア</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy2.h" />
+    <ClInclude Include="SceneGameClear.h">
+      <Filter>ゲームクリア</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">
-      <UniqueIdentifier>{d0018083-95b2-42a2-9046-4dc8fbf305dc}</UniqueIdentifier>
+      <UniqueIdentifier>{2929ee74-df82-4c8b-8c4e-9eabe9d9790d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームメイン">
+      <UniqueIdentifier>{246ab3bc-4325-4a0b-9e19-98d584a15036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームメイン\ゲージ">
+      <UniqueIdentifier>{8bbf1c82-5528-41e2-9bd9-83e5f0aeb7ae}</UniqueIdentifier>
     </Filter>
     <Filter Include="タイトル">
-      <UniqueIdentifier>{0fea3ee9-e1ca-4ff2-ad61-d39e1acab4b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲーム">
-      <UniqueIdentifier>{d4df604d-f285-4152-a673-ac39d974c515}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲーム\マナ">
-      <UniqueIdentifier>{eafadc60-587c-4561-a9d9-29c1afb485d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲーム\主人公">
-      <UniqueIdentifier>{48dea8dc-65e3-4627-8ce3-ac2cb564ec77}</UniqueIdentifier>
+      <UniqueIdentifier>{965e241f-dccf-4184-b187-e44af6724c8f}</UniqueIdentifier>
     </Filter>
     <Filter Include="ゲームオーバー">
-      <UniqueIdentifier>{20ecb018-d294-4a25-a66f-286366ebb0ef}</UniqueIdentifier>
+      <UniqueIdentifier>{f494f973-dd94-4163-95d1-62b1bdbb729e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームクリア">
+      <UniqueIdentifier>{311a5b3a-14f4-4b3a-a66a-38896920e32a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
