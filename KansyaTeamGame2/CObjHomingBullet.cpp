@@ -36,7 +36,13 @@ void CObjHomingBullet::Action()
 		m_by += m_vy;
 		//HitBOxの内容を変更
 		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_bx, m_by+10.0f);
+		hit->SetPos(m_bx, m_by + 10.0f);
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+	     }
 	}
 	else if(m_bpostrue == 0.0f)
 	{
@@ -47,6 +53,12 @@ void CObjHomingBullet::Action()
 		//HitBOxの内容を変更
 		CHitBox* hit = Hits::GetHitBox(this);
 		hit->SetPos(m_bx+10.0f, m_by+10.0f);
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
 	}
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
@@ -80,7 +92,6 @@ void CObjHomingBullet::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 	}
-
 }
 
 //ドロー

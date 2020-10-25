@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="ObjEnemyAmount.h" />
+    <ClInclude Include="ObjMenu.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -152,7 +154,10 @@
     <ClInclude Include="GameL\SetWindow.h" />
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
+    <ClInclude Include="ObjBackGround.h" />
+    <ClInclude Include="ObjGameClear.h" />
     <ClInclude Include="ObjEnemy.h" />
+    <ClInclude Include="ObjEnemy2.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjGaugeBase.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -163,6 +168,7 @@
     </ClInclude>
     <ClInclude Include="ObjGaugeHP.h" />
     <ClInclude Include="ObjGaugeMana.h" />
+    <ClInclude Include="ObjGaugeMP.h" />
     <ClInclude Include="ObjMagicalGirl.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjHero.h" />
@@ -172,14 +178,18 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="SceneGameClear.h" />
     <ClInclude Include="SceneGameOver.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneMenu.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="ObjEnemyAmount.cpp" />
+    <ClCompile Include="ObjMenu.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -193,7 +203,10 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
+    <ClCompile Include="ObjBackGround.cpp" />
+    <ClCompile Include="ObjGameClear.cpp" />
     <ClCompile Include="ObjEnemy.cpp" />
+    <ClCompile Include="ObjEnemy2.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjGaugeBase.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -204,6 +217,7 @@
     </ClCompile>
     <ClCompile Include="ObjGaugeHP.cpp" />
     <ClCompile Include="ObjGaugeMana.cpp" />
+    <ClCompile Include="ObjGaugeMP.cpp" />
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
@@ -212,10 +226,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="SceneGameClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneMenu.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

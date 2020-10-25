@@ -47,7 +47,7 @@ void CObjHero::Action()
 
 	
 	//テスト用Zキーを押すとジャンプする処理
-	if (Input::GetVKey('Z') == true&&isJump==true)
+	if (Input::GetVKey(' ') == true&&isJump==true)
 	{
 		m_vy = -15;
 		isJump = false;
@@ -106,7 +106,7 @@ void CObjHero::Action()
 	
 
 	//test用　攻撃用
-	if (Input::GetVKey('X') == true && m_f==true)
+	if (Input::GetVKey('F') == true && m_f==true)
 	{
 		m_f = false;
 		atk_anime = 1;
@@ -166,6 +166,13 @@ void CObjHero::Action()
 			hit->SetPos(m_px+4, m_py+4);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 1;//敵の攻撃力
+
+			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
 				m_mtk = true;
 				m_hp -= 1;//敵の攻撃力
