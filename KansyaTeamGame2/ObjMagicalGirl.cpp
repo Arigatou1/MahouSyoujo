@@ -12,7 +12,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 120;//x位置
+	m_gx = 372;//x位置
 	m_gy = 440;//y位置
 	m_maxmp = 100;//MP総量100
 	m_mp = m_maxmp;
@@ -47,14 +47,12 @@ void CObjMagicalGirl::Action()
 	//主人公が右見たら左を見る
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
-		m_postrue = 1.0f; //α用
-		//m_postrue = 0.0f;
+		m_postrue = 0.0f;
 	}
 	//主人公が左見ると右を見る
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-		m_postrue = 0.0f; //α用
-		//m_postrue = 1.0f;
+		m_postrue = 1.0f;
 	}
 
 	//魔法少女の通常攻撃

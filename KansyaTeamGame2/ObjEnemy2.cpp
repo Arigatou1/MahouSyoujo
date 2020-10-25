@@ -17,7 +17,6 @@ CObjEnemy2::CObjEnemy2(float x, float y)
 //イニシャライズ
 void CObjEnemy2::Init()
 {
-	
 	m_vx = -1.0f;
 	m_vy = 0.0f;
 	//当たり判定用のHITBOXを作成
@@ -31,8 +30,8 @@ void CObjEnemy2::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
-	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=226がちょうど
-	if (m_ex == 220)
+	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
+	if (m_ex == 475)
 	{
 		m_vx = 0.0f;
 	}

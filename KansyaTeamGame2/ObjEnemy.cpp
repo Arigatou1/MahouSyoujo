@@ -17,10 +17,8 @@ CObjEnemy::CObjEnemy(float x, float y)
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	
-
-	m_vx = -1.0f;
-	m_vy = -0.0f;
+	m_vx = +1.0f;
+	m_vy = 0.0f;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -31,8 +29,8 @@ void CObjEnemy::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
-	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=176が当たらない位置
-	if (m_ex == 170)
+	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=322が当たらない位置
+	if (m_ex == 327)
 	{
 		m_vx = 0.0f;
 	}
@@ -72,8 +70,8 @@ void CObjEnemy::Draw()
 	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top    = m_ey;
-	dst.m_left	 = m_ex + 50.0f;
-	dst.m_right  = m_ex;
+	dst.m_left	 = m_ex;
+	dst.m_right  = m_ex + 50.0f;
 	dst.m_bottom = m_ey + 50.0f;
 
 	//描画
