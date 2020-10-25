@@ -69,6 +69,10 @@ void CSceneMain::InitScene()
 	CObjBackGround* obj_bg = new CObjBackGround();
 	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
+	//背景オブジェクト作成
+	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
+	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
+
 
 	//タイム初期化
 	m_time = 0;
@@ -157,6 +161,21 @@ void CSceneMain::Scene()
 		obj = new CObjEnemy(800, 425);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 
+	}
+	else if (m_time == 600)
+	{
+		CObjEnemy* obj;
+		obj = new CObjEnemy(0, 475);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(800, 425);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+
+	if (m_time==1300)
+	{
+
+		Scene::SetScene(new CSceneGameClear());
 	}
 }
 

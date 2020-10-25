@@ -28,7 +28,8 @@ void CObjGameClear::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"GAME CLEAR", 200, 200, 96, c);
+	Font::StrDraw(L"GAME CLEAR!", 200, 200, 96, c);
+	
 
 	wchar_t str[128];
 	swprintf_s(str, L"ƒXƒRƒA:%d", Score);//®”‚ğ•¶š—ñ‚©

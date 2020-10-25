@@ -1,6 +1,2 @@
-﻿  SceneMain.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+﻿  ObjGameClear.cpp
   KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
