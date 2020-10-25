@@ -23,6 +23,7 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_BG,
 	OBJ_GAME_CLEAR,
+	OBJ_ENEMYAMOUNT,
 };
 //------------------------------------------------
 
@@ -82,6 +83,7 @@ struct UserData
 #include "ObjGameOver.h"
 #include "ObjBackGround.h"
 #include "ObjGameClear.h"
+#include "ObjEnemyAmount.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

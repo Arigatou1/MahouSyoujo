@@ -14,5 +14,5 @@ public:
 	void InitScene();//初期化メソッド
 	void Scene();//実行中メソッド
 private:
-	int m_time;//シーンタイム(敵の出現時間)
+	int m_time;
 };

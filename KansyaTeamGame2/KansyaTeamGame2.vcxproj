@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="ObjEnemyAmount.h" />
+    <ClInclude Include="ObjMenu.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -181,10 +183,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneMenu.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="ObjEnemyAmount.cpp" />
+    <ClCompile Include="ObjMenu.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -226,6 +231,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneMenu.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

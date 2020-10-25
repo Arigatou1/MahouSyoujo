@@ -14,12 +14,13 @@ CObjEnemy::CObjEnemy(float x, float y)
 	m_ex = x;
 	m_ey = y;
 }
-
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	m_vx = 0.5f;
-	m_vy = 0.0f;
+	
+
+	m_vx = -1.0f;
+	m_vy = -0.0f;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -44,12 +45,14 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		
 	}
 }
 
@@ -76,3 +79,4 @@ void CObjEnemy::Draw()
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
+

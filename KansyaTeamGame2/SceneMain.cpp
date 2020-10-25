@@ -30,7 +30,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//HP用Font作成
-	Font::SetStrTex(L"1234567890/.+-");
+	Font::SetStrTex(L"1234567890/.+-残り敵の数:");
 
 
 	//グラフィックの読み込み
@@ -41,15 +41,8 @@ void CSceneMain::InitScene()
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 12);
-
-	//敵1オブジェクト作成
-	//CObjEnemy* obj_enemy = new CObjEnemy();
-	//Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
-
-	//敵2オブジェクト作成
-	//CObjEnemy2* obj_enemy2 = new CObjEnemy2();
-	//Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
 	
+
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();
 	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 50);
@@ -62,10 +55,7 @@ void CSceneMain::InitScene()
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
 	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
 	
-	//stageオブジェクト作成
-	CObjstage* obj_stage = new CObjstage();
-	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
-
+	
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
@@ -78,7 +68,8 @@ void CSceneMain::InitScene()
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
 	Objs::InsertObj(obj_bg, OBJ_BG, 1);
-	
+
+
 	//タイム初期化
 	m_time = 0;
 }
@@ -88,20 +79,39 @@ void CSceneMain::Scene()
 {
 	m_time++;
 
-	if (m_time == 300)
+	if (m_time == 30)
 	{
-		CObjEnemy* obj_enemy = new CObjEnemy(0.0f,440.0f);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+		CObjEnemy* obj = new CObjEnemy(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
 	}
-	else if (m_time == 600)
+	else if (m_time == 60)
 	{
-		CObjEnemy* obj_enemy = new CObjEnemy(0.0f, 440.0f);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+		CObjEnemy* obj = new CObjEnemy(800, 500);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
 	}
-	else if (m_time == 700)
+	else if (m_time == 160)
 	{
-		CObjEnemy2* obj_enemy2 = new CObjEnemy2(850.0f, 440.0f);
-		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
+		CObjEnemy2* obj = new CObjEnemy2(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 220)
+	{
+		CObjEnemy2* obj;
+		obj = new CObjEnemy2(800, 450);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy2(800, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+
+	else if (m_time == 280)
+	{
+		CObjEnemy* obj = new CObjEnemy(800, 390);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
 	}
 }
 

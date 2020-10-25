@@ -5,6 +5,7 @@
 #include "GameHead.h"
 #include "ObjGaugeHP.h"
 #include "GameL\DrawFont.h"
+#include "GameL\WinInputs.h"
 
 
 //使用するネームスペース
@@ -14,7 +15,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjGaugeHP::Init()
 {
-
+	Clear_Flag = false;
 }
 
 //アクション
@@ -33,6 +34,19 @@ void CObjGaugeHP::Action()
 		GaugePercent = (HP / MAXHP) * 250;
 
 	}
+
+	//1キーを押すとクリアに移行する
+	/*if (Input::GetVKey('1') == true)
+	{
+		Clear_Flag = true;
+
+
+	}
+
+	if (Clear_Flag == true)
+		Scene::SetScene(new CSceneGameClear());
+		*/
+
 }
 //ドロー
 void CObjGaugeHP::Draw()
@@ -66,4 +80,11 @@ void CObjGaugeHP::Draw()
 	//描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
+}
+
+int CObjGaugeHP::GetPercent()
+{
+	//未実装
+	if(0)
+	return GaugePercent;
 }

@@ -5,6 +5,7 @@
 #include "GameHead.h"
 #include "ObjGaugeMana.h"
 #include "GameL\DrawFont.h"
+#include "GameL\WinInputs.h"
 
 
 //使用するネームスペース
@@ -20,7 +21,7 @@ CObjGaugeMANAHP::CObjGaugeMANAHP(float x, float y)
 //イニシャライズ
 void CObjGaugeMANAHP::Init()
 {
-
+	Clear_Flag = false;
 }
 
 //アクション
@@ -39,6 +40,7 @@ void CObjGaugeMANAHP::Action()
 		GaugePercent = (HP / 100) * 292;
 
 	}
+
 }
 //ドロー
 void CObjGaugeMANAHP::Draw()
@@ -72,4 +74,11 @@ void CObjGaugeMANAHP::Draw()
 	//描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
+}
+
+
+int CObjGaugeMANAHP::GetPercent()
+{
+	if(0)
+	return GaugePercent;
 }

@@ -14,10 +14,12 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	int GetPercent();
 private:
 	float HP;
 	float MAXHP;
 	float GaugePercent;
+	bool Clear_Flag;
 
 
 };
