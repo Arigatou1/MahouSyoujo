@@ -27,14 +27,24 @@ void CObjHero::Init()
 	atk_time = 0;
 	m_f = true;
 	isJump = true;
+	//最大HP
+	max_hp = 20;
+	m_hp = max_hp;
+	//無敵時間調整用
+	mtk_max = 100;
+	mtk_jkn = mtk_max;
+	m_mtk = false;
+	
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_px, m_py, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
+	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
 
 //アクション
 void CObjHero::Action()
 {
+	
+
 	
 	//テスト用Zキーを押すとジャンプする処理
 	if (Input::GetVKey('Z') == true&&isJump==true)
@@ -104,6 +114,7 @@ void CObjHero::Action()
 		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture,m_f);
 		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
 
+		
 	}
 
 	if (m_f == false)
@@ -144,9 +155,53 @@ void CObjHero::Action()
 		isJump = true;
 	}
 
-	//HitBoxの内容を更新
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px, m_py);
+	
+	//敵に当たった時に行うようにする。
+	
+	//無敵時間が無効になった時
+	if(m_mtk==false)
+	{
+		//HitBoxの内容を元に戻す
+		CHitBox* hit = Hits::GetHitBox(this);
+			hit->SetPos(m_px+4, m_py+4);
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 1;//敵の攻撃力
+
+			}
+	}
+	//無敵がtrueになった時
+	if (m_mtk == true)
+	{
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_px + 9999, m_py);
+		//無敵時間を減らす
+		mtk_jkn -= 1;
+
+		if (mtk_jkn <= 0)//無敵時間が0になったとき
+		{
+			m_mtk = false;
+			mtk_jkn = mtk_max;
+		}
+	}
+
+
+	
+
+	//主人公のHPが無くなった時、消滅させる
+	if (m_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+
+			Scene::SetScene(new CSceneGameOver());
+	}
+
+
+	
 }
 //ドロー
 void CObjHero::Draw()
@@ -156,23 +211,32 @@ void CObjHero::Draw()
 		1,0,2,0,
 	};
 		//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,mtk_jkn%3};
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top =(atk_anime*56)+0.0f;
-	src.m_left =(AniData[m_anime]*56)+0.0f;
-	src.m_right =(AniData[m_anime] *56)+56.0f;
-	src.m_bottom = (atk_anime * 56) + 56.0f;
+	src.m_top =(atk_anime*64)+0.0f;
+	src.m_left =(AniData[m_anime]*64)+0.0f;
+	src.m_right =(AniData[m_anime] *64)+64.0f;
+	src.m_bottom = (atk_anime * 64) + 64.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f+m_py;
-	dst.m_left =(28.0f*m_posture)+m_px+28.0f;
-	dst.m_right = (-28.0f*m_posture )+ m_px+28.0f;
-	dst.m_bottom = 56.0f+m_py;
+	dst.m_left =(32.0f*m_posture)+m_px+32.0f;
+	dst.m_right = (-32.0f*m_posture )+ m_px+32.0f;
+	dst.m_bottom = 64.0f+m_py;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
 
+int CObjHero::GetHP()
+{
+	return m_hp;
+}
+
+int CObjHero::GetMAXHP()
+{
+	return max_hp;
+}
