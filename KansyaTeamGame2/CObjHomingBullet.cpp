@@ -61,12 +61,8 @@ void CObjHomingBullet::Action()
 		}
 	}
 
-		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
-	}
+		
+	
 
 	//—ÌˆæŠO‚Éo‚½‚ç’eŠÛ‚ð”jŠü‚·‚é
 	if (m_bx > 775.0f)

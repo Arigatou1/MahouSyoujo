@@ -1,12 +1,6 @@
-﻿  LINK : 前回のインクリメンタル リンクで C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-ObjMagicalGirl.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Init(void)" (?Init@CObjGaugeMP@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Init(void)" (?Init@CObjGaugeMP@@UEAAXXZ) は未解決です
-ObjMagicalGirl.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Action(void)" (?Action@CObjGaugeMP@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Action(void)" (?Action@CObjGaugeMP@@UEAAXXZ) は未解決です
-ObjMagicalGirl.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Draw(void)" (?Draw@CObjGaugeMP@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjGaugeMP::Draw(void)" (?Draw@CObjGaugeMP@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2019: 未解決の外部シンボル "public: __cdecl CObjEnemy2::CObjEnemy2(float,float)" (??0CObjEnemy2@@QEAA@MM@Z) が関数 "public: virtual void __cdecl CSceneMain::Scene(void)" (?Scene@CSceneMain@@UEAAXXZ) で参照されました
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjBackGround::Init(void)" (?Init@CObjBackGround@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjBackGround::Action(void)" (?Action@CObjBackGround@@UEAAXXZ) は未解決です
-SceneMain.obj : error LNK2001: 外部シンボル "public: virtual void __cdecl CObjBackGround::Draw(void)" (?Draw@CObjBackGround@@UEAAXXZ) は未解決です
-C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe : fatal error LNK1120: 7 件の未解決の外部参照
+﻿  SceneMain.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
