@@ -8,14 +8,19 @@
 //使用するネームベース
 using namespace GameL;
 
+//コンストラクタ
+CObjEnemy::CObjEnemy(float x, float y)
+{
+	m_ex = x;
+	m_ey = y;
+}
 //イニシャライズ
 void CObjEnemy::Init()
 {
 	
-	m_ex = 0.0f;
-	m_ey = 440.0f;
-	m_vx = 0.5f;
-	m_vy = 0.0f;
+
+	m_vx = -1.0f;
+	m_vy = -0.0f;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }

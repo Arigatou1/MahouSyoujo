@@ -17,7 +17,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjMana::Init()
 {
-	Mana_x = 300;
+	Mana_x = 120;
 	Mana_y = 440;
 	Mana_HP = 100;
 
@@ -31,7 +31,7 @@ void CObjMana::Init()
 	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, Mana_x+4 , Mana_y+4, 56, 56, ELEMENT_FIELD, OBJ_MANA, 1);
+	Hits::SetHitBox(this, Mana_x+4 , Mana_y-604, 56, 600, ELEMENT_FIELD, OBJ_MANA, 1);
 }
 
 //アクション
@@ -45,9 +45,9 @@ void CObjMana::Action()
 	}
 
 
-	//HitBoxの内容を元に戻す
+	//HitBoxの内容
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(Mana_x,Mana_y);
+	hit->SetPos(Mana_x,Mana_y-304);
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{

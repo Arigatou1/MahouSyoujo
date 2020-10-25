@@ -39,7 +39,7 @@ void CObjSword::Action()
 
 		//HitBox‚Ì“à—e‚ðXV
 		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(a_px + (a_posture * 40), a_py);
+		hit->SetPos(a_px + (a_posture * 60), a_py);
 
 		atk_time++;
 	}

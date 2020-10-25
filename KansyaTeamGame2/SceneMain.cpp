@@ -79,11 +79,39 @@ void CSceneMain::Scene()
 {
 	m_time++;
 
-	//if (m_time == 30)
-	//{
-	//	CObjEnemy* obj = new CObjEnemy(799.0f, 400);
-	//	Objs::InsertObj(obj, OBJ_ENEMY, 49);
-//
-	//}
+	if (m_time == 30)
+	{
+		CObjEnemy* obj = new CObjEnemy(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 60)
+	{
+		CObjEnemy* obj = new CObjEnemy(800, 500);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 160)
+	{
+		CObjEnemy2* obj = new CObjEnemy2(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 220)
+	{
+		CObjEnemy2* obj;
+		obj = new CObjEnemy2(800, 450);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy2(800, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+
+	else if (m_time == 280)
+	{
+		CObjEnemy* obj = new CObjEnemy(800, 390);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
 }
 
