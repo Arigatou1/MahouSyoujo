@@ -73,6 +73,9 @@ void CObjHomingBullet::Action()
 		}
 	}
 
+		
+	
+
 	//—ÌˆæŠO‚Éo‚½‚ç’eŠÛ‚ð”jŠü‚·‚é
 	if (m_bx > 775.0f)
 	{

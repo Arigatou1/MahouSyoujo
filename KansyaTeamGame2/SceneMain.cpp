@@ -69,6 +69,10 @@ void CSceneMain::InitScene()
 	CObjBackGround* obj_bg = new CObjBackGround();
 	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
+	//背景オブジェクト作成
+	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
+	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
+
 
 	//タイム初期化
 	m_time = 0;
@@ -87,7 +91,7 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 60)
 	{
-		CObjEnemy* obj = new CObjEnemy(800, 500);
+		CObjEnemy* obj = new CObjEnemy(800, 450);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 
 	}
@@ -150,6 +154,66 @@ void CSceneMain::Scene()
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
 
+	}
+	else if (m_time == 300)
+	{
+		CObjEnemy* obj = new CObjEnemy(0, 390);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 350)
+	{
+		CObjEnemy* obj = new CObjEnemy(0, 440);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 400)
+	{
+		CObjEnemy* obj = new CObjEnemy(0, 340);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 450)
+	{
+		CObjEnemy* obj;
+		obj = new CObjEnemy(0, 500);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(800, 450);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 500)
+	{
+		CObjEnemy* obj;
+		obj = new CObjEnemy(0, 450);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 550)
+	{
+		CObjEnemy* obj;
+		obj = new CObjEnemy(0, 475);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(800, 425);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+	else if (m_time == 600)
+	{
+		CObjEnemy* obj;
+		obj = new CObjEnemy(0, 475);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(800, 425);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+	}
+
+	if (m_time==1300)
+	{
+
+		Scene::SetScene(new CSceneGameClear());
 	}
 }
 

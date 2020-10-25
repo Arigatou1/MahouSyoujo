@@ -17,7 +17,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjMana::Init()
 {
-	Mana_x = 120;
+	Mana_x = 372;
 	Mana_y = 440;
 	Mana_HP = 100;
 
