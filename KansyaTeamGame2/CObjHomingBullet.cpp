@@ -42,7 +42,13 @@ void CObjHomingBullet::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-	     }
+	    }
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
 	}
 	else if(m_bpostrue == 0.0f)
 	{
@@ -55,6 +61,12 @@ void CObjHomingBullet::Action()
 		hit->SetPos(m_bx+10.0f, m_by+10.0f);
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);

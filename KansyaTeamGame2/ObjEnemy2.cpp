@@ -31,8 +31,8 @@ void CObjEnemy2::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
-	//特定の位置で停止（マナの情報を収得してやりたい）
-	if (m_ex == 400)
+	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=226がちょうど
+	if (m_ex == 220)
 	{
 		m_vx = 0.0f;
 	}
@@ -60,20 +60,20 @@ void CObjEnemy2::Action()
 void CObjEnemy2::Draw()
 {
 	//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 10.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top = 384.0f;
+	src.m_top = 320.0f;
 	src.m_left = 0.0f;
 	src.m_right = 64.0f;
-	src.m_bottom = 448.0f;
+	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top = m_ey;
-	dst.m_left = m_ex - 50.0f;
-	dst.m_right = m_ex;
+	dst.m_left = m_ex;
+	dst.m_right = m_ex - 50.0f;
 	dst.m_bottom = m_ey + 50.0f;
 
 	//描画
