@@ -11,6 +11,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjEnemy::Init()
 {
+	
 	m_ex = 0.0f;
 	m_ey = 440.0f;
 	m_vx = 0.5f;
@@ -39,12 +40,14 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		
 	}
 }
 
@@ -71,3 +74,4 @@ void CObjEnemy::Draw()
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
+

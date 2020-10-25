@@ -17,6 +17,7 @@ void CObjEnemy2::Init()
 	m_vy = 0.0f;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
+	Amount = 0;
 }
 
 //アクション
@@ -39,12 +40,14 @@ void CObjEnemy2::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		Amount++;
 	}
 }
 

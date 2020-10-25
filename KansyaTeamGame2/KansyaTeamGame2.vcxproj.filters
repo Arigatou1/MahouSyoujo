@@ -101,6 +101,15 @@
     <ClCompile Include="SceneGameClear.cpp">
       <Filter>ゲームクリア</Filter>
     </ClCompile>
+    <ClCompile Include="SceneMenu.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMenu.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemyAmount.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -201,6 +210,15 @@
     <ClInclude Include="SceneGameClear.h">
       <Filter>ゲームクリア</Filter>
     </ClInclude>
+    <ClInclude Include="SceneMenu.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMenu.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemyAmount.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">
@@ -220,6 +238,9 @@
     </Filter>
     <Filter Include="ゲームクリア">
       <UniqueIdentifier>{311a5b3a-14f4-4b3a-a66a-38896920e32a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="メニュー">
+      <UniqueIdentifier>{55fd4839-5c02-44b1-9882-3ac0299b6c02}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

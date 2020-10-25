@@ -14,11 +14,13 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	int GetPercent();
 private:
 	float HP;
 	float GaugePercent;
 	float gb_x;
 	float gb_y;
+	bool Clear_Flag;
 
 };
 

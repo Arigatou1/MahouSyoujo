@@ -30,7 +30,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//HP用Font作成
-	Font::SetStrTex(L"1234567890/.+-");
+	Font::SetStrTex(L"1234567890/.+-残り敵の数:");
 
 
 	//グラフィックの読み込み
@@ -41,15 +41,8 @@ void CSceneMain::InitScene()
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
 	Objs::InsertObj(obj, OBJ_HERO, 12);
-
-	//敵1オブジェクト作成
-	CObjEnemy* obj_enemy = new CObjEnemy();
-	Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
-
-	//敵2オブジェクト作成
-	CObjEnemy2* obj_enemy2 = new CObjEnemy2();
-	Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
 	
+
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();
 	Objs::InsertObj(obj_gb, OBJ_GAUGEBASE, 50);
@@ -62,10 +55,7 @@ void CSceneMain::InitScene()
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
 	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
 	
-	//stageオブジェクト作成
-	CObjstage* obj_stage = new CObjstage();
-	Objs::InsertObj(obj_stage, OBJ_STAGE, 9);
-
+	
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
@@ -79,11 +69,21 @@ void CSceneMain::InitScene()
 	CObjBackGround* obj_bg = new CObjBackGround();
 	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
+
+	//タイム初期化
+	m_time = 0;
 }
 
 //実行中メソッド
 void CSceneMain::Scene()
 {
+	m_time++;
 
+	//if (m_time == 30)
+	//{
+	//	CObjEnemy* obj = new CObjEnemy(799.0f, 400);
+	//	Objs::InsertObj(obj, OBJ_ENEMY, 49);
+//
+	//}
 }
 
