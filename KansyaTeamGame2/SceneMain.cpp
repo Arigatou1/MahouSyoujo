@@ -43,12 +43,12 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 12);
 
 	//敵1オブジェクト作成
-	CObjEnemy* obj_enemy = new CObjEnemy();
-	Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+	//CObjEnemy* obj_enemy = new CObjEnemy();
+	//Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
 
 	//敵2オブジェクト作成
-	CObjEnemy2* obj_enemy2 = new CObjEnemy2();
-	Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
+	//CObjEnemy2* obj_enemy2 = new CObjEnemy2();
+	//Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
 	
 	//ゲージオブジェクト作成
 	CObjGaugeBase* obj_gb = new CObjGaugeBase();
@@ -78,12 +78,30 @@ void CSceneMain::InitScene()
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
 	Objs::InsertObj(obj_bg, OBJ_BG, 1);
-
+	
+	//タイム初期化
+	m_time = 0;
 }
 
 //実行中メソッド
 void CSceneMain::Scene()
 {
+	m_time++;
 
+	if (m_time == 300)
+	{
+		CObjEnemy* obj_enemy = new CObjEnemy(0.0f,440.0f);
+		Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+	}
+	else if (m_time == 600)
+	{
+		CObjEnemy* obj_enemy = new CObjEnemy(0.0f, 440.0f);
+		Objs::InsertObj(obj_enemy, OBJ_ENEMY, 10);
+	}
+	else if (m_time == 700)
+	{
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(850.0f, 440.0f);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 10);
+	}
 }
 

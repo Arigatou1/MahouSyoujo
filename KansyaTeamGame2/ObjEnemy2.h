@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjEnemy2 : public CObj
 {
 public:
-	CObjEnemy2() {};
+	CObjEnemy2(float x,float y);
 	~CObjEnemy2() {};
 	void Init();
 	void Action();
