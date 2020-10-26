@@ -157,6 +157,8 @@ void CObjHero::Action()
 	{
 		m_py = 444;
 		m_vy = 0;
+
+		if(Input::GetVKey(' ') == false)
 		isJump = true;
 	}
 

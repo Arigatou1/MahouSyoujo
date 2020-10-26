@@ -22,7 +22,8 @@ void CObjEnemy::Init()
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 
-	
+
+
 }
 
 //アクション
@@ -46,6 +47,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		
 		
 	}
 
@@ -81,11 +83,7 @@ void CObjEnemy::Draw()
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
 
-int CObjEnemy::EneAmo()
-{
-	
-		return Amount;
-
-		Amount = 0;
-	
-}
+//int CObjEnemy::EneAmo()
+//{
+		//return Amount;
+//}

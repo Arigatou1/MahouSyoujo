@@ -76,30 +76,34 @@ void CSceneMain::InitScene()
 
 	//タイム初期化
 	m_time = 0;
+
+	EnemyAmount = 0;
 }
 
 //実行中メソッド
 void CSceneMain::Scene()
 {
 	m_time++;
+	
 
 	if (m_time == 30)
 	{
 		CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		EnemyAmount++;
 
 	}
 	else if (m_time == 60)
 	{
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 440);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 160)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 220)
 	{
@@ -108,7 +112,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		obj = new CObjEnemy2(800, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-
+		EnemyAmount+=2;
 	}
 
 	else if (m_time == 280)
@@ -117,25 +121,25 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
-
+		EnemyAmount+=2;
 	}
 	else if (m_time == 300)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 350)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 450);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 400)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 340);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 450)
 	{
@@ -143,7 +147,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 500)
 	{
@@ -151,6 +155,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		EnemyAmount+=2;
 	}
 	else if (m_time == 550)
 	{
@@ -158,7 +163,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 425);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
-
+		EnemyAmount++;
 	}
 	else if (m_time == 600)
 	{
@@ -166,7 +171,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 425);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
-
+		EnemyAmount++;
 	}
 
 	if (m_time==1300)
