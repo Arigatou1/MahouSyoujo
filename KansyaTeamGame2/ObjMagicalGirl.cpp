@@ -13,16 +13,15 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 300;
-	m_gy = 440;
-
+	m_gx = 200;
+	m_gy = 200;
+	
 	m_maxmp = 100;
 	m_mp =m_maxmp;//MP総量100
 	
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
 
-	m_mtime = 1;
-	m_btime = 1;
+	m_mtime = 0;
 }
 
 //アクション
@@ -31,9 +30,9 @@ void CObjMagicalGirl::Action()
 	m_mtime++;
 	m_btime++;
 
-	if (m_mp < 100)
+	if (m_mp < m_maxmp)
 	{
-		
+		m_mtime = 0;
 		if (m_mtime % 60 == 0)
 		{
 			m_mp++;
@@ -43,30 +42,23 @@ void CObjMagicalGirl::Action()
 	//魔法少女の通常攻撃
 	if (m_mp >= 10)
 	{
-		if (Input::GetVKey('D') == true && m_t == true)
+		m_postrue = 1.0f;
+	}
+
+	//魔法少女の通常攻撃
+	if (Input::GetVKey('F') == true)
+	{
+		if (m_postrue == 0.0f)
 		{
-			if (m_postrue == 0.0f)
-			{
-				m_t = false;
-				//ホーミング弾作成
-				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
-				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
-
-				m_mp -= 10;
-			}
-			else if (m_postrue == 1.0f)
-			{
-				m_t = false;
-				//ホーミング弾作成
-				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
-				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
-
-				m_mp -= 10;
-			}
+			//ホーミング弾作成
+			CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
+			Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
 		}
-		else if (Input::GetVKey('D') == false)
+		else if (m_postrue == 1.0f)
 		{
-			m_t = true;
+			//ホーミング弾作成
+			CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
+			Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
 		}
 	}
 }
