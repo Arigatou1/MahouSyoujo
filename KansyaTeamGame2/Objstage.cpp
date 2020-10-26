@@ -31,7 +31,29 @@ void CObjstage::Init()
 
 void CObjstage::Action()
 {
+	//主人公の位置を取得
+	//CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//float hx = hero-> ();
+	//float hy = hero-> ();
 
+	/*for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (m_b[i][j])
+			{
+				//要素番号を座標に変更
+				float x = j * 64.0f;
+				float y = i * 64.0f;
+
+				//
+				if (1)
+				{
+					//当たっている場合
+				}
+			}
+		}
+	}*/
 }
 
 //ドロー
