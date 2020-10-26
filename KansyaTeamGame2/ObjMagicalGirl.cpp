@@ -15,8 +15,10 @@ void CObjMagicalGirl::Init()
 {
 	m_gx = 300;
 	m_gy = 440;
-	m_mp = 100;//MP‘—Ê100
 
+	m_maxmp = 100;
+	m_mp =m_maxmp;//MP‘—Ê100
+	
 	m_postrue = 1.0f;//‰EŒü‚«0.0f ¶Œü‚«1.0f
 
 	m_mtime = 1;
@@ -31,10 +33,11 @@ void CObjMagicalGirl::Action()
 
 	if (m_mp < 100)
 	{
-		m_mtime = 1;
+		
 		if (m_mtime % 60 == 0)
 		{
 			m_mp++;
+			m_mtime = 0;
 		}
 	}
 	//–‚–@­—‚Ì’ÊíUŒ‚
@@ -91,4 +94,14 @@ void CObjMagicalGirl::Draw()
 
 	//•`‰æ
 	Draw::Draw(0,&src,&dst,c,0.0f);
+}
+
+int CObjMagicalGirl::GetMP()
+{
+	return m_mp;
+}
+
+int CObjMagicalGirl::GetMaxMP()
+{
+	return m_maxmp;
 }
