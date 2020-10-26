@@ -63,7 +63,7 @@ void CSceneMain::InitScene()
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
-	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 50);
+	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 51);
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
