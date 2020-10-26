@@ -15,8 +15,8 @@ using namespace GameL;
 //イニシャライズ
 void CObjHero::Init()
 {
-	m_px = 0;
-	m_py = 0;
+	m_px = 300;
+	m_py = 744;
 	m_vx = 0;
 	m_vy = 0;
 	m_posture = 1;
@@ -27,6 +27,8 @@ void CObjHero::Init()
 	atk_time = 0;
 	m_f = true;
 	isJump = true;
+	//移動するときに与えるベクトルの値
+	speed_power = 0.5f;
 	//最大HP
 	max_hp = 20;
 	m_hp = max_hp;
@@ -49,7 +51,7 @@ void CObjHero::Action()
 	//テスト用Zキーを押すとジャンプする処理
 	if (Input::GetVKey(' ') == true&&isJump==true)
 	{
-		m_vy = -15;
+		m_vy = -13;
 		isJump = false;
 	}
 
@@ -59,20 +61,20 @@ void CObjHero::Action()
 	//キーを押すと移動
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-		m_vx -= 0.1;
+		m_vx -= speed_power;
 		m_posture = -1;
 
 		m_anitime += 1;
-
+		
 	}
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
-		m_vx += 0.1;
+		m_vx += speed_power;
 		m_posture = 1;
 
 		m_anitime += 1;
 
-
+		
 	}
 	//どちらも押していない場合は減速させる。
 	else
@@ -80,9 +82,10 @@ void CObjHero::Action()
 
 		m_anime = 1;
 		m_anitime = 0;
-		m_vx = m_vx * 0.9;
-	}
 	
+	}
+	m_vx += -(m_vx * 0.098);
+
 	//歩く時のアニメーション anitimeが10になったとき、コマを1つ進める
 	if (m_anitime >= 8)
 	{
@@ -122,9 +125,11 @@ void CObjHero::Action()
 
 	//攻撃してからしばらく、攻撃判定が作れないようにしている。
 	//一定時間たつと、作れるようにしている。
-	if (atk_time >= 13)
+	if (atk_time >= 4 )
 	{
+		if(Input::GetVKey('F') == false)
 		m_f = true;
+
 		atk_time = 0;
 		atk_anime = 0;
 	}
@@ -152,6 +157,8 @@ void CObjHero::Action()
 	{
 		m_py = 444;
 		m_vy = 0;
+
+		if(Input::GetVKey(' ') == false)
 		isJump = true;
 	}
 

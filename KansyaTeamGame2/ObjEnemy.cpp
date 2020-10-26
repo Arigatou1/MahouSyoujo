@@ -21,11 +21,15 @@ void CObjEnemy::Init()
 	m_vy = 0.0f;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+
+
+
 }
 
 //アクション
 void CObjEnemy::Action()
 {
+
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
@@ -43,14 +47,15 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		//Amount++;
+		
+		
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		//Amount++;
+		
 	}
 }
 
@@ -80,5 +85,5 @@ void CObjEnemy::Draw()
 
 //int CObjEnemy::EneAmo()
 //{
-//	return Amount;
+		//return Amount;
 //}

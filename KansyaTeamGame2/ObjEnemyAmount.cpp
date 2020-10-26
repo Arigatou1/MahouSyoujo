@@ -18,10 +18,12 @@ void CObjEnemyAmount::Init()
 //アクション
 void CObjEnemyAmount::Action()
 {
-//	CObjEnemy* obj1 = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
-//	if(obj1!=nullptr)
-//	EnemyAmount = obj1->EneAmo();
+	//CObjEnemy* obj1 = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+	//if(obj1!=nullptr)
+	//EnemyAmount = obj1->EneAmo();
 }
+
+
 
 //ドロー
 void CObjEnemyAmount::Draw()
