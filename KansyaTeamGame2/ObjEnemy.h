@@ -13,7 +13,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-//	int EneAmo();
+	int EneAmo();
 private:
 	float m_ex;
 	float m_ey;
@@ -22,6 +22,6 @@ private:
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
-
+	int Amount;
 	
 };

@@ -139,7 +139,7 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 450)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 500);
+		CObjEnemy* obj = new CObjEnemy(0, 475);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);

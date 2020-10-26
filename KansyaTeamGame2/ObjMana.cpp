@@ -51,14 +51,14 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.5;
+		Mana_HP-=0.3;
 
 	}
 
 	//“G2‚É“–‚½‚é‚Æ1Œ¸‚é
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
-		Mana_HP -= 1.0;
+		Mana_HP -= 0.3;
 
 	}
 	
@@ -68,7 +68,7 @@ void CObjMana::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-		Scene::SetScene(new CSceneGameOver());
+	//	Scene::SetScene(new CSceneGameOver());
 	}
 }
 //ƒhƒ[
