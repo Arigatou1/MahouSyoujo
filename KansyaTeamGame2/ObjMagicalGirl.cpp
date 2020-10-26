@@ -41,7 +41,7 @@ void CObjMagicalGirl::Action()
 		}
 	}
 	//–‚–@­—‚Ì’ÊíUŒ‚
-	if (m_mp >= 5)
+	if (m_mp >= 10)
 	{
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
