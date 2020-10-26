@@ -15,4 +15,5 @@ public:
 	void Scene();//実行中メソッド
 private:
 	int m_time;
+	int EnemyAmount;
 };

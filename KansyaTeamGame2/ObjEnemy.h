@@ -22,6 +22,6 @@ private:
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
-	int Amount;
+	//int Amount;
 	
 };
