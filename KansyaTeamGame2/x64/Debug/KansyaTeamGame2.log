@@ -1,4 +1,4 @@
-﻿  ObjEnemy.cpp
-  ObjEnemy2.cpp
-  コードを生成中...
-  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjMagicalGirl.cpp
+C:\Users\GA1B\Desktop\魔法少女\KansyaTeamGame2\ObjMagicalGirl.cpp(116,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\魔法少女\KansyaTeamGame2\ObjMagicalGirl.cpp(121,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\魔法少女\x64\Debug\KansyaTeamGame2.exe
