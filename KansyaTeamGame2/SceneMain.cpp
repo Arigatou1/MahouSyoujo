@@ -67,11 +67,15 @@ void CSceneMain::InitScene()
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
-	Objs::InsertObj(obj_bg, OBJ_BG, 1);
+	Objs::InsertObj(obj_bg, OBJ_BG, 10);
 
 	//背景オブジェクト作成
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
+
+	//背景オブジェクト作成
+	CObjstage* objs = new CObjstage();
+	Objs::InsertObj(objs, OBJ_STAGE,20);
 
 
 	//タイム初期化
