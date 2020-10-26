@@ -1,4 +1,3 @@
-﻿  ObjEnemy.cpp
-  ObjEnemy2.cpp
-  コードを生成中...
-  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  Objstage.cpp
+C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\Objstage.cpp(49,26): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

@@ -1,6 +1,7 @@
 #include"GameL/DrawTexture.h"
 #include"GameL/WinInputs.h"
 #include"GameL/SceneManager.h"
+#include"GameL/SceneObjManager.h"
 
 #include"GameHead.h"
 #include"Objstage.h"
@@ -20,8 +21,8 @@ void CObjstage::Init()
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1,1,1},
+		{0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0},
 		{1,1,1,1,1,1,1,1,1,1},
 	};
 	//
@@ -36,32 +37,17 @@ void CObjstage::Action()
 //ドロー
 void CObjstage::Draw()
 {
-	//
+	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	
 	RECT_F src;
 	RECT_F dst;
-
-	
-	//背景表示
-	src.m_top = 256.0f;
-	src.m_left = 0.0f;
-	src.m_right = 512.0f;
-	src.m_bottom = 521.0f;
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 0.0f;
-	dst.m_bottom = 620.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
 		
-
 	//切り取り位置の設定(ブロック)
-	src.m_top = 192.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0;
-	src.m_bottom = 246.0f;
-
-	
+	src.m_top = 260.0f;
+	src.m_left = 321.0f;
+	src.m_right = src.m_left+64.0;
+	src.m_bottom = 314.0f;
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -70,10 +56,10 @@ void CObjstage::Draw()
 			if (m_b[i][j] > 0)
 			{	
 				//表示位置の設定
-				dst.m_top =300.0f*i;
-				dst.m_left = 300.0f*j;
-				dst.m_right = 400.0f ;
-				dst.m_bottom = 400.0f  ;
+				dst.m_top =i*56.0f;
+				dst.m_left =j*80.0f;
+				dst.m_right = dst.m_left+81.0f ;
+				dst.m_bottom =dst.m_top+92.0f  ;
 
 				//描画
 				Draw::Draw(0, &src, &dst, c, 0.0f);
