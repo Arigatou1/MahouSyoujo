@@ -6,6 +6,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
+#include"GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -29,6 +30,9 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//
+
+
 	//HP用Font作成
 	Font::SetStrTex(L"1234567890/.+-残り敵の数:");
 

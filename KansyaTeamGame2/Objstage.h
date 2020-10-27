@@ -14,5 +14,5 @@ public :
 	void Action();
 	void Draw();
 private:
-	int m_b[10][10];
+	int m_b[10][10];//ƒ}ƒbƒvî•ñ
 };
