@@ -26,7 +26,7 @@ void CObjBlock::Init()
 		{1,1,1,1,1,1,1,1,1,1},
 	};
 	//
-	memcpy(m_b, block_data, sizeof(int) * (10 * 10));
+	memcpy(m_map, block_data, sizeof(int) * (10 * 10));
 }
 
 void CObjBlock::Action()
@@ -47,7 +47,7 @@ void CObjBlock::Action()
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			if (m_b[i][j] > 0)
+			if (m_map[i][j] > 0)
 			{
 				//要素番号を座標に変更
 				float x = j * 64.0f;
@@ -125,7 +125,7 @@ void CObjBlock::Draw()
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			if (m_b[i][j] > 0)
+			if (m_map[i][j] > 0)
 			{	
 				//表示位置の設定
 				dst.m_top =i*64.0f;

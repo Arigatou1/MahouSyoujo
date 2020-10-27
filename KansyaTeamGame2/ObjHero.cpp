@@ -56,12 +56,12 @@ void CObjHero::Action()
 	if (Input::GetVKey(' ') == true && m_hit_down == true && isJump==true)
 	{
 	
-			m_vy = -13;
+			m_vy = -14;
 			isJump = false;
 		
 	}
 	else if (Input::GetVKey(' ') == false)
-	{
+	{  
 		isJump = true;
 	}
 	//–€ŽC

@@ -12,6 +12,7 @@ enum OBJ_NAME
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
+	OBJ_ENEMY3,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
@@ -72,6 +73,7 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
+#include "ObjEnemy3.h"
 #include "ObjGaugeBase.h"
 #include "ObjBlock.h"
 #include "ObjGaugeHP.h"
