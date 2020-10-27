@@ -16,7 +16,7 @@ using namespace GameL;
 void CObjHero::Init()
 {
 	m_px = 300;
-	m_py = 744;
+	m_py = 0;
 	m_vx = 0;
 	m_vy = 0;
 	m_posture = 1;
@@ -37,7 +37,11 @@ void CObjHero::Init()
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
-
+	//blockとの衝突状態確認用
+	m_hit_up = false;
+	m_hit_down = false;
+	m_hit_left = false;
+	m_hit_right = false;
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 }
@@ -48,13 +52,18 @@ void CObjHero::Action()
 	
 
 	
-	//テスト用Zキーを押すとジャンプする処理
-	if (Input::GetVKey(' ') == true&&isJump==true)
+	//Spaceキーを押すとジャンプする処理
+	if (Input::GetVKey(' ') == true && m_hit_down == true && isJump==true)
 	{
-		m_vy = -13;
-		isJump = false;
+	
+			m_vy = -13;
+			isJump = false;
+		
 	}
-
+	else if (Input::GetVKey(' ') == false)
+	{
+		isJump = true;
+	}
 	//摩擦
 	m_vy += 9.8 / (16.0f);
 
@@ -151,16 +160,7 @@ void CObjHero::Action()
 	}
 
 
-	//一定の座標より下がったとき、そこで落下を止める。(ブロックとステージ待ち。)
-	//その時、ジャンプできるようにする。
-	if (m_py >= 444)
-	{
-		m_py = 444;
-		m_vy = 0;
-
-		if(Input::GetVKey(' ') == false)
-		isJump = true;
-	}
+	
 
 	
 	//敵に当たった時に行うようにする。
