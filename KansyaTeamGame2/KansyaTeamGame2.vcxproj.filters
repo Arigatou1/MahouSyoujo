@@ -86,9 +86,6 @@
     <ClCompile Include="CObjHomingBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
-    <ClCompile Include="Objstage.cpp">
-      <Filter>ゲームメイン</Filter>
-    </ClCompile>
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ゲームオーバー</Filter>
     </ClCompile>
@@ -110,7 +107,7 @@
     <ClCompile Include="ObjEnemyAmount.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy3.cpp">
+    <ClCompile Include="ObjBlock.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
   </ItemGroup>
@@ -198,9 +195,6 @@
     <ClInclude Include="CObjHomingBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="Objstage.h">
-      <Filter>ゲームメイン</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
@@ -222,7 +216,7 @@
     <ClInclude Include="ObjEnemyAmount.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy3.h">
+    <ClInclude Include="ObjBlock.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>

@@ -16,7 +16,7 @@ enum OBJ_NAME
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
-	OBJ_STAGE,
+	OBJ_BLOCK,
 	OBJ_MANA,
 	OBJ_MANABASE,
 	OBJ_MANA_HP,
@@ -75,7 +75,7 @@ struct UserData
 #include "ObjEnemy2.h"
 #include"ObjEnemy3.h"
 #include "ObjGaugeBase.h"
-#include "Objstage.h"
+#include "ObjBlock.h"
 #include "ObjGaugeHP.h"
 #include "ObjGaugeMP.h"
 #include "ObjGaugeMana.h"
