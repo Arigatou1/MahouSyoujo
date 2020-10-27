@@ -13,8 +13,18 @@ public :
 	void Init();
 	void Action();
 	void Draw();
+	float GetX() { return m_px; };
+	float GetY() { return m_py; };
+	float SetX(float x) { return m_px=x; };
+	float SetY(float y) { return m_py=y; };
+	float SetVY(float vy) { return m_vy = vy; };
 	int GetHP();
 	int GetMAXHP();
+
+	void SetUp(bool b) { m_hit_up = b; }
+	void SetDown(bool b) { m_hit_down = b; }
+	void SetLeft(bool b) { m_hit_left = b; }
+	void SetRight(bool b) { m_hit_right = b; }
 private:
 	float m_px;		//プレイヤーの座標X
 	float m_py;		//プレイヤーの座標Y
@@ -40,6 +50,10 @@ private:
 	bool m_f;		//攻撃の間隔
 	bool isJump;//ジャンプできるかできないかを判断する
 
-	
+	//blockとの衝突状態確認用
+	bool m_hit_up;
+	bool m_hit_down;
+	bool m_hit_left;
+	bool m_hit_right;
     };
 

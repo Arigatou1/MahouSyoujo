@@ -68,7 +68,7 @@ void CObjMana::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-	//	Scene::SetScene(new CSceneGameOver());
+		Scene::SetScene(new CSceneGameOver());
 	}
 }
 //ƒhƒ[
