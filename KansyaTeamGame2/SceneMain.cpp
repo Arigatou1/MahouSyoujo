@@ -40,7 +40,7 @@ void CSceneMain::InitScene()
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
-	Objs::InsertObj(obj, OBJ_HERO, 12);
+	Objs::InsertObj(obj, OBJ_HERO, 60);
 	
 
 	//ゲージオブジェクト作成
@@ -59,7 +59,7 @@ void CSceneMain::InitScene()
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
-	Objs::InsertObj(obj_mana, OBJ_MANA, 10);
+	Objs::InsertObj(obj_mana, OBJ_MANA, 55);
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
@@ -75,7 +75,7 @@ void CSceneMain::InitScene()
 
 	//背景オブジェクト作成
 	CObjBlock* objs = new CObjBlock();
-	Objs::InsertObj(objs, OBJ_BLOCK,20);
+	Objs::InsertObj(objs, OBJ_BLOCK,12);
 
 
 	//タイム初期化
