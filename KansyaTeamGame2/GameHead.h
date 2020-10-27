@@ -73,7 +73,7 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
-#include"ObjEnemy3.h"
+#include "ObjEnemy3.h"
 #include "ObjGaugeBase.h"
 #include "ObjBlock.h"
 #include "ObjGaugeHP.h"

@@ -110,6 +110,9 @@
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy3.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -217,6 +220,9 @@
       <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy3.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>

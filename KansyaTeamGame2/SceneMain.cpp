@@ -81,7 +81,6 @@ void CSceneMain::InitScene()
 	CObjBlock* objs = new CObjBlock();
 	Objs::InsertObj(objs, OBJ_BLOCK,20);
 
-
 	//É^ÉCÉÄèâä˙âª
 	m_time = 0;
 
@@ -93,17 +92,19 @@ void CSceneMain::Scene()
 {
 	m_time++;
 	
-/*
+
 	if (m_time == 30)
 	{
-		CObjEnemy2* obj = new CObjEnemy2(800, 400);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(0,440);
+		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
+		/*CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		EnemyAmount++;
+		EnemyAmount++;*/
 
 	}
 	else if (m_time == 60)
 	{
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 440);
+		CObjEnemy2* obj_enemy = new CObjEnemy2(700, 440);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
 		EnemyAmount++;
 	}
@@ -113,7 +114,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
 	}
-	else if (m_time == 220)
+	/*else if (m_time == 220)
 	{
 		CObjEnemy2* obj;
 		obj = new CObjEnemy2(800, 450);
@@ -186,7 +187,7 @@ void CSceneMain::Scene()
 	{
 
 		Scene::SetScene(new CSceneGameClear());
-	}
-	*/
+	}*/
+	
 }
 
