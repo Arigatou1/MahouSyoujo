@@ -70,18 +70,18 @@ void CObjEnemy2::Action()
 	}
 	if (m_ex == 475)
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
-	float x = obj->GetX();
-	float ar = atan(x) * 180.0f / 3.14f;
+	 x = obj->GetX();
+	 ar = atan(x) * 180.0f / 3.14f;
 	if (ar < 0)
 	{
 		ar = abs(ar);
 	}
-	float br = atan(m_vx) * 180.0f / 3.14f;
+	 br = atan(m_vx) * 180.0f / 3.14f;
 	if (br < 0)
 	{
 		br = -abs(br);
 	}
-	float r = 3.14/180.0f;
+	 r = 3.14/180.0f;
 	if (ar < br)
 	{
 		m_vx = m_vx = m_vx * cos(r) - m_vy * -sin(r);
