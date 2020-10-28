@@ -12,7 +12,6 @@
 //使用するネームスペース
 using namespace GameL;
 
-//位置情報X取得用
 float CObjMana::GetX()
 {
 	return Mana_x;
@@ -61,14 +60,14 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.3;
+		Mana_HP-=0.5;
 
 	}
 
 	//敵2に当たると1減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
-		Mana_HP -= 0.3;
+		Mana_HP -= 1.0;
 
 	}
 	
@@ -110,3 +109,4 @@ int CObjMana::GetHP()
 {
 	return Mana_HP;
 }
+

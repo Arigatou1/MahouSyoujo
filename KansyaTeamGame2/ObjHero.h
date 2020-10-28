@@ -45,7 +45,6 @@ private:
 	int mtk_jkn;//–³“GŠÔ—p•Ï”
 	int mtk_max;//–³“GŠÔ—p•Ï”
 	bool m_mtk;//ålŒö‚Ì–³“G”»’è
-	float speed_power;
 
 	bool m_f;		//UŒ‚‚ÌŠÔŠu
 	bool isJump;//ƒWƒƒƒ“ƒv‚Å‚«‚é‚©‚Å‚«‚È‚¢‚©‚ğ”»’f‚·‚é

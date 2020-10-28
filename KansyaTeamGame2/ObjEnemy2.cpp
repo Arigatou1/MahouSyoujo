@@ -15,6 +15,7 @@ CObjEnemy2::CObjEnemy2(float x, float y)
 	m_ex = x;
 	m_ey = y;
 }
+
 //イニシャライズ
 void CObjEnemy2::Init()
 {
@@ -28,6 +29,8 @@ void CObjEnemy2::Init()
 //アクション
 void CObjEnemy2::Action()
 {
+	
+
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
@@ -66,9 +69,31 @@ void CObjEnemy2::Action()
 		m_vy = m_vy * cos(-r) + m_vx * sin(-r);
 	}
 	if (m_ex == 475)
+	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	float x = obj->GetX();
+	float ar = atan(x) * 180.0f / 3.14f;
+	if (ar < 0)
 	{
-		m_vx = 0.0f;
+		ar = abs(ar);
 	}
+	float br = atan(m_vx) * 180.0f / 3.14f;
+	if (br < 0)
+	{
+		br = -abs(br);
+	}
+	float r = 3.14/180.0f;
+	if (ar < br)
+	{
+		m_vx = m_vx = m_vx * cos(r) - m_vy * -sin(r);
+
+	}
+	else 
+	{
+		m_vx = m_vx = m_vx * cos(-r) - m_vy * -sin(-r);
+
+	}
+
+
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex-50.0f, m_ey );
