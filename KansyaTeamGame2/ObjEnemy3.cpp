@@ -3,7 +3,6 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 
-#include"GameHead.h"
 #include"ObjEnemy3.h"
 
 //使用するネームスペース
@@ -19,15 +18,45 @@ CObjEnemy3::CObjEnemy3(float x,float y)
 //イニシャライズ
 void CObjEnemy3::Init()
 {
-	m_vx = 0.0f;
+	m_vx = -1.0f;
 	m_vy = 0.0f;
-	m_posture = 1.0f; //みぎむき0.0f　左向き1.0f
+	//当たり判定用のHITBOXを作成
+	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY3, 10);
 }
 
 //アクション
 void CObjEnemy3::Action()
 {
-	m_ex += m_vx;
+	m_ex += m_ex;
+	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
+	if (m_ex == 475)
+	{
+		m_vx = 0.0f;
+	}
+	/*ジャンプ
+	if (m_ey + 1)
+	{
+		m_ex += 2;
+		m_ex -= 2;
+	}*/
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_ex - 50.0f, m_ey);
+
+	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+		//Amount++;
+	}
+
+	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+		//Amount++;
+	}
 }
 
 //ドロー
@@ -41,15 +70,15 @@ void CObjEnemy3::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top = 370.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 434.0f;
+	src.m_top = 385.0f;
+	src.m_left = 4.0f;
+	src.m_right = 61.0f;
+	src.m_bottom = 447.0f;
 	//表示位置の設定
 	dst.m_top =m_ex;
 	dst.m_left = m_ey;
-	dst.m_right =  m_ey+50.0f;
-	dst.m_bottom =  m_ex+50.0f;
+	dst.m_right =  m_ey+60.0f;
+	dst.m_bottom =  m_ex+60.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);

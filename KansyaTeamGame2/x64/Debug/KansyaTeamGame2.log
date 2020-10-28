@@ -1,7 +1,5 @@
-﻿  ObjEnemy2.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(39,11): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(44,11): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(49,23): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(52,31): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(57,32): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー (2)\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjBlock.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(56,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(59,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(116,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

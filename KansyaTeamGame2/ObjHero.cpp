@@ -57,7 +57,7 @@ void CObjHero::Action()
 		isJump = false;
 	}
 	else if (Input::GetVKey(' ') == false)
-	{
+	{  
 		isJump = true;
 	}
 	//–€ŽC
