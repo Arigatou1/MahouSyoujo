@@ -198,3 +198,4 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 	//•`‰æ
 	Draw::Draw(0, &src, dst, c, 0.0f);
 }
+			
