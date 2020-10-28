@@ -32,33 +32,51 @@ void CObjMagicalGirl::Action()
 
 	if (m_mp < m_maxmp)
 	{
-		m_mtime = 0;
+
 		if (m_mtime % 60 == 0)
 		{
 			m_mp++;
 			m_mtime = 0;
 		}
 	}
-	//魔法少女の通常攻撃
-	if (m_mp >= 10)
+
+	//キーを押すと移動
+	if (Input::GetVKey(VK_LEFT) == true)
+	{
+		m_postrue = 0.0f;
+	}
+	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
 		m_postrue = 1.0f;
 	}
 
 	//魔法少女の通常攻撃
-	if (Input::GetVKey('F') == true)
+	if (m_mp >= 1)
 	{
-		if (m_postrue == 0.0f)
+		if (Input::GetVKey('D') == true && m_t == true)
 		{
-			//ホーミング弾作成
-			CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
-			Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
+			if (m_postrue == 0.0f)
+			{
+				m_t = false;
+				//ホーミング弾作成
+				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
+				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
+
+				m_mp -= 1;
+			}
+			else if (m_postrue == 1.0f)
+			{
+				m_t = false;
+				//ホーミング弾作成
+				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
+				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
+
+				m_mp -= 1;
+			}
 		}
-		else if (m_postrue == 1.0f)
+		else if (Input::GetVKey('D') == false)
 		{
-			//ホーミング弾作成
-			CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
-			Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
+			m_t = true;
 		}
 	}
 }

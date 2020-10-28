@@ -21,6 +21,7 @@ class CObjMagicalGirl : public CObj
 		float m_postrue;//姿勢
 		float m_mp;//MP
 		float m_maxmp;//MAXMP
+		float m_atk_animation;//攻撃のモーション
 		
 		int m_mtime;//MP回復用時間
 		int m_btime;//ホーミング弾用時間
