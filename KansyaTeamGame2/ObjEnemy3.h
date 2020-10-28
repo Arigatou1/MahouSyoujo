@@ -20,4 +20,7 @@ private:
 	float m_vx;		//移動ベクトル
 	float m_vy;
 	float m_posture;
+
+	float m_mx; //マナの座標
+	float m_my;
 };
