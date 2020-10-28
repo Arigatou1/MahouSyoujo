@@ -6,7 +6,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
-#include"GameL/UserData.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -30,8 +30,24 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	//
+	//外部データの読み込み
+	unique_ptr<wchar_t>p;//ステージ情報ポインター
+	int size;
+	p = Save::ExternalDataOpen(L"Stage/Stage01.csv", &size);//外部データ読み込み
 
+	int map[10][13];
+	int count = 1;
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 13; j++)
+		{
+			int w = 0;
+			swscanf_s(&p.get()[count], L"%d", &w);
+
+			map[i][j] = w;
+			count += 2;
+		}
+	}
 
 	//HP用Font作成
 	Font::SetStrTex(L"1234567890/.+-残り敵の数:");
@@ -59,7 +75,9 @@ void CSceneMain::InitScene()
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
 	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
 	
-	
+	//Blockオブジェクト
+	CObjBlock* objb = new CObjBlock(map);
+	Objs::InsertObj(objb, OBJ_BLOCK, 11);
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
@@ -77,9 +95,7 @@ void CSceneMain::InitScene()
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
-	//背景オブジェクト作成
-	CObjBlock* objs = new CObjBlock();
-	Objs::InsertObj(objs, OBJ_BLOCK,12);
+	
 
 	//タイム初期化
 	m_time = 0;
