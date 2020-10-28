@@ -73,7 +73,7 @@ void CSceneMain::InitScene()
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
-	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
+	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 61);
 	
 	//Blockオブジェクト
 	CObjBlock* objb = new CObjBlock(map);
@@ -95,6 +95,9 @@ void CSceneMain::InitScene()
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
+	//背景オブジェクト作成
+	CObjBlock* objs = new CObjBlock();
+	Objs::InsertObj(objs, OBJ_BLOCK,20);
 	
 
 	//タイム初期化
@@ -115,7 +118,9 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
 		/*CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		EnemyAmount++;*/
+		obj = new CObjEnemy2(0, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		EnemyAmount+=2;
 
 	}
 	else if (m_time == 60)
@@ -137,6 +142,9 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		obj = new CObjEnemy2(800, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		obj = new CObjEnemy2(200, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
 		EnemyAmount+=2;
 	}
 
@@ -168,7 +176,7 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 450)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 475);
+		CObjEnemy* obj = new CObjEnemy(0, 500);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
@@ -203,7 +211,7 @@ void CSceneMain::Scene()
 	{
 
 		Scene::SetScene(new CSceneGameClear());
-	}*/
+	}
 	
 }
 

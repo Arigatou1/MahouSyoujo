@@ -15,7 +15,8 @@ public:
 	void Action();
 	void Draw();
 	int GetHP();
-	
+	float GetX();
+	float GetY();
 private:
 	float Mana_HP;
 	float Mana_x;
