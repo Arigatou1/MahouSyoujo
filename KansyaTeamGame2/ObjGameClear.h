@@ -15,4 +15,5 @@ public:
 	void Draw();
 private:
 	int Score;
+	bool m_key_flag;//キーフラグ
 };

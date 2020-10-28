@@ -4,7 +4,6 @@
 //使用するネームスペース
 using namespace GameL;
 
-
 //オブジェクト：ゲームオーバー
 class CObjEnemyAmount : public CObj
 {

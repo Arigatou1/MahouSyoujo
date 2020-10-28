@@ -13,7 +13,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-	int EneAmo();
+//	int EneAmo();
 private:
 	float m_ex;
 	float m_ey;
