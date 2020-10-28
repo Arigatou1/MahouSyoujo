@@ -34,11 +34,9 @@ void CSceneMain::InitScene()
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	int Stage=1;
-	if(Stage==1)
+	
 	p = Save::ExternalDataOpen(L"Stage/Stage01.csv", &size);//外部データ読み込み
-	if (Stage == 2)
-		p = Save::ExternalDataOpen(L"Stage/Stage02.csv", &size);//外部データ読み込み
+	
 	int map[10][13];
 	int count = 1;
 	for (int i = 0; i < 10; i++)
@@ -82,10 +80,6 @@ void CSceneMain::InitScene()
 	//Blockオブジェクト
 	CObjBlock* objb = new CObjBlock(map);
 	Objs::InsertObj(objb, OBJ_BLOCK, 11);
-
-	//mana作成
-	//CObjMana* obj_mana = new CObjMana();
-	//Objs::InsertObj(obj_mana, OBJ_MANA, 55);
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
