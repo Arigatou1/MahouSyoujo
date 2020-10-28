@@ -24,17 +24,21 @@ CSceneMain::CSceneMain()
 //デストラクタ
 CSceneMain::~CSceneMain()
 {
-
+	
 }
 
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
+	int Stage=1;
+	if(Stage==1)
 	p = Save::ExternalDataOpen(L"Stage/Stage01.csv", &size);//外部データ読み込み
-
+	if (Stage == 2)
+		p = Save::ExternalDataOpen(L"Stage/Stage02.csv", &size);//外部データ読み込み
 	int map[10][13];
 	int count = 1;
 	for (int i = 0; i < 10; i++)
