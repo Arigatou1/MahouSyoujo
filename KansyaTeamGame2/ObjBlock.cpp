@@ -8,26 +8,15 @@
 
 using namespace GameL;
 
+CObjBlock::CObjBlock(int map[10][13])
+{
+	//マップデータをコピー
+	memcpy(m_map, map, sizeof(int) * (10 * 13));
+}
 //イニシャライズ
 void CObjBlock::Init()
 {
-	//マップ情報。[縦幅][横幅]
-	//ブロック情報。[0:空 1:草 2:土 3:青 4:赤 5:黄
-	int block_data[10][12] =
-	{
-		{0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,2,0,0,0,0,0,0,0,0},
-		{0,0,0,2,2,0,0,0,0,0,0,0},
-		{1,1,0,2,2,2,0,0,0,0,0,0},
-		{0,0,0,2,2,2,2,0,0,0,0,0},
-		{0,0,0,2,2,2,2,2,0,0,0,0},
-		{1,1,1,3,1,1,4,1,1,5,1,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1},
-	};
-	//
-	memcpy(m_map, block_data, sizeof(int) * (10 * 12));
+	
 }
 
 void CObjBlock::Action()
@@ -46,7 +35,7 @@ void CObjBlock::Action()
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 12; j++)
+		for (int j = 0; j < 13; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
@@ -131,7 +120,7 @@ void CObjBlock::Draw()
 
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 12; j++)
+		for (int j = 0; j < 13; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
