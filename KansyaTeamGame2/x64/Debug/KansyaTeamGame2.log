@@ -1,2 +1,5 @@
-﻿  ObjEnemy3.cpp
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjBlock.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(69,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(72,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(133,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

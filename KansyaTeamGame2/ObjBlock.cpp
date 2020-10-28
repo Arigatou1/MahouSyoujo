@@ -8,26 +8,28 @@
 
 using namespace GameL;
 
+CObjBlock::CObjBlock(int map[10][13])
+{
+	//マップデータをコピー
+	memcpy(m_map, map, sizeof(int) * (10 * 13));
+}
 //イニシャライズ
 void CObjBlock::Init()
 {
-	//マップ情報。[縦幅][横幅]
-	//ブロック情報。[0:空 1:草 2:土 3:青 4:赤 5:黄
-	int block_data[10][12] =
+	for (int i = 0; i < 10; i++)
 	{
-		{0,0,0,0,0,0,0,0,0,0,0,0},
-		{1,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,2,0,0,0,0,0,0,0,0},
-		{0,0,0,2,2,0,0,0,0,0,0,0},
-		{1,1,0,2,2,2,0,0,0,0,0,0},
-		{0,0,0,2,2,2,2,0,0,0,0,0},
-		{0,0,0,2,2,2,2,2,0,0,0,0},
-		{1,1,1,3,1,1,4,1,1,5,1,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1},
-	};
-	//
-	memcpy(m_map, block_data, sizeof(int) * (10 * 12));
+		for (int j = 0; j < 13; j++)
+		{
+			//列の中から6を探す
+			if (m_map[i][j]==6)
+			{
+				CObjMana* obj_mana = new CObjMana(j * 64.0f, i * 64.0f);
+				Objs::InsertObj(obj_mana, OBJ_MANA, 55);
+			}
+
+		}
+
+	}
 }
 
 void CObjBlock::Action()
@@ -46,22 +48,22 @@ void CObjBlock::Action()
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 12; j++)
+		for (int j = 0; j < 13; j++)
 		{
-			if (m_map[i][j] > 0)
+			if (m_map[i][j] > 0 && m_map[i][j]!=6)
 			{
 				//要素番号を座標に変更
-				float x = j * 64.0f;
-				float y = i * 64.0f;
+				float bx = j * 64.0f;
+				float by = i * 64.0f;
 
 				//主人公のブロックの当たり判定
-				if ((hx+64.0f>x)&&(hx<x+64.0f)&&(hy+64.0f>y)&&(hy<y+64.0f))
+				if ((hx+64.0f>bx)&&(hx<bx+64.0f)&&(hy+64.0f>by)&&(hy<by+64.0f))
 				{
 					//上下左右判定
 
 					//vectorの作成
-					float vx = hx - x;
-					float vy = hy - y;
+					float vx = hx - bx;
+					float vy = hy -by;
 
 					//長さを求める
 					float len = sqrt(vx * vx + vy * vy);
@@ -81,7 +83,7 @@ void CObjBlock::Action()
 						if ((r < 45 && r>0) || r > 315)
 						{
 							//→
-							hero->SetX(x + 64.0f);//ブロックの位置-主人公の幅
+							hero->SetX(bx + 64.0f);//ブロックの位置-主人公の幅
 							hero->SetRight(true);//主人公の左側が衝突
 							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
@@ -89,13 +91,13 @@ void CObjBlock::Action()
 						{
 							//上
 							hero->SetDown(true);//主人公から見て、下の部分が衝突している
-							hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
+							hero->SetY(by - 64.0f);//ブロックの位置-主人公の幅
 							hero->SetVY(0.0f);
 						}
 						if (r > 135 && r < 225)
 						{
 							//左
-							hero->SetX(x - 64.0f);//ブロックの位置-主人公の幅
+							hero->SetX(bx - 64.0f);//ブロックの位置-主人公の幅
 							hero->SetLeft(true);//主人公の左側が衝突
 							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
@@ -103,19 +105,23 @@ void CObjBlock::Action()
 						{
 							//下
 							hero->SetUp(true);
-							hero->SetY(y + 64.0f);//ブロックの位置-主人公の幅
+							hero->SetY(by + 64.0f);//ブロックの位置-主人公の幅
 
 							if (hero->GetVY() < 0)
 							{
 								hero->SetVY(0.0f);
 							}
 						}
+
+
 					}
 					
 				}
 			}
 		}
 	}
+
+	
 }
 
 //ドロー
@@ -131,7 +137,7 @@ void CObjBlock::Draw()
 
 	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 12; j++)
+		for (int j = 0; j < 13; j++)
 		{
 			if (m_map[i][j] > 0)
 			{
@@ -161,6 +167,11 @@ void CObjBlock::Draw()
 				{
 					BlockDraw(256.0f, 256.0f, &dst, c);
 				}
+				//ブロック6
+				else if (m_map[i][j] == 6)
+				{
+					;//マナ配置用番号
+				}
 				//ブロック1
 				else
 				{
@@ -186,4 +197,10 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 	src.m_bottom = src.m_top + 64.0f;
 	//描画
 	Draw::Draw(0, &src, dst, c, 0.0f);
+}
+				//描画
+				Draw::Draw(0, &src, &dst, c, 0.0f);
+			}
+		}
+	}
 }

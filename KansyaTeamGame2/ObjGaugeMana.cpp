@@ -63,12 +63,12 @@ void CObjGaugeMANAHP::Draw()
 	src.m_right = GaugePercent + 4.0f;
 	src.m_bottom = 168.0f;
 	//表示位置の設定
-	dst.m_top = gb_y + 64.0f;
+	dst.m_top = gb_y + 96.0f;
 	//0%位置
 	dst.m_left =gb_x - 112.0f;
 	//100%位置
 	dst.m_right = GaugePercent + gb_x - 112.0f;
-	dst.m_bottom = gb_y + 88.0f;
+	dst.m_bottom = gb_y + 120.0f;
 
 
 	//描画

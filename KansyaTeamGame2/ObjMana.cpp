@@ -12,13 +12,26 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjMana::CObjMana(float x, float y)
+{
+	Mana_x = x;
+	Mana_y = y;
+}
+float CObjMana::GetX()
+{
+	return Mana_x;
+}
 
+//位置情報Y取得用
+float CObjMana::GetY()
+{
+	return Mana_y;
+}
 
 //イニシャライズ
 void CObjMana::Init()
 {
-	Mana_x = 372;
-	Mana_y = 440;
+	
 	Mana_HP = 100;
 
 
@@ -106,3 +119,4 @@ int CObjMana::GetHP()
 {
 	return Mana_HP;
 }
+

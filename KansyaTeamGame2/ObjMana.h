@@ -9,13 +9,14 @@ using namespace GameL;
 class CObjMana :public CObj
 {
 public:
-	CObjMana() {};
+	CObjMana(float x,float y);
 	~CObjMana() {};
 	void Init();
 	void Action();
 	void Draw();
 	int GetHP();
-	
+	float GetX();
+	float GetY();
 private:
 	float Mana_HP;
 	float Mana_x;
