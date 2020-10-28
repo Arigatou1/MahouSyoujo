@@ -20,5 +20,3 @@ private:
 
 	void BlockDraw(float x, float y, RECT_F* dst, float c[]);
 };
-	int m_b[10][10];//ƒ}ƒbƒvî•ñ
-};
