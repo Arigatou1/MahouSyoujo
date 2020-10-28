@@ -21,7 +21,7 @@ void CObjMenu::Action()
 	//エンターキーを押してシーン:ゲームTitleに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-
+		;
 	}
 	else
 	{
