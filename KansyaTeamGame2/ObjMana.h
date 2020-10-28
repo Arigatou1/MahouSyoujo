@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjMana :public CObj
 {
 public:
-	CObjMana() {};
+	CObjMana(float x,float y);
 	~CObjMana() {};
 	void Init();
 	void Action();

@@ -80,8 +80,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(objb, OBJ_BLOCK, 11);
 
 	//mana作成
-	CObjMana* obj_mana = new CObjMana();
-	Objs::InsertObj(obj_mana, OBJ_MANA, 55);
+	//CObjMana* obj_mana = new CObjMana();
+	//Objs::InsertObj(obj_mana, OBJ_MANA, 55);
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
