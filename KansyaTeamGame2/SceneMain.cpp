@@ -57,9 +57,11 @@ void CSceneMain::InitScene()
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
-	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
+	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 61);
 	
-	
+	//魔法少女の魔法玉作成
+	//CObjHomingBullet* obj_homingbullet = new CObjHomingBullet();
+	//Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 61);
 
 	//mana作成
 	CObjMana* obj_mana = new CObjMana();
