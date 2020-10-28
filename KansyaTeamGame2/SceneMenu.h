@@ -5,7 +5,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//シーン：ゲームオーバー
+//シーン：メニュー
 class CSceneMenu :public CScene
 {
 public:
@@ -13,4 +13,7 @@ public:
 	~CSceneMenu();
 	void InitScene();//初期化メソッド
 	void Scene();	//実行中メソッド
+private:
+	float cursor_x;
+	float cursor_y;
 };
