@@ -14,6 +14,7 @@ public:
 	void Action();
 	void Draw();
 	
+	
 private:
 	float m_ex;
 	float m_ey;

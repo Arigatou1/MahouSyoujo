@@ -80,7 +80,7 @@ void CSceneMain::InitScene()
 	//背景オブジェクト作成
 	CObjBlock* objs = new CObjBlock();
 	Objs::InsertObj(objs, OBJ_BLOCK,20);
-
+	
 
 	//タイム初期化
 	m_time = 0;
@@ -93,12 +93,14 @@ void CSceneMain::Scene()
 {
 	m_time++;
 	
-/*
+
 	if (m_time == 30)
 	{
 		CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		EnemyAmount++;
+		obj = new CObjEnemy2(0, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		EnemyAmount+=2;
 
 	}
 	else if (m_time == 60)
@@ -187,6 +189,6 @@ void CSceneMain::Scene()
 
 		Scene::SetScene(new CSceneGameClear());
 	}
-	*/
+	
 }
 

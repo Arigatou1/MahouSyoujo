@@ -12,7 +12,17 @@
 //使用するネームスペース
 using namespace GameL;
 
+//位置情報X取得用
+float CObjMana::GetX()
+{
+	return Mana_x;
+}
 
+//位置情報Y取得用
+float CObjMana::GetY()
+{
+	return Mana_y;
+}
 
 //イニシャライズ
 void CObjMana::Init()

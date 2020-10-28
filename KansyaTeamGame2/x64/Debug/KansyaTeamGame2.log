@@ -1,7 +1,11 @@
-﻿  ObjHero.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(68,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(96,25): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(126,48): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(228,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(228,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy2.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(39,11): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(46,11): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(53,13): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(54,13): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(57,25): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(60,24): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(61,24): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(65,25): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(66,25): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー (2)\x64\Debug\KansyaTeamGame2.exe
