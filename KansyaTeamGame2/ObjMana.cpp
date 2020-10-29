@@ -44,7 +44,7 @@ void CObjMana::Init()
 	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, Mana_x+4 , Mana_y-604, 56, 600, ELEMENT_FIELD, OBJ_MANA, 1);
+	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_FIELD, OBJ_MANA, 1);
 }
 
 //アクション
@@ -60,7 +60,7 @@ void CObjMana::Action()
 
 	//HitBoxの内容
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(Mana_x,Mana_y-304);
+	hit->SetPos(Mana_x,Mana_y);
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{

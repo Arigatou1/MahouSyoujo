@@ -42,6 +42,9 @@ void CObjHero::Init()
 	m_hit_right = false;
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
+
+	//剣 0 銃 1
+	武器 = 0;
 }
 
 //アクション
@@ -111,16 +114,27 @@ void CObjHero::Action()
 		m_px += m_vx;
 		m_py += m_vy;
 
-
+		
 		//test用　攻撃用
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
-			m_f = false;
-			atk_anime = 1;
+			
+			
+				m_f = false;
+				atk_anime = 1;
 
-			CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
-			Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+				CObjBullet* obj_bullet = new CObjBullet(m_px, m_py, m_posture, m_f);
+				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
+				
 
+			
+			//	m_f = false;
+			//	atk_anime = 1;
+//
+			//	CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
+			//	Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+			
+			
 
 		}
 

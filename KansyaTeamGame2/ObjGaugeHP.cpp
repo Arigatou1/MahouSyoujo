@@ -35,17 +35,7 @@ void CObjGaugeHP::Action()
 
 	}
 
-	//1キーを押すとクリアに移行する
-	/*if (Input::GetVKey('1') == true)
-	{
-		Clear_Flag = true;
 
-
-	}
-
-	if (Clear_Flag == true)
-		Scene::SetScene(new CSceneGameClear());
-		*/
 
 }
 //ドロー

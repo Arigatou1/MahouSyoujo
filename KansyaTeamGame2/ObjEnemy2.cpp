@@ -33,63 +33,68 @@ void CObjEnemy2::Action()
 
 	//m_vxの速度で移動
 	m_ex += m_vx;
-
-	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
+    //特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
+	if (m_ex == m_mx)
+	{
+		m_vx = 0.0f;
+	}
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
-	float x = obj->GetX() - m_ex;
-	float y = obj->GetY() - m_ey;
-	float ar = atan2(-y,x) * 180.0f / 3.14f;
-	if (ar < 0)
+	if (obj != nullptr)
 	{
-		ar = 360 - abs(ar);
-	}
-
-	
-	float br = atan2(-m_vx, m_vy) * 180.0f / 3.14f;
-	if (br < 0)
-	{
-		br = 360 - abs(br);
-	}
-	if (ar - br > 20)
-	{
-		m_vx = cos(3.14 / 180 * ar);
-		m_vy = sin(3.14 / 180 * ar);
-	}
-
-	float r = 3.14 / 180.0f;
-	if (ar < br)
-	{
-		m_vx = m_vx * cos(r) - m_vy * sin(r);
-		m_vy = m_vy * cos(r) + m_vx * sin(r);
-	}
-	else
-	{
-		m_vx = m_vx * cos(-r) - m_vy * sin(-r);
-		m_vy = m_vy * cos(-r) + m_vx * sin(-r);
-	}
-	
+		float x = obj->GetX() - m_ex;
+		float y = obj->GetY() - m_ey;
+		float ar = atan2(-y, x) * 180.0f / 3.14f;
 
 
+		if (ar < 0)
+		{
+			ar = 360 - abs(ar);
+		}
 
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex-50.0f, m_ey );
 
-	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
-	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
+		float br = atan2(-m_vx, m_vy) * 180.0f / 3.14f;
+		if (br < 0)
+		{
+			br = 360 - abs(br);
+		}
+		if (ar - br > 20)
+		{
+			m_vx = cos(3.14 / 180 * ar);
+			m_vy = sin(3.14 / 180 * ar);
+		}
+
+		float r = 3.14 / 180.0f;
+		if (ar < br)
+		{
+			m_vx = m_vx * cos(r) - m_vy * sin(r);
+			m_vy = m_vy * cos(r) + m_vx * sin(r);
+		}
+		else
+		{
+			m_vx = m_vx * cos(-r) - m_vy * sin(-r);
+			m_vy = m_vy * cos(-r) + m_vx * sin(-r);
+		}
 	}
 
-	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
-	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
+		//HitBOxの内容を変更
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_ex - 50.0f, m_ey);
+
+		if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			//Amount++;
+		}
+
+		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			//Amount++;
+		}
 	}
-}
 
 //ドロー
 void CObjEnemy2::Draw()

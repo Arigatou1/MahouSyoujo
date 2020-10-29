@@ -16,13 +16,24 @@ void CObjMenu::Init()
 	m_key_flag = false;//キーフラグ
 	cursor_x = 272;
 	cursor_y = 16;
+	StageID = 0;
 }
 
 //アクション
 void CObjMenu::Action()
 {
+	//ステージ選択画面
+	//今いるカーソルの場所から位置を取得し、
+	//ステージIDを計算し設定するには？？
 
-	if (Input::GetVKey(VK_RETURN) == true && cursor_y == 16)
+	StageID = ((cursor_y - 16) / 80)+1;
+
+	//cursor_y = 16,96,176,256,336,416,496
+	//カーソルの初期位置は16なので、
+	//96から16を引き、80を出し、80で割ることで1が出てくる。
+	//それに1を足す。
+
+	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
 		{
@@ -53,11 +64,12 @@ void CObjMenu::Action()
 		m_key_flag = true;
 	}
 
+	//カーソルが画面外いかない処理
 	if (cursor_y < 16)
 		cursor_y = 16;
 
-	if (cursor_y > 496)
-		cursor_y = 496;
+	if (cursor_y > 256)
+		cursor_y = 256;
 
 	
 
@@ -82,7 +94,7 @@ void CObjMenu::Draw()
 	src.m_right = 64.0f;
 	src.m_bottom = 64.0f;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		//表示位置の設定
 		dst.m_top = (i * 16.0f) + i * 64.0f + 16.0f;
@@ -90,6 +102,8 @@ void CObjMenu::Draw()
 		dst.m_right = dst.m_left + 256.0f;
 		dst.m_bottom = dst.m_top + 64.0f;
 		Draw::Draw(0, &src, &dst, c, 0.0f);
+
+		
 	}
 
 
@@ -118,6 +132,11 @@ void CObjMenu::Draw()
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1);
 
-		Font::StrDraw(str, 284, 24+(i*80), 48, c);
+		Font::StrDraw(str, 288, 24+(i*80), 48, c);
 	}
+}
+
+int CObjMenu::GetStageID()
+{
+	return StageID;
 }

@@ -92,7 +92,7 @@ void CObjBlock::Action()
 					if (len < 88.0f)
 					{
 						//角度で上下左右判定
-						if ((r < 45 && r>0) || r > 315)
+						if ((r < 40 && r>0) || r > 320)
 						{
 							//右
 							hero->SetX(bx + 64.0f);//ブロックの位置-主人公の幅
@@ -116,7 +116,7 @@ void CObjBlock::Action()
 							//	enemy3->SetVY(0.0f);
 							//}
 						}
-						if (r > 135 && r < 225)
+						if (r > 140 && r < 220)
 						{
 							//左
 							hero->SetX(bx - 64.0f);//ブロックの位置-主人公の幅
@@ -225,4 +225,4 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 	//描画
 	Draw::Draw(0, &src, dst, c, 0.0f);
 }
-			
+				

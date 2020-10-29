@@ -34,7 +34,38 @@ void CObjEnemy::Action()
 	{
 		m_vx = 0.0f;
 	}
+	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	float x = obj->GetX() - m_ex;
+	float y = obj->GetY() - m_ey;
+	float ar = atan2(-y, x) * 180.0f / 3.14f;
+	if (ar < 0)
+	{
+		ar = 360 - abs(ar);
+	}
 
+
+	float br = atan2(-m_vx, m_vy) * 180.0f / 3.14f;
+	if (br < 0)
+	{
+		br = 360 - abs(br);
+	}
+	if (ar - br > 20)
+	{
+		m_vx = cos(3.14 / 180 * ar);
+		m_vy = sin(3.14 / 180 * ar);
+	}
+
+	float r = 3.14 / 180.0f;
+	if (ar < br)
+	{
+		m_vx = m_vx * cos(r) - m_vy * sin(r);
+		m_vy = m_vy * cos(r) + m_vx * sin(r);
+	}
+	else
+	{
+		m_vx = m_vx * cos(-r) - m_vy * sin(-r);
+		m_vy = m_vy * cos(-r) + m_vx * sin(-r);
+	}
 	//HitBOx‚Ì“à—e‚ð•ÏX
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
