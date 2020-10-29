@@ -14,6 +14,5 @@ public:
 	void InitScene();//初期化メソッド
 	void Scene();	//実行中メソッド
 private:
-	float cursor_x;
-	float cursor_y;
+	
 };
