@@ -69,29 +69,7 @@ void CObjEnemy2::Action()
 		m_vy = m_vy * cos(-r) + m_vx * sin(-r);
 	}
 	if (m_ex == 475)
-	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
-	float x = obj->GetX();
-	float ar = atan(x) * 180.0f / 3.14f;
-	if (ar < 0)
-	{
-		ar = abs(ar);
-	}
-	float br = atan(m_vx) * 180.0f / 3.14f;
-	if (br < 0)
-	{
-		br = -abs(br);
-	}
-	float r = 3.14/180.0f;
-	if (ar < br)
-	{
-		m_vx = m_vx = m_vx * cos(r) - m_vy * -sin(r);
 
-	}
-	else 
-	{
-		m_vx = m_vx = m_vx * cos(-r) - m_vy * -sin(-r);
-
-	}
 
 
 	//HitBOx‚Ì“à—e‚ğ•ÏX
