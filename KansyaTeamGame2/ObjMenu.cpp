@@ -21,7 +21,16 @@ void CObjMenu::Init()
 //アクション
 void CObjMenu::Action()
 {
-	if (Input::GetVKey(VK_UP) == true)
+
+	if (Input::GetVKey(VK_RETURN) == true && cursor_y == 16)
+	{
+		if (m_key_flag == true)
+		{
+			Scene::SetScene(new CSceneMain());
+			m_key_flag = false;
+		}
+	}
+	else if (Input::GetVKey(VK_UP) == true)
 	{
 		if (m_key_flag == true)
 		{
@@ -38,10 +47,20 @@ void CObjMenu::Action()
 			m_key_flag = false;
 		}
 	}
+	
 	else
 	{
 		m_key_flag = true;
 	}
+
+	if (cursor_y < 16)
+		cursor_y = 16;
+
+	if (cursor_y > 496)
+		cursor_y = 496;
+
+	
+
 }
 
 //ドロー
@@ -49,7 +68,7 @@ void CObjMenu::Draw()
 {
 	float c[4] = { 1.0f,0.0f,0.0f,1.0f };
 
-	
+
 
 	//描画カラー情報
 
@@ -66,8 +85,8 @@ void CObjMenu::Draw()
 	for (int i = 0; i < 5; i++)
 	{
 		//表示位置の設定
-		dst.m_top =(i*16.0f)+ i * 64.0f+16.0f;
-		dst.m_left =272.0f;
+		dst.m_top = (i * 16.0f) + i * 64.0f + 16.0f;
+		dst.m_left = 272.0f;
 		dst.m_right = dst.m_left + 256.0f;
 		dst.m_bottom = dst.m_top + 64.0f;
 		Draw::Draw(0, &src, &dst, c, 0.0f);
@@ -77,14 +96,14 @@ void CObjMenu::Draw()
 
 
 
-	c[1] = 1.0f;
-		//表示位置の設定
-		dst.m_top = cursor_y+0.0f;
-		dst.m_left = cursor_x+0.0f;
-		dst.m_right = dst.m_left + 256.0f;
-		dst.m_bottom = dst.m_top + 64.0f;
-		Draw::Draw(0, &src, &dst, c, 0.0f);
-	
+	c[1] = 0.8f;
+	//表示位置の設定
+	dst.m_top = cursor_y + 0.0f;
+	dst.m_left = cursor_x + 0.0f;
+	dst.m_right = dst.m_left + 256.0f;
+	dst.m_bottom = dst.m_top + 64.0f;
+	Draw::Draw(0, &src, &dst, c, 0.0f);
+
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
 
@@ -94,5 +113,11 @@ void CObjMenu::Draw()
 	c[1] = 1.0f;
 	Font::StrDraw(L"GAME Menu", 2, 2, 32, c);
 
+	for (int i = 0; i < 4; i++)
+	{
+		wchar_t str[128];
+		swprintf_s(str,L"ステージ%d",i+1);
 
+		Font::StrDraw(str, 284, 24+(i*80), 48, c);
+	}
 }
