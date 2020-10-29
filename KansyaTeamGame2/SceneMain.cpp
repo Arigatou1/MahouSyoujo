@@ -30,11 +30,11 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	
+	CObjMenu* sid = (CObjMenu*)Objs::GetObj(OBJ_MENU);
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	int Stage = 1;
+	int Stage = sid->GetStageID();
 
 	wchar_t s[128];
 	swprintf_s(s, L"Stage/Stage%d.csv", Stage);
