@@ -16,7 +16,7 @@ public :
 	float GetX() { return m_px; };
 	float GetY() { return m_py; };
 	float GetVY() { return m_vy; };
-	float GetVX() { return m_vy; };
+	float GetVX() { return m_vx; };
 
 	float SetX(float x) { return m_px=x; };
 	float SetY(float y) { return m_py=y; };
