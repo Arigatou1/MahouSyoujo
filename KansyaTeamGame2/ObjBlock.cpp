@@ -45,6 +45,18 @@ void CObjBlock::Action()
 	hero->SetLeft(false);
 	hero->SetRight(false);
 
+	//敵３の位置取得
+	
+	//CObjEnemy3* enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
+	//float ex = enemy3->GetX();
+	//float ey = enemy3->GetY();
+
+	//敵3の衝突状態確認用フラグの初期化
+	//enemy3->SetUp(false);
+	//enemy3->SetDown(false);
+	//enemy3->SetLeft(false);
+	//enemy3->SetRight(false);
+
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 10; i++)
 	{
@@ -82,10 +94,12 @@ void CObjBlock::Action()
 						//角度で上下左右判定
 						if ((r < 45 && r>0) || r > 315)
 						{
-							//→
+							//右
 							hero->SetX(bx + 64.0f);//ブロックの位置-主人公の幅
 							hero->SetRight(true);//主人公の左側が衝突
 							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
+
+
 						}
 						if (r > 45 && r < 135)
 						{
@@ -93,6 +107,14 @@ void CObjBlock::Action()
 							hero->SetDown(true);//主人公から見て、下の部分が衝突している
 							hero->SetY(by - 64.0f);//ブロックの位置-主人公の幅
 							hero->SetVY(0.0f);
+
+							//if (enemy3 != nullptr)
+							//{
+								//上
+							//	enemy3->SetDown(true);//主人公から見て、下の部分が衝突している
+							//	enemy3->SetY(by - 64.0f);//ブロックの位置-主人公の幅
+							//	enemy3->SetVY(0.0f);
+							//}
 						}
 						if (r > 135 && r < 225)
 						{
@@ -117,6 +139,11 @@ void CObjBlock::Action()
 					}
 					
 				}
+
+				//敵3のブロックの当たり判定
+				
+				
+				
 			}
 		}
 	}
