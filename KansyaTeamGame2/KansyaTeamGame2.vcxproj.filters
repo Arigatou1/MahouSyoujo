@@ -113,6 +113,9 @@
     <ClCompile Include="ObjEnemy3.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBullet.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -223,6 +226,9 @@
       <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy3.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>

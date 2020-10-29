@@ -24,17 +24,25 @@ CSceneMain::CSceneMain()
 //デストラクタ
 CSceneMain::~CSceneMain()
 {
-
+	
 }
 
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//ステージiDを取得する。
+	CObjMenu* sid = (CObjMenu*)Objs::GetObj(OBJ_MENU);
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	p = Save::ExternalDataOpen(L"Stage/Stage01.csv", &size);//外部データ読み込み
+	int Stage = sid->GetStageID();
 
+
+	//マップデータを読み込む。
+	wchar_t s[128];
+	swprintf_s(s, L"Stage/Stage%d.csv", Stage);
+	p = Save::ExternalDataOpen(s, &size);//外部データ読み込み
+	
 	int map[10][13];
 	int count = 1;
 	for (int i = 0; i < 10; i++)
@@ -79,21 +87,18 @@ void CSceneMain::InitScene()
 	CObjBlock* objb = new CObjBlock(map);
 	Objs::InsertObj(objb, OBJ_BLOCK, 11);
 
-	//mana作成
-	//CObjMana* obj_mana = new CObjMana();
-	//Objs::InsertObj(obj_mana, OBJ_MANA, 55);
-
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
 	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 51);
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
-	Objs::InsertObj(obj_bg, OBJ_BG, 10);
+	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
-	//背景オブジェクト作成
+	//敵の数オブジェクト作成
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
+
 
 
 	
@@ -112,10 +117,10 @@ void CSceneMain::Scene()
 
 	if (m_time == 30)
 	{
-		CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
+		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(300,600);
 		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
-	}
-		/*CObjEnemy2* obj = new CObjEnemy2(800, 400);
+		CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		obj = new CObjEnemy2(0, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
@@ -134,7 +139,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
 	}
-	/*else if (m_time == 220)
+	else if (m_time == 220)
 	{
 		CObjEnemy2* obj;
 		obj = new CObjEnemy2(800, 450);
@@ -199,7 +204,7 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 600)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 475);
+		CObjEnemy* obj = new CObjEnemy(500, 475);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 425);
 		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
@@ -210,7 +215,7 @@ void CSceneMain::Scene()
 	{
 
 		Scene::SetScene(new CSceneGameClear());
-	}*/
+	}
 	
 }
 

@@ -18,33 +18,29 @@ CObjEnemy3::CObjEnemy3(float x,float y)
 //イニシャライズ
 void CObjEnemy3::Init()
 {
-	m_vx = -1.0f;
-	m_vy = 0.0f;
+	m_vx = 0.0f;
+	m_vy = -1.0f;
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY3, 10);
+	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
 }
 
 //アクション
 void CObjEnemy3::Action()
 {
-	m_ex += m_ex;
+	m_ey += m_vy;
 	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
-	if (m_ex == 475)
+	if (m_ey == 420)
 	{
-		m_vx = 0.0f;
+		m_vy = 0.0f;
+
 	}
-	/*ジャンプ
-	if (m_ey + 1)
-	{
-		m_ex += 2;
-		m_ex -= 2;
-	}*/
+
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex - 50.0f, m_ey);
 
-	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+	/*if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
@@ -56,7 +52,7 @@ void CObjEnemy3::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
-	}
+	}*/
 }
 
 //ドロー

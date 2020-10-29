@@ -20,15 +20,17 @@ void CObjMagicalGirl::Init()
 	m_mp =m_maxmp;//MP総量100
 	
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
+	m_atk_animation = 0;//0=棒立ちの画像
 
-	m_mtime = 0;
+	m_mtime = 1;
+	//m_btime = 1;
 }
 
 //アクション
 void CObjMagicalGirl::Action()
 {
 	m_mtime++;
-	m_btime++;
+	//m_btime++;
 
 	if (m_mp < m_maxmp)
 	{
@@ -55,10 +57,12 @@ void CObjMagicalGirl::Action()
 	{
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
+			m_atk_animation = 3;//杖持った姿になる
+
 			if (m_postrue == 0.0f)
 			{
 				m_t = false;
-				//ホーミング弾作成
+				//魔法少女魔法玉作成
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
@@ -67,7 +71,7 @@ void CObjMagicalGirl::Action()
 			else if (m_postrue == 1.0f)
 			{
 				m_t = false;
-				//ホーミング弾作成
+				//魔法少女魔法玉作成
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
@@ -76,6 +80,7 @@ void CObjMagicalGirl::Action()
 		}
 		else if (Input::GetVKey('D') == false)
 		{
+			m_atk_animation = 0;//棒立ちの姿になる
 			m_t = true;
 		}
 	}
@@ -92,8 +97,8 @@ void CObjMagicalGirl::Draw()
 
 	//切り取り位置の設定
 	src.m_top    = 128.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 64.0f;
+	src.m_left   = (m_atk_animation * 64.0f) + 0.0f;
+	src.m_right  = (m_atk_animation * 64.0f) + 64.0f;
 	src.m_bottom = 192.0f;
 
 	//表示位置の設定
