@@ -59,10 +59,10 @@ void CObjBullet::Draw()
 	src.m_bottom = 256.0f;
 
 	//ï\é¶à íuÇÃê›íË
-	dst.m_top =64.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 64.0f;
-	dst.m_bottom = 128.0f;
+	dst.m_top =py+0.0f;
+	dst.m_left = (b_posture*64)+px+64.0f;
+	dst.m_right = (b_posture * 64)+px+64.0f;
+	dst.m_bottom = py+64.0f;
 
 	//ï`âÊ
 	Draw::Draw(0, &src, &dst, c, 0.0f);
