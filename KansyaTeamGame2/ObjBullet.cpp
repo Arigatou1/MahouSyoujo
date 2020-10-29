@@ -60,8 +60,8 @@ void CObjBullet::Draw()
 
 	//ï\é¶à íuÇÃê›íË
 	dst.m_top =py+0.0f;
-	dst.m_left = (b_posture*64)+px+64.0f;
-	dst.m_right = (b_posture * 64)+px+64.0f;
+	dst.m_left = (b_posture*32)+px+32.0f;
+	dst.m_right = (b_posture*-32)+px+32.0f;
 	dst.m_bottom = py+64.0f;
 
 	//ï`âÊ
