@@ -16,13 +16,23 @@ void CObjMenu::Init()
 	m_key_flag = false;//キーフラグ
 	cursor_x = 272;
 	cursor_y = 16;
+	StageID = 0;
 }
 
 //アクション
 void CObjMenu::Action()
 {
+	//ステージ選択画面
+	//今いるカーソルの場所から位置を取得し、
+	//ステージIDを計算し設定するには？？
 
-	if (Input::GetVKey(VK_RETURN) == true && cursor_y == 16)
+	StageID = ((cursor_y - 16) / 80)+1;
+	//StageID = 
+	//cursor_y = 16,96,176,256,336,416,496
+	//96から16を引き、80を出し、80で割ることで1が出てくる。
+	//それに1を足す。
+
+	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
 		{
@@ -53,6 +63,7 @@ void CObjMenu::Action()
 		m_key_flag = true;
 	}
 
+	//カーソルが画面外いかない処理
 	if (cursor_y < 16)
 		cursor_y = 16;
 
@@ -120,4 +131,9 @@ void CObjMenu::Draw()
 
 		Font::StrDraw(str, 284, 24+(i*80), 48, c);
 	}
+}
+
+int CObjMenu::GetStageID()
+{
+	return StageID;
 }
