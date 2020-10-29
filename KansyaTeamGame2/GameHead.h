@@ -54,6 +54,7 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	int Stage;
 	
 };
 //------------------------------------------------
