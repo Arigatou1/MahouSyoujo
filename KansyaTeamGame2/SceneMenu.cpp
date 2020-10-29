@@ -27,7 +27,15 @@ CSceneMenu::~CSceneMenu()
 //初期化メソッド
 void CSceneMenu::InitScene()
 {
-	
+	//出力させる文字のグラフィックを作成
+	Font::SetStrTex(L"Game Menu");
+
+	//グラフィックの読み込み
+	Draw::LoadImageW(L"Menu.png", 0, TEX_SIZE_512);
+
+	//メニューオブジェクト作成
+	CObjMenu* obj = new CObjMenu();
+	Objs::InsertObj(obj, OBJ_MENU, 0);
 }
 //実行中メソッド
 void CSceneMenu::Scene()

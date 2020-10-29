@@ -24,17 +24,22 @@ CSceneMain::CSceneMain()
 //デストラクタ
 CSceneMain::~CSceneMain()
 {
-
+	
 }
 
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	p = Save::ExternalDataOpen(L"Stage/Stage01.csv", &size);//外部データ読み込み
+	int Stage = 1;
 
+	wchar_t s[128];
+	swprintf_s(s, L"Stage/Stage%d.csv", Stage);
+	p = Save::ExternalDataOpen(s, &size);//外部データ読み込み
+	
 	int map[10][13];
 	int count = 1;
 	for (int i = 0; i < 10; i++)
@@ -79,10 +84,6 @@ void CSceneMain::InitScene()
 	CObjBlock* objb = new CObjBlock(map);
 	Objs::InsertObj(objb, OBJ_BLOCK, 11);
 
-	//mana作成
-	//CObjMana* obj_mana = new CObjMana();
-	//Objs::InsertObj(obj_mana, OBJ_MANA, 55);
-
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
 	Objs::InsertObj(obj_gmp, OBJ_GAUGEMP, 51);
@@ -95,9 +96,7 @@ void CSceneMain::InitScene()
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
-	//背景オブジェクト作成
-	CObjBlock* objs = new CObjBlock();
-	Objs::InsertObj(objs, OBJ_BLOCK,20);
+
 	
 
 	//タイム初期化
@@ -114,7 +113,8 @@ void CSceneMain::Scene()
 
 	if (m_time == 30)
 	{
-		CObjEnemy3*obj_Enemy = new CObjEnemy3(0,440);
+		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(300,600);
 		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
 		CObjEnemy2* obj = new CObjEnemy2(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
@@ -211,7 +211,7 @@ void CSceneMain::Scene()
 	{
 
 		Scene::SetScene(new CSceneGameClear());
-	}
+	}*/
 	
 }
 

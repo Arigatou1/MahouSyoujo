@@ -68,6 +68,7 @@ void CObjEnemy2::Action()
 		m_vx = m_vx * cos(-r) - m_vy * sin(-r);
 		m_vy = m_vy * cos(-r) + m_vx * sin(-r);
 	}
+	
 	if (m_ex == 475)
 
 

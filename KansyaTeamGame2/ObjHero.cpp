@@ -48,122 +48,126 @@ void CObjHero::Init()
 void CObjHero::Action()
 {
 	
-
-	
-	//Spaceキーを押すとジャンプする処理
-	if (Input::GetVKey(' ') == true && m_hit_down == true && isJump==true)
-	{
-		m_vy = -15;
-		isJump = false;
-	}
-	else if (Input::GetVKey(' ') == false)
-	{  
-		isJump = true;
-	}
-	//摩擦
-	m_vy += 9.8 / (16.0f);
-
-	//キーを押すと移動
-	if (Input::GetVKey(VK_LEFT) == true)
-	{
-		m_vx -= 0.1;
-		m_posture = -1;
-
-		m_anitime += 1;
-
-	}
-	else if (Input::GetVKey(VK_RIGHT) == true)
-	{
-		m_vx += 0.1;
-		m_posture = 1;
-
-		m_anitime += 1;
-
-
-	}
-	//どちらも押していない場合は減速させる。
-	else
-	{
-
-		m_anime = 1;
-		m_anitime = 0;
-		m_vx = m_vx * 0.9;
-	}
-	
-	//歩く時のアニメーション anitimeが10になったとき、コマを1つ進める
-	if (m_anitime >= 8)
-	{
-		m_anime++;
-
-		m_anitime = 0;
-	}
-
-	if (m_anime >= 4)
-		m_anime = 0;
-
-	//最高速度決定
-	if (m_vx >= 6)
-		m_vx = 6;
-	if (m_vx <= -6)
-		m_vx = -6;
-
-	//ベクトルから座標に変換
-	m_px += m_vx;
-	m_py += m_vy;
 	
 
-	//test用　攻撃用
-	if (Input::GetVKey('F') == true && m_f==true)
-	{
-		m_f = false;
-		atk_anime = 1;
+		//Spaceキーを押すとジャンプする処理
+		if (Input::GetVKey(' ') == true && m_hit_down == true && isJump == true)
+		{
+			m_vy = -15;
+			isJump = false;
+		}
+		else if (Input::GetVKey(' ') == false)
+		{
+			isJump = true;
+		}
+		//摩擦
+		m_vy += 9.8 / (16.0f);
 
-		CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture,m_f);
-		Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+		//キーを押すと移動
+		if (Input::GetVKey(VK_LEFT) == true)
+		{
+			m_vx -= 0.1;
+			m_posture = -1;
 
-		
-	}
+			m_anitime += 1;
 
-	if (m_f == false)
-		atk_time++;
+		}
+		else if (Input::GetVKey(VK_RIGHT) == true)
+		{
+			m_vx += 0.1;
+			m_posture = 1;
 
-	//攻撃してからしばらく、攻撃判定が作れないようにしている。
-	//一定時間たつと、作れるようにしている。
-	if (atk_time >= 13)
-	{
-		m_f = true;
-		atk_time = 0;
-		atk_anime = 0;
-	}
-	
-
-
-
-
-	//test用　画面外に行かないように
-	if (m_px > 744)
-	{
-		m_px = 744;
-		m_vx = 0;
-	}
-	else if (m_px < 0)
-	{
-		m_px = 0;
-		m_vx = 0;
-	}
+			m_anitime += 1;
 
 
-	
+		}
+		//どちらも押していない場合は減速させる。
+		else
+		{
 
-	
-	//敵に当たった時に行うようにする。
-	
-	//無敵時間が無効になった時
-	if(m_mtk==false)
-	{
-		//HitBoxの内容を元に戻す
-		CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(m_px+4, m_py+4);
+			m_anime = 1;
+			m_anitime = 0;
+			m_vx = m_vx * 0.9;
+		}
+
+		//歩く時のアニメーション anitimeが10になったとき、コマを1つ進める
+		if (m_anitime >= 8)
+		{
+			m_anime++;
+
+			m_anitime = 0;
+		}
+
+		if (m_anime >= 4)
+			m_anime = 0;
+
+		//最高速度決定
+		if (m_vx >= 6)
+			m_vx = 6;
+		if (m_vx <= -6)
+			m_vx = -6;
+
+		//ベクトルから座標に変換
+		m_px += m_vx;
+		m_py += m_vy;
+
+
+		//test用　攻撃用
+		if (Input::GetVKey('F') == true && m_f == true)
+		{
+			m_f = false;
+			atk_anime = 1;
+
+			CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
+			Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+
+
+		}
+
+		if (m_f == false)
+			atk_time++;
+
+		//攻撃してからしばらく、攻撃判定が作れないようにしている。
+		//一定時間たつと、作れるようにしている。
+		if (atk_time >= 8)
+		{
+			atk_anime = 0;
+			if (Input::GetVKey('F') == false)
+			{
+				m_f = true;
+				atk_time = 0;
+
+			}
+		}
+
+
+
+
+
+		//test用　画面外に行かないように
+		if (m_px > 744)
+		{
+			m_px = 744;
+			m_vx = 0;
+		}
+		else if (m_px < 0)
+		{
+			m_px = 0;
+			m_vx = 0;
+		}
+
+
+
+
+
+		//敵に当たった時に行うようにする。
+
+		//無敵時間が無効になった時
+		if (m_mtk == false)
+		{
+			//HitBoxの内容を元に戻す
+			CHitBox* hit = Hits::GetHitBox(this);
+			hit->SetPos(m_px + 4, m_py + 4);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
@@ -178,36 +182,36 @@ void CObjHero::Action()
 				m_hp -= 1;//敵の攻撃力
 
 			}
-	}
-	//無敵がtrueになった時
-	if (m_mtk == true)
-	{
-		//HitBoxの内容を更新
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_px + 9999, m_py);
-		//無敵時間を減らす
-		mtk_jkn -= 1;
-
-		if (mtk_jkn <= 0)//無敵時間が0になったとき
-		{
-			m_mtk = false;
-			mtk_jkn = mtk_max;
 		}
-	}
+		//無敵がtrueになった時
+		if (m_mtk == true)
+		{
+			//HitBoxの内容を更新
+			CHitBox* hit = Hits::GetHitBox(this);
+			hit->SetPos(m_px + 9999, m_py);
+			//無敵時間を減らす
+			mtk_jkn -= 1;
+
+			if (mtk_jkn <= 0)//無敵時間が0になったとき
+			{
+				m_mtk = false;
+				mtk_jkn = mtk_max;
+			}
+		}
 
 
-	
 
-	//主人公のHPが無くなった時、消滅させる
-	if (m_hp <= 0)
-	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
+
+		//主人公のHPが無くなった時、消滅させる
+		if (m_hp <= 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
 
 			Scene::SetScene(new CSceneGameOver());
-	}
+		}
 
-
+	
 	
 }
 //ドロー
