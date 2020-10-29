@@ -124,7 +124,7 @@ void CObjHero::Action()
 				atk_anime = 1;
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px, m_py, m_posture, m_f);
-				Objs::InsertObj(obj_bullet, OBJ_BULLET, 1);
+				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
 				
 
 			

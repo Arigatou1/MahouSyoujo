@@ -27,8 +27,9 @@ void CObjMenu::Action()
 	//ステージIDを計算し設定するには？？
 
 	StageID = ((cursor_y - 16) / 80)+1;
-	//StageID = 
+
 	//cursor_y = 16,96,176,256,336,416,496
+	//カーソルの初期位置は16なので、
 	//96から16を引き、80を出し、80で割ることで1が出てくる。
 	//それに1を足す。
 
@@ -101,6 +102,8 @@ void CObjMenu::Draw()
 		dst.m_right = dst.m_left + 256.0f;
 		dst.m_bottom = dst.m_top + 64.0f;
 		Draw::Draw(0, &src, &dst, c, 0.0f);
+
+		
 	}
 
 
@@ -129,7 +132,7 @@ void CObjMenu::Draw()
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1);
 
-		Font::StrDraw(str, 284, 24+(i*80), 48, c);
+		Font::StrDraw(str, 288, 24+(i*80), 48, c);
 	}
 }
 
