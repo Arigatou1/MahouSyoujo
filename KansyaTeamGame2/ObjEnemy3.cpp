@@ -34,7 +34,7 @@ void CObjEnemy3::Action()
 		m_vy = 0.0f;
 
 	}
-	
+
 
 	//HitBOx‚Ì“à—e‚ğ•ÏX
 	CHitBox* hit = Hits::GetHitBox(this);

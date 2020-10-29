@@ -1,3 +1,6 @@
-﻿  ObjMenu.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMenu.cpp(121,29): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  SceneMain.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー (2)\x64\Debug\KansyaTeamGame2.exe
