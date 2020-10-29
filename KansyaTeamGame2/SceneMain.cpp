@@ -30,12 +30,15 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//ステージiDを取得する。
 	CObjMenu* sid = (CObjMenu*)Objs::GetObj(OBJ_MENU);
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
 	int Stage = sid->GetStageID();
 
+
+	//マップデータを読み込む。
 	wchar_t s[128];
 	swprintf_s(s, L"Stage/Stage%d.csv", Stage);
 	p = Save::ExternalDataOpen(s, &size);//外部データ読み込み
@@ -90,11 +93,12 @@ void CSceneMain::InitScene()
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
-	Objs::InsertObj(obj_bg, OBJ_BG, 10);
+	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
-	//背景オブジェクト作成
+	//敵の数オブジェクト作成
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
+
 
 
 	

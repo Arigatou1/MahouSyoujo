@@ -26,6 +26,7 @@ enum OBJ_NAME
 	OBJ_GAME_CLEAR,
 	OBJ_ENEMYAMOUNT,
 	OBJ_MENU,
+	OBJ_BULLET,
 };
 //------------------------------------------------
 
@@ -88,6 +89,7 @@ struct UserData
 #include "ObjGameClear.h"
 #include "ObjEnemyAmount.h"
 #include "ObjMenu.h"
+#include "ObjBullet.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
