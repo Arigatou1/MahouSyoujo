@@ -68,8 +68,8 @@ void CObjMenu::Action()
 	if (cursor_y < 16)
 		cursor_y = 16;
 
-	if (cursor_y > 496)
-		cursor_y = 496;
+	if (cursor_y > 256)
+		cursor_y = 256;
 
 	
 
@@ -94,7 +94,7 @@ void CObjMenu::Draw()
 	src.m_right = 64.0f;
 	src.m_bottom = 64.0f;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		//表示位置の設定
 		dst.m_top = (i * 16.0f) + i * 64.0f + 16.0f;
@@ -102,6 +102,8 @@ void CObjMenu::Draw()
 		dst.m_right = dst.m_left + 256.0f;
 		dst.m_bottom = dst.m_top + 64.0f;
 		Draw::Draw(0, &src, &dst, c, 0.0f);
+
+		
 	}
 
 
@@ -130,7 +132,7 @@ void CObjMenu::Draw()
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1);
 
-		Font::StrDraw(str, 284, 24+(i*80), 48, c);
+		Font::StrDraw(str, 288, 24+(i*80), 48, c);
 	}
 }
 

@@ -119,21 +119,23 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			
+			if (ïêäÌ == 1)
+			{
 				m_f = false;
 				atk_anime = 1;
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px, m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
-				
+			}
 
-			
-			//	m_f = false;
-			//	atk_anime = 1;
-//
-			//	CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
-			//	Objs::InsertObj(obj_b, OBJ_SWORD, 1);
-			
+			else
+			{
+				m_f = false;
+				atk_anime = 1;
+
+				CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
+				Objs::InsertObj(obj_b, OBJ_SWORD, 1);
+			}
 			
 
 		}
