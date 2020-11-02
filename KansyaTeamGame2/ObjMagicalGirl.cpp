@@ -35,8 +35,8 @@ void CObjMagicalGirl::Action()
 	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
-		h_hp = obj->GetHP();
-		h_maxhp = obj->GetMAXHP();
+		//h_hp = obj->GetHP();
+		//h_maxhp = obj->GetMAXHP();
 	}
 
 	if (m_mp < 100)//(‚¨‚»‚ç‚­1•b‚É1)MP‰ñ•œ
