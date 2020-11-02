@@ -74,6 +74,11 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 			else if (m_postrue == 1.0f)
 			{
@@ -83,6 +88,11 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 		}
 		else if (Input::GetVKey('D') == false)
@@ -92,23 +102,22 @@ void CObjMagicalGirl::Action()
 		}
 	}
 
-	/*/魔法少女の回復魔法
-	if (h_hp < h_maxhp)
+	//魔法少女の回復魔法
+	if (m_mp >= 20)
 	{
-		if (Input::GetVKey('H') == true && h_t == true)
+		if (h_hp < h_maxhp)
 		{
-			h_t = false;
-			h_hp += 5;
-			if (h_maxhp < h_hp)
+			if (Input::GetVKey('H') == true && h_t == true)
 			{
-				h_hp = h_maxhp;
+				h_t = false;
+				m_mp -= 20;
+			}
+			else if (Input::GetVKey('H') == false)
+			{
+				h_t = true;
 			}
 		}
-		else if (Input::GetVKey('H') == false)
-		{
-			h_t = true;
-		}
-	}*/
+	}
 }
 
 //ドロー
@@ -145,8 +154,3 @@ int CObjMagicalGirl::GetMaxMP()
 {
 	return m_maxmp;
 }
-
-//int CObjMagicalGirl::GetHP()
-//{
-//	return h_hp;
-//}
