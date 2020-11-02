@@ -68,8 +68,8 @@ void CObjMenu::Action()
 	if (cursor_y < 16)
 		cursor_y = 16;
 
-	if (cursor_y > 496)
-		cursor_y = 496;
+	if (cursor_y > 256)
+		cursor_y = 256;
 
 	
 
@@ -94,7 +94,7 @@ void CObjMenu::Draw()
 	src.m_right = 64.0f;
 	src.m_bottom = 64.0f;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		//•\Ž¦ˆÊ’u‚ÌÝ’è
 		dst.m_top = (i * 16.0f) + i * 64.0f + 16.0f;

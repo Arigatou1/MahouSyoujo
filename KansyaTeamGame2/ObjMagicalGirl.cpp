@@ -32,6 +32,13 @@ void CObjMagicalGirl::Action()
 	m_mtime++;
 	//m_btime++;
 
+	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	if (obj != nullptr)
+	{
+		h_hp = obj->GetHP();
+		h_maxhp = obj->GetMAXHP();
+	}
+
 	if (m_mp < 100)//(おそらく1秒に1)MP回復
 	{
 
@@ -84,6 +91,24 @@ void CObjMagicalGirl::Action()
 			m_t = true;
 		}
 	}
+
+	/*/魔法少女の回復魔法
+	if (h_hp < h_maxhp)
+	{
+		if (Input::GetVKey('H') == true && h_t == true)
+		{
+			h_t = false;
+			h_hp += 5;
+			if (h_maxhp < h_hp)
+			{
+				h_hp = h_maxhp;
+			}
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			h_t = true;
+		}
+	}*/
 }
 
 //ドロー
@@ -120,3 +145,8 @@ int CObjMagicalGirl::GetMaxMP()
 {
 	return m_maxmp;
 }
+
+//int CObjMagicalGirl::GetHP()
+//{
+//	return h_hp;
+//}
