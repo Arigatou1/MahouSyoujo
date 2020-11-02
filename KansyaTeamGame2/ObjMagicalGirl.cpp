@@ -13,9 +13,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 300;
-	m_gy = 440;
-
 	m_maxmp = 100;
 	m_mp =m_maxmp;//MP総量100
 	
@@ -31,6 +28,13 @@ void CObjMagicalGirl::Action()
 {
 	m_mtime++;
 	//m_btime++;
+
+	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	if(obj_mana != nullptr)
+	{
+		m_gx = obj_mana->GetX();
+		m_gy = obj_mana->GetY();
+	}
 
 	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
