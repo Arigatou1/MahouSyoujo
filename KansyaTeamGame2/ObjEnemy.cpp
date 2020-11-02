@@ -35,15 +35,14 @@ void CObjEnemy::Action()
 		m_vx = 0.0f;
 	}
 
-	if (m_mx > m_ex)
+	if (m_mx < m_ex)
 	{
 		m_vx = 1.0f;
 	}
-	else 
+	else if (m_mx > m_ex)
 	{
 		m_vx = -1.0f;
 	}
-	
 	//HitBOx‚Ì“à—e‚ð•ÏX
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
