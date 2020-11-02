@@ -17,6 +17,8 @@ CObjMana::CObjMana(float x, float y)
 	Mana_x = x;
 	Mana_y = y;
 }
+
+//ˆÊ’uî•ñXæ“¾—p
 float CObjMana::GetX()
 {
 	return Mana_x;

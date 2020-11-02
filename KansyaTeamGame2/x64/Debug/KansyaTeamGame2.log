@@ -1,5 +1,17 @@
-﻿  ObjBlock.cpp
-C:\Users\t1208\source\repos\Arigatou1\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(81,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\t1208\source\repos\Arigatou1\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(84,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\t1208\source\repos\Arigatou1\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(160,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
-  KansyaTeamGame2.vcxproj -> C:\Users\t1208\Source\Repos\Arigatou1\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjHero.cpp
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(58,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(73,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(78,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(86,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(99,16): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(133,57): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(142,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(267,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(267,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(299,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjMagicalGirl.cpp
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMagicalGirl.cpp(118,28): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMagicalGirl.cpp(154,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMagicalGirl.cpp(159,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  コードを生成中...
+  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe

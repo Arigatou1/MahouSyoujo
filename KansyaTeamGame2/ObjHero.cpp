@@ -44,7 +44,7 @@ void CObjHero::Init()
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
 	//剣 0 銃 1
-	武器 = 0;
+	武器 = 1;
 }
 
 //アクション
@@ -52,6 +52,12 @@ void CObjHero::Action()
 {
 	
 	
+	CObjMagicalGirl* obj_magicalgirl = (CObjMagicalGirl*)Objs::GetObj(OBJ_MAGICALGIRL);
+	if (obj_magicalgirl != nullptr)
+	{
+		m_mp = obj_magicalgirl->GetMP();
+
+	}
 
 		//Spaceキーを押すとジャンプする処理
 		if (Input::GetVKey(' ') == true && m_hit_down == true && isJump == true)
@@ -173,9 +179,6 @@ void CObjHero::Action()
 		}
 
 
-
-
-
 		//敵に当たった時に行うようにする。
 
 		//無敵時間が無効になった時
@@ -198,6 +201,12 @@ void CObjHero::Action()
 				m_hp -= 1;//敵の攻撃力
 
 			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 1;
+			}
 		}
 		//無敵がtrueになった時
 		if (m_mtk == true)
@@ -215,8 +224,27 @@ void CObjHero::Action()
 			}
 		}
 
-
-
+		//魔法少女の回復魔法
+		if (m_mp >= 20)
+		{
+			if (m_hp < max_hp)
+			{
+				if (Input::GetVKey('H') == true && h_t == true)
+				{
+					h_t = false;
+					m_hp += 5;
+					m_mp -= 20;
+					if (m_hp > max_hp)
+					{
+						m_hp = max_hp;
+					}
+				}
+				else if (Input::GetVKey('H') == false)
+				{
+					h_t = true;
+				}
+			}
+		}
 
 		//主人公のHPが無くなった時、消滅させる
 		if (m_hp <= 0)
@@ -226,8 +254,6 @@ void CObjHero::Action()
 
 			Scene::SetScene(new CSceneGameOver());
 		}
-
-	
 	
 }
 //ドロー
@@ -266,4 +292,9 @@ int CObjHero::GetHP()
 int CObjHero::GetMAXHP()
 {
 	return max_hp;
+}
+
+int CObjHero::GetMP()
+{
+	return m_mp;
 }

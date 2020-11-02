@@ -49,17 +49,17 @@ void CObjGaugeMP::Draw()
 	//切り取り位置の設定
 	src.m_top = 96.0f;
 	//0%位置
-	src.m_left = 46.0f;
+	src.m_left = 69.0f;
 	//100%位置
-	src.m_right = GaugePercent + 46.0f;
+	src.m_right = GaugePercent + 69.0f;
 	src.m_bottom = 120.0f;
 
 	//表示位置の設定
 	dst.m_top    = 24.0f;
 	//0%位置
-	dst.m_left   = 46.0f;
+	dst.m_left   = 69.0f;
 	//100%位置
-	dst.m_right  = GaugePercent + 46.0f;
+	dst.m_right  = GaugePercent + 69.0f;
 	dst.m_bottom = 48.0f;
 
 

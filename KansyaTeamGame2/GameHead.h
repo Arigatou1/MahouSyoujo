@@ -27,6 +27,8 @@ enum OBJ_NAME
 	OBJ_ENEMYAMOUNT,
 	OBJ_MENU,
 	OBJ_BULLET,
+	OBJ_MODESELECT,
+	OBJ_BARRIER,
 };
 //------------------------------------------------
 
@@ -91,6 +93,8 @@ struct UserData
 #include "ObjEnemyAmount.h"
 #include "ObjMenu.h"
 #include "ObjBullet.h"
+#include "ObjModeSelect.h"
+#include "ObjBarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

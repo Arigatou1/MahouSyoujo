@@ -19,4 +19,7 @@ private:
 	int m_map[10][13];
 
 	void BlockDraw(float x, float y, RECT_F* dst, float c[]);
+
+	float ex;
+	float ey;
 };

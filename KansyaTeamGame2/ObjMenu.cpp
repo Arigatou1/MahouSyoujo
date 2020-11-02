@@ -14,8 +14,8 @@ using namespace GameL;
 void CObjMenu::Init()
 {
 	m_key_flag = false;//キーフラグ
-	cursor_x = 272;
-	cursor_y = 16;
+	cursor_x = 140;
+	cursor_y = 32;
 	StageID = 0;
 }
 
@@ -26,7 +26,7 @@ void CObjMenu::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//ステージIDを計算し設定するには？？
 
-	StageID = ((cursor_y - 16) / 80)+1;
+	StageID = ((cursor_y - 32) / 160)+1;
 
 	//cursor_y = 16,96,176,256,336,416,496
 	//カーソルの初期位置は16なので、
@@ -45,7 +45,7 @@ void CObjMenu::Action()
 	{
 		if (m_key_flag == true)
 		{
-			cursor_y -= 80;
+			cursor_y -= 144;
 			m_key_flag = false;
 		}
 	}
@@ -53,7 +53,7 @@ void CObjMenu::Action()
 	{
 		if (m_key_flag == true)
 		{
-			cursor_y += 80;
+			cursor_y += 144;
 
 			m_key_flag = false;
 		}
@@ -65,11 +65,11 @@ void CObjMenu::Action()
 	}
 
 	//カーソルが画面外いかない処理
-	if (cursor_y < 16)
-		cursor_y = 16;
+	if (cursor_y < 32)
+		cursor_y = 32;
 
-	if (cursor_y > 256)
-		cursor_y = 256;
+	if (cursor_y > 464)
+		cursor_y = 464;
 
 	
 
@@ -97,10 +97,10 @@ void CObjMenu::Draw()
 	for (int i = 0; i < 4; i++)
 	{
 		//表示位置の設定
-		dst.m_top = (i * 16.0f) + i * 64.0f + 16.0f;
-		dst.m_left = 272.0f;
-		dst.m_right = dst.m_left + 256.0f;
-		dst.m_bottom = dst.m_top + 64.0f;
+		dst.m_top = (i * 80.0f) + i * 64.0f + 32.0f;
+		dst.m_left = 140.0f;
+		dst.m_right = dst.m_left + 512.0f;
+		dst.m_bottom = dst.m_top + 128.0f;
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 
 		
@@ -114,10 +114,8 @@ void CObjMenu::Draw()
 	//表示位置の設定
 	dst.m_top = cursor_y + 0.0f;
 	dst.m_left = cursor_x + 0.0f;
-	dst.m_right = dst.m_left + 256.0f;
-	dst.m_bottom = dst.m_top + 64.0f;
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-
+	dst.m_right = dst.m_left + 512.0f;
+	dst.m_bottom = dst.m_top + 128.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
 
@@ -132,7 +130,7 @@ void CObjMenu::Draw()
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1);
 
-		Font::StrDraw(str, 288, 24+(i*80), 48, c);
+		Font::StrDraw(str, 176, 48+(i*144), 96, c);
 	}
 }
 

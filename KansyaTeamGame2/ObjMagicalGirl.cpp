@@ -13,9 +13,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 300;
-	m_gy = 440;
-
 	m_maxmp = 100;
 	m_mp =m_maxmp;//MP総量100
 	
@@ -31,6 +28,20 @@ void CObjMagicalGirl::Action()
 {
 	m_mtime++;
 	//m_btime++;
+
+	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	if(obj_mana != nullptr)
+	{
+		m_gx = obj_mana->GetX();
+		m_gy = obj_mana->GetY();
+	}
+
+	//CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//if (obj != nullptr)
+	//{
+		//h_hp = obj->GetHP();
+		//h_maxhp = obj->GetMAXHP();
+	//}
 
 	if (m_mp < 100)//(おそらく1秒に1)MP回復
 	{
@@ -67,6 +78,11 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 			else if (m_postrue == 1.0f)
 			{
@@ -76,6 +92,11 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 		}
 		else if (Input::GetVKey('D') == false)
@@ -83,6 +104,23 @@ void CObjMagicalGirl::Action()
 			m_atk_animation = 0;//棒立ちの姿になる
 			m_t = true;
 		}
+	}
+
+	//魔法少女の回復魔法
+	if (Input::GetVKey('H') == true && h_t == true)
+	{
+		h_t = false;
+		m_mp -= 20;
+		CObjHero* obj_heromp = (CObjHero*)Objs::GetObj(OBJ_HERO);
+
+		if (obj_heromp != nullptr)
+		{
+			m_mp = obj_heromp->GetMP();
+		}
+	}
+	else if (Input::GetVKey('H') == false)
+	{
+		h_t = true;
 	}
 }
 
