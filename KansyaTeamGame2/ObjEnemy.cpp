@@ -39,6 +39,7 @@ void CObjEnemy::Action()
 	{
 		m_vx = 1.0f;
 	}
+
 	else if (m_mx > m_ex)
 	{
 		m_vx = -1.0f;
