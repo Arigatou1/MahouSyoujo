@@ -118,7 +118,7 @@ void CSceneMain::Scene()
 	if (m_time == 30)
 	{
 		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
-		CObjEnemy3*obj_Enemy = new CObjEnemy3(700,0);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(700,200);
 		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
 	
 		CObjEnemy* obj = new CObjEnemy(300, 400);

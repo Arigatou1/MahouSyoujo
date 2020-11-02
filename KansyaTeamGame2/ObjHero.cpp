@@ -179,9 +179,6 @@ void CObjHero::Action()
 		}
 
 
-
-
-
 		//敵に当たった時に行うようにする。
 
 		//無敵時間が無効になった時
@@ -227,7 +224,6 @@ void CObjHero::Action()
 			}
 		}
 
-
 		//魔法少女の回復魔法
 		if (m_mp >= 20)
 		{
@@ -249,7 +245,6 @@ void CObjHero::Action()
 			}
 		}
 
-
 		//主人公のHPが無くなった時、消滅させる
 		if (m_hp <= 0)
 		{
@@ -258,8 +253,6 @@ void CObjHero::Action()
 
 			Scene::SetScene(new CSceneGameOver());
 		}
-
-	
 	
 }
 //ドロー

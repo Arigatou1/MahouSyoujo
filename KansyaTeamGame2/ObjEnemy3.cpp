@@ -20,8 +20,8 @@ CObjEnemy3::CObjEnemy3(float x,float y)
 void CObjEnemy3::Init()
 {
 
-	m_vx = 0;
-	m_vy = 0;
+	m_vx = +1.0f;
+	m_vy = 0.0f;
 
 	hit_up = false;
 	hit_down = false;
@@ -36,31 +36,33 @@ void CObjEnemy3::Action()
 {
 	//–€C
 	//m_vx += -(m_vx * 0.098);
-	//©—R—‰º‰^“®
-	m_vy += 9.8 / (16.0f);
+	
+	
 
-	m_ey += m_vy;
-	m_ex += m_vx;
 	//HitBOx‚Ì“à—e‚ğ•ÏX
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex + 10.0f, m_ey + 10.0f);
+	
+	
 	//ƒWƒƒƒ“ƒv
-	/*if (hit->CheckObjNameHit(OBJ_BLOCK) !=nullptr)
+	if (hit->CheckObjNameHit(OBJ_BLOCK) != nullptr)
 	{
-		hit_down = false;
-		m_vy - 15;
-	}*/
-	if (hit_down == true && jump == true)
-	{
-		m_vy =- 15;
-		jump == false;
-	}
-	else if (hit_down == false)
-	{
-		jump == true;
+		m_ex -= m_vx;
+		if (m_ey==500.0f/*hit_down == true && jump == true*/)
+		{
+			m_vy = -15;
+			jump == false;
+		}
+		//else if (hit_down == false)
+		//{
+			//jump == true;
+		//}
 	}
 
+	//©—R—‰º‰^“®
+	m_ey += 9.8 / (16.0f);
 
+	//m_ey += m_vy;
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 		this->SetStatus(false);
