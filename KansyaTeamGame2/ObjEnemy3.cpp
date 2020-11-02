@@ -39,29 +39,27 @@ void CObjEnemy3::Action()
 	//自由落下運動
 	m_vy += 9.8 / (16.0f);
 
-
 	m_ey += m_vy;
-	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
-	if (m_ey == 410)
-	{
-		m_vy = 0.0f;
-
-	}
-
-	//ジャンプ
-	/*if (hit_down==true&&jump==true)
-	{
-		m_vy += 10;
-		jump == false;
-	}
-	else
-	{
-		jump == true;
-	}*/
-
+	m_ex += m_vx;
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex + 10.0f, m_ey+10.0f);
+	hit->SetPos(m_ex + 10.0f, m_ey + 10.0f);
+	//ジャンプ
+	/*if (hit->CheckObjNameHit(OBJ_BLOCK) !=nullptr)
+	{
+		hit_down = false;
+		m_vy - 15;
+	}*/
+	if (hit_down == true && jump == true)
+	{
+		m_vy =- 15;
+		jump == false;
+	}
+	else if (hit_down == false)
+	{
+		jump == true;
+	}
+
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{

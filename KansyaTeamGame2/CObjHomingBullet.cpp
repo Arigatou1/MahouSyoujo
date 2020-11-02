@@ -21,7 +21,7 @@ void CObjHomingBullet::Init()
 	m_vx = 0.0f;
 
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_bx, m_by, 40, 40, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
+	Hits::SetHitBox(this, m_bx, m_by, 50, 50, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
 }
 
 //アクション
@@ -36,7 +36,7 @@ void CObjHomingBullet::Action()
 		m_by += m_vy;
 		//HitBOxの内容を変更
 		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_bx, m_by + 10.0f);
+		hit->SetPos(m_bx, m_by);
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 		{
@@ -45,6 +45,12 @@ void CObjHomingBullet::Action()
 	    }
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
@@ -58,7 +64,7 @@ void CObjHomingBullet::Action()
 		m_by += m_vy;
 		//HitBOxの内容を変更
 		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_bx+10.0f, m_by+10.0f);
+		hit->SetPos(m_bx, m_by);
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 		{
@@ -67,6 +73,12 @@ void CObjHomingBullet::Action()
 		}
 
 		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
+
+		if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
@@ -106,16 +118,16 @@ void CObjHomingBullet::Action()
 void CObjHomingBullet::Draw()
 {
 	//描画カラー
-	float c[4] = { 1.0f,5.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top    = 0.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 50.0f;
-	src.m_bottom = 50.0f;
+	src.m_top    = 192.0f;
+	src.m_left   = 64.0f;
+	src.m_right  = 128.0f;
+	src.m_bottom = 256.0f;
 
 	//表示位置の設定
 	dst.m_top    =0.0f  + m_by;
