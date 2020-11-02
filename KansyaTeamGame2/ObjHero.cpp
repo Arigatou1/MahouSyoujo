@@ -44,7 +44,7 @@ void CObjHero::Init()
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
 	//Œ• 0 e 1
-	•Ší = 0;
+	•Ší = 1;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
