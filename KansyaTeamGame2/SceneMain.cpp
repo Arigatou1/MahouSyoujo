@@ -151,10 +151,11 @@ void CSceneMain::Scene()
 		obj = new CObjEnemy(200, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		obj = new CObjEnemy(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49); 
-		obj = new CObjEnemy2(200, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy2(200, 350);
+		CObjEnemy2* obj_enemy2;
+		obj_enemy2 = new CObjEnemy2(200, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		obj_enemy2 = new CObjEnemy2(200, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		
 		EnemyAmount+=2;

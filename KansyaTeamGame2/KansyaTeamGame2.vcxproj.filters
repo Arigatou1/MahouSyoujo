@@ -119,6 +119,9 @@
     <ClCompile Include="ObjModeSelect.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBarrier.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -236,6 +239,9 @@
     </ClInclude>
     <ClInclude Include="ObjModeSelect.h">
       <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="Objbarrier.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

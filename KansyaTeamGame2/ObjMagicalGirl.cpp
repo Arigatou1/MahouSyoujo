@@ -36,12 +36,12 @@ void CObjMagicalGirl::Action()
 		m_gy = obj_mana->GetY();
 	}
 
-	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
-	if (obj != nullptr)
-	{
+	//CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//if (obj != nullptr)
+	//{
 		//h_hp = obj->GetHP();
 		//h_maxhp = obj->GetMAXHP();
-	}
+	//}
 
 	if (m_mp < 100)//(‚¨‚»‚ç‚­1•b‚É1)MP‰ñ•œ
 	{
@@ -107,20 +107,20 @@ void CObjMagicalGirl::Action()
 	}
 
 	//–‚–@­—‚Ì‰ñ•œ–‚–@
-	if (m_mp >= 20)
+	if (Input::GetVKey('H') == true && h_t == true)
 	{
-		if (h_hp < h_maxhp)
+		h_t = false;
+		m_mp -= 20;
+		CObjHero* obj_heromp = (CObjHero*)Objs::GetObj(OBJ_HERO);
+
+		if (obj_heromp != nullptr)
 		{
-			if (Input::GetVKey('H') == true && h_t == true)
-			{
-				h_t = false;
-				m_mp -= 20;
-			}
-			else if (Input::GetVKey('H') == false)
-			{
-				h_t = true;
-			}
+			m_mp = obj_heromp->GetMP();
 		}
+	}
+	else if (Input::GetVKey('H') == false)
+	{
+		h_t = true;
 	}
 }
 

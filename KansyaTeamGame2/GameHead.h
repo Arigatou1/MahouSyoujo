@@ -28,6 +28,7 @@ enum OBJ_NAME
 	OBJ_MENU,
 	OBJ_BULLET,
 	OBJ_MODESELECT,
+	OBJ_BARRIER,
 };
 //------------------------------------------------
 
@@ -93,6 +94,7 @@ struct UserData
 #include "ObjMenu.h"
 #include "ObjBullet.h"
 #include "ObjModeSelect.h"
+#include "ObjBarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
