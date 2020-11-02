@@ -198,6 +198,12 @@ void CObjHero::Action()
 				m_hp -= 1;//“G‚ÌUŒ‚—Í
 
 			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 1;
+			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½Žž
 		if (m_mtk == true)
