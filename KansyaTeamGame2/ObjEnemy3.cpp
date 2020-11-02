@@ -42,10 +42,22 @@ void CObjEnemy3::Action()
 
 	m_ey += m_vy;
 	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
-	if (m_ey == 410)
+	if (m_ey == 460)
 	{
 		m_vy = 0.0f;
 
+	}
+
+	//test用　画面外に行かないように
+	if (m_ex > 744)
+	{
+		m_ex = 744;
+		m_vx = 0;
+	}
+	else if (m_ex < 0)
+	{
+		m_ex = 0;
+		m_vx = 0;
 	}
 
 	//ジャンプ
