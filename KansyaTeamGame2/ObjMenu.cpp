@@ -118,8 +118,6 @@ void CObjMenu::Draw()
 	dst.m_bottom = dst.m_top + 128.0f;
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-
 
 	//描画
 
@@ -132,7 +130,7 @@ void CObjMenu::Draw()
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1);
 
-		Font::StrDraw(str, 288, 24+(i*80), 48, c);
+		Font::StrDraw(str, 176, 48+(i*144), 96, c);
 	}
 }
 

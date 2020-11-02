@@ -176,6 +176,7 @@
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjMana.h" />
     <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjModeSelect.h" />
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -226,6 +227,7 @@
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjModeSelect.cpp" />
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>

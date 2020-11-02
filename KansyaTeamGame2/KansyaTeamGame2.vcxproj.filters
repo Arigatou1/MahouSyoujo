@@ -116,6 +116,9 @@
     <ClCompile Include="ObjBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjModeSelect.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -230,6 +233,9 @@
     </ClInclude>
     <ClInclude Include="ObjBullet.h">
       <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjModeSelect.h">
+      <Filter>メニュー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
