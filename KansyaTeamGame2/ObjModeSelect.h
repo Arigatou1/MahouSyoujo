@@ -18,5 +18,5 @@ private:
 	bool m_key_flag;//キーフラグ
 	float cursor_x;
 	float cursor_y;
-	
+	int nowSelect;
 };

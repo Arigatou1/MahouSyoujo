@@ -220,11 +220,6 @@ void CSceneMain::Scene()
 		EnemyAmount++;
 	}
 
-	if (m_time==1300)
-	{
-
-		Scene::SetScene(new CSceneGameClear());
-	}
 	
 }
 
