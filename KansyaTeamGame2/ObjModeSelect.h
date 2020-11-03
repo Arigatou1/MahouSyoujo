@@ -5,18 +5,18 @@
 using namespace GameL;
 
 //オブジェクト：ゲームオーバー
-class CObjMenu : public CObj
+class CObjModeSelect : public CObj
 {
 public:
-	CObjMenu() {};
-	~CObjMenu() {};
+	CObjModeSelect() {};
+	~CObjModeSelect() {};
 	void Init();
 	void Action();
 	void Draw();
-	int GetStageID();
+
 private:
 	bool m_key_flag;//キーフラグ
 	float cursor_x;
 	float cursor_y;
-	int StageID;
+	
 };

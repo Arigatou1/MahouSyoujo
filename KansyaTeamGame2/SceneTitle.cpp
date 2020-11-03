@@ -28,7 +28,7 @@ CSceneTitle::~CSceneTitle()
 void CSceneTitle::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"シューティングゲーム");
+	Font::SetStrTex(L"マジカルウォーズ");
 
 	//タイトルオブジェクト作成
 	CObjTitle* obj = new CObjTitle();

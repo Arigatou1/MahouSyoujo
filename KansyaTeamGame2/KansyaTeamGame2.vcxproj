@@ -140,6 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="Objbarrier.h" />
+    <ClInclude Include="ObjBullet.h" />
+    <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
     <ClInclude Include="ObjMenu.h" />
     <ClInclude Include="GameHead.h" />
@@ -173,7 +176,8 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjMana.h" />
-    <ClInclude Include="Objstage.h" />
+    <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjModeSelect.h" />
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -188,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="ObjBarrier.cpp" />
+    <ClCompile Include="ObjBullet.cpp" />
+    <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
     <ClCompile Include="ObjMenu.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
@@ -221,7 +228,8 @@
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
-    <ClCompile Include="Objstage.cpp" />
+    <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjModeSelect.cpp" />
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
