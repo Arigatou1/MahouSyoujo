@@ -31,7 +31,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//ステージiDを取得する。
-	CObjMenu* sid = (CObjMenu*)Objs::GetObj(OBJ_MENU);
+	CObjStageSelect* sid = (CObjStageSelect*)Objs::GetObj(OBJ_STAGESELECT);
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
