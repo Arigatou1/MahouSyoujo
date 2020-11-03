@@ -20,14 +20,14 @@ void CObjMagicalGirl::Init()
 	m_atk_animation = 0;//0=棒立ちの画像
 
 	m_mtime = 1;
-	//m_btime = 1;
+	m_btime = 0;
 }
 
 //アクション
 void CObjMagicalGirl::Action()
 {
 	m_mtime++;
-	//m_btime++;
+	m_btime++;
 
 	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if(obj_mana != nullptr)
@@ -107,20 +107,47 @@ void CObjMagicalGirl::Action()
 	}
 
 	//魔法少女の回復魔法
-	if (Input::GetVKey('H') == true && h_t == true)
+	if (m_mp >= 20)
 	{
-		h_t = false;
-		m_mp -= 20;
-		CObjHero* obj_heromp = (CObjHero*)Objs::GetObj(OBJ_HERO);
-
-		if (obj_heromp != nullptr)
+		if (Input::GetVKey('H') == true && h_t == true)
 		{
-			m_mp = obj_heromp->GetMP();
+			h_t = false;
+			m_mp -= 20;
+			CObjHero* obj_heromp = (CObjHero*)Objs::GetObj(OBJ_HERO);
+
+			if (obj_heromp != nullptr)
+			{
+				m_mp = obj_heromp->GetMP();
+			}
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			h_t = true;
 		}
 	}
-	else if (Input::GetVKey('H') == false)
+	
+	if (m_mp >= 30)
 	{
-		h_t = true;
+		if (Input::GetVKey('B') == true && b_t == true)
+		{
+			m_btime = 0;
+			b_t = false;
+			m_mp -= 30;
+
+			if (m_btime == 0)
+			{
+				//Barrierオブジェクト
+				CObjBarrier* objbarrier;
+				objbarrier = new CObjBarrier(m_gx + 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 60);
+				objbarrier = new CObjBarrier(m_gx - 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 60);
+			}
+		}
+		else if (Input::GetVKey('B') == false && m_btime > 200)
+		{
+			b_t = true;
+		}
 	}
 }
 

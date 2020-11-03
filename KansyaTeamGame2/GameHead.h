@@ -94,7 +94,7 @@ struct UserData
 #include "ObjStageSelect.h"
 #include "ObjBullet.h"
 #include "ObjModeSelect.h"
-#include "ObjBarrier.h"
+#include "Objbarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
