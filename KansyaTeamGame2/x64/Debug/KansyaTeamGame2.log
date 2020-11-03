@@ -41,9 +41,9 @@ C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(267,39): war
 C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(267,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(299,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   ObjMagicalGirl.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(118,28): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(154,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(159,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(120,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(181,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(186,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   ObjMana.cpp
 C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(69,16): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
 C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(76,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
