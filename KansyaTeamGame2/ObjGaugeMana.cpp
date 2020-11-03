@@ -37,7 +37,7 @@ void CObjGaugeMANAHP::Action()
 
 		//MAXHPが100%とする
 
-		GaugePercent = (HP / 100) * 292;
+		GaugePercent = (HP / 100.0) * 292.0f;
 
 	}
 
@@ -58,17 +58,17 @@ void CObjGaugeMANAHP::Draw()
 	//切り取り位置の設定
 	src.m_top = 144.0f;
 	//0%位置
-	src.m_left = 4.0f;
+	src.m_left = 27.0f;
 	//100%位置
-	src.m_right = GaugePercent + 4.0f;
+	src.m_right = GaugePercent + src.m_left;
 	src.m_bottom = 168.0f;
 	//表示位置の設定
-	dst.m_top = gb_y + 64.0f;
+	dst.m_top = gb_y + 96.0f;
 	//0%位置
 	dst.m_left =gb_x - 112.0f;
 	//100%位置
-	dst.m_right = GaugePercent + gb_x - 112.0f;
-	dst.m_bottom = gb_y + 88.0f;
+	dst.m_right = dst.m_left+GaugePercent;
+	dst.m_bottom = gb_y + 120.0f;
 
 
 	//描画
