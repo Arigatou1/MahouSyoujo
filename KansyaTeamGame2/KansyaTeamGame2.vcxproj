@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="Objbarrier.h" />
     <ClInclude Include="ObjBullet.h" />
     <ClInclude Include="ObjEnemy3.h" />
+    <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
-    <ClInclude Include="ObjMenu.h" />
+    <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjMana.h" />
     <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjModeSelect.h" />
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -190,10 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="ObjBarrier.cpp" />
     <ClCompile Include="ObjBullet.cpp" />
+    <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
-    <ClCompile Include="ObjMenu.cpp" />
+    <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -226,6 +231,7 @@
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjModeSelect.cpp" />
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>

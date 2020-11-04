@@ -47,11 +47,12 @@ void CObjBlock::Action()
 
 	//敵３の位置取得
 	CObjEnemy3* enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
-		if (enemy3 != nullptr) 
-		{
-			ex = enemy3->GetX();
-			ey = enemy3->GetY();
-		}
+	if (enemy3 != nullptr) 
+	{
+		ex = enemy3->GetX();
+		ey = enemy3->GetY();
+	}
+
 	//敵3の衝突状態確認用フラグの初期化
 	enemy3->SetUp(false);
 	enemy3->SetDown(false);
@@ -169,9 +170,9 @@ void CObjBlock::Action()
 					}
 				}
 			}
-			}
 		}
 	}
+}
 //ドロー
 void CObjBlock::Draw()
 {

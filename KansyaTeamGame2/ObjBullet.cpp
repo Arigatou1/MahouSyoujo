@@ -20,7 +20,7 @@ CObjBullet::CObjBullet(float x, float y, int posture, bool m_f)
 //イニシャライズ
 void CObjBullet::Init()
 {
-	Hits::SetHitBox(this, px, py, 56, 56, ELEMENT_PLAYER, OBJ_BULLET, 1);
+	Hits::SetHitBox(this, px, py, 64, 64, ELEMENT_PLAYER, OBJ_BULLET, 1);
 	
 	vx = 0;
 	vy = 0;
