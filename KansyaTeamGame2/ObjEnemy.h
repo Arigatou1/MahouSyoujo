@@ -19,6 +19,8 @@ private:
 	float m_ey;
 	float m_vx;
 	float m_vy;
+	int e_hp;//敵のHP
+	int e_damege;//ダメージ量
 
 	float b_mx;//バリアのx位置
 	float b_my;//バリアのy位置

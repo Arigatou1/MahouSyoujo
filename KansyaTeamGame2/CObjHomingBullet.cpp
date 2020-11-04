@@ -19,6 +19,8 @@ CObjHomingBullet::CObjHomingBullet(float x, float y,float m)
 void CObjHomingBullet::Init()
 {
 	m_vx = 0.0f;
+	//UŒ‚—Í
+	m_atk = 1;
 
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ğì¬
 	Hits::SetHitBox(this, m_bx, m_by, 50, 50, ELEMENT_PLAYER, OBJ_HOMINGBULLET, 10);
@@ -137,4 +139,9 @@ void CObjHomingBullet::Draw()
 
 	//•`‰æ
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+}
+
+int CObjHomingBullet::GetM_ATK()
+{
+	return m_atk;
 }

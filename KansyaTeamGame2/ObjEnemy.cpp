@@ -19,6 +19,7 @@ void CObjEnemy::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+	e_damege = 0;
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ðì¬
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -67,6 +68,10 @@ void CObjEnemy::Action()
 	
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
+
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		

@@ -37,7 +37,7 @@ private:
 	float m_vy;		//プレイヤーのベクトルY
 	float m_posture;//向いている方向用
 
-	float m_mp;   //現在のMP
+	int m_mp;   //現在のMP
 
 
 	int m_anime;	//歩くアニメーション
