@@ -1,7 +1,6 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\WinInputs.h"
-#include "GameL\SceneObjManager.h"
 #include "GameL\HitBoxManager.h"
 #include "GameHead.h"
 #include "Objbarrier.h"
@@ -77,11 +76,7 @@ void CObjBarrier::Draw()
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
-/*float CObjBarrier::GetBX()
+float CObjBarrier::GetBX()
 {
 	return mb_x;
 }
-float CObjBarrier::GetBY()
-{
-	return mb_y;
-}*/

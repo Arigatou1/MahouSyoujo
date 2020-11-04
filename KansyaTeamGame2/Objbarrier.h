@@ -13,8 +13,7 @@ public:
 	void Init();   //イニシャライズ
 	void Action(); //アクション
 	void Draw();   //ドロー
-//	float GetBX();//バリアのx座標
-//	float GetBY();//バリアのy座標
+	float GetBX();//バリアのx座標
 private:
 	float mb_x;
 	float mb_y;
