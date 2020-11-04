@@ -1,5 +1,89 @@
-﻿  ObjMenuBlock.cpp
+﻿  CObjHomingBullet.cpp
+  GameL_Main.cpp
+  ObjBackGround.cpp
+  ObjBarrier.cpp
+  ObjBlock.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(83,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(86,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(147,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(150,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBlock.cpp(182,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
+  ObjBullet.cpp
+  ObjEnemy.cpp
+  ObjEnemy2.cpp
+  ObjEnemy3.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy3.cpp(54,9): warning C4553: '==': 式の結果が使用されていません。'=' を意図していますか?
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy3.cpp(63,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  ObjEnemyAmount.cpp
+  ObjGameClear.cpp
+  ObjGameOver.cpp
+  ObjGaugeBaseMana.cpp
+  ObjGaugeHP.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(29,18): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(30,24): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(79,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjGaugeMP.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMP.cpp(26,30): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMP.cpp(27,36): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjGaugeMana.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMana.cpp(35,23): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMana.cpp(40,31): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMana.cpp(83,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjHero.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(58,32): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(73,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(78,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(86,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(99,16): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(133,57): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(142,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(267,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(267,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(299,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjMagicalGirl.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(120,29): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(181,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMagicalGirl.cpp(186,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ObjMana.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(69,16): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(76,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(82,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjMana.cpp(122,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   ObjModeSelect.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(30,31): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjModeSelect.cpp(29,31): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjModeSelect.cpp(103,17): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
   コードを生成中...
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeMana.cpp(84): warning C4715: 'CObjGaugeMANAHP::GetPercent': 値を返さないコントロール パスがあります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjGaugeHP.cpp(80): warning C4715: 'CObjGaugeHP::GetPercent': 値を返さないコントロール パスがあります。
+  コンパイル中...
+  ObjStageSelect.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(31,38): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(167,29): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  ObjSword.cpp
+  ObjTitle.cpp
+  SceneGameClear.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneGameClear.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneGameClear.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  SceneGameOver.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneGameOver.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneGameOver.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  SceneMain.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  SceneMenu.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMenu.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneMenu.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  SceneTitle.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\SceneTitle.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  コードを生成中...
+  ObjGaugeBase.cpp
+  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

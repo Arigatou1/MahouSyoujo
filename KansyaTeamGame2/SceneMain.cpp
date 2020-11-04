@@ -100,9 +100,6 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
 
-
-	
-
 	//ƒ^ƒCƒ€‰Šú‰»
 	m_time = 0;
 

@@ -69,8 +69,6 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
-		
 		//Amount++;
 	}
 
