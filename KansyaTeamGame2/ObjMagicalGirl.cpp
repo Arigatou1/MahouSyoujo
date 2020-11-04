@@ -13,9 +13,6 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 200;
-	m_gy = 200;
-	
 	m_maxmp = 100;
 	m_mp =m_maxmp;//MP総量100
 	
@@ -23,16 +20,30 @@ void CObjMagicalGirl::Init()
 	m_atk_animation = 0;//0=棒立ちの画像
 
 	m_mtime = 1;
-	//m_btime = 1;
+	m_btime = 0;
 }
 
 //アクション
 void CObjMagicalGirl::Action()
 {
 	m_mtime++;
-	//m_btime++;
+	m_btime++;
 
-	if (m_mp < m_maxmp)
+	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	if(obj_mana != nullptr)
+	{
+		m_gx = obj_mana->GetX();
+		m_gy = obj_mana->GetY();
+	}
+
+	//CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//if (obj != nullptr)
+	//{
+		//h_hp = obj->GetHP();
+		//h_maxhp = obj->GetMAXHP();
+	//}
+
+	if (m_mp < 100)//(おそらく1秒に1)MP回復
 	{
 
 		if (m_mtime % 60 == 0)
@@ -67,6 +78,11 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 			else if (m_postrue == 1.0f)
 			{
@@ -76,12 +92,61 @@ void CObjMagicalGirl::Action()
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
 				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 		}
 		else if (Input::GetVKey('D') == false)
 		{
 			m_atk_animation = 0;//棒立ちの姿になる
 			m_t = true;
+		}
+	}
+
+	//魔法少女の回復魔法
+	if (m_mp >= 20)
+	{
+		if (Input::GetVKey('H') == true && h_t == true)
+		{
+			h_t = false;
+			m_mp -= 20;
+			CObjHero* obj_heromp = (CObjHero*)Objs::GetObj(OBJ_HERO);
+
+			if (obj_heromp != nullptr)
+			{
+				m_mp = obj_heromp->GetMP();
+			}
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			h_t = true;
+		}
+	}
+	
+	if (m_mp >= 30)
+	{
+		if (Input::GetVKey('B') == true && b_t == true)
+		{
+			m_btime = 0;
+			b_t = false;
+			m_mp -= 30;
+
+			if (m_btime == 0)
+			{
+				//Barrierオブジェクト
+				CObjBarrier* objbarrier;
+				objbarrier = new CObjBarrier(m_gx + 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 60);
+				objbarrier = new CObjBarrier(m_gx - 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 60);
+			}
+		}
+		else if (Input::GetVKey('B') == false && m_btime > 200)
+		{
+			b_t = true;
 		}
 	}
 }

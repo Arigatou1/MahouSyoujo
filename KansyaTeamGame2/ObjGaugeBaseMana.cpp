@@ -43,13 +43,13 @@ void CObjGaugeMANABase::Draw()
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 	src.m_top = 48.0f;
-	src.m_left = 0.0f;
-	src.m_right = 300.0f;
+	src.m_left = 26.0f;
+	src.m_right = 320.0f;
 	src.m_bottom = 72.0f;
 	//•\¦ˆÊ’u‚Ìİ’è
 	dst.m_top = gb_y+96.0f;
-	dst.m_left = gb_x-116.0f;
-	dst.m_right = gb_x+184.0f;
+	dst.m_left = gb_x-113.0f;
+	dst.m_right = dst.m_left + 294;
 	dst.m_bottom = gb_y+120.0f;
 
 

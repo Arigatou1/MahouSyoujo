@@ -20,8 +20,8 @@ CObjEnemy3::CObjEnemy3(float x,float y)
 void CObjEnemy3::Init()
 {
 
-	m_vx = 0;
-	m_vy = 0;
+	m_vx = +1.0f;
+	m_vy = 0.0f;
 
 	hit_up = false;
 	hit_down = false;
@@ -36,33 +36,33 @@ void CObjEnemy3::Action()
 {
 	//摩擦
 	//m_vx += -(m_vx * 0.098);
-	//自由落下運動
-	m_vy += 9.8 / (16.0f);
-
-
-	m_ey += m_vy;
-	//特定の位置で停止（マナの情報を収得してやりたい）m_ex=480がちょうど
-	if (m_ey == 410)
-	{
-		m_vy = 0.0f;
-
-	}
-
-	//ジャンプ
-	/*if (hit_down==true&&jump==true)
-	{
-		m_vy += 10;
-		jump == false;
-	}
-	else
-	{
-		jump == true;
-	}*/
+	
+	
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex + 10.0f, m_ey+10.0f);
+	hit->SetPos(m_ex + 10.0f, m_ey + 10.0f);
+	
+	
+	//ジャンプ
+	if (hit->CheckObjNameHit(OBJ_BLOCK) != nullptr)
+	{
+		m_ex -= m_vx;
+		if (m_ey==500.0f/*hit_down == true && jump == true*/)
+		{
+			m_vy = -15;
+			jump == false;
+		}
+		//else if (hit_down == false)
+		//{
+			//jump == true;
+		//}
+	}
 
+	//自由落下運動
+	m_ey += 9.8 / (16.0f);
+
+	//m_ey += m_vy;
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 		this->SetStatus(false);

@@ -13,6 +13,7 @@ enum OBJ_NAME
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
 	OBJ_ENEMY3,
+	OBJ_ENEMY4,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
@@ -25,8 +26,10 @@ enum OBJ_NAME
 	OBJ_BG,
 	OBJ_GAME_CLEAR,
 	OBJ_ENEMYAMOUNT,
-	OBJ_MENU,
+	OBJ_STAGESELECT,
 	OBJ_BULLET,
+	OBJ_MODESELECT,
+	OBJ_BARRIER,
 };
 //------------------------------------------------
 
@@ -54,6 +57,7 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	int Stage;
 	
 };
 //------------------------------------------------
@@ -76,6 +80,7 @@ struct UserData
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
+#include "ObjEnemy4.h"
 #include "ObjGaugeBase.h"
 #include "ObjBlock.h"
 #include "ObjGaugeHP.h"
@@ -88,8 +93,10 @@ struct UserData
 #include "ObjBackGround.h"
 #include "ObjGameClear.h"
 #include "ObjEnemyAmount.h"
-#include "ObjMenu.h"
+#include "ObjStageSelect.h"
 #include "ObjBullet.h"
+#include "ObjModeSelect.h"
+#include "Objbarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

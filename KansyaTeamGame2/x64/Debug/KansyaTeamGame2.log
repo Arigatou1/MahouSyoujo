@@ -1,22 +1,5 @@
-﻿  CObjHomingBullet.cpp
-  ObjEnemy3.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(40,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(56,8): warning C4553: '==': 式の結果が使用されていません。'=' を意図していますか?
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(60,8): warning C4553: '==': 式の結果が使用されていません。'=' を意図していますか?
-  SceneMain.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
-  SceneMenu.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
-  SceneTitle.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneTitle.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+﻿  ObjMenuBlock.cpp
+  ObjModeSelect.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(30,31): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
   コードを生成中...
-  ObjGaugeBase.cpp
-  LINK : 前回のインクリメンタル リンクで C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

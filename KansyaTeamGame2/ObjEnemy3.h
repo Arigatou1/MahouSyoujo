@@ -14,7 +14,7 @@ public:
 	void Action();
 	void Draw();
 
-	/*float GetX() { return m_ex; };
+	float GetX() { return m_ex; };
 	float GetY() { return m_ey; };
 	float GetVX() { return m_vx; }
 	float GetVY() { return m_vy; }
@@ -28,7 +28,7 @@ public:
 	void SetUp(bool eb) { hit_up; }
 	void SetDown(bool eb) { hit_down; }
 	void SetLeft(bool eb) { hit_left; }
-	void SetRight(bool eb) { hit_right; }*/
+	void SetRight(bool eb) { hit_right; }
 
 private:
 	float m_ex;		//Xç¿ïW

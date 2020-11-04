@@ -101,9 +101,6 @@
     <ClCompile Include="SceneMenu.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
-    <ClCompile Include="ObjMenu.cpp">
-      <Filter>メニュー</Filter>
-    </ClCompile>
     <ClCompile Include="ObjEnemyAmount.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
@@ -115,6 +112,20 @@
     </ClCompile>
     <ClCompile Include="ObjBullet.cpp">
       <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjModeSelect.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBarrier.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStageSelect.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy4.cpp" />
+    <ClCompile Include="UtilityModule.cpp" />
+    <ClCompile Include="ObjMenuBlock.cpp">
+      <Filter>メニュー</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,9 +227,6 @@
     <ClInclude Include="SceneMenu.h">
       <Filter>メニュー</Filter>
     </ClInclude>
-    <ClInclude Include="ObjMenu.h">
-      <Filter>メニュー</Filter>
-    </ClInclude>
     <ClInclude Include="ObjEnemyAmount.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
@@ -230,6 +238,20 @@
     </ClInclude>
     <ClInclude Include="ObjBullet.h">
       <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjModeSelect.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="Objbarrier.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageSelect.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy4.h" />
+    <ClInclude Include="UtilityModule.h" />
+    <ClInclude Include="ObjMenuBlock.h">
+      <Filter>メニュー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
