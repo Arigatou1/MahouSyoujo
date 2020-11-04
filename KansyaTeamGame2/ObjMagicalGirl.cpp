@@ -5,7 +5,6 @@
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
-//#include "主人公のヘッダー？"
 
 //使用するネームスペース
 using namespace GameL;
@@ -39,8 +38,8 @@ void CObjMagicalGirl::Action()
 	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
-		//h_hp = obj->GetHP();
-		//h_maxhp = obj->GetMAXHP();
+		h_hp = obj->GetHP();
+		h_maxhp = obj->GetMAXHP();
 	}
 
 	if (m_mp < 100)//(おそらく1秒に1)MP回復
@@ -113,8 +112,8 @@ void CObjMagicalGirl::Action()
 		{
 			if (Input::GetVKey('H') == true && h_t == true)
 			{
-				h_t = false;
 				m_mp -= 20;
+				h_t = false;
 			}
 			else if (Input::GetVKey('H') == false)
 			{

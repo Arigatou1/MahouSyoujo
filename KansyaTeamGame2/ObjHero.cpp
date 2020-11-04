@@ -236,7 +236,7 @@ void CObjHero::Action()
 				if (Input::GetVKey('H') == true && h_t == true)
 				{
 					h_t = false;
-					m_hp += 5;
+					m_hp += 1;
 					if (m_hp > max_hp)
 					{
 						m_hp = max_hp;
