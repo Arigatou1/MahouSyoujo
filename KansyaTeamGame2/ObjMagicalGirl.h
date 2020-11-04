@@ -30,4 +30,5 @@ class CObjMagicalGirl : public CObj
 		int m_btime;//ホーミング弾用時間
 		bool m_t;//攻撃間隔
 		bool h_t;//回復間隔
+		bool b_t;//バリア間隔
 };

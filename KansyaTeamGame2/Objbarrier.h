@@ -8,10 +8,16 @@ using namespace GameL;
 class CObjBarrier : public CObj
 {
 public:
-	CObjBarrier() {};
+	CObjBarrier(float x, float y);
 	~CObjBarrier() {};
 	void Init();   //イニシャライズ
 	void Action(); //アクション
 	void Draw();   //ドロー
+	float GetBX();//バリアのx座標
 private:
+	float mb_x;
+	float mb_y;
+	float b_time;//バリアの出てる時間
+
+	bool b_t;//バリアの間隔(仮)
 };

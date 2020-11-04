@@ -49,7 +49,7 @@ void CObjGaugeHP::Draw()
 
 	wchar_t str[128];
 	swprintf_s(str, L"%.0lf/%.0lf", HP,MAXHP);//®”‚ğ•¶š—ñ‚©
-	Font::StrDraw(str, 300, 2, 24, c);
+	Font::StrDraw(str, 330, 2, 24, c);
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 	src.m_top = 72.0f;

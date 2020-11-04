@@ -29,6 +29,11 @@ void CObjEnemy::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_ex, m_ey);
+
+
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
 	{
@@ -41,11 +46,25 @@ void CObjEnemy::Action()
 		else
 			m_vx = 0;
 	}
-	
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
 
+	//バリア出てる時だけ止まる
+	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
+	if (obj_barrier != nullptr)
+	{
+		b_mx = obj_barrier->GetBX();
+
+		if (m_ex == b_mx - 0.0f)
+		{
+			m_vx = 0;
+		}
+		else if (m_ex == b_mx + 128.0f)
+		{
+			m_vx = 0;
+		}
+
+	}
+
+	
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 		this->SetStatus(false);

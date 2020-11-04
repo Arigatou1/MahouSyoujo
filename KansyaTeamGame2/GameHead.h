@@ -26,7 +26,7 @@ enum OBJ_NAME
 	OBJ_BG,
 	OBJ_GAME_CLEAR,
 	OBJ_ENEMYAMOUNT,
-	OBJ_MENU,
+	OBJ_STAGESELECT,
 	OBJ_BULLET,
 	OBJ_MODESELECT,
 	OBJ_BARRIER,
@@ -93,10 +93,10 @@ struct UserData
 #include "ObjBackGround.h"
 #include "ObjGameClear.h"
 #include "ObjEnemyAmount.h"
-#include "ObjMenu.h"
+#include "ObjStageSelect.h"
 #include "ObjBullet.h"
 #include "ObjModeSelect.h"
-#include "ObjBarrier.h"
+#include "Objbarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

@@ -20,6 +20,9 @@ private:
 	float m_vx;
 	float m_vy;
 
+	float b_mx;//バリアのx位置
+	float b_my;//バリアのy位置
+
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
 	//int Amount;

@@ -31,7 +31,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//ステージiDを取得する。
-	CObjMenu* sid = (CObjMenu*)Objs::GetObj(OBJ_MENU);
+	CObjStageSelect* sid = (CObjStageSelect*)Objs::GetObj(OBJ_STAGESELECT);
 	//外部データの読み込み
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
@@ -155,11 +155,11 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		obj = new CObjEnemy(200, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		CObjEnemy2* obj_enemy2;
-		obj_enemy2 = new CObjEnemy2(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj_enemy2 = new CObjEnemy2(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		//CObjEnemy2* obj_enemy2;
+		//obj_enemy2 = new CObjEnemy2(200, 350);
+		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		//obj_enemy2 = new CObjEnemy2(200, 350);
+		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		
 		EnemyAmount+=2;
 	}
@@ -223,11 +223,6 @@ void CSceneMain::Scene()
 		EnemyAmount++;
 	}
 
-	if (m_time==1300)
-	{
-
-		Scene::SetScene(new CSceneGameClear());
-	}
 	
 }
 
