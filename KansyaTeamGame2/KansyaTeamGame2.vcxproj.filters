@@ -122,6 +122,9 @@
     <ClCompile Include="ObjBarrier.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjEnemy4.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -241,6 +244,9 @@
       <Filter>メニュー</Filter>
     </ClInclude>
     <ClInclude Include="Objbarrier.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy4.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
