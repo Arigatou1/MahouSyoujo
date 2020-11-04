@@ -41,8 +41,8 @@ void CObjModeSelect::Action()
 			{
 				this->SetStatus(false);
 				//メニューオブジェクト作成
-				CObjMenu* obj = new CObjMenu();
-				Objs::InsertObj(obj, OBJ_MENU, 0);
+				CObjStageSelect* obj = new CObjStageSelect();
+				Objs::InsertObj(obj, OBJ_STAGESELECT, 0);
 			}
 			
 			m_key_flag = false;
