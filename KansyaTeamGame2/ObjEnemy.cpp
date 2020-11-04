@@ -33,6 +33,7 @@ void CObjEnemy::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
+
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
 	{
@@ -46,6 +47,7 @@ void CObjEnemy::Action()
 			m_vx = 0;
 	}
 
+	//ƒoƒŠƒAo‚Ä‚é‚¾‚¯~‚Ü‚é
 	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
 	if (obj_barrier != nullptr)
 	{
