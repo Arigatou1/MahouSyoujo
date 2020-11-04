@@ -53,11 +53,11 @@ void CObjEnemy::Action()
 	{
 		b_mx = obj_barrier->GetBX();
 
-		if (m_ex == b_mx - 0.0f)
+		if (m_ex == b_mx - 48.0f)
 		{
 			m_vx = 0;
 		}
-		else if (m_ex == b_mx + 128.0f)
+		else if (m_ex == b_mx + 160.0f)
 		{
 			m_vx = 0;
 		}
