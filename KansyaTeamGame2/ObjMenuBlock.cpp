@@ -6,7 +6,7 @@
 //表示位置dstの値を受け取って、描画だけできるようにしたい。
 void MenuBlockDraw(float x, float y, float width, float height, float r, float g, float b, float a)
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { r,g,b,a };
 	RECT_F src;
 	RECT_F dst;
 	src.m_top = 0;

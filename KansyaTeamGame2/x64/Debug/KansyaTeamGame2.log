@@ -1,5 +1,5 @@
-﻿  ObjMenuBlock.cpp
-  ObjModeSelect.cpp
+﻿  ObjModeSelect.cpp
 C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(30,31): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  コードを生成中...
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(92,20): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(98,58): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
