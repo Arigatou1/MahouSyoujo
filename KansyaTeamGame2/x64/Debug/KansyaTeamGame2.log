@@ -1,4 +1,1 @@
-﻿  ObjModeSelect.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjModeSelect.cpp(29,31): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjModeSelect.cpp(102,17): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
