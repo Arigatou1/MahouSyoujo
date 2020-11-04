@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjModeSelect.h"
 #include "GameL\WinInputs.h"
+#include "ObjMenuBlock.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -95,7 +96,7 @@ void CObjModeSelect::Draw()
 	src.m_right = 64.0f;
 	src.m_bottom = 64.0f;
 
-	for (int i = 0; i < 2; i++)
+/*	for (int i = 0; i < 2; i++)
 	{
 		c[1] = 0.0f;
 		c[2] = 0.0f;
@@ -114,8 +115,11 @@ void CObjModeSelect::Draw()
 	dst.m_bottom = dst.m_top + 72;
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
-
+	*/
 	//カーソル描画
+
+	MenuBlockDraw(0, 0, 64, 64,1,1,1,1);
+
 	c[0] = 1.0f;
 	c[1] = 0.8f;
 	c[2] = 0.0f;
@@ -137,3 +141,4 @@ void CObjModeSelect::Draw()
 	Font::StrDraw(L"エンドレスモード", 472, 200, 32, c);
 }
 
+//MenuBlockDraw関数

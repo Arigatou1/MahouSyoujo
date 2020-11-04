@@ -145,6 +145,7 @@
     <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
+    <ClInclude Include="ObjMenuBlock.h" />
     <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneMenu.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="UtilityModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
@@ -198,6 +200,7 @@
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
+    <ClCompile Include="ObjMenuBlock.cpp" />
     <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
@@ -243,6 +246,7 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneMenu.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="UtilityModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
