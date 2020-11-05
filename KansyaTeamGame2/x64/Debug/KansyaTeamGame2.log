@@ -1,4 +1,4 @@
 ﻿  ObjModeSelect.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(109,20): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(115,70): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(137,20): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjModeSelect.cpp(143,70): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

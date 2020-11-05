@@ -84,6 +84,21 @@ void CObjModeSelect::Action()
 		}
 		m_key_flag = false;
 	}
+	else if (Input::GetVKey(VK_UP) == true)
+	{
+		if (cursor_y >= 450)
+		{
+			if (m_key_flag == true)
+			{
+				//下にいるときだけステージセレクトにカーソルを合わせる。
+				nowSelect = 0;
+				cursor_x = 40;
+				cursor_y = 96;
+			}
+			m_key_flag = false;
+		}
+		
+	}
 	else
 	{
 		m_key_flag = true;
@@ -97,6 +112,17 @@ void CObjModeSelect::Action()
 	else if (cursor_x < 40)
 	{
 		cursor_x = 40;
+	}
+
+	if (cursor_x == 200 && cursor_y == 450)
+	{
+		cursor_sx = 400;
+		cursor_sy = 72;
+	}
+	else
+	{
+		cursor_sx = 320;
+		cursor_sy = 256;
 	}
 }
 
@@ -121,6 +147,8 @@ void CObjModeSelect::Draw()
 	Font::StrDraw(L"ステージセレクト", 72, 200, 32, c);
 
 	Font::StrDraw(L"エンドレスモード", 472, 200, 32, c);
+
+	Font::StrDraw(L"設定", 360, 460, 48, c);
 }
 
 //MenuBlockDraw関数
