@@ -19,4 +19,6 @@ private:
 	float cursor_x;
 	float cursor_y;
 	int nowSelect;
+	float cursor_sx;
+	float cursor_sy;
 };

@@ -18,6 +18,8 @@ void CObjModeSelect::Init()
 	cursor_x = 40;
 	cursor_y = 96;
 	nowSelect = 0;
+	cursor_sx = 320;
+	cursor_sy = 256;
 }
 
 //アクション
@@ -27,7 +29,7 @@ void CObjModeSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//モード設定する
 
-	nowSelect = ((cursor_x - 40) / 400) ;
+	//nowSelect = ((cursor_x - 40) / 400) ;
 
 	//cursor_x = 40,440
 	//カーソルの初期位置は40なので、
@@ -49,21 +51,38 @@ void CObjModeSelect::Action()
 			m_key_flag = false;
 		}
 	}
-	else if (Input::GetVKey(VK_RIGHT) == true)
-	{
-		if (m_key_flag == true)
-		{
-			cursor_x += 400;
-			m_key_flag = false;
-		}
-	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
 		if (m_key_flag == true)
 		{
-			cursor_x -= 400;
-			m_key_flag = false;
+			//どこにいてもステージセレクトにカーソルを合わせる。
+			nowSelect=0;
+			cursor_x = 40;
+			cursor_y = 96;
 		}
+		m_key_flag = false;
+	}
+	else if (Input::GetVKey(VK_RIGHT)==true)
+	{
+		if (m_key_flag == true)
+		{
+			//どこにいてもエンドレスモードにカーソルを合わせる。
+			nowSelect=1;
+			cursor_x = 440;
+			cursor_y = 96;
+		}
+		m_key_flag = false;
+	}
+	else if (Input::GetVKey(VK_DOWN) == true)
+	{
+		if (m_key_flag == true)
+		{
+			//どこにいても設定にカーソルを合わせる。
+			nowSelect = 2;
+			cursor_x = 200;
+			cursor_y = 450;
+		}
+		m_key_flag = false;
 	}
 	else
 	{
@@ -95,7 +114,7 @@ void CObjModeSelect::Draw()
 	MenuBlockDraw(200, 450, 400, 72, 0.5f, 0, 1, 1);
 
 	//カーソル描画
-	MenuBlockDraw(cursor_x, cursor_y, 320, 256, 1, 0.8, 0, 1);
+	MenuBlockDraw(cursor_x, cursor_y, cursor_sx, cursor_sy, 1, 0.8, 0, 1);
 	
 	Font::StrDraw(L"GAME ModeSelect", 2, 2, 32, c);
 
