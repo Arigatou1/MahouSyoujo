@@ -4,6 +4,12 @@
 
 #include"ObjEnemy4.h"
 
+CObjEnemy4::CObjEnemy4(float x, float y)
+{
+	m_ex = x;
+	m_ey = y;
+}
+
 //イニシャライズ
 void CObjEnemy4::Init()
 {
@@ -13,7 +19,18 @@ void CObjEnemy4::Init()
 //アクション
 void CObjEnemy4::Action()
 {
+	m_vx = -1.0f;
+	m_vy = sin(3.14 / 180 * m_r);
 
+	//角度計算
+	m_r += 2.0f;
+
+	//360゜で初期値に戻す
+	if (m_r > 360.0f)
+		m_r = 0.0f;
+	//移動方向
+	m_vx = -1.0f;
+	m_vy = sin(3.14 / 180 * m_r);//sinθを求めてm_vyに入れる
 }
 
 //ドロー
@@ -33,7 +50,7 @@ void CObjEnemy4::Draw()
 	//表示位置の設定
 	dst.m_top = m_ey;
 	dst.m_left = m_ex;
-	dst.m_right = m_ex + 50.0f;
+	dst.m_right = m_ex - 50.0f;
 	dst.m_bottom = m_ey + 50.0f;
 
 	//描画
