@@ -4,6 +4,7 @@
 #include "GameL\SceneManager.h"
 
 #include "GameHead.h"
+#include "GameL\UserData.h"
 #include "ObjGameClear.h"
 
 //使用するネームスペース
@@ -33,9 +34,9 @@ void CObjGameClear::Action()
 		m_key_flag = true;
 	}
 
-	CObjGaugeHP* obj = (CObjGaugeHP*)Objs::GetObj(OBJ_GAUGEHP);
+	//CObjGaugeHP* obj = (CObjGaugeHP*)Objs::GetObj(OBJ_GAUGEHP);
 
-	Score = obj->GetPercent();
+	//Score = obj->GetPercent();
 }
 
 //ドロー
@@ -49,7 +50,7 @@ void CObjGameClear::Draw()
 	
 
 	wchar_t str[128];
-	swprintf_s(str, L"スコア:%d", Score);//整数を文字列か
+	swprintf_s(str, L"スコア:%d", ((UserData*)Save::GetData())->HHP);//整数を文字列か
 	Font::StrDraw(str, 300, 2, 24, c);
 
 }

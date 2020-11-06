@@ -58,6 +58,8 @@ struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
 	int Stage;
+	int HHP;
+	int 武器;
 	
 };
 //------------------------------------------------

@@ -77,8 +77,8 @@ void CObjGaugeMANAHP::Draw()
 }
 
 
-int CObjGaugeMANAHP::GetPercent()
-{
-	if(0)
-	return GaugePercent;
-}
+//int CObjGaugeMANAHP::GetPercent()
+//{
+//	if(0)
+//	return GaugePercent;
+//}

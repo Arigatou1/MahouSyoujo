@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjStageSelect.h"
 #include "GameL\WinInputs.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -28,7 +29,7 @@ void CObjStageSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//ステージIDを計算し設定するには？？
 
-	StageID = ((cursor_y - 32) / 144)+1 +(PageID*4);
+	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 144)+1 +(PageID*4);
 
 	//cursor_y = 16,96,176,256,336,416,496
 	//カーソルの初期位置は16なので、

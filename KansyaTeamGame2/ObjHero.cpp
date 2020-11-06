@@ -7,6 +7,7 @@
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "ObjSword.h"
+#include "GameL\UserData.h"
 
 
 //使用するネームスペース
@@ -45,6 +46,8 @@ void CObjHero::Init()
 
 	//剣 0 銃 1
 	武器 = 0;
+
+	
 }
 
 //アクション
@@ -253,6 +256,22 @@ void CObjHero::Action()
 
 			Scene::SetScene(new CSceneGameOver());
 		}
+
+		//テスト用
+		if (Input::GetVKey('1')==true)
+		{
+		
+			Scene::SetScene(new CSceneGameClear());
+		}
+
+		//テスト用
+		if (Input::GetVKey('2') == true)
+		{
+
+			Scene::SetScene(new CSceneMain());
+		}
+
+		
 	
 }
 //ドロー
