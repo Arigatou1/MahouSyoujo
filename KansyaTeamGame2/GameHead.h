@@ -60,6 +60,7 @@ struct UserData
 	int Stage;
 	int HHP;
 	int •Ší;
+	int ScoreData[20];
 	
 };
 //------------------------------------------------

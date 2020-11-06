@@ -119,40 +119,22 @@ void CObjStageSelect::Draw()
 
 	for (int i = 0; i < 2; i++)
 		MenuBlockDraw(16 + i * 674, 200, 96, 200, 0, 0, 1, 1);
-	/*
 	
-	
-	{
-		c[2] = 1.0f;
-		c[1] = 0.0f;
-		c[0] = 0.0f;
-		//表示位置の設定
-		dst.m_top = 200 + 0.0f;
-		dst.m_left = 16.0f + i*674.0f;
-		dst.m_right = dst.m_left + 96.0f;
-		dst.m_bottom = dst.m_top + 200.0f;
-		Draw::Draw(0, &src, &dst, c, 0.0f);
-	}
-
-	//描画
-	*/
-	
-	Font::StrDraw(L"GAME StageSelect", 2, 2, 32, c);
 	
 	for (int i = 0; i < 4; i++)
 	{
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1+ (PageID * 4));
-
+		
 		Font::StrDraw(str, 176, 48+(i*144), 96, c);
 	}
 
 	Font::StrDraw(L"←", 40, 284, 48, c);
 
 	Font::StrDraw(L"→", 712, 284, 48, c);
+
+	wchar_t Score[128];
+	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
+	Font::StrDraw(Score, 2,2, 48, c);
 }
 
-int CObjStageSelect::GetStageID()
-{
-	return StageID;
-}

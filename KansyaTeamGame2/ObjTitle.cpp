@@ -20,6 +20,14 @@ void CObjTitle::Init()
 	if (init_stage == false) {
 		((UserData*)Save::GetData())->Stage = 1;
 		init_stage = true;
+
+		//ロード
+		Save::Open();//同フォルダ[UserDataからデータ取得]
+	}
+
+	if (init_stage == true)
+	{
+		Save::Seve();
 	}
 }
 
