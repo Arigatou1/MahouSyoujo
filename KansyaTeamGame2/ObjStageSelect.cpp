@@ -18,7 +18,7 @@ void CObjStageSelect::Init()
 	cursor_x = 140;
 	cursor_y = 32;
 	StageID = 0;
-	PageID = 0;
+	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
 }
 
