@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjEnemy.h"
+#include "GameL/UserData.h"
 
 //使用するネームベース
 using namespace GameL;
@@ -83,6 +84,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		((UserData*)Save::GetData())->HHP += 100;
 		//Amount++;
 	}
 }

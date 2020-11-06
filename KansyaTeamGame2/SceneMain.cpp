@@ -30,17 +30,25 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
-	//ステージiDを取得する。
-	CObjStageSelect* sid = (CObjStageSelect*)Objs::GetObj(OBJ_STAGESELECT);
+	
 	//外部データの読み込み
+
+	((UserData*)Save::GetData())->HHP = 0;
+
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	int Stage = sid->GetStageID();
+	int StageID =((UserData*)Save::GetData())->Stage;
 
-
+	
 	//マップデータを読み込む。
 	wchar_t s[128];
-	swprintf_s(s, L"Stage/Stage%d.csv", Stage);
+
+	if (StageID >= 5)
+	swprintf_s(s, L"Stage/Stage1.csv", StageID);
+
+	else
+		swprintf_s(s, L"Stage/Stage%d.csv", StageID);
+
 	p = Save::ExternalDataOpen(s, &size);//外部データ読み込み
 	
 	int map[10][13];

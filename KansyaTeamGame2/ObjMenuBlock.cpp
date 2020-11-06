@@ -13,15 +13,11 @@ void MenuBlockDraw(float x, float y, float width, float height, float r, float g
 	src.m_left = 0;
 	src.m_right = 64;
 	src.m_bottom = 64;
-
 	
 	dst.m_top = y;
 	dst.m_left = x;
 	dst.m_right = dst.m_left + width;
 	dst.m_bottom = dst.m_top + height;
-
-
-
 
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
