@@ -20,6 +20,9 @@ class CObjMagicalGirl : public CObj
 	private:
 		float m_gx;//位置
 		float m_gy;
+		float m_zx;//全体右の位置
+		float m_xz;//全体左の位置
+		float mz_y;//全体↑
 		float m_postrue;//姿勢
 
 		int m_mp;//MP
@@ -36,4 +39,5 @@ class CObjMagicalGirl : public CObj
 		bool m_t;//攻撃間隔
 		bool h_t;//回復間隔
 		bool b_t;//バリア間隔
+		bool z_t;//全体攻撃間隔
 };

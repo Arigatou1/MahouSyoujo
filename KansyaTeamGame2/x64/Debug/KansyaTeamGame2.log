@@ -1,6 +1,8 @@
 ﻿  CObjHomingBullet.cpp
-C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\CObjHomingBullet.cpp(146,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\CObjHomingBullet.cpp(124,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   GameL_Main.cpp
+  ObjAllBullet.cpp
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjAllBullet.cpp(113,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
   ObjBackGround.cpp
   ObjBarrier.cpp
   ObjBlock.cpp
@@ -39,13 +41,13 @@ C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(145,5
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(286,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(286,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
   ObjMagicalGirl.cpp
+  コードを生成中...
+  コンパイル中...
   ObjMana.cpp
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMana.cpp(69,16): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMana.cpp(76,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMana.cpp(82,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjMana.cpp(122,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  コンパイル中...
   ObjMenuBlock.cpp
   ObjModeSelect.cpp
 C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjModeSelect.cpp(137,20): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。

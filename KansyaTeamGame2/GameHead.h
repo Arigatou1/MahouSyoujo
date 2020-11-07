@@ -9,6 +9,7 @@ enum OBJ_NAME
 	OBJ_HERO,
 	OBJ_MAGICALGIRL,
 	OBJ_HOMINGBULLET,
+	OBJ_ALLBULLET,
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
@@ -80,6 +81,7 @@ struct UserData
 #include "ObjHero.h"
 #include "ObjMagicalGirl.h"
 #include "CObjHomingBullet.h"
+#include "ObjAllBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"

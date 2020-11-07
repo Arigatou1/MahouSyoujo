@@ -21,6 +21,10 @@ void CObjMagicalGirl::Init()
 	m_mtime = 1;
 	m_btime = 100;
 
+	m_zx = m_gx;
+	m_xz = m_gx;
+	mz_y = 0.0f;
+
 	m_skill = 1;//1なら回復 2ならバリア 3なら全体
 }
 
@@ -167,6 +171,32 @@ void CObjMagicalGirl::Action()
 		else if (Input::GetVKey('H') == false && m_btime > 200)
 		{
 			b_t = true;
+		}
+	}
+
+	//魔法少女の全体攻撃
+	if (m_mp >= 50)
+	{
+		if (Input::GetVKey('H') == true && z_t == true && m_skill == 3)
+		{
+			m_atk_animation = 3;//杖持った姿になる
+			z_t = false;
+			m_mp -= 50;
+
+			m_zx -= 64;
+			m_xz += 64;
+			//魔法少女魔法玉作成
+			CObjAllBullet* obj_allbullet = new CObjAllBullet(m_gx, mz_y);//ホーミング弾作成
+			Objs::InsertObj(obj_allbullet, OBJ_ALLBULLET, 60);//オブジェクトマネーに登録
+	//		for (int i = 0; i < 10; i++)
+		//	{
+			//
+			//}
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			m_atk_animation = 0;//棒立ちの姿になる
+			z_t = true;
 		}
 	}
 }
