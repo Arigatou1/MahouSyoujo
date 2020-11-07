@@ -59,7 +59,7 @@ void CObjHero::Action()
 	if (obj_magicalgirl != nullptr)
 	{
 		m_mp = obj_magicalgirl->GetMP();
-
+		m_Skill = obj_magicalgirl->GetSkill();
 	}
 
 		//Spaceキーを押すとジャンプする処理
@@ -232,10 +232,11 @@ void CObjHero::Action()
 		{
 			if (m_hp < max_hp)
 			{
-				if (Input::GetVKey('H') == true && h_t == true)
+				if (Input::GetVKey('H') == true && h_t == true && m_Skill == 1)
 				{
 					h_t = false;
 					m_hp += 3;
+					m_mp -= 20;
 					if (m_hp > max_hp)
 					{
 						m_hp = max_hp;

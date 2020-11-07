@@ -25,12 +25,19 @@ void CObjBarrier::Action()
 {
 	b_time++;
 
-	if (Input::GetVKey('B') == true && b_t == true)
+	CObjMagicalGirl* obj_magicalgirl = (CObjMagicalGirl*)Objs::GetObj(OBJ_MAGICALGIRL);
+	if (obj_magicalgirl != nullptr)
+	{
+		b_skill = obj_magicalgirl->GetSkill();
+
+	}
+
+	if (Input::GetVKey('H') == true && b_t == true && b_skill == 2)
 	{
 		b_time = 0;
 		b_t = false;
 	}
-	else if (Input::GetVKey('B') == false && b_time > 200)
+	else if (Input::GetVKey('H') == false && b_time > 200)
 	{
 		b_t = true;
 	}
