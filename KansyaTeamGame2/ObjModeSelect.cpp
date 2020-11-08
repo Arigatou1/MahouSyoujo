@@ -18,6 +18,8 @@ void CObjModeSelect::Init()
 	cursor_x = 40;
 	cursor_y = 96;
 	nowSelect = 0;
+	cursor_sx = 320;
+	cursor_sy = 256;
 }
 
 //アクション
@@ -27,7 +29,7 @@ void CObjModeSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//モード設定する
 
-	nowSelect = ((cursor_x - 40) / 400) ;
+	//nowSelect = ((cursor_x - 40) / 400) ;
 
 	//cursor_x = 40,440
 	//カーソルの初期位置は40なので、
@@ -49,21 +51,53 @@ void CObjModeSelect::Action()
 			m_key_flag = false;
 		}
 	}
-	else if (Input::GetVKey(VK_RIGHT) == true)
-	{
-		if (m_key_flag == true)
-		{
-			cursor_x += 400;
-			m_key_flag = false;
-		}
-	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
 		if (m_key_flag == true)
 		{
-			cursor_x -= 400;
+			//どこにいてもステージセレクトにカーソルを合わせる。
+			nowSelect=0;
+			cursor_x = 40;
+			cursor_y = 96;
+		}
+		m_key_flag = false;
+	}
+	else if (Input::GetVKey(VK_RIGHT)==true)
+	{
+		if (m_key_flag == true)
+		{
+			//どこにいてもエンドレスモードにカーソルを合わせる。
+			nowSelect=1;
+			cursor_x = 440;
+			cursor_y = 96;
+		}
+		m_key_flag = false;
+	}
+	else if (Input::GetVKey(VK_DOWN) == true)
+	{
+		if (m_key_flag == true)
+		{
+			//どこにいても設定にカーソルを合わせる。
+			nowSelect = 2;
+			cursor_x = 200;
+			cursor_y = 450;
+		}
+		m_key_flag = false;
+	}
+	else if (Input::GetVKey(VK_UP) == true)
+	{
+		if (cursor_y >= 450)
+		{
+			if (m_key_flag == true)
+			{
+				//下にいるときだけステージセレクトにカーソルを合わせる。
+				nowSelect = 0;
+				cursor_x = 40;
+				cursor_y = 96;
+			}
 			m_key_flag = false;
 		}
+		
 	}
 	else
 	{
@@ -79,66 +113,42 @@ void CObjModeSelect::Action()
 	{
 		cursor_x = 40;
 	}
+
+	if (cursor_x == 200 && cursor_y == 450)
+	{
+		cursor_sx = 400;
+		cursor_sy = 72;
+	}
+	else
+	{
+		cursor_sx = 320;
+		cursor_sy = 256;
+	}
 }
 
 //ドロー
 void CObjModeSelect::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	//描画カラー情報
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
+	//ステセレ・エンドレボタン
+	for (int i = 0; i < 2; i++)
+		MenuBlockDraw(40 + (i * 400), 96, 320, 256, 1, 0, 0, 1);
 
-//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	//設定ボタン
+	MenuBlockDraw(200, 450, 400, 72, 0.5f, 0, 1, 1);
 
-/*	for (int i = 0; i < 2; i++)
-	{
-		c[1] = 0.0f;
-		c[2] = 0.0f;
-		dst.m_top = 96;
-		dst.m_left=40 + (i * 400);
-		dst.m_right =dst.m_left+320;
-		dst.m_bottom = dst.m_top + 256;
-
-		Draw::Draw(0, &src, &dst, c, 0.0f);
-	}
-	c[2] = 1.0f;
-	c[0] = 0.5f;
-	dst.m_top = 450;
-	dst.m_left = 200;
-	dst.m_right = dst.m_left + 400;
-	dst.m_bottom = dst.m_top + 72;
-
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-	*/
 	//カーソル描画
-
-	MenuBlockDraw(0, 0, 64, 64,1,1,1,1);
-
-	c[0] = 1.0f;
-	c[1] = 0.8f;
-	c[2] = 0.0f;
-
-	dst.m_top = cursor_y;
-	dst.m_left = cursor_x;
-	dst.m_right = dst.m_left + 320;
-	dst.m_bottom = dst.m_top + 256;
+	MenuBlockDraw(cursor_x, cursor_y, cursor_sx, cursor_sy, 1, 0.8, 0, 1);
 	
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-
-	c[0] = 1.0f;
-	c[1] = 1.0f;
-	c[2] = 1.0f;
 	Font::StrDraw(L"GAME ModeSelect", 2, 2, 32, c);
 
 	Font::StrDraw(L"ステージセレクト", 72, 200, 32, c);
 
 	Font::StrDraw(L"エンドレスモード", 472, 200, 32, c);
+
+	Font::StrDraw(L"設定", 360, 460, 48, c);
 }
 
 //MenuBlockDraw関数

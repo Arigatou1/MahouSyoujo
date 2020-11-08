@@ -127,6 +127,9 @@
     <ClCompile Include="ObjMenuBlock.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjAllBullet.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -252,6 +255,9 @@
     <ClInclude Include="UtilityModule.h" />
     <ClInclude Include="ObjMenuBlock.h">
       <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjAllBullet.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

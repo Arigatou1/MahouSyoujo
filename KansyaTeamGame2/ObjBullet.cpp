@@ -40,6 +40,28 @@ void CObjBullet::Action()
 		vx -= 0.5f;
 	//位置を更新
 	px += vx;
+
+	//当たり判定を行うオブジェクト情報部
+	int database[4] =
+	{
+		OBJ_ENEMY,
+		OBJ_ENEMY2,
+		OBJ_ENEMY3,
+		OBJ_ENEMY4,
+	};
+
+	for(int i=0;i<4;i++)
+	{
+
+		if (hit->CheckObjNameHit(database[i])!=nullptr)
+		{
+			this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+		}
+
+		//Amount++;
+	}
+
 	
 }
 
