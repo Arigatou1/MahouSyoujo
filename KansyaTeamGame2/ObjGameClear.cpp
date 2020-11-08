@@ -14,11 +14,12 @@ using namespace GameL;
 void CObjGameClear::Init()
 {
 	//Score = 0;
-	Save::Seve();
-
+	
 
 	((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
 		= ((UserData*)Save::GetData())->HHP;
+
+	Save::Seve();
 }
 
 //ƒAƒNƒVƒ‡ƒ“

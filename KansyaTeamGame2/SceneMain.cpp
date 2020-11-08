@@ -37,13 +37,13 @@ void CSceneMain::InitScene()
 
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
-	int StageID =((UserData*)Save::GetData())->Stage;
+	int StageID =((UserData*)Save::GetData())->Stage+1;
 
 	
 	//マップデータを読み込む。
 	wchar_t s[128];
 
-	if (StageID >= 5)
+	if (StageID >= 4)
 	swprintf_s(s, L"Stage/Stage1.csv", StageID);
 
 	else

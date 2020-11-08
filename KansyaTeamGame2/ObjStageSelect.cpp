@@ -20,6 +20,8 @@ void CObjStageSelect::Init()
 	StageID = 0;
 	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
+
+
 }
 
 //アクション
@@ -29,7 +31,7 @@ void CObjStageSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//ステージIDを計算し設定するには？？
 
-	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 144)+1 +(PageID*4);
+	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 144) +(PageID*4);
 
 	//cursor_y = 16,96,176,256,336,416,496
 	//カーソルの初期位置は16なので、
@@ -133,7 +135,7 @@ void CObjStageSelect::Draw()
 
 	Font::StrDraw(L"→", 712, 284, 48, c);
 
-	wchar_t Score[128];
+	wchar_t Score[16];
 	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
 	Font::StrDraw(Score, 2,2, 48, c);
 }
