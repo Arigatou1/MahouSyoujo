@@ -46,18 +46,18 @@ void CObjBlock::Action()
 	hero->SetRight(false);
 
 	//敵３の位置取得
-	//CObjEnemy3* enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
-	//if (enemy3 != nullptr) 
-	//{
-	//	ex = enemy3->GetX();
-	//	ey = enemy3->GetY();
-	//}
+	CObjEnemy3* enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
+	if (enemy3 != nullptr) 
+	{
+		ex = enemy3->GetX();
+		ey = enemy3->GetY();
+	}
 
 	//敵3の衝突状態確認用フラグの初期化
-	//enemy3->SetUp(false);
-	//enemy3->SetDown(false);
-	//enemy3->SetLeft(false);
-	//enemy3->SetRight(false);
+	enemy3->SetUp(false);
+	enemy3->SetDown(false);
+	enemy3->SetLeft(false);
+	enemy3->SetRight(false);
 
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 10; i++)
@@ -135,7 +135,7 @@ void CObjBlock::Action()
 				}
 
 				//敵3のブロックの当たり判定
-				/*if ((ex + 64.0f > bx) && (ex < bx + 64.0f) && (ey + 64.0f > by) && (ey < by + 64.0f))
+				if ((ex + 64.0f > bx) && (ex < bx + 64.0f) && (ey + 64.0f > by) && (ey < by + 64.0f))
 				{
 					//上下左右判定
 
@@ -169,7 +169,7 @@ void CObjBlock::Action()
 						}
 					}
 				}
-				*/
+				
 			}
 		}
 	}
