@@ -130,6 +130,9 @@
     <ClCompile Include="ObjAllBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjCustomize.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -258,6 +261,9 @@
     </ClInclude>
     <ClInclude Include="ObjAllBullet.h">
       <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCustomize.h">
+      <Filter>メニュー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
