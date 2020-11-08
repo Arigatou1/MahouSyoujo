@@ -1,10 +1,4 @@
-﻿  ObjHero.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(74,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(79,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(87,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(100,16): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(134,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(143,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(284,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjHero.cpp(284,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+﻿  ObjStageSelect.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(35,64): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(145,37): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
   KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
