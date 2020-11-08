@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include "GameL\MultiThread.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -14,6 +15,20 @@ using namespace GameL;
 void CObjTitle::Init()
 {
 	m_key_flag = false;//キーフラグ
+
+	static bool init_stage = false;
+	if (init_stage == false) {
+		((UserData*)Save::GetData())->Stage = 1;
+		init_stage = true;
+
+		//ロード
+		Save::Open();//同フォルダ[UserDataからデータ取得]
+	}
+
+	if (init_stage == true)
+	{
+		Save::Seve();
+	}
 }
 
 //アクション

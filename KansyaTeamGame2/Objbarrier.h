@@ -13,12 +13,13 @@ public:
 	void Init();   //イニシャライズ
 	void Action(); //アクション
 	void Draw();   //ドロー
-//	float GetBX();//バリアのx座標
-//	float GetBY();//バリアのy座標
+	float GetBX();//バリアのx座標
 private:
 	float mb_x;
 	float mb_y;
 	float b_time;//バリアの出てる時間
+
+	int b_skill;//魔法少女のスキル選択
 
 	bool b_t;//バリアの間隔(仮)
 };

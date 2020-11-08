@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjEnemy.h"
+#include "GameL/UserData.h"
 
 //使用するネームベース
 using namespace GameL;
@@ -19,6 +20,7 @@ void CObjEnemy::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+	e_damege = 0;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -28,6 +30,10 @@ void CObjEnemy::Action()
 {
 	//m_vxの速度で移動
 	m_ex += m_vx;
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_ex, m_ey);
 
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
@@ -43,12 +49,30 @@ void CObjEnemy::Action()
 			m_vx = 0;
 	}
 
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
+	//バリア出てる時だけ止まる
+	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
+	if (obj_barrier != nullptr)
+	{
+		b_mx = obj_barrier->GetBX();
 
+		if (m_ex == b_mx - 48.0f)
+		{
+			m_vx = 0;
+		}
+		else if (m_ex == b_mx + 160.0f)
+		{
+			m_vx = 0;
+		}
+
+	}
+
+	
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
+
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -60,6 +84,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		((UserData*)Save::GetData())->HHP += 100;
 		//Amount++;
 	}
 }

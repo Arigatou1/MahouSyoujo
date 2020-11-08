@@ -9,10 +9,12 @@ enum OBJ_NAME
 	OBJ_HERO,
 	OBJ_MAGICALGIRL,
 	OBJ_HOMINGBULLET,
+	OBJ_ALLBULLET,
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
 	OBJ_ENEMY3,
+	OBJ_ENEMY4,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
@@ -57,6 +59,9 @@ struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
 	int Stage;
+	int HHP;
+	int 武器;
+	int ScoreData[20];
 	
 };
 //------------------------------------------------
@@ -76,9 +81,11 @@ struct UserData
 #include "ObjHero.h"
 #include "ObjMagicalGirl.h"
 #include "CObjHomingBullet.h"
+#include "ObjAllBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
+#include "ObjEnemy4.h"
 #include "ObjGaugeBase.h"
 #include "ObjBlock.h"
 #include "ObjGaugeHP.h"
