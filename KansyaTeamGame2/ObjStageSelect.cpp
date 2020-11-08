@@ -44,6 +44,14 @@ void CObjStageSelect::Action()
 		{
 			if(cursor_y<512)
 			Scene::SetScene(new CSceneMain());
+
+			if (cursor_y >= 512)
+			{
+				this->SetStatus(false);
+				//メニューオブジェクト作成
+				CObjCustomize* obj = new CObjCustomize();
+				Objs::InsertObj(obj, OBJ_CUSTOMIZE, 0);
+			}
 			m_key_flag = false;
 		}
 	}
@@ -91,10 +99,10 @@ void CObjStageSelect::Action()
 
 	//カーソルが画面外いかない処理
 	if (cursor_y < 64)
-		cursor_y = 64;
+		cursor_y = 512;
 
 	if (cursor_y > 512)
-		cursor_y = 512;
+		cursor_y = 64;
 
 
 
