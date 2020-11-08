@@ -31,6 +31,7 @@ void CObjStageSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//ステージIDを計算し設定するには？？
 
+	if(cursor_y<512)
 	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 112) +(PageID*4);
 
 	//cursor_y = 16,96,176,256,336,416,496
@@ -44,6 +45,14 @@ void CObjStageSelect::Action()
 		{
 			if(cursor_y<512)
 			Scene::SetScene(new CSceneMain());
+
+			if (cursor_y >= 512)
+			{
+				this->SetStatus(false);
+				//メニューオブジェクト作成
+				CObjCustomize* obj = new CObjCustomize();
+				Objs::InsertObj(obj, OBJ_CUSTOMIZE, 0);
+			}
 			m_key_flag = false;
 		}
 	}
@@ -91,10 +100,10 @@ void CObjStageSelect::Action()
 
 	//カーソルが画面外いかない処理
 	if (cursor_y < 64)
-		cursor_y = 64;
+		cursor_y = 512;
 
 	if (cursor_y > 512)
-		cursor_y = 512;
+		cursor_y = 64;
 
 
 

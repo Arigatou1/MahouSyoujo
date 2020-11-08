@@ -31,6 +31,7 @@ enum OBJ_NAME
 	OBJ_BULLET,
 	OBJ_MODESELECT,
 	OBJ_BARRIER,
+	OBJ_CUSTOMIZE,
 };
 //------------------------------------------------
 
@@ -58,9 +59,14 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	//ステージIDを取得する
 	int Stage;
 	int HHP;
+
+
+	//主人公の武器。剣 0 銃 1
 	int 武器;
+	//ステージのスコアデータ
 	int ScoreData[20];
 	
 };
@@ -102,6 +108,7 @@ struct UserData
 #include "ObjBullet.h"
 #include "ObjModeSelect.h"
 #include "Objbarrier.h"
+#include "ObjCustomize.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

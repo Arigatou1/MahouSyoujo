@@ -44,8 +44,6 @@ void CObjHero::Init()
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	//Œ• 0 e 1
-	•Ší = 0;
 
 	
 }
@@ -128,7 +126,7 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (•Ší == 1)
+			if (((UserData*)Save::GetData())->•Ší == 1)
 			{
 				m_f = false;
 				atk_anime = 1;
