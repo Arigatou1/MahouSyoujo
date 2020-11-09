@@ -80,6 +80,17 @@ void CObjEnemy::Action()
 		//Amount++;
 	}
 
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e_damege = obj_all->GetZ_ATK();
+
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+		//Amount++;
+	}
+
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		this->SetStatus(false);

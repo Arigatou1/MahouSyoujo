@@ -20,9 +20,8 @@ class CObjMagicalGirl : public CObj
 	private:
 		float m_gx;//位置
 		float m_gy;
-		float m_zx;//全体右の位置
-		float m_xz;//全体左の位置
-		float mz_y;//全体↑
+		float z_x;//all弾の位置x
+		float z_y;//all弾の位置y
 		float m_postrue;//姿勢
 
 		int m_mp;//MP

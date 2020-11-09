@@ -58,6 +58,13 @@ void CObjEnemy2::Action()
 			//Amount++;
 		}
 
+		if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			//Amount++;
+		}
+
 		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 		{
 			this->SetStatus(false);
