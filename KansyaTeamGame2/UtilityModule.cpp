@@ -1,9 +1,8 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneManager.h"
-
 #include "GameHead.h"
 //MenuBlockDraw関数
-//表示位置dstの値を受け取って、描画だけできるようにしたい。
+//表示位置dstの値を受け取って、描画だけできる。
 void MenuBlockDraw(float x, float y, float width, float height, float r, float g, float b, float a)
 {
 	float c[4] = { r,g,b,a };

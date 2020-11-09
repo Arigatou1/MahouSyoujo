@@ -16,4 +16,5 @@ public:
 private:
 	int m_time;
 	int EnemyAmount;
+	bool m_key_flag;
 };

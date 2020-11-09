@@ -14,6 +14,7 @@ using namespace GameL;
 //使用ヘッダー
 #include "SceneMain.h"
 #include "GameHead.h"
+#include "GameL\WinInputs.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -73,6 +74,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
+	
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
@@ -108,6 +110,9 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
 
+	//PauseMenuオブジェクト作成
+	CObjPauseMenu* obj_pause = new CObjPauseMenu();
+	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
 	
 
@@ -121,7 +126,20 @@ void CSceneMain::InitScene()
 void CSceneMain::Scene()
 {
 	m_time++;
+
+	//ポーズメニュー
+	if (Input::GetVKey('P') == true)
+	{
+		if (m_key_flag == true)
+		{
+			((UserData*)Save::GetData())->PauseMenu = true;
+			m_key_flag = false;
+		}
+	}
 	
+	else
+		m_key_flag = true;
+
 
 	if (m_time == 30)
 	{
