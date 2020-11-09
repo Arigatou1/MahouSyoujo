@@ -29,58 +29,36 @@ void CObjHomingBullet::Init()
 //アクション
 void CObjHomingBullet::Action()
 {
+
+	//当たり判定を行うオブジェクト情報部
+	int database[4] =
+	{
+		OBJ_ENEMY,
+		OBJ_ENEMY2,
+		OBJ_ENEMY3,
+		OBJ_ENEMY4,
+	};
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_bx, m_by);
+
 	if (m_bpostrue == 1.0f)
 	{
 		//移動方向
 		m_vx = +3.0f;
-		m_vy = 0.0f;
-		m_bx += m_vx;
-		m_by += m_vy;
-		//HitBOxの内容を変更
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_bx, m_by);
-
-		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-	    }
-
-		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
-
-		if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
 	}
 	else if(m_bpostrue == 0.0f)
 	{
-		m_vx = -3.0f;
-		m_vy = 0.0f;
-		m_bx += m_vx;
-		m_by += m_vy;
-		//HitBOxの内容を変更
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_bx, m_by);
+		//移動方向
+		m_vx = -3.0f;		
+	}
 
-		if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
+	m_bx += m_vx;
 
-		if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
-
-		if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
+	for (int i = 0; i < 4; i++)
+	{
+		if (hit->CheckObjNameHit(database[i]) != nullptr)
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);

@@ -38,6 +38,7 @@ private:
 	float m_posture;//向いている方向用
 
 	int m_mp;   //現在のMP
+	int m_Skill;//魔法少女のスキル選択
 
 
 	int m_anime;	//歩くアニメーション
