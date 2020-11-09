@@ -9,6 +9,8 @@
 #include "HitBoxManager.h"
 #include "MultiThread.h"
 #include "WinInputs.h"
+#include "UserData.h"
+#include "../GameHead.h"
 
 using namespace GameL;
 
@@ -41,8 +43,21 @@ void CSceneManager::GameLoop()
 	CDirectXDeviec::ViewDraw2D();
 
 	Swap();			//シーン切り替え
+
+	if (((UserData*)Save::GetData())->PauseMenu==false)
 	SceneAction();	//シーンアクション実行
+	
 	SceneDraw();	//シーン描画
+
+
+	
+	if (Input::GetVKey(VK_RETURN) == true)
+	{
+
+			((UserData*)Save::GetData())->PauseMenu = false;
+			
+		
+	}
 	
 	m_TimeEnd=timeGetTime();
 	m_Time+= m_TimeEnd - m_TimeStart;

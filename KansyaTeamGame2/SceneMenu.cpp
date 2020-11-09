@@ -37,6 +37,8 @@ void CSceneMenu::InitScene()
 	//モードセレクトオブジェクト作成
 	CObjModeSelect* obj = new CObjModeSelect();
 	Objs::InsertObj(obj, OBJ_MODESELECT, 0);
+
+
 }
 //実行中メソッド
 void CSceneMenu::Scene()

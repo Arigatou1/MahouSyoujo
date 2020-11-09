@@ -16,8 +16,11 @@ void CObjTitle::Init()
 {
 	m_key_flag = false;//キーフラグ
 
+	//static グローバル変数ではないが、そのような記憶寿命を持つ
 	static bool init_stage = false;
-	if (init_stage == false) {
+	if (init_stage == false)
+	{
+		//プログラムを一回だけ実行する
 		((UserData*)Save::GetData())->Stage = 1;
 		init_stage = true;
 
@@ -25,6 +28,11 @@ void CObjTitle::Init()
 		((UserData*)Save::GetData())->ScoreData[i] = 0;
 		//ロード
 		Save::Open();//同フォルダ[UserDataからデータ取得]
+
+
+		//ポーズ状態初期化
+		((UserData*)Save::GetData())->PauseMenu = false;
+
 	}
 
 	if (init_stage == true)

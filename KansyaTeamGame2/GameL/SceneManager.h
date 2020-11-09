@@ -11,6 +11,7 @@ namespace GameL
 			virtual void InitScene()=0;
 			virtual void Scene()=0;
 		private:
+
 	};
 
 	//シーンマネージャークラス
@@ -34,6 +35,10 @@ namespace GameL
 			static void SceneAction();
 			static void SceneDraw();
 			static void Swap();
+
+			
 	}Scene;
 
+	
+	
 };
