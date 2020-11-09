@@ -15,11 +15,17 @@ void CObjGameClear::Init()
 {
 	//Score = 0;
 	
+	//現在のハイスコアよりも高い場合結果を保存
+	if (((UserData*)Save::GetData())->HHP >
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
 
-	((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
-		= ((UserData*)Save::GetData())->HHP;
+	{
+		//スコアを保存
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
+			= ((UserData*)Save::GetData())->HHP;
 
-	Save::Seve();
+	}
+	Save::Seve();//セーブ
 }
 
 //アクション
@@ -40,9 +46,6 @@ void CObjGameClear::Action()
 		m_key_flag = true;
 	}
 
-	//CObjGaugeHP* obj = (CObjGaugeHP*)Objs::GetObj(OBJ_GAUGEHP);
-
-	//Score = obj->GetPercent();
 }
 
 //ドロー

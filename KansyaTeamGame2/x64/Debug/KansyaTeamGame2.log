@@ -1,2 +1,3 @@
-﻿  ObjMagicalGirl.cpp
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjCustomize.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjCustomize.cpp(30,30): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
