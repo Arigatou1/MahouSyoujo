@@ -248,4 +248,141 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 	//描画
 	Draw::Draw(0, &src, dst, c, 0.0f);
 }
-				
+
+//BlockHit関数
+//引数1 float* x;
+//引数2 float* x;
+//引数3 float* x;
+//引数4 float* x;
+//引数5 float* x;
+//引数6 float* x;
+//引数7 float* x;
+//引数8 float* x;
+//引数9 float* x;
+//判定を行うobjectとブロック64×64限定で、当たり判定と上下判定を行う
+//その結果は引数4～10に返す
+
+/*
+void CObjBlock :: BlockHit(float* x, float* y,
+	bool* up, bool* down, bool* left, bool* right,
+	float* vx, float* vy, int* bt)
+	//敵3の衝突状態確認用フラグの初期化
+	enemy3->SetUp(false);
+	enemy3->SetDown(false);
+	enemy3->SetLeft(false);
+	enemy3->SetRight(false);
+
+//m_mapの全要素にアクセス
+for (int i = 0; i < 10; i++)
+{
+	for (int j = 0; j < 13; j++)
+	{
+		if (m_map[i][j] > 0 && m_map[i][j] != 6)
+		{
+			//要素番号を座標に変更
+			float bx = j * 64.0f;
+			float by = i * 64.0f;
+
+			//主人公のブロックの当たり判定
+			if ((hx + 64.0f > bx) && (hx < bx + 64.0f) && (hy + 64.0f > by) && (hy < by + 64.0f))
+			{
+				//上下左右判定
+
+				//vectorの作成
+				float vx = hx - bx;
+				float vy = hy - by;
+
+				//長さを求める
+				float len = sqrt(vx * vx + vy * vy);
+
+				//角度を求める
+				float r = atan2(vy, vx);
+				r = r * 180.0f / 3.14f;
+
+				if (r <= 0.0f)
+					r = abs(r);
+				else
+					r = 360.0f - abs(r);
+
+				if (len < 88.0f)
+				{
+					//角度で上下左右判定
+					if ((r < 40 && r>0) || r > 320)
+					{
+						//右
+						hero->SetX(bx + 64.0f);//ブロックの位置-主人公の幅
+						hero->SetRight(true);//主人公の左側が衝突
+						hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
+
+
+					}
+					if (r > 45 && r < 135)
+					{
+						//上
+						hero->SetDown(true);//主人公から見て、下の部分が衝突している
+						hero->SetY(by - 64.0f);//ブロックの位置-主人公の幅
+						hero->SetVY(0.0f);
+					}
+					if (r > 140 && r < 220)
+					{
+						//左
+						hero->SetX(bx - 64.0f);//ブロックの位置-主人公の幅
+						hero->SetLeft(true);//主人公の左側が衝突
+						hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
+					}
+					if (r > 225 && r < 315)
+					{
+						//下
+						hero->SetUp(true);
+						hero->SetY(by + 64.0f);//ブロックの位置-主人公の幅
+
+						if (hero->GetVY() < 0)
+						{
+							hero->SetVY(0.0f);
+						}
+					}
+
+
+				}
+
+			}
+
+			//敵3のブロックの当たり判定
+			if ((ex + 64.0f > bx) && (ex < bx + 64.0f) && (ey + 64.0f > by) && (ey < by + 64.0f))
+			{
+				//上下左右判定
+
+				//vectorの作成
+				float vx = ex - bx;
+				float vy = ey - by;
+
+				//長さを求める
+				float len = sqrt(vx * vx + vy * vy);
+
+				//角度を求める
+				float r = atan2(vy, vx);
+				r = r * 180.0f / 3.14f;
+
+				if (r <= 0.0f)
+					r = abs(r);
+				else
+					r = 360.0f - abs(r);
+
+				if (len < 88.0f)
+				{
+					if (r > 45 && r < 135)
+					{
+						if (enemy3 != nullptr)
+						{
+							//上
+							enemy3->SetDown(true);//主人公から見て、下の部分が衝突している
+							enemy3->SetY(by - 64.0f);//ブロックの位置-主人公の幅
+							enemy3->SetVY(0.0f);
+						}
+					}
+				}
+			}
+
+		}
+	}
+}*/
