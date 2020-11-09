@@ -28,6 +28,9 @@ void CObjEnemy::Init()
 	e1_hit_left = false;
 	e1_hit_right = false;
 
+	e1_xsize = 50;
+	e1_ysize = 50;
+
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ðì¬
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -79,7 +82,7 @@ void CObjEnemy::Action()
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy);
+		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
 	
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{

@@ -41,6 +41,10 @@ void CObjHero::Init()
 	m_hit_down = false;
 	m_hit_left = false;
 	m_hit_right = false;
+
+	h_xsize = 64;
+	h_ysize = 64;
+
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
@@ -77,7 +81,7 @@ void CObjHero::Action()
 		CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 		obj_block->BlockHit(&m_px, &m_py,
 			&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
-			&m_vx, &m_vy);
+			&m_vx, &m_vy,&h_xsize,&h_ysize);
 
 		//ƒL[‚ğ‰Ÿ‚·‚ÆˆÚ“®
 		if (Input::GetVKey(VK_LEFT) == true)
