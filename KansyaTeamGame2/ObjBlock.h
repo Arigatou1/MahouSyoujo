@@ -17,7 +17,7 @@ public :
 
 	void BlockHit(float* x, float* y,
 		bool* up, bool* down, bool* left, bool* right,
-		float* vx, float* vy, int* bt);
+		float* vx, float* vy);
 private:
 	//マップ用変数。m_map[立幅][横幅];
 	int m_map[10][13];
