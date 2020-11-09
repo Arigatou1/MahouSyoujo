@@ -114,9 +114,6 @@
       <Filter>メニュー</Filter>
     </ClCompile>
     <ClCompile Include="UtilityModule.cpp" />
-    <ClCompile Include="ObjMenuBlock.cpp">
-      <Filter>メニュー</Filter>
-    </ClCompile>
     <ClCompile Include="ObjAllBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
@@ -137,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="ObjSmallSlim.cpp">
       <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPauseMenu.cpp">
+      <Filter>ゲームメイン</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,9 +251,6 @@
       <Filter>メニュー</Filter>
     </ClInclude>
     <ClInclude Include="UtilityModule.h" />
-    <ClInclude Include="ObjMenuBlock.h">
-      <Filter>メニュー</Filter>
-    </ClInclude>
     <ClInclude Include="ObjAllBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
@@ -274,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="ObjSmallSlim.h">
       <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPauseMenu.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

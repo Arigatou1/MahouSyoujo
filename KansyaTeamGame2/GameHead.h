@@ -33,6 +33,7 @@ enum OBJ_NAME
 	OBJ_BARRIER,
 	OBJ_CUSTOMIZE,
 	OBJ_SMALLSLIM,
+	OBJ_PAUSEMENU,
 };
 //------------------------------------------------
 
@@ -70,7 +71,7 @@ struct UserData
 	//ステージのスコアデータ
 	int ScoreData[20];
 
-	bool ポーズ画面;
+	bool PauseMenu;
 	
 };
 //------------------------------------------------
@@ -113,6 +114,7 @@ struct UserData
 #include "Objbarrier.h"
 #include "ObjCustomize.h"
 #include "ObjSmallSlim.h"
+#include "ObjPauseMenu.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

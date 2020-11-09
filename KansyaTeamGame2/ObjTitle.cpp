@@ -28,6 +28,11 @@ void CObjTitle::Init()
 		((UserData*)Save::GetData())->ScoreData[i] = 0;
 		//ロード
 		Save::Open();//同フォルダ[UserDataからデータ取得]
+
+
+		//ポーズ状態初期化
+		((UserData*)Save::GetData())->PauseMenu = false;
+
 	}
 
 	if (init_stage == true)
