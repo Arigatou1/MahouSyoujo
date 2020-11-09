@@ -22,10 +22,11 @@ void MenuBlockDraw(float x, float y, float width, float height, float r, float g
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
 }
+
 //重力
 // v = gt  v = v0 + gt
 // v速度 g重力 t時間 v0初速度
-bool Gravity(float *v0)
+float Gravity(float *v0)
 {
 	float g = 9.8f;
 	float v = 0.0f;
