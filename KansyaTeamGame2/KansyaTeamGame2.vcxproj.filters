@@ -122,10 +122,12 @@
     <ClCompile Include="ObjStageSelect.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="UtilityModule.cpp" />
     <ClCompile Include="ObjMenuBlock.cpp">
       <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy4.cpp">
+      <Filter>ゲームメイン</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,10 +250,12 @@
     <ClInclude Include="ObjStageSelect.h">
       <Filter>メニュー</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="UtilityModule.h" />
     <ClInclude Include="ObjMenuBlock.h">
       <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy4.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
