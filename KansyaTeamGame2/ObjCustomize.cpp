@@ -6,7 +6,7 @@
 #include "GameHead.h"
 #include "ObjCustomize.h"
 #include "GameL\WinInputs.h"
-#include "ObjMenuBlock.h"
+#include "UtilityModule.h"
 #include "GameL\UserData.h"
 
 //使用するネームスペース
@@ -25,6 +25,13 @@ void CObjCustomize::Init()
 //アクション
 void CObjCustomize::Action()
 {
+
+	//カーソルの位置からnowSelectを取得する。
+	nowSelect = (cursor_y - 64) / 112;
+
+
+
+
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		if (m_key_flag == true)
@@ -43,7 +50,7 @@ void CObjCustomize::Action()
 		if (m_key_flag == true)
 		{
 			cursor_y -= 112;
-			nowSelect += 1;
+			
 			m_key_flag = false;
 		}
 	}
@@ -53,7 +60,7 @@ void CObjCustomize::Action()
 		if (m_key_flag == true)
 		{
 			cursor_y += 112;
-			nowSelect -= 1;
+		
 			m_key_flag = false;
 		}
 	}
@@ -112,6 +119,14 @@ void CObjCustomize::Action()
 	}
 	else
 		m_key_flag = true;
+
+	//カーソルが画面が行かない処理(上)
+	if (cursor_y < 64)
+		cursor_y = 64;
+
+
+
+
 }
 
 //ドロー

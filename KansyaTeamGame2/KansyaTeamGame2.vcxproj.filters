@@ -114,9 +114,6 @@
       <Filter>メニュー</Filter>
     </ClCompile>
     <ClCompile Include="UtilityModule.cpp" />
-    <ClCompile Include="ObjMenuBlock.cpp">
-      <Filter>メニュー</Filter>
-    </ClCompile>
     <ClCompile Include="ObjAllBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
@@ -124,16 +121,22 @@
       <Filter>メニュー</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy.cpp">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy2.cpp">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy3.cpp">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClCompile>
     <ClCompile Include="ObjEnemy4.cpp">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSmallSlim.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPauseMenu.cpp">
+      <Filter>ゲームメイン</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,9 +251,6 @@
       <Filter>メニュー</Filter>
     </ClInclude>
     <ClInclude Include="UtilityModule.h" />
-    <ClInclude Include="ObjMenuBlock.h">
-      <Filter>メニュー</Filter>
-    </ClInclude>
     <ClInclude Include="ObjAllBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
@@ -258,16 +258,22 @@
       <Filter>メニュー</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy.h">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy2.h">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy3.h">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy4.h">
-      <Filter>敵</Filter>
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSmallSlim.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPauseMenu.h">
+      <Filter>ゲームメイン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -292,8 +298,8 @@
     <Filter Include="メニュー">
       <UniqueIdentifier>{55fd4839-5c02-44b1-9882-3ac0299b6c02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="敵">
-      <UniqueIdentifier>{1d8f73ca-9c9e-44a7-85f6-d14ccf3d78d4}</UniqueIdentifier>
+    <Filter Include="ゲームメイン\敵">
+      <UniqueIdentifier>{d17f0f5a-ff25-471a-90db-fbfc34a6e48c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

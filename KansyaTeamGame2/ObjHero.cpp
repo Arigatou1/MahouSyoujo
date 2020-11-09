@@ -70,7 +70,8 @@ void CObjHero::Action()
 		{
 			isJump = true;
 		}
-		//–€C
+
+		//©—R—‰º‰^“®
 		m_vy += 9.8 / (16.0f);
 
 		//ƒL[‚ğ‰Ÿ‚·‚ÆˆÚ“®
