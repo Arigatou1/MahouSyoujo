@@ -4,7 +4,7 @@
 #include "GameL\SceneManager.h"
 #include "ObjMenuBlock.h"
 #include "GameHead.h"
-#include "ObjStageSelect.h"
+#include "UtilityModule.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
 
@@ -149,6 +149,7 @@ void CObjStageSelect::Draw()
 
 	Font::StrDraw(L"→", 712, 284, 48, c);
 
+	Font::StrDraw(L"カスタマイズ", 156, 512 , 80, c);
 	wchar_t Score[16];
 	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
 	Font::StrDraw(Score, 2,2, 48, c);

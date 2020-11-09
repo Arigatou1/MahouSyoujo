@@ -32,6 +32,7 @@ enum OBJ_NAME
 	OBJ_MODESELECT,
 	OBJ_BARRIER,
 	OBJ_CUSTOMIZE,
+	OBJ_SMALLSLIM,
 };
 //------------------------------------------------
 
@@ -109,6 +110,7 @@ struct UserData
 #include "ObjModeSelect.h"
 #include "Objbarrier.h"
 #include "ObjCustomize.h"
+#include "ObjSmallSlim.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

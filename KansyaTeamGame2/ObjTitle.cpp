@@ -16,8 +16,11 @@ void CObjTitle::Init()
 {
 	m_key_flag = false;//キーフラグ
 
+	//static グローバル変数ではないが、そのような記憶寿命を持つ
 	static bool init_stage = false;
-	if (init_stage == false) {
+	if (init_stage == false)
+	{
+		//プログラムを一回だけ実行する
 		((UserData*)Save::GetData())->Stage = 1;
 		init_stage = true;
 
