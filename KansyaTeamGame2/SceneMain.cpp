@@ -152,17 +152,14 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 220)
 	{
-		CObjEnemy* obj;
-		obj = new CObjEnemy(800, 450);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy(800, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy(200, 350);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		CObjSmallSlim* obj;
+		obj = new CObjSmallSlim(800, 450);
+		Objs::InsertObj(obj, OBJ_SMALLSLIM, 49);
+		obj = new CObjSmallSlim(800, 350);
+		Objs::InsertObj(obj, OBJ_SMALLSLIM, 49);
+		obj = new CObjSmallSlim(200, 350);
+		Objs::InsertObj(obj, OBJ_SMALLSLIM, 49);
+	
 		//CObjEnemy2* obj_enemy2;
 		//obj_enemy2 = new CObjEnemy2(200, 350);
 		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);

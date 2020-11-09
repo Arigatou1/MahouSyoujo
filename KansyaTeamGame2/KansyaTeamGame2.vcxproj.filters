@@ -135,6 +135,9 @@
     <ClCompile Include="ObjEnemy4.cpp">
       <Filter>ゲームメイン\敵</Filter>
     </ClCompile>
+    <ClCompile Include="ObjSmallSlim.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -267,6 +270,9 @@
       <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
     <ClInclude Include="ObjEnemy4.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSmallSlim.h">
       <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
   </ItemGroup>

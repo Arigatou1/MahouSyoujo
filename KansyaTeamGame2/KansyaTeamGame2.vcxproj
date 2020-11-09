@@ -148,6 +148,7 @@
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
     <ClInclude Include="ObjMenuBlock.h" />
+    <ClInclude Include="ObjSmallSlim.h" />
     <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
     <ClCompile Include="ObjMenuBlock.cpp" />
+    <ClCompile Include="ObjSmallSlim.cpp" />
     <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
