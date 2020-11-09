@@ -20,7 +20,7 @@ CObjEnemy3::CObjEnemy3(float x,float y)
 void CObjEnemy3::Init()
 {
 
-	m_vx = +1.0f;
+	m_vx = 0.0f;
 	m_vy = 0.0f;
 
 	hit_up = false;
@@ -41,14 +41,14 @@ void CObjEnemy3::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex + 10.0f, m_ey + 10.0f);
+	hit->SetPos(m_ex , m_ey);
 	
 	
-	//ジャンプ
+	/*//ジャンプ
 	if (hit->CheckObjNameHit(OBJ_BLOCK) != nullptr)
 	{
 		m_ex -= m_vx;
-		if (m_ey==500.0f/*hit_down == true && jump == true*/)
+		if (m_ey==500.0f&&hit_down == true && jump == true)
 		{
 			m_vy = -15;
 			jump == false;
@@ -57,12 +57,15 @@ void CObjEnemy3::Action()
 		//{
 			//jump == true;
 		//}
-	}
+	}*/
 
 	//自由落下運動
 	m_ey += 9.8 / (16.0f);
 
-	//m_ey += m_vy;
+	m_ey += m_vy;
+
+	m_ex -= m_vx;
+
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 		this->SetStatus(false);

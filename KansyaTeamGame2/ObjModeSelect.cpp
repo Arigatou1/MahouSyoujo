@@ -6,7 +6,7 @@
 #include "GameHead.h"
 #include "ObjModeSelect.h"
 #include "GameL\WinInputs.h"
-#include "ObjMenuBlock.h"
+#include "UtilityModule.h"
 
 //使用するネームスペース
 using namespace GameL;

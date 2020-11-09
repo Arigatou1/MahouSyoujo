@@ -1,5 +1,6 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
+#include "GameL\DrawFont.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneObjManager.h"
 
@@ -211,6 +212,25 @@ void CObjMagicalGirl::Draw()
 
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
+
+	if (m_skill == 1)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:ヒール");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
+	else if (m_skill == 2)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:バリア");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
+	else if (m_skill == 3)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:メテオ");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
 
 	//切り取り位置の設定
 	src.m_top    = 128.0f;

@@ -44,8 +44,6 @@ void CObjHero::Init()
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	//Œ• 0 e 1
-	•Ší = 0;
 
 	
 }
@@ -72,7 +70,8 @@ void CObjHero::Action()
 		{
 			isJump = true;
 		}
-		//–€C
+
+		//©—R—‰º‰^“®
 		m_vy += 9.8 / (16.0f);
 
 		//ƒL[‚ğ‰Ÿ‚·‚ÆˆÚ“®
@@ -128,7 +127,7 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (•Ší == 1)
+			if (((UserData*)Save::GetData())->•Ší == 1)
 			{
 				m_f = false;
 				atk_anime = 1;
@@ -208,7 +207,13 @@ void CObjHero::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;
+				m_hp -= 1;//“G‚ÌUŒ‚—Í
+			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 2;//“G‚ÌUŒ‚—Í
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½

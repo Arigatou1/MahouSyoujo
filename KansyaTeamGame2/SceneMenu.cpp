@@ -33,13 +33,12 @@ void CSceneMenu::InitScene()
 	//グラフィックの読み込み
 	Draw::LoadImageW(L"Menu.png", 0, TEX_SIZE_512);
 
-	//メニューオブジェクト作成
-	//CObjMenu* obj = new CObjMenu();
-	//Objs::InsertObj(obj, OBJ_MENU, 0);
-
+	
 	//モードセレクトオブジェクト作成
 	CObjModeSelect* obj = new CObjModeSelect();
 	Objs::InsertObj(obj, OBJ_MODESELECT, 0);
+
+
 }
 //実行中メソッド
 void CSceneMenu::Scene()
