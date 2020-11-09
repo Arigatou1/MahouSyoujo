@@ -72,9 +72,7 @@ void CObjGaugeHP::Draw()
 
 }
 
-int CObjGaugeHP::GetPercent()
-{
-	//–¢ŽÀ‘•
-	if(0)
-	return GaugePercent;
-}
+//int CObjGaugeHP::GetPercent()
+//{
+//	return GaugePercent;
+//}

@@ -7,6 +7,7 @@
 #include "GameHead.h"
 #include "ObjHero.h"
 #include "ObjSword.h"
+#include "GameL\UserData.h"
 
 
 //使用するネームスペース
@@ -43,8 +44,8 @@ void CObjHero::Init()
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	//剣 0 銃 1
-	武器 = 1;
+
+	
 }
 
 //アクション
@@ -56,7 +57,7 @@ void CObjHero::Action()
 	if (obj_magicalgirl != nullptr)
 	{
 		m_mp = obj_magicalgirl->GetMP();
-
+		m_Skill = obj_magicalgirl->GetSkill();
 	}
 
 		//Spaceキーを押すとジャンプする処理
@@ -125,7 +126,7 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (武器 == 1)
+			if (((UserData*)Save::GetData())->武器 == 1)
 			{
 				m_f = false;
 				atk_anime = 1;
@@ -229,10 +230,10 @@ void CObjHero::Action()
 		{
 			if (m_hp < max_hp)
 			{
-				if (Input::GetVKey('H') == true && h_t == true)
+				if (Input::GetVKey('H') == true && h_t == true && m_Skill == 1)
 				{
 					h_t = false;
-					m_hp += 5;
+					m_hp += 3;
 					m_mp -= 20;
 					if (m_hp > max_hp)
 					{
@@ -254,6 +255,22 @@ void CObjHero::Action()
 
 			Scene::SetScene(new CSceneGameOver());
 		}
+
+		//テスト用
+		if (Input::GetVKey('1')==true)
+		{
+		
+			Scene::SetScene(new CSceneGameClear());
+		}
+
+		//テスト用
+		if (Input::GetVKey('2') == true)
+		{
+
+			Scene::SetScene(new CSceneMain());
+		}
+
+		
 	
 }
 //ドロー

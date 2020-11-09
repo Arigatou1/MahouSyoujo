@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjEnemy.h"
+#include "GameL/UserData.h"
 
 //使用するネームベース
 using namespace GameL;
@@ -19,6 +20,7 @@ void CObjEnemy::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+	e_damege = 0;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -53,11 +55,11 @@ void CObjEnemy::Action()
 	{
 		b_mx = obj_barrier->GetBX();
 
-		if (m_ex == b_mx - 0.0f)
+		if (m_ex == b_mx - 48.0f)
 		{
 			m_vx = 0;
 		}
-		else if (m_ex == b_mx + 128.0f)
+		else if (m_ex == b_mx + 160.0f)
 		{
 			m_vx = 0;
 		}
@@ -67,6 +69,10 @@ void CObjEnemy::Action()
 	
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
+
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
@@ -76,6 +82,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		((UserData*)Save::GetData())->HHP += 100;
 		//Amount++;
 	}
 }
