@@ -20,6 +20,16 @@ void CObjTitle::Init()
 	if (init_stage == false) {
 		((UserData*)Save::GetData())->Stage = 1;
 		init_stage = true;
+
+		for (int i = 0; i < 20;i++)
+		((UserData*)Save::GetData())->ScoreData[i] = 0;
+		//ロード
+		Save::Open();//同フォルダ[UserDataからデータ取得]
+	}
+
+	if (init_stage == true)
+	{
+		Save::Seve();
 	}
 }
 
@@ -36,7 +46,18 @@ void CObjTitle::Action()
 			m_key_flag = false;
 		}
 	}
-	
+	//デバッグ用 セーブデータ削除
+	else if (Input::GetVKey('3') == true)
+	{
+		if (m_key_flag == true)
+		{
+			for (int i = 0; i < 20; i++)
+				((UserData*)Save::GetData())->ScoreData[i] = 0;
+			Save::Seve();
+
+			m_key_flag = false;
+		}
+	}
 	else
 	{
 		m_key_flag = true;
@@ -50,4 +71,9 @@ void CObjTitle::Draw()
 	Font::StrDraw(L"マジカルウォーズ", 116, 200, 64, c);
 
 	Font::StrDraw(L"Push [Enter] Key", 280, 400, 32, c);
+
+	if (Input::GetVKey('3') == true)
+	{
+		Font::StrDraw(L"セーブデータを削除しました", 0, 0, 32, c);
+	}
 }

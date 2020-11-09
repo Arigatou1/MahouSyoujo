@@ -16,10 +16,12 @@ void CObjStageSelect::Init()
 {
 	m_key_flag = false;//キーフラグ
 	cursor_x = 140;
-	cursor_y = 32;
+	cursor_y = 64;
 	StageID = 0;
 	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
+
+
 }
 
 //アクション
@@ -29,7 +31,8 @@ void CObjStageSelect::Action()
 	//今いるカーソルの場所から位置を取得し、
 	//ステージIDを計算し設定するには？？
 
-	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 144)+1 +(PageID*4);
+	if(cursor_y<512)
+	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 112) +(PageID*4);
 
 	//cursor_y = 16,96,176,256,336,416,496
 	//カーソルの初期位置は16なので、
@@ -40,7 +43,16 @@ void CObjStageSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
+			if(cursor_y<512)
 			Scene::SetScene(new CSceneMain());
+
+			if (cursor_y >= 512)
+			{
+				this->SetStatus(false);
+				//メニューオブジェクト作成
+				CObjCustomize* obj = new CObjCustomize();
+				Objs::InsertObj(obj, OBJ_CUSTOMIZE, 0);
+			}
 			m_key_flag = false;
 		}
 	}
@@ -48,7 +60,7 @@ void CObjStageSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
-			cursor_y -= 144;
+			cursor_y -= 112;
 			m_key_flag = false;
 		}
 	}
@@ -56,7 +68,7 @@ void CObjStageSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
-			cursor_y += 144;
+			cursor_y += 112;
 			m_key_flag = false;
 		}
 	}
@@ -87,11 +99,13 @@ void CObjStageSelect::Action()
 	}
 
 	//カーソルが画面外いかない処理
-	if (cursor_y < 32)
-		cursor_y = 32;
+	if (cursor_y < 64)
+		cursor_y = 512;
 
-	if (cursor_y > 464)
-		cursor_y = 464;
+	if (cursor_y > 512)
+		cursor_y = 64;
+
+
 
 	
 
@@ -109,50 +123,34 @@ void CObjStageSelect::Draw()
 	//ステージセレクト
 	for (int i = 0; i < 4; i++)
 	{
-		MenuBlockDraw(140, i * 144.0f + 32.0f, 512, 128, 1, 0, 0, 1);
+		MenuBlockDraw(140, i * 112.0f + 64.0f, 512.0f, 96.0f, 1.0f, 0.0f, 0.0f, 1.0f);
 		
 	}
 
+	MenuBlockDraw(140, 512.0f, 512.0f, 96.0f, 1.0f, 0.2f, 1.0f, 1.0f);
+	//if()
 
-	MenuBlockDraw(cursor_x, cursor_y, 512, 128, 1, 0.8f, 0, 1);
+	MenuBlockDraw(cursor_x, cursor_y, 512.0f, 96.0f, 1.0f, 0.8f, 0.0f, 1.0f);
 
 
 	for (int i = 0; i < 2; i++)
-		MenuBlockDraw(16 + i * 674, 200, 96, 200, 0, 0, 1, 1);
-	/*
+		MenuBlockDraw(16 + i * 674.0f, 200.0f, 96.0f, 200.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 	
-	
-	{
-		c[2] = 1.0f;
-		c[1] = 0.0f;
-		c[0] = 0.0f;
-		//表示位置の設定
-		dst.m_top = 200 + 0.0f;
-		dst.m_left = 16.0f + i*674.0f;
-		dst.m_right = dst.m_left + 96.0f;
-		dst.m_bottom = dst.m_top + 200.0f;
-		Draw::Draw(0, &src, &dst, c, 0.0f);
-	}
-
-	//描画
-	*/
-	
-	Font::StrDraw(L"GAME StageSelect", 2, 2, 32, c);
 	
 	for (int i = 0; i < 4; i++)
 	{
 		wchar_t str[128];
 		swprintf_s(str,L"ステージ%d",i+1+ (PageID * 4));
-
-		Font::StrDraw(str, 176, 48+(i*144), 96, c);
+		
+		Font::StrDraw(str, 196, 64+(i*112)+8, 80, c);
 	}
 
 	Font::StrDraw(L"←", 40, 284, 48, c);
 
 	Font::StrDraw(L"→", 712, 284, 48, c);
+
+	wchar_t Score[16];
+	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
+	Font::StrDraw(Score, 2,2, 48, c);
 }
 
-int CObjStageSelect::GetStageID()
-{
-	return StageID;
-}

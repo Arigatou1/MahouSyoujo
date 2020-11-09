@@ -13,7 +13,13 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameClear::Init()
 {
-	Score = 0;
+	//Score = 0;
+	
+
+	((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
+		= ((UserData*)Save::GetData())->HHP;
+
+	Save::Seve();
 }
 
 //アクション
