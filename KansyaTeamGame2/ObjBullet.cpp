@@ -74,8 +74,8 @@ void CObjBullet::Draw()
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 	src.m_top = 192.0f;
-	src.m_left = 64.0f;
-	src.m_right = 128.0f;
+	src.m_left = 128.0f;
+	src.m_right = 192.0f;
 	src.m_bottom = 256.0f;
 
 	//•\¦ˆÊ’u‚Ìİ’è
