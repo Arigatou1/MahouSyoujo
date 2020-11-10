@@ -74,6 +74,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"image.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
+	Draw::LoadImageW(L"Hero.png", 3, TEX_SIZE_512);
 	
 
 	//主人公オブジェクト作成
@@ -143,7 +144,7 @@ void CSceneMain::Scene()
 
 	if (m_time == 30)
 	{
-		CObjEnemy4* obj_enemy4 = new CObjEnemy4(600, 200);
+		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 300);
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
 
 		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);

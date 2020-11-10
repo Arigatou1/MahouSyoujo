@@ -41,10 +41,14 @@ void CObjHero::Init()
 	m_hit_down = false;
 	m_hit_left = false;
 	m_hit_right = false;
+
+	h_xsize = 64;
+	h_ysize = 64;
+
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-
+	•Ší = ((UserData*)Save::GetData())->•Ší;
 	
 }
 
@@ -73,6 +77,11 @@ void CObjHero::Action()
 
 		//©—R—‰º‰^“®
 		m_vy += 9.8 / (16.0f);
+
+		CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+		obj_block->BlockHit(&m_px, &m_py,
+			&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
+			&m_vx, &m_vy,&h_xsize,&h_ysize);
 
 		//ƒL[‚ğ‰Ÿ‚·‚ÆˆÚ“®
 		if (Input::GetVKey(VK_LEFT) == true)
@@ -127,10 +136,10 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (((UserData*)Save::GetData())->•Ší == 1)
+			if (•Ší == 1)
 			{
 				m_f = false;
-				atk_anime = 1;
+				atk_anime = 2;
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -207,7 +216,13 @@ void CObjHero::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;
+				m_hp -= 1;//“G‚ÌUŒ‚—Í
+			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 2;//“G‚ÌUŒ‚—Í
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½
@@ -299,7 +314,7 @@ void CObjHero::Draw()
 	dst.m_bottom = 64.0f+m_py;
 
 	//•`‰æ
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 }
 
 int CObjHero::GetHP()

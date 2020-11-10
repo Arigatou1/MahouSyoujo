@@ -65,6 +65,8 @@ private:
 	bool m_hit_left;
 	bool m_hit_right;
 
-	int •Ší;
-    };
+	float h_xsize;
+	float h_ysize;
 
+	int •Ší;
+};
