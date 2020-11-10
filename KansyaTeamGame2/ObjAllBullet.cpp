@@ -17,7 +17,7 @@ CObjAllBullet::CObjAllBullet(float x, float y)
 //イニシャライズ
 void CObjAllBullet::Init()
 {
-	m_avy = 2.0f;
+	m_avy = 5.0f;
 	//攻撃力
 	z_atk = 10;
 
@@ -29,33 +29,12 @@ void CObjAllBullet::Init()
 void CObjAllBullet::Action()
 {
 
-	//当たり判定を行うオブジェクト情報部
-	int database[4] =
-	{
-		OBJ_ENEMY,
-		OBJ_ENEMY2,
-		OBJ_ENEMY3,
-		OBJ_ENEMY4,
-	};
-
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ax, m_ay);
 
-	//下に落ちる
+	//下に動く
 	m_ay += m_avy;
-
-	for (int i = 0; i < 4; i++)
-	{
-		if (hit->CheckObjNameHit(database[i]) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-		}
-	}
-
-
-
 
 	//領域外に出たら弾丸を破棄する
 	if (m_ax > 775.0f)

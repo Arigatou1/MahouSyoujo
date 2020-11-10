@@ -19,7 +19,6 @@ private:
 	float m_vx;//移動ベクトル	
 	float m_vy;
 	float m_r;//角度
-	float m_speed;//速度
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
