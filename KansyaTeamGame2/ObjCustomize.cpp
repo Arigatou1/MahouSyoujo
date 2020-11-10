@@ -124,6 +124,8 @@ void CObjCustomize::Action()
 	if (cursor_y < 64)
 		cursor_y = 64;
 
+	if (cursor_y > 176)
+		cursor_y = 176;
 
 
 
