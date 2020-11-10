@@ -85,10 +85,6 @@ void CObjCustomize::Action()
 
 
 
-
-
-
-
 			m_key_flag = false;
 		}
 	}

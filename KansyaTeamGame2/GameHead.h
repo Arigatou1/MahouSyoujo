@@ -34,6 +34,7 @@ enum OBJ_NAME
 	OBJ_CUSTOMIZE,
 	OBJ_SMALLSLIM,
 	OBJ_PAUSEMENU,
+	OBJ_SETTING,
 };
 //------------------------------------------------
 
@@ -73,6 +74,8 @@ struct UserData
 
 	bool PauseMenu;
 	
+	//難易度
+	int Diffculty;
 };
 //------------------------------------------------
 
@@ -115,6 +118,7 @@ struct UserData
 #include "ObjCustomize.h"
 #include "ObjSmallSlim.h"
 #include "ObjPauseMenu.h"
+#include "ObjSetting.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
