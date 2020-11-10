@@ -10,7 +10,7 @@ class CObjMana :public CObj
 {
 public:
 	CObjMana(float x,float y);
-	~CObjMana() {};
+	~CObjMana() ;
 	void Init();
 	void Action();
 	void Draw();
