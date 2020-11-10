@@ -56,6 +56,14 @@ void CObjEnemy::Action()
 		else
 			m_vx = 0;
 	}
+	//自由落下運動
+	m_vy += 9.8 / (16.0f);
+
+	CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	obj_block->BlockHit(&m_ex, &m_ey,
+		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
+		&m_vx, &m_vy, &e1_xsize, &e1_ysize);
+
 
 	//バリア出てる時だけ止まる
 	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
@@ -77,7 +85,7 @@ void CObjEnemy::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 	m_ey += m_vy;
-
+	
 
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
