@@ -1,7 +1,3 @@
-﻿  ObjMana.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(66,16): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(73,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(79,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(86,18): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjMana.cpp(126,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjSmallSlim.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjSmallSlim.cpp(54,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  KansyaTeamGame2.vcxproj -> C:\Users\rimin\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
