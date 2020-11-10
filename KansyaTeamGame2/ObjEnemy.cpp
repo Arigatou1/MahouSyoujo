@@ -42,7 +42,8 @@ void CObjEnemy::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
-	m_vy = 9.8 / (16.0f);
+	//èdóÕ
+	m_vy += 9.8 / (16.0f);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
