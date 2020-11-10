@@ -201,9 +201,6 @@
     <ClInclude Include="CObjHomingBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGameOver.h">
-      <Filter>ゲームオーバー</Filter>
-    </ClInclude>
     <ClInclude Include="SceneGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
@@ -230,6 +227,9 @@
     </ClInclude>
     <ClInclude Include="ObjBullet.h">
       <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ゲームクリア</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
