@@ -21,6 +21,17 @@ void CObjEnemy2::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
+
+
+	//blockとの衝突状態確認用
+	e2_hit_up = false;
+	e2_hit_down = false;
+	e2_hit_left = false;
+	e2_hit_right = false;
+
+	e2_xsize = 50;
+	e2_ysize = 50;
+
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
 	//Amount = 0;
@@ -31,6 +42,14 @@ void CObjEnemy2::Action()
 {
 	//m_vxの速度で移動
 	m_ex += m_vx;
+	m_ey += m_vy;
+
+	m_vy = 9.8 / (16.0f);
+
+	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	obj_block1->BlockHit(&m_ex, &m_ey,
+		&e2_hit_up, &e2_hit_down, &e2_hit_left, &e2_hit_right,
+		&m_vx, &m_vy, &e2_xsize, &e2_ysize);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)

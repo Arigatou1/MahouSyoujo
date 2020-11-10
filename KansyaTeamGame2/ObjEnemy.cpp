@@ -28,8 +28,8 @@ void CObjEnemy::Init()
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50;
-	e1_ysize = 50;
+	e1_xsize = 50.0f;
+	e1_ysize = 50.0f;
 
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
@@ -56,15 +56,7 @@ void CObjEnemy::Action()
 		else
 			m_vx = 0;
 	}
-	//自由落下運動
-	m_vy += 9.8 / (16.0f);
-
-	CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-	obj_block->BlockHit(&m_ex, &m_ey,
-		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy, &e1_xsize, &e1_ysize);
-
-
+	
 	//バリア出てる時だけ止まる
 	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
 	if (obj_barrier != nullptr)

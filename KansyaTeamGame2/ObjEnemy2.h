@@ -24,4 +24,13 @@ private:
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
 	//int Amount;
+
+	//blockとの衝突状態確認用
+	bool e2_hit_up;
+	bool e2_hit_down;
+	bool e2_hit_left;
+	bool e2_hit_right;
+
+	float e2_xsize;
+	float e2_ysize;
 };
