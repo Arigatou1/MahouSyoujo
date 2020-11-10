@@ -3,6 +3,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include"ObjEnemy4.h"
+#include"GameL/UserData.h"
 
 CObjEnemy4::CObjEnemy4(float x, float y)
 {
@@ -19,56 +20,23 @@ void CObjEnemy4::Init()
 
 	//当たり判定HitBoxを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
-
-	//Hits::SetHitBox(this, m_ex, m_ey, 128, 128, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
 }
 
 //アクション
 void CObjEnemy4::Action()
 {
-	m_ex -= m_vx;
-	/*//角度加算
-	m_r += 3.0f;
+	m_ex += 2*m_vx;
 
-
-	//360゜で初期値に戻す
-	if (m_r > 360.0f)
-		m_r = 0.0f;
-
-
-	//移動方向
-	m_vx = -1.0f;
-	m_vy = sin(3.14 / 180 * m_r);//sinθを求めてm_vyに入れる
-
-
-	//ベクトルの長さを求める
-	float r = 0.0f;
-	r = m_vx * m_vx + m_vy * m_vy;
-	r = sqrt(r);//rをルートを求める
-
-
-	//長さがどうか調べる
-	if (r == 0.0f)
-	{
-		;//０なら何もしない
-	}
-	else
-	{
-		//正規化を行う
-		m_vx = 1.0f / r * m_vy;
-		m_vy = 1.0f / r * m_vy;
-	}
-	
-	//移動ベクトルを座標に加算する
-	m_ex *= m_vx;
-	m_ey *= m_vy;*/
 
 
 	//
-	/*CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
+//	CObjHero* obj_h = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
 		float m_mx = obj->GetX();
+	//	float m_hx = obj_h->GetX();
+	//	float m_hy = obj_h->GetY();
 
 		if (m_mx <= m_ex)
 			m_vx = -1.0f;
@@ -76,10 +44,17 @@ void CObjEnemy4::Action()
 			m_vx = 1.0f;
 		else
 			m_vx = 0;
-	}*/
+
+		/*if (m_hx - m_ex == 5 && m_hx - m_ex == -5 && m_hy - m_ey == 5 && m_hy - m_ey == -5)
+		{
+
+		}*/
+	}
+
+	
 
 	//
-	CObjHero*obj=(CObjHero*)Objs::GetObj(OBJ_HERO);
+	/*CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
 		float m_px = obj->GetX();
@@ -90,7 +65,7 @@ void CObjEnemy4::Action()
 			m_vx = 1.0f;
 		else
 			m_vx = 0;
-	}
+	}*/
 
 	//
 	CHitBox* hit = Hits::GetHitBox(this);
