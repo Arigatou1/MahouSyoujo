@@ -15,9 +15,9 @@ public :
 	void Action();
 	void Draw();
 
-	void BlockHit(float* x, float* y,
-		bool* up, bool* down, bool* left, bool* right,
-		float* vx, float* vy, int* bt);
+	//void BlockHit(float* x, float* y,
+	//	bool* up, bool* down, bool* left, bool* right,
+	//	float* vx, float* vy, int* bt);
 private:
 	//マップ用変数。m_map[立幅][横幅];
 	int m_map[10][13];
