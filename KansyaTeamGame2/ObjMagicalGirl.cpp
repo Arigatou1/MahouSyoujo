@@ -1,11 +1,11 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
+#include "GameL\DrawFont.h"
 #include "GameL\WinInputs.h"
 #include "GameL\SceneObjManager.h"
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
-//#include "主人公のヘッダー？"
 
 //使用するネームスペース
 using namespace GameL;
@@ -20,14 +20,18 @@ void CObjMagicalGirl::Init()
 	m_atk_animation = 0;//0=棒立ちの画像
 
 	m_mtime = 1;
-	//m_btime = 1;
+	m_btime = 100;
+
+	z_y = 0.0f;
+
+	m_skill = 1;//1なら回復 2ならバリア 3なら全体
 }
 
 //アクション
 void CObjMagicalGirl::Action()
 {
 	m_mtime++;
-	//m_btime++;
+	m_btime++;
 
 	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if(obj_mana != nullptr)
@@ -35,15 +39,9 @@ void CObjMagicalGirl::Action()
 		m_gx = obj_mana->GetX();
 		m_gy = obj_mana->GetY();
 	}
-
-	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
-	if (obj != nullptr)
-	{
-		//h_hp = obj->GetHP();
-		//h_maxhp = obj->GetMAXHP();
-	}
-
-	if (m_mp < 100)//(おそらく1秒に1)MP回復
+	
+	//(おそらく1秒に1)MP回復
+	if (m_mp < 100)
 	{
 
 		if (m_mtime % 60 == 0)
@@ -53,7 +51,7 @@ void CObjMagicalGirl::Action()
 		}
 	}
 
-	//キーを押すと移動
+	//キーを押すと向き変更
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
 		m_postrue = 0.0f;
@@ -61,6 +59,32 @@ void CObjMagicalGirl::Action()
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
 		m_postrue = 1.0f;
+	}
+
+	//上下キーを押すとスキル変更
+	if (Input::GetVKey(VK_UP) == true && s_t == true)
+	{
+		m_skill += 1;
+		s_t = false;
+
+		if (m_skill == 4)
+			{
+				m_skill = 1;
+			}
+	}
+	else if (Input::GetVKey(VK_DOWN) == true && s_t == true)
+	{
+		m_skill -= 1;
+		s_t = false;
+
+		if (m_skill == 0)
+			{
+				m_skill = 3;
+			}
+	}
+	else if(Input::GetVKey(VK_UP) == false && Input::GetVKey(VK_DOWN) == false)
+	{
+		s_t = true;
 	}
 
 	//魔法少女の通常攻撃
@@ -109,17 +133,73 @@ void CObjMagicalGirl::Action()
 	//魔法少女の回復魔法
 	if (m_mp >= 20)
 	{
-		if (h_hp < h_maxhp)
+		if (Input::GetVKey('H') == true && h_t == true && m_skill == 1)
 		{
-			if (Input::GetVKey('H') == true && h_t == true)
+			h_t = false;
+			CObjHero* obj_hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+			if (obj_hero != nullptr)
 			{
-				h_t = false;
-				m_mp -= 20;
+				m_mp = obj_hero->GetMP();
 			}
-			else if (Input::GetVKey('H') == false)
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			h_t = true;
+		}
+	}
+	
+	//魔法少女のバリア
+	if (m_mp >= 30)
+	{
+		if (Input::GetVKey('H') == true && b_t == true && m_skill == 2)
+		{
+			m_btime = 0;
+			b_t = false;
+			m_mp -= 30;
+
+			if (m_btime == 0)
 			{
-				h_t = true;
+				//Barrierオブジェクト
+				CObjBarrier* objbarrier;
+				objbarrier = new CObjBarrier(m_gx + 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
+				objbarrier = new CObjBarrier(m_gx - 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
 			}
+		}
+		else if (Input::GetVKey('H') == false && m_btime > 200)
+		{
+			b_t = true;
+		}
+	}
+
+	//魔法少女の全体攻撃
+	if (m_mp >= 50)
+	{
+		if (Input::GetVKey('H') == true && z_t == true && m_skill == 3)
+		{
+			m_atk_animation = 3;//杖持った姿になる
+			z_t = false;
+			m_mp -= 50;
+
+			for (int i = 0; i < 15; i++)
+			{
+				z_x = 64.0f * i;
+
+				//魔法少女魔法玉作成
+				CObjAllBullet* obj_allbullet = new CObjAllBullet(z_x, z_y);//ホーミング弾作成
+				Objs::InsertObj(obj_allbullet, OBJ_ALLBULLET, 60);//オブジェクトマネーに登録
+
+				if (z_x >= 800)
+				{
+					break;
+				}
+			}
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			m_atk_animation = 0;//棒立ちの姿になる
+			z_t = true;
 		}
 	}
 }
@@ -132,6 +212,25 @@ void CObjMagicalGirl::Draw()
 
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
+
+	if (m_skill == 1)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:ヒール");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
+	else if (m_skill == 2)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:バリア");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
+	else if (m_skill == 3)
+	{
+		wchar_t str[128];
+		swprintf_s(str, L"スキル:メテオ");//整数を文字列か
+		Font::StrDraw(str, 550, 5, 36, c);
+	}
 
 	//切り取り位置の設定
 	src.m_top    = 128.0f;
@@ -157,4 +256,9 @@ int CObjMagicalGirl::GetMP()
 int CObjMagicalGirl::GetMaxMP()
 {
 	return m_maxmp;
+}
+
+int CObjMagicalGirl::GetSkill()
+{
+	return m_skill;
 }

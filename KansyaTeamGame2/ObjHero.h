@@ -24,6 +24,7 @@ public :
 	float SetVX(float vx) { return m_vx = vx; };
 	int GetHP();
 	int GetMAXHP();
+	int GetMP();
 
 	void SetUp(bool b) { m_hit_up = b; }
 	void SetDown(bool b) { m_hit_down = b; }
@@ -36,7 +37,8 @@ private:
 	float m_vy;		//プレイヤーのベクトルY
 	float m_posture;//向いている方向用
 
-	float m_mp;   //現在のMP
+	int m_mp;   //現在のMP
+	int m_Skill;//魔法少女のスキル選択
 
 
 	int m_anime;	//歩くアニメーション
@@ -62,6 +64,9 @@ private:
 	bool m_hit_down;
 	bool m_hit_left;
 	bool m_hit_right;
+
+	float h_xsize;
+	float h_ysize;
 
 	int 武器;
     };

@@ -41,12 +41,6 @@
     <ClCompile Include="ObjGaugeMP.cpp">
       <Filter>ゲームメイン\ゲージ</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy.cpp">
-      <Filter>ゲームメイン</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjEnemy2.cpp">
-      <Filter>ゲームメイン</Filter>
-    </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
@@ -101,19 +95,47 @@
     <ClCompile Include="SceneMenu.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
-    <ClCompile Include="ObjMenu.cpp">
-      <Filter>メニュー</Filter>
-    </ClCompile>
     <ClCompile Include="ObjEnemyAmount.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
-    <ClCompile Include="ObjEnemy3.cpp">
+    <ClCompile Include="ObjBullet.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBullet.cpp">
+    <ClCompile Include="ObjModeSelect.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBarrier.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStageSelect.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilityModule.cpp" />
+    <ClCompile Include="ObjAllBullet.cpp">
+      <Filter>ゲームメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjCustomize.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy2.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy3.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjEnemy4.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSmallSlim.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPauseMenu.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,12 +177,6 @@
     </ClInclude>
     <ClInclude Include="ObjGaugeMP.h">
       <Filter>ゲームメイン\ゲージ</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjEnemy.h">
-      <Filter>ゲームメイン</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjEnemy2.h">
-      <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjHero.h">
       <Filter>ゲームメイン</Filter>
@@ -213,19 +229,47 @@
     <ClInclude Include="SceneMenu.h">
       <Filter>メニュー</Filter>
     </ClInclude>
-    <ClInclude Include="ObjMenu.h">
-      <Filter>メニュー</Filter>
-    </ClInclude>
     <ClInclude Include="ObjEnemyAmount.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="ObjEnemy3.h">
+    <ClInclude Include="ObjBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="ObjBullet.h">
+    <ClInclude Include="ObjModeSelect.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="Objbarrier.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageSelect.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityModule.h" />
+    <ClInclude Include="ObjAllBullet.h">
+      <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjCustomize.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy2.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy3.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjEnemy4.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSmallSlim.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPauseMenu.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjGameOver.h">
@@ -253,6 +297,9 @@
     </Filter>
     <Filter Include="メニュー">
       <UniqueIdentifier>{55fd4839-5c02-44b1-9882-3ac0299b6c02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームメイン\敵">
+      <UniqueIdentifier>{d17f0f5a-ff25-471a-90db-fbfc34a6e48c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -140,10 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="ObjAllBullet.h" />
+    <ClInclude Include="Objbarrier.h" />
     <ClInclude Include="ObjBullet.h" />
+    <ClInclude Include="ObjCustomize.h" />
     <ClInclude Include="ObjEnemy3.h" />
+    <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
-    <ClInclude Include="ObjMenu.h" />
+    <ClInclude Include="ObjPauseMenu.h" />
+    <ClInclude Include="ObjSmallSlim.h" />
+    <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -176,6 +182,7 @@
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjMana.h" />
     <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjModeSelect.h" />
     <ClInclude Include="ObjSword.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -187,13 +194,20 @@
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneMenu.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="UtilityModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="ObjAllBullet.cpp" />
+    <ClCompile Include="ObjBarrier.cpp" />
     <ClCompile Include="ObjBullet.cpp" />
+    <ClCompile Include="ObjCustomize.cpp" />
+    <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
-    <ClCompile Include="ObjMenu.cpp" />
+    <ClCompile Include="ObjPauseMenu.cpp" />
+    <ClCompile Include="ObjSmallSlim.cpp" />
+    <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -226,6 +240,7 @@
     <ClCompile Include="ObjMagicalGirl.cpp" />
     <ClCompile Include="ObjMana.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjModeSelect.cpp" />
     <ClCompile Include="ObjSword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
@@ -237,6 +252,7 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneMenu.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="UtilityModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

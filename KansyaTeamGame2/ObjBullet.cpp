@@ -20,10 +20,9 @@ CObjBullet::CObjBullet(float x, float y, int posture, bool m_f)
 //イニシャライズ
 void CObjBullet::Init()
 {
-	Hits::SetHitBox(this, px, py, 56, 56, ELEMENT_PLAYER, OBJ_BULLET, 1);
+	Hits::SetHitBox(this, px, py+24, 64, 16, ELEMENT_PLAYER, OBJ_BULLET, 1);
 	
-	vx = 0;
-	vy = 0;
+	
 }
 
 //アクション
@@ -32,14 +31,35 @@ void CObjBullet::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(px, py);
+	hit->SetPos(px, py+24);
 
 	if (b_posture == 1)
-		vx += 0.5f;
+		px += 18;
 	else
-		vx -= 0.5f;
-	//位置を更新
-	px += vx;
+		px -= 18;
+	
+
+	//当たり判定を行うオブジェクト情報部
+	int database[4] =
+	{
+		OBJ_ENEMY,
+		OBJ_ENEMY2,
+		OBJ_ENEMY3,
+		OBJ_ENEMY4,
+	};
+
+	for(int i=0;i<4;i++)
+	{
+
+		if (hit->CheckObjNameHit(database[i])!=nullptr)
+		{
+			this->SetStatus(false);
+				Hits::DeleteHitBox(this);
+		}
+
+		//Amount++;
+	}
+
 	
 }
 

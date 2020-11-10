@@ -6,6 +6,7 @@
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include "GameL\MultiThread.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -14,6 +15,30 @@ using namespace GameL;
 void CObjTitle::Init()
 {
 	m_key_flag = false;//キーフラグ
+
+	//static グローバル変数ではないが、そのような記憶寿命を持つ
+	static bool init_stage = false;
+	if (init_stage == false)
+	{
+		//プログラムを一回だけ実行する
+		((UserData*)Save::GetData())->Stage = 1;
+		init_stage = true;
+
+		for (int i = 0; i < 20;i++)
+		((UserData*)Save::GetData())->ScoreData[i] = 0;
+		//ロード
+		Save::Open();//同フォルダ[UserDataからデータ取得]
+
+
+		//ポーズ状態初期化
+		((UserData*)Save::GetData())->PauseMenu = false;
+
+	}
+
+	if (init_stage == true)
+	{
+		Save::Seve();
+	}
 }
 
 //アクション
@@ -29,7 +54,18 @@ void CObjTitle::Action()
 			m_key_flag = false;
 		}
 	}
-	
+	//デバッグ用 セーブデータ削除
+	else if (Input::GetVKey('3') == true)
+	{
+		if (m_key_flag == true)
+		{
+			for (int i = 0; i < 20; i++)
+				((UserData*)Save::GetData())->ScoreData[i] = 0;
+			Save::Seve();
+
+			m_key_flag = false;
+		}
+	}
 	else
 	{
 		m_key_flag = true;
@@ -43,4 +79,9 @@ void CObjTitle::Draw()
 	Font::StrDraw(L"マジカルウォーズ", 116, 200, 64, c);
 
 	Font::StrDraw(L"Push [Enter] Key", 280, 400, 32, c);
+
+	if (Input::GetVKey('3') == true)
+	{
+		Font::StrDraw(L"セーブデータを削除しました", 0, 0, 32, c);
+	}
 }
