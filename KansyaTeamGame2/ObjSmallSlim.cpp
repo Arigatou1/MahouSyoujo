@@ -84,7 +84,7 @@ void CObjSmallSlim::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		((UserData*)Save::GetData())->HHP += 100;
+		
 		//Amount++;
 	}
 }

@@ -9,7 +9,7 @@ class CObjHero :public CObj
 {
 public :
 	CObjHero() {};
-	~CObjHero() {};
+	~CObjHero() ;
 	void Init();
 	void Action();
 	void Draw();
@@ -69,5 +69,4 @@ private:
 	float h_ysize;
 
 	int ïêäÌ;
-    };
-
+};

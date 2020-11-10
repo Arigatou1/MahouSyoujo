@@ -13,6 +13,11 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjHero::~CObjHero()
+{
+	
+}
+
 //イニシャライズ
 void CObjHero::Init()
 {
@@ -48,7 +53,7 @@ void CObjHero::Init()
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-
+	武器 = ((UserData*)Save::GetData())->武器;
 	
 }
 
@@ -136,10 +141,10 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (((UserData*)Save::GetData())->武器 == 1)
+			if (武器 == 1)
 			{
 				m_f = false;
-				atk_anime = 1;
+				atk_anime = 2;
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -314,7 +319,7 @@ void CObjHero::Draw()
 	dst.m_bottom = 64.0f+m_py;
 
 	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 }
 
 int CObjHero::GetHP()

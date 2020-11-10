@@ -42,7 +42,8 @@ void CObjEnemy::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
-	m_vy = 9.8 / (16.0f);
+	//d—Í
+	m_vy += 9.8 / (16.0f);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
@@ -112,7 +113,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		((UserData*)Save::GetData())->HHP += 100;
+		((UserData*)Save::GetData())->Score += 100;
 		//Amount++;
 	}
 }
