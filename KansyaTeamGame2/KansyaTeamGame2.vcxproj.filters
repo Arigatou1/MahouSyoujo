@@ -138,6 +138,9 @@
     <ClCompile Include="ObjPauseMenu.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjSetting.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -274,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="ObjPauseMenu.h">
       <Filter>ゲームメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSetting.h">
+      <Filter>メニュー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -85,10 +85,6 @@ void CObjCustomize::Action()
 
 
 
-
-
-
-
 			m_key_flag = false;
 		}
 	}
@@ -124,6 +120,8 @@ void CObjCustomize::Action()
 	if (cursor_y < 64)
 		cursor_y = 64;
 
+	if (cursor_y > 176)
+		cursor_y = 176;
 
 
 
@@ -134,7 +132,8 @@ void CObjCustomize::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-
+	RECT_F src;//描画元切り取り位置
+	RECT_F dst;//描画先表示位置
 
 	Font::StrDraw(L"GAME Customize", 2, 2, 32, c);
 
@@ -146,6 +145,24 @@ void CObjCustomize::Draw()
 
 	swprintf_s(str1, L"主人公の武器:%d", ((UserData*)Save::GetData())->武器);
 	Font::StrDraw(str1, 32, 64, 32, c);
+
+
+	
+
+	//切り取り位置の設定
+	src.m_top =0.0f;
+	src.m_left = 64.0f;
+	src.m_right =  128.0f;
+	src.m_bottom = 64.0f;
+	//表示位置の設定
+	dst.m_top = 0.0f ;
+	dst.m_left =  332.0f;
+	dst.m_right =  396.0f;
+	dst.m_bottom = 64.0f;
+
+	//描画
+	for(int i=0;i<4;i++)
+	Draw::Draw(0, &src, &dst, c, i*90.0f);
 }
 
 //MenuBlockDraw関数

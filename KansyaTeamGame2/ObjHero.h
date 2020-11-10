@@ -69,5 +69,4 @@ private:
 	float h_ysize;
 
 	int •Ší;
-    };
-
+};

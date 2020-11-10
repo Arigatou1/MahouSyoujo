@@ -1,5 +1,5 @@
-﻿  ObjBlock.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(184,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(297,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(300,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjSetting.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjSetting.cpp(28,30): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjSetting.cpp(126,9): warning C4101: 'dst': ローカル変数は 1 度も使われていません。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjSetting.cpp(125,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
