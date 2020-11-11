@@ -48,8 +48,8 @@ private:
 	int atk_anitime;//
 	int atk_time;	//攻撃の間隔
 
-	int m_hp;//プレイヤーの体力
-	int max_hp;
+	float m_hp;//プレイヤーの体力
+	float max_hp;
 	int mtk_jkn;//無敵時間用変数
 	int mtk_max;//無敵時間用変数
 	bool m_mtk;//主人公の無敵判定
