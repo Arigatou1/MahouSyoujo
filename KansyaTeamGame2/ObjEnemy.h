@@ -22,12 +22,11 @@ private:
 	float m_vy;
 	int e_hp;//敵のHP
 	int e1_damege;//ダメージ量
-	int e1_time;//敵の攻撃間隔
+	int e1_time;//敵の攻撃時間
 
 	float e1_atk;//敵の攻撃力
 
 	float b_mx;//バリアのx位置
-	float b_my;//バリアのy位置
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置 
@@ -38,6 +37,8 @@ private:
 	bool e1_hit_down;
 	bool e1_hit_left;
 	bool e1_hit_right;
+
+	bool e1_t;//敵の攻撃間隔
 
 	float e1_xsize;
 	float e1_ysize;

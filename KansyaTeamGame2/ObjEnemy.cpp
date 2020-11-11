@@ -37,6 +37,8 @@ void CObjEnemy::Init()
 	e1_xsize = 50.0f;
 	e1_ysize = 50.0f;
 
+	e1_t = true;
+
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ðì¬
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
@@ -47,11 +49,11 @@ void CObjEnemy::Action()
 
 	e1_time++;
 
-	if (e1_time % 96 == 32)
+	if (e1_time % 96 == 32 && e1_t == false)
 	{
 		e1_atk = 0;
 	}
-	else if (e1_time % 96 == 0)
+	else if (e1_time % 96 == 0 && e1_t == false)
 	{
 		e1_atk = 0.04;
 	}
@@ -84,11 +86,7 @@ void CObjEnemy::Action()
 	{
 		b_mx = obj_barrier->GetBX();
 
-		if (m_ex == b_mx - 48.0f)
-		{
-			m_vx = 0;
-		}
-		else if (m_ex == b_mx + 160.0f)
+		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 160.0f)
 		{
 			m_vx = 0;
 		}
@@ -107,7 +105,11 @@ void CObjEnemy::Action()
 	
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
 	{
-		e1_time = 0;
+		if (e1_t == true)
+		{
+			e1_time = 0;
+			e1_t = false;
+		}
 	}
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
