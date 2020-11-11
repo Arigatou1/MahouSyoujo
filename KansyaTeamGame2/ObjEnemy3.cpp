@@ -22,12 +22,14 @@ void CObjEnemy3::Init()
 	m_vx = 1.0f;
 	m_vy = 0.0f;
 
+	
+
 	e3_hit_up = false;
 	e3_hit_down = false;
 	e3_hit_left = false;
 	e3_hit_right = false;
 
-	jump = false;
+	jump = 0;
 
 	e3_xsize = 64;
 	e3_ysize = 64;
@@ -55,14 +57,8 @@ void CObjEnemy3::Action()
 	//ƒWƒƒƒ“ƒv
 	if (obj_block3 != nullptr)
 	{
-		if (e3_hit_down == true && jump == false)
-		{
-			m_vy = -15;
-		}
-		else if(e3_hit_down==false)
-		{
-			jump == true;
-		}
+		
+		
 	}
 
 	//Ž©—R—Ž‰º‰^“®

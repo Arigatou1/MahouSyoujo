@@ -24,14 +24,18 @@ void CObjEnemy::Init()
 	e1_atk = 0.04;
 	e1_time = 0;
 
+	//最大HP
+	e_hp = 1;
+	
+
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50;
-	e1_ysize = 50;
+	e1_xsize = 50.0f;
+	e1_ysize = 50.0f;
 
 	e1_t = true;
 
@@ -47,19 +51,12 @@ void CObjEnemy::Action()
 
 	if (e1_time % 96 == 32 && e1_t == false)
 	{
-		e1_atk = 0;
+		e1_atk = 0.00;
 	}
 	else if (e1_time % 96 == 0 && e1_t == false)
 	{
 		e1_atk = 0.04;
 	}
-
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
-
-	//重力
-	m_vy += 9.8 / (16.0f);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
@@ -74,6 +71,18 @@ void CObjEnemy::Action()
 			m_vx = 0;
 	}
 
+	//重力
+	m_vy = 9.8 / (16.0f);
+
+	//m_vxの速度で移動
+	m_ex += m_vx;
+	m_ey += m_vy;
+
+	//HitBOxの内容を変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_ex, m_ey);
+
+
 	//バリア出てる時だけ止まる
 	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
 	if (obj_barrier != nullptr)
@@ -87,31 +96,29 @@ void CObjEnemy::Action()
 
 	}
 
-	//m_vxの速度で移動
-	m_ex += m_vx;
-	m_ey += m_vy;
-
 
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
 	
+	//マナに当たるとカウントが0になる
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
 	{
 		if (e1_t == true)
 		{
-			e1_time = 0;
 			e1_t = false;
+			e1_time = 0;
 		}
 	}
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -121,16 +128,23 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 
+		
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+
+		e_hp -= 1;
+	}
+	if(	e_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);

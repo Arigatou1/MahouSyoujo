@@ -33,6 +33,7 @@ void CObjMana::Init()
 	Mana_HP = 100;
 
 	mana_damege = 0;
+	mana_damege2 = 0;
 
 
 	//MANAゲージベースオブジェクト作成
@@ -67,7 +68,7 @@ void CObjMana::Action()
 	{
 		mana_damege = obj_enemy->GetE1_ATK();
 
-		Mana_HP-=mana_damege;
+		Mana_HP -= mana_damege;
 
 	}
 
