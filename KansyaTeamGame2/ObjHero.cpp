@@ -13,6 +13,11 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjHero::~CObjHero()
+{
+	
+}
+
 //イニシャライズ
 void CObjHero::Init()
 {

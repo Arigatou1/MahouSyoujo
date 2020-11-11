@@ -35,7 +35,7 @@ void CObjEnemyAmount::Draw()
 	//swprintf_s(str, L"操作方法:←→移動 Spaceジャンプ F攻撃 D魔法攻撃");//整数を文字列か
 	
 	
-	swprintf_s(str, L"スコア:%d", ((UserData*)Save::GetData())->HHP);//整数を文字列か
+	swprintf_s(str, L"スコア:%d", ((UserData*)Save::GetData())->Score);//整数を文字列か
 	
 	Font::StrDraw(str, 2, 96, 24, c);
 

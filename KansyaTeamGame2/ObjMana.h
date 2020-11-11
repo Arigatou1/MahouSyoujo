@@ -10,7 +10,7 @@ class CObjMana :public CObj
 {
 public:
 	CObjMana(float x,float y);
-	~CObjMana() {};
+	~CObjMana() ;
 	void Init();
 	void Action();
 	void Draw();
@@ -21,6 +21,8 @@ private:
 	float Mana_HP;
 	float Mana_x;
 	float Mana_y;
+
+	float mana_damege;
 
 };
 

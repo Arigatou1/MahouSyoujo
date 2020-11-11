@@ -10,6 +10,7 @@ class CObjGaugeHP :public CObj
 {
 public:
 	CObjGaugeHP() {};
+
 	~CObjGaugeHP() {};
 	void Init();
 	void Action();
