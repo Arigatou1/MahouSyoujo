@@ -22,8 +22,11 @@ void CObjEnemy2::Init()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
-	e2_atk = 0.04;
-	e2_time = 0;
+	//blockとの衝突状態確認用
+	e1_hit_up = false;
+	e1_hit_down = false;
+	e1_hit_left = false;
+	e1_hit_right = false;
 
 
 	//blockとの衝突状態確認用
@@ -129,6 +132,10 @@ void CObjEnemy2::Action()
 			Hits::DeleteHitBox(this);
 			//Amount++;
 		}
+
+
+		
+
 	}
 
 //ドロー

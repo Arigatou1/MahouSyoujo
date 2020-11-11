@@ -32,6 +32,16 @@ private:
 	float m_my;//マナのY位置
 	//int Amount;
 
+
+	//blockとの衝突状態確認用
+	bool e1_hit_up;
+	bool e1_hit_down;
+	bool e1_hit_left;
+	bool e1_hit_right;
+
+	float e1_xsize;
+	float e1_ysize;
+
 	bool e2_t;//敵2の攻撃間隔
 	bool e2_hit_up;
 	bool e2_hit_down;
