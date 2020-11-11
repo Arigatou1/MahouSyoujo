@@ -229,6 +229,12 @@ void CObjHero::Action()
 				m_mtk = true;
 				m_hp -= 3.0f+damage;//“G‚ÌUŒ‚—Í
 			}
+
+			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
+			{
+				m_mtk = true;
+				m_hp -= 1;//“G‚ÌUŒ‚—Í
+			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½
 		if (m_mtk == true)
