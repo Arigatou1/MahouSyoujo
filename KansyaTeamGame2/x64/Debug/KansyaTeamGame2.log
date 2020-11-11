@@ -1,1 +1,5 @@
-﻿  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy2.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(25,15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(56,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy2.cpp(65,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー (2)\x64\Debug\KansyaTeamGame2.exe

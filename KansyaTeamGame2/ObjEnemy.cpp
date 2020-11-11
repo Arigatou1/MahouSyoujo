@@ -24,14 +24,18 @@ void CObjEnemy::Init()
 	e1_atk = 0.04;
 	e1_time = 0;
 
+	//最大HP
+	e_hp = 1;
+	
+
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50;
-	e1_ysize = 50;
+	e1_xsize = 50.0f;
+	e1_ysize = 50.0f;
 
 	e1_t = true;
 
@@ -58,6 +62,8 @@ void CObjEnemy::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
+
+
 	//重力
 	m_vy += 9.8 / (16.0f);
 
@@ -73,7 +79,7 @@ void CObjEnemy::Action()
 		else
 			m_vx = 0;
 	}
-
+	
 	//バリア出てる時だけ止まる
 	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
 	if (obj_barrier != nullptr)
@@ -90,7 +96,7 @@ void CObjEnemy::Action()
 	//m_vxの速度で移動
 	m_ex += m_vx;
 	m_ey += m_vy;
-
+	
 
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
@@ -108,10 +114,11 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -121,16 +128,23 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 
+		
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+
+		e_hp -= 1;
+	}
+	if(	e_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
@@ -170,5 +184,5 @@ void CObjEnemy::Draw()
 //}
 float CObjEnemy::GetE1_ATK()
 {
-	return e1_atk;
+    return e1_atk;
 }
