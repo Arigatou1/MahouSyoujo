@@ -62,9 +62,10 @@ void CObjMana::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(Mana_x,Mana_y);
 
+
+	CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 		mana_damege = obj_enemy->GetE1_ATK();
 
 		Mana_HP-=mana_damege;
@@ -72,9 +73,12 @@ void CObjMana::Action()
 	}
 
 	//“G2‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é
+	CObjEnemy2* obj_enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
-		Mana_HP -= 0.04;
+		mana_damege2 = obj_enemy2->GetE2_ATK();
+
+		Mana_HP -= mana_damege2;
 
 	}
 	//“G3‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é
