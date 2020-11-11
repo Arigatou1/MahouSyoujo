@@ -33,4 +33,11 @@ private:
 	//int Amount;
 
 	bool e2_t;//“G2‚ÌUŒ‚ŠÔŠu
+	bool e2_hit_up;
+	bool e2_hit_down;
+	bool e2_hit_left;
+	bool e2_hit_right;
+
+	float e2_xsize;
+	float e2_ysize;
 };

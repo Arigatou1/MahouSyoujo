@@ -25,7 +25,7 @@ void CObjEnemy::Init()
 	e1_time = 0;
 
 	//Å‘åHP
-	e_hp = 10;
+	e_hp = 1;
 	
 
 	//block‚Æ‚ÌÕ“Ëó‘ÔŠm”F—p
