@@ -138,6 +138,9 @@
     <ClCompile Include="ObjPauseMenu.cpp">
       <Filter>ゲームメイン</Filter>
     </ClCompile>
+    <ClCompile Include="ObjSetting.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -217,6 +220,9 @@
     <ClInclude Include="CObjHomingBullet.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ゲームオーバー</Filter>
+    </ClInclude>
     <ClInclude Include="SceneGameOver.h">
       <Filter>ゲームオーバー</Filter>
     </ClInclude>
@@ -272,8 +278,8 @@
     <ClInclude Include="ObjPauseMenu.h">
       <Filter>ゲームメイン</Filter>
     </ClInclude>
-    <ClInclude Include="ObjGameOver.h">
-      <Filter>ゲームクリア</Filter>
+    <ClInclude Include="ObjSetting.h">
+      <Filter>メニュー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

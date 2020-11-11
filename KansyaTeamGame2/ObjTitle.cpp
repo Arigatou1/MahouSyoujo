@@ -22,16 +22,24 @@ void CObjTitle::Init()
 	{
 		//プログラムを一回だけ実行する
 		((UserData*)Save::GetData())->Stage = 1;
-		init_stage = true;
+		
 
 		for (int i = 0; i < 20;i++)
 		((UserData*)Save::GetData())->ScoreData[i] = 0;
+		
+		//プログラムを一回だけ実行する
+		((UserData*)Save::GetData())->Diffculty = 1;
+
 		//ロード
 		Save::Open();//同フォルダ[UserDataからデータ取得]
 
-
 		//ポーズ状態初期化
+		//ロードの後に初期化しているため、前回の終了時にポーズ画面でも
+		//影響を受けない。
 		((UserData*)Save::GetData())->PauseMenu = false;
+		
+		
+		init_stage = true;
 
 	}
 

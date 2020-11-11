@@ -40,14 +40,26 @@ void CObjModeSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
-			if (nowSelect == 0)
+			this->SetStatus(false);
+			switch (nowSelect)
 			{
-				this->SetStatus(false);
+			case 0:
+			{
 				//メニューオブジェクト作成
 				CObjStageSelect* obj = new CObjStageSelect();
 				Objs::InsertObj(obj, OBJ_STAGESELECT, 0);
+
+				break;
 			}
-			
+			case 2:
+			{
+				//っ設定
+				CObjSetting* sett = new CObjSetting();
+				Objs::InsertObj(sett, OBJ_SETTING, 0);
+
+				break;
+			}
+			}
 			m_key_flag = false;
 		}
 	}

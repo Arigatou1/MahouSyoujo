@@ -34,7 +34,7 @@ void CSceneMain::InitScene()
 	
 	//外部データの読み込み
 
-	((UserData*)Save::GetData())->HHP = 0;
+	((UserData*)Save::GetData())->Score = 0;
 
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
@@ -148,7 +148,7 @@ void CSceneMain::Scene()
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
 
 		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
-		CObjEnemy3*obj_Enemy = new CObjEnemy3(700,200);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(700,300);
 		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
 	
 		CObjEnemy* obj = new CObjEnemy(300, 400);
@@ -237,6 +237,8 @@ void CSceneMain::Scene()
 		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 425);
 		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
+		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 300);
+		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
 	}
 	else if (m_time == 600)
 	{
@@ -245,6 +247,8 @@ void CSceneMain::Scene()
 		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 425);
 		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
+		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 300);
+		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
 	}
 
 	
