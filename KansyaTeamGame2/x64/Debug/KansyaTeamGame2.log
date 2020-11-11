@@ -1,4 +1,5 @@
 ﻿  ObjHero.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(57,51): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(84,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
 C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(94,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
 C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(102,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
