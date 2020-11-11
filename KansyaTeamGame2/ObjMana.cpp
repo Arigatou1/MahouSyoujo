@@ -16,7 +16,6 @@ using namespace GameL;
 CObjMana::~CObjMana()
 {
 	
-		
 }
 
 CObjMana::CObjMana(float x, float y)
@@ -32,6 +31,8 @@ void CObjMana::Init()
 {
 	
 	Mana_HP = 100;
+
+	mana_damege = 0;
 
 
 	//MANAゲージベースオブジェクト作成
@@ -49,7 +50,6 @@ void CObjMana::Init()
 //アクション
 void CObjMana::Action()
 {
-	
 
 	if (Mana_HP <= 0)
 	{
@@ -63,7 +63,10 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.04;
+		CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+		mana_damege = obj_enemy->GetE1_ATK();
+
+		Mana_HP-=mana_damege;
 
 	}
 

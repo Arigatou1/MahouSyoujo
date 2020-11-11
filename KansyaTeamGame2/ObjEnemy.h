@@ -13,6 +13,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	float GetE1_ATK();
 //	int EneAmo();
 private:
 	float m_ex;
@@ -20,7 +21,10 @@ private:
 	float m_vx;
 	float m_vy;
 	int e_hp;//敵のHP
-	int e_damege;//ダメージ量
+	int e1_damege;//ダメージ量
+	int e1_time;//敵の攻撃間隔
+
+	float e1_atk;//敵の攻撃力
 
 	float b_mx;//バリアのx位置
 	float b_my;//バリアのy位置
