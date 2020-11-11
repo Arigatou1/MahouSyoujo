@@ -24,14 +24,18 @@ void CObjEnemy::Init()
 	e1_atk = 0.04;
 	e1_time = 0;
 
+	//Å‘åHP
+	e_hp = 1;
+	
+
 	//block‚Æ‚ÌÕ“Ëó‘ÔŠm”F—p
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50;
-	e1_ysize = 50;
+	e1_xsize = 50.0f;
+	e1_ysize = 50.0f;
 
 	e1_t = true;
 
@@ -110,10 +114,11 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -123,16 +128,23 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 
+		
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+
+		e_hp -= 1;
+	}
+	if(	e_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);

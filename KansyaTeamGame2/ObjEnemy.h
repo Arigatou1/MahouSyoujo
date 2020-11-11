@@ -29,7 +29,7 @@ private:
 	float b_mx;//バリアのx位置
 
 	float m_mx;//マナのX位置
-	float m_my;//マナのY位置
+	float m_my;//マナのY位置 
 	//int Amount;
 	
 	//blockとの衝突状態確認用
