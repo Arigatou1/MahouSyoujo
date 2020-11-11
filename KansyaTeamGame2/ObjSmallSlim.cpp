@@ -3,61 +3,61 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 
-#include "ObjEnemy.h"
+#include "ObjSmallSlim.h"
 #include "GameL/UserData.h"
 
 //使用するネームベース
 using namespace GameL;
 
 //コンストラクタ
-CObjEnemy::CObjEnemy(float x, float y)
+CObjSmallSlim::CObjSmallSlim(float x, float y)
 {
 	m_ex = x;
 	m_ey = y;
 }
 //イニシャライズ
-void CObjEnemy::Init()
+void CObjSmallSlim::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
-	e1_damege = 0;
-	e1_atk = 0.04;
-	e1_time = 0;
-
+	
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50;
-	e1_ysize = 50;
+	e1_xsize = 32;
+	//これ以上下げるとブロックに引っかかる..?
 
+	e1_ysize = 32+12;
+
+	e_damege = 0;
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_ENEMY, 10);
 }
 
 //アクション
-void CObjEnemy::Action()
+void CObjSmallSlim::Action()
 {
+	//m_vxの速度で移動
+	m_ex += m_vx;
+	m_ey += m_vy;
 
-	e1_time++;
 
-	if (e1_time % 96 == 32)
-	{
-		e1_atk = 0;
-	}
-	else if (e1_time % 96 == 0)
-	{
-		e1_atk = 0.04;
-	}
+	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	obj_block1->BlockHit(&m_ex, &m_ey,
+		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
+		&m_vx, &m_vy, &e1_xsize, &e1_ysize);
+
+	//重力
+	m_vy += 9.8 / (16.0f);
+
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
-	//重力
-	m_vy += 9.8 / (16.0f);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
@@ -65,9 +65,9 @@ void CObjEnemy::Action()
 		float m_mx = obj->GetX();
 
 		if (m_mx <= m_ex)
-			m_vx = -1.0f;
+			m_vx = -2.0f;
 		else if (m_mx >= m_ex)
-			m_vx = 1.0f;
+			m_vx = 2.0f;
 		else
 			m_vx = 0;
 	}
@@ -89,42 +89,17 @@ void CObjEnemy::Action()
 
 	}
 
-	//m_vxの速度で移動
-	m_ex += m_vx;
-	m_ey += m_vy;
-
-
-	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-	obj_block1->BlockHit(&m_ex, &m_ey,
-		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
-	
-	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
-	{
-		e1_time = 0;
-	}
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
-		e1_damege = obj_homing->GetM_ATK();
+		e_damege = obj_homing->GetM_ATK();
 
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
-		
-		//Amount++;
-	}
 
-	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
-	{
 
-		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
-		e1_damege = obj_all->GetZ_ATK();
-
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
 
@@ -132,13 +107,13 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		((UserData*)Save::GetData())->Score += 100;
+		
 		//Amount++;
 	}
 }
 
 //ドロー
-void CObjEnemy::Draw()
+void CObjSmallSlim::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
@@ -147,15 +122,15 @@ void CObjEnemy::Draw()
 	RECT_F dst;//描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top    = 320.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 64.0f;
+	src.m_top = 320.0f;
+	src.m_left = 0.0f;
+	src.m_right = 64.0f;
 	src.m_bottom = 384.0f;
 	//表示位置の設定
-	dst.m_top    = m_ey;
-	dst.m_left	 = m_ex;
-	dst.m_right  = m_ex + 50.0f;
-	dst.m_bottom = m_ey + 50.0f;
+	dst.m_top = m_ey;
+	dst.m_left = m_ex;
+	dst.m_right = m_ex + 32.0f;
+	dst.m_bottom = m_ey + 32.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
@@ -165,7 +140,3 @@ void CObjEnemy::Draw()
 //{
 //	return Amount;
 //}
-float CObjEnemy::GetE1_ATK()
-{
-	return e1_atk;
-}

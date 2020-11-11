@@ -13,6 +13,11 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjHero::~CObjHero()
+{
+	
+}
+
 //イニシャライズ
 void CObjHero::Init()
 {
@@ -41,12 +46,14 @@ void CObjHero::Init()
 	m_hit_down = false;
 	m_hit_left = false;
 	m_hit_right = false;
+
+	h_xsize = 64;
+	h_ysize = 64;
+
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	//剣 0 銃 1
-	武器 = 0;
-
+	武器 = ((UserData*)Save::GetData())->武器;
 	
 }
 
@@ -59,7 +66,7 @@ void CObjHero::Action()
 	if (obj_magicalgirl != nullptr)
 	{
 		m_mp = obj_magicalgirl->GetMP();
-
+		m_Skill = obj_magicalgirl->GetSkill();
 	}
 
 		//Spaceキーを押すとジャンプする処理
@@ -72,8 +79,14 @@ void CObjHero::Action()
 		{
 			isJump = true;
 		}
-		//摩擦
+
+		//自由落下運動
 		m_vy += 9.8 / (16.0f);
+
+		CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+		obj_block->BlockHit(&m_px, &m_py,
+			&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
+			&m_vx, &m_vy,&h_xsize,&h_ysize);
 
 		//キーを押すと移動
 		if (Input::GetVKey(VK_LEFT) == true)
@@ -131,7 +144,7 @@ void CObjHero::Action()
 			if (武器 == 1)
 			{
 				m_f = false;
-				atk_anime = 1;
+				atk_anime = 2;
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -208,7 +221,13 @@ void CObjHero::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;
+				m_hp -= 1;//敵の攻撃力
+			}
+
+			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
+			{
+				m_mtk = true;
+				m_hp -= 2;//敵の攻撃力
 			}
 		}
 		//無敵がtrueになった時
@@ -232,10 +251,11 @@ void CObjHero::Action()
 		{
 			if (m_hp < max_hp)
 			{
-				if (Input::GetVKey('H') == true && h_t == true)
+				if (Input::GetVKey('H') == true && h_t == true && m_Skill == 1)
 				{
 					h_t = false;
 					m_hp += 3;
+					m_mp -= 20;
 					if (m_hp > max_hp)
 					{
 						m_hp = max_hp;
@@ -299,7 +319,7 @@ void CObjHero::Draw()
 	dst.m_bottom = 64.0f+m_py;
 
 	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(3, &src, &dst, c, 0.0f);
 }
 
 int CObjHero::GetHP()

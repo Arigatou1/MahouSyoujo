@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjEnemy4 :public CObj
 {
 public:
-	CObjEnemy4() {};
+	CObjEnemy4(float x, float y);
 	~CObjEnemy4() {};
 	void Init();
 	void Action();
@@ -18,8 +18,12 @@ private:
 	float m_ey;//Y座標
 	float m_vx;//移動ベクトル	
 	float m_vy;
+	float m_r;//角度
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
+
+	float m_hx;//heroのx位置
+	float m_hy;//heroのｙ位置
 	//int Amount;
 };

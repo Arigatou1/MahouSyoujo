@@ -5,26 +5,22 @@
 using namespace GameL;
 
 //オブジェクト敵機
-class CObjEnemy : public CObj
+class CObjSmallSlim : public CObj
 {
 public:
-	CObjEnemy(float x,float y);
-	~CObjEnemy() {};
+	CObjSmallSlim(float x, float y);
+	~CObjSmallSlim() {};
 	void Init();
 	void Action();
 	void Draw();
-	float GetE1_ATK();
-//	int EneAmo();
+	//	int EneAmo();
 private:
 	float m_ex;
 	float m_ey;
 	float m_vx;
 	float m_vy;
 	int e_hp;//敵のHP
-	int e1_damege;//ダメージ量
-	int e1_time;//敵の攻撃間隔
-
-	float e1_atk;//敵の攻撃力
+	int e_damege;//ダメージ量
 
 	float b_mx;//バリアのx位置
 	float b_my;//バリアのy位置
@@ -32,7 +28,7 @@ private:
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
 	//int Amount;
-	
+
 	//blockとの衝突状態確認用
 	bool e1_hit_up;
 	bool e1_hit_down;

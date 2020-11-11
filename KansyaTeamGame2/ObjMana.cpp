@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjMana.h"
 #include "GameHead.h"
+#include "GameL\UserData.h"
 //#include "ObjGaugeBaseMana.h"
 
 //テスト用
@@ -12,29 +13,27 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjMana::~CObjMana()
+{
+	
+		
+}
+
 CObjMana::CObjMana(float x, float y)
 {
 	Mana_x = x;
 	Mana_y = y;
 }
 
-//位置情報X取得用
-float CObjMana::GetX()
-{
-	return Mana_x;
-}
 
-//位置情報Y取得用
-float CObjMana::GetY()
-{
-	return Mana_y;
-}
 
 //イニシャライズ
 void CObjMana::Init()
 {
 	
 	Mana_HP = 100;
+
+	mana_damege = 0;
 
 
 	//MANAゲージベースオブジェクト作成
@@ -46,13 +45,12 @@ void CObjMana::Init()
 	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_FIELD, OBJ_MANA, 1);
+	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_WHITE, OBJ_MANA, 1);
 }
 
 //アクション
 void CObjMana::Action()
 {
-	
 
 	if (Mana_HP <= 0)
 	{
@@ -66,23 +64,33 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.04;
+		CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+		mana_damege = obj_enemy->GetE1_ATK();
+
+		Mana_HP-=mana_damege;
 
 	}
 
-	//敵2に当たると1減る
+	//敵2に当たるとHPが減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
 		Mana_HP -= 0.04;
 
 	}
-	//敵3に当たると1減る
+	//敵3に当たるとHPが減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 	{
-		Mana_HP -= 0.04;
+		Mana_HP -= 0.05;
 
 	}
 	
+	//敵3に当たるとHPが減る
+	if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
+	{
+		Mana_HP -= 0.05;
+
+	}
+
 	//マナのHPが無くなった時、消滅させる
 	if (Mana_HP <= 0)
 	{
@@ -122,3 +130,14 @@ int CObjMana::GetHP()
 	return Mana_HP;
 }
 
+//位置情報X取得用
+float CObjMana::GetX()
+{
+	return Mana_x;
+}
+
+//位置情報Y取得用
+float CObjMana::GetY()
+{
+	return Mana_y;
+}

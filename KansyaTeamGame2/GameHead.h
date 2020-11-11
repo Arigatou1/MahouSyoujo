@@ -9,6 +9,7 @@ enum OBJ_NAME
 	OBJ_HERO,
 	OBJ_MAGICALGIRL,
 	OBJ_HOMINGBULLET,
+	OBJ_ALLBULLET,
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
@@ -30,6 +31,10 @@ enum OBJ_NAME
 	OBJ_BULLET,
 	OBJ_MODESELECT,
 	OBJ_BARRIER,
+	OBJ_CUSTOMIZE,
+	OBJ_SMALLSLIM,
+	OBJ_PAUSEMENU,
+	OBJ_SETTING,
 };
 //------------------------------------------------
 
@@ -57,10 +62,20 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	//ステージIDを取得する
 	int Stage;
-	int HHP;
+	int Score;
+
+
+	//主人公の武器。剣 0 銃 1
 	int 武器;
+	//ステージのスコアデータ
+	int ScoreData[20];
+
+	bool PauseMenu;
 	
+	//難易度
+	int Diffculty;
 };
 //------------------------------------------------
 
@@ -79,6 +94,7 @@ struct UserData
 #include "ObjHero.h"
 #include "ObjMagicalGirl.h"
 #include "CObjHomingBullet.h"
+#include "ObjAllBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
 #include "ObjEnemy3.h"
@@ -99,6 +115,10 @@ struct UserData
 #include "ObjBullet.h"
 #include "ObjModeSelect.h"
 #include "Objbarrier.h"
+#include "ObjCustomize.h"
+#include "ObjSmallSlim.h"
+#include "ObjPauseMenu.h"
+#include "ObjSetting.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
