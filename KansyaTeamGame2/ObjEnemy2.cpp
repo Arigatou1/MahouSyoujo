@@ -39,7 +39,7 @@ void CObjEnemy2::Action()
 
 	if (e2_time % 96 == 32 && e2_t == false)
 	{
-		e2_atk = 0;
+		e2_atk = 0.00;
 	}
 	else if (e2_time % 96 == 0 && e2_t == false)
 	{
