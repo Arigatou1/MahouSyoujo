@@ -285,7 +285,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 				float by = i * 64.0f;
 
 				//主人公のブロックの当たり判定
-				if ((*x + *x_size > bx) && (*x < bx + *x_size) && (*y + *y_size > by) && (*y < by + *y_size))
+				if ((*x + 64 > bx) && (*x < bx + 64) && (*y + *y_size > by) && (*y < by + *y_size))
 				{
 					//上下左右判定
 
@@ -308,11 +308,11 @@ void CObjBlock::BlockHit(float* x, float* y,
 					if (len < 88.0f)
 					{
 						//角度で上下左右判定
-						if ((r < 40 && r>0) || r > 320)
+						if ((r < 35 && r>5) || r > 320)
 						{
 							//右
 							*right = true;//主人公の左側が衝突
-							*x     = bx + *x_size;//ブロックの位置-主人公の幅
+							*x     = bx + *x_size+(64-*x_size);//ブロックの位置-主人公の幅
 							*vx    = -(*vx) * 0.1f;//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
@@ -322,11 +322,11 @@ void CObjBlock::BlockHit(float* x, float* y,
 							*y    = by - *y_size;//ブロックの位置-主人公の幅
 							*vy   = 0.0f;
 						}
-						if (r > 140 && r < 220)
+						if (r > 145 && r < 215)
 						{
 							//左
 							*left = true;//オブジェクトの左側が衝突
-							*x    = bx - *x_size;//ブロックの位置-主人公の幅
+							*x    = bx - *x_size - (64 - *x_size);//ブロックの位置-主人公の幅
 							*vx   = -(*vx) * 0.1f;//-VX*反発係数
 						}
 						if (r > 225 && r < 315)
