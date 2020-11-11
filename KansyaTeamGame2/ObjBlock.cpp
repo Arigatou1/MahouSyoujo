@@ -312,7 +312,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 						{
 							//右
 							*right = true;//主人公の左側が衝突
-							*x     = bx + *x_size+(64-*x_size);//ブロックの位置-主人公の幅
+							*x     = bx +( *x_size+(64-*x_size));//ブロックの位置-主人公の幅
 							*vx    = -(*vx) * 0.1f;//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
@@ -326,7 +326,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 						{
 							//左
 							*left = true;//オブジェクトの左側が衝突
-							*x    = bx - *x_size - (64 - *x_size);//ブロックの位置-主人公の幅
+							*x    = bx -( *x_size - (64 - *x_size));//ブロックの位置-主人公の幅
 							*vx   = -(*vx) * 0.1f;//-VX*反発係数
 						}
 						if (r > 225 && r < 315)

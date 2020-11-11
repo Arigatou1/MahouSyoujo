@@ -133,6 +133,7 @@ void CObjEnemy::Action()
 		
 		//Amount++;
 	}
+
 }
 
 //ƒhƒ[
