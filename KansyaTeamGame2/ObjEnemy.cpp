@@ -112,7 +112,7 @@ void CObjEnemy::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		((UserData*)Save::GetData())->Score += 100;
+		
 		//Amount++;
 	}
 }
