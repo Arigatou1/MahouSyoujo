@@ -151,11 +151,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case WM_KEYDOWN:		//ESCキーで終了
 			switch (wParam)
 			{
-				case VK_ESCAPE:
-					CMultiThread::End();
-					LSetWindow::DeleteWindow();
-					PostQuitMessage(0);	
-				break;
+				//case VK_ESCAPE:
+				//	CMultiThread::End();
+				//	LSetWindow::DeleteWindow();
+				//	PostQuitMessage(0);	
+				//break;
 			}
 		break;
 		case WM_CLOSE:			// ウィンドウを閉じる場合

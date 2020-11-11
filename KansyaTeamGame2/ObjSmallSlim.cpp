@@ -40,7 +40,7 @@ void CObjSmallSlim::Init()
 
 	e_damege = 0;
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_SMALLSLIM, 10);
 }
 
 //アクション
@@ -162,8 +162,3 @@ void CObjSmallSlim::Draw()
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
-
-//int CObjEnemy::EneAmo()
-//{
-//	return Amount;
-//}

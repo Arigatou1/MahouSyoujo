@@ -22,7 +22,8 @@ private:
 	float Mana_x;
 	float Mana_y;
 
-	float mana_damege;
+	float mana_damege;//敵１からのダメージ
+	float mana_damege2;//敵2からのダメージ
 
 };
 
