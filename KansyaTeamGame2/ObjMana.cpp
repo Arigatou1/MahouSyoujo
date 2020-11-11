@@ -16,7 +16,6 @@ using namespace GameL;
 CObjMana::~CObjMana()
 {
 	
-		
 }
 
 CObjMana::CObjMana(float x, float y)

@@ -135,8 +135,3 @@ void CObjSmallSlim::Draw()
 	//•`‰æ
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
-
-//int CObjEnemy::EneAmo()
-//{
-//	return Amount;
-//}

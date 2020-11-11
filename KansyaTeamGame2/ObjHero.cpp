@@ -54,7 +54,7 @@ void CObjHero::Init()
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
 	•Ší = ((UserData*)Save::GetData())->•Ší;
-	
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -207,27 +207,27 @@ void CObjHero::Action()
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
 
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 1.4f + damage;//“G‚ÌUŒ‚—Í
 
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 2.0f+damage;//“G‚ÌUŒ‚—Í
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 2;//“G‚ÌUŒ‚—Í
+				m_hp -= 3.0f+damage;//“G‚ÌUŒ‚—Í
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½Žž
@@ -254,7 +254,7 @@ void CObjHero::Action()
 				if (Input::GetVKey('H') == true && h_t == true && m_Skill == 1)
 				{
 					h_t = false;
-					m_hp += 3;
+					m_hp += 3.0f;
 					m_mp -= 20;
 					if (m_hp > max_hp)
 					{
