@@ -1,5 +1,7 @@
-﻿  ObjBlock.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(184,9): warning C4101: 'src': ローカル変数は 1 度も使われていません。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(297,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjBlock.cpp(300,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy.cpp(24,15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy.cpp(56,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy.cpp(66,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy.cpp(119,8): warning C4552: '<=': 式の結果が使用されていません
+C:\Users\GA1B\Desktop\新しいフォルダー (2)\KansyaTeamGame2\ObjEnemy.cpp(134,8): warning C4552: '<=': 式の結果が使用されていません
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー (2)\x64\Debug\KansyaTeamGame2.exe

@@ -64,6 +64,7 @@ void CObjMana::Action()
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
 		CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+
 		mana_damege = obj_enemy->GetE1_ATK();
 
 		Mana_HP-=mana_damege;
