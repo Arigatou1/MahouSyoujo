@@ -35,17 +35,7 @@ void CObjGaugeHP::Action()
 
 	}
 
-	//1キーを押すとクリアに移行する
-	/*if (Input::GetVKey('1') == true)
-	{
-		Clear_Flag = true;
 
-
-	}
-
-	if (Clear_Flag == true)
-		Scene::SetScene(new CSceneGameClear());
-		*/
 
 }
 //ドロー
@@ -59,21 +49,21 @@ void CObjGaugeHP::Draw()
 
 	wchar_t str[128];
 	swprintf_s(str, L"%.0lf/%.0lf", HP,MAXHP);//整数を文字列か
-	Font::StrDraw(str, 300, 2, 24, c);
+	Font::StrDraw(str, 330, 2, 24, c);
 
 	//切り取り位置の設定
 	src.m_top = 72.0f;
 	//0%位置
-	src.m_left = 46.0f;
+	src.m_left = 69.0f;
 	//100%位置
-	src.m_right = GaugePercent+46.0f;
+	src.m_right = GaugePercent+69.0f;
 	src.m_bottom = 96.0f;
 	//表示位置の設定
 	dst.m_top = 0.0f;
 	//0%位置
-	dst.m_left = 46.0f;
+	dst.m_left = 69.0f;
 	//100%位置
-	dst.m_right = GaugePercent+46.0f;
+	dst.m_right = GaugePercent+69.0f;
 	dst.m_bottom = 24.0f;
 
 
@@ -82,9 +72,7 @@ void CObjGaugeHP::Draw()
 
 }
 
-int CObjGaugeHP::GetPercent()
-{
-	//未実装
-	if(0)
-	return GaugePercent;
-}
+//int CObjGaugeHP::GetPercent()
+//{
+//	return GaugePercent;
+//}

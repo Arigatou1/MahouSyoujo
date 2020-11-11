@@ -5,7 +5,6 @@
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
-//#include "主人公のヘッダー？"
 
 //使用するネームスペース
 using namespace GameL;
@@ -13,16 +12,14 @@ using namespace GameL;
 //イニシャライズ
 void CObjMagicalGirl::Init()
 {
-	m_gx = 300;
-	m_gy = 440;
-
 	m_maxmp = 100;
 	m_mp =m_maxmp;//MP総量100
 	
 	m_postrue = 1.0f;//右向き0.0f 左向き1.0f
+	m_atk_animation = 0;//0=棒立ちの画像
 
 	m_mtime = 1;
-	m_btime = 1;
+	m_btime = 100;
 }
 
 //アクション
@@ -31,42 +28,112 @@ void CObjMagicalGirl::Action()
 	m_mtime++;
 	m_btime++;
 
-	if (m_mp < 100)
+	CObjMana* obj_mana = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	if(obj_mana != nullptr)
 	{
-		
+		m_gx = obj_mana->GetX();
+		m_gy = obj_mana->GetY();
+	}
+
+	if (m_mp < 100)//(おそらく1秒に1)MP回復
+	{
+
 		if (m_mtime % 60 == 0)
 		{
 			m_mp++;
 			m_mtime = 0;
 		}
 	}
+
+	//キーを押すと向き変更
+	if (Input::GetVKey(VK_LEFT) == true)
+	{
+		m_postrue = 0.0f;
+	}
+	else if (Input::GetVKey(VK_RIGHT) == true)
+	{
+		m_postrue = 1.0f;
+	}
+
 	//魔法少女の通常攻撃
-	if (m_mp >= 5)
+	if (m_mp >= 1)
 	{
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
+			m_atk_animation = 3;//杖持った姿になる
+
 			if (m_postrue == 0.0f)
 			{
 				m_t = false;
-				//ホーミング弾作成
+				//魔法少女魔法玉作成
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
-				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
+				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 10;
+				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 			else if (m_postrue == 1.0f)
 			{
 				m_t = false;
-				//ホーミング弾作成
+				//魔法少女魔法玉作成
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
-				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 10);//オブジェクトマネーに登録
+				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 10;
+				m_mp -= 1;
+
+				if (m_mp < 0)
+				{
+					m_mp = 0;
+				}
 			}
 		}
 		else if (Input::GetVKey('D') == false)
 		{
+			m_atk_animation = 0;//棒立ちの姿になる
 			m_t = true;
+		}
+	}
+
+	//魔法少女の回復魔法
+	if (m_mp >= 20)
+	{
+		if (Input::GetVKey('H') == true && h_t == true)
+		{
+			h_t = false;
+			m_mp -= 20;
+		}
+		else if (Input::GetVKey('H') == false)
+		{
+			h_t = true;
+		}
+	}
+	
+	//魔法少女のバリア
+	if (m_mp >= 30)
+	{
+		if (Input::GetVKey('B') == true && b_t == true)
+		{
+			m_btime = 0;
+			b_t = false;
+			m_mp -= 30;
+
+			if (m_btime == 0)
+			{
+				//Barrierオブジェクト
+				CObjBarrier* objbarrier;
+				objbarrier = new CObjBarrier(m_gx + 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
+				objbarrier = new CObjBarrier(m_gx - 64.0f, m_gy);
+				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
+			}
+		}
+		else if (Input::GetVKey('B') == false && m_btime > 200)
+		{
+			b_t = true;
 		}
 	}
 }
@@ -82,8 +149,8 @@ void CObjMagicalGirl::Draw()
 
 	//切り取り位置の設定
 	src.m_top    = 128.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 64.0f;
+	src.m_left   = (m_atk_animation * 64.0f) + 0.0f;
+	src.m_right  = (m_atk_animation * 64.0f) + 64.0f;
 	src.m_bottom = 192.0f;
 
 	//表示位置の設定

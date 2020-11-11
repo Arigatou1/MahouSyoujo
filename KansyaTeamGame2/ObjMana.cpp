@@ -12,13 +12,28 @@
 //使用するネームスペース
 using namespace GameL;
 
+CObjMana::CObjMana(float x, float y)
+{
+	Mana_x = x;
+	Mana_y = y;
+}
 
+//位置情報X取得用
+float CObjMana::GetX()
+{
+	return Mana_x;
+}
+
+//位置情報Y取得用
+float CObjMana::GetY()
+{
+	return Mana_y;
+}
 
 //イニシャライズ
 void CObjMana::Init()
 {
-	Mana_x = 372;
-	Mana_y = 440;
+	
 	Mana_HP = 100;
 
 
@@ -31,7 +46,7 @@ void CObjMana::Init()
 	Objs::InsertObj(obj_manahp, OBJ_MANA_HP, 51);
 
 	//あたり判定用Hitboxを作成
-	Hits::SetHitBox(this, Mana_x+4 , Mana_y-604, 56, 600, ELEMENT_FIELD, OBJ_MANA, 1);
+	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_FIELD, OBJ_MANA, 1);
 }
 
 //アクション
@@ -47,18 +62,24 @@ void CObjMana::Action()
 
 	//HitBoxの内容
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(Mana_x,Mana_y-304);
+	hit->SetPos(Mana_x,Mana_y);
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.3;
+		Mana_HP-=0.04;
 
 	}
 
 	//敵2に当たると1減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
-		Mana_HP -= 0.3;
+		Mana_HP -= 0.04;
+
+	}
+	//敵3に当たると1減る
+	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
+	{
+		Mana_HP -= 0.04;
 
 	}
 	
@@ -68,7 +89,7 @@ void CObjMana::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-	//	Scene::SetScene(new CSceneGameOver());
+		Scene::SetScene(new CSceneGameOver());
 	}
 }
 //ドロー
@@ -100,3 +121,4 @@ int CObjMana::GetHP()
 {
 	return Mana_HP;
 }
+

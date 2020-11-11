@@ -12,10 +12,12 @@ enum OBJ_NAME
 	OBJ_SWORD,
 	OBJ_ENEMY,
 	OBJ_ENEMY2,
+	OBJ_ENEMY3,
+	OBJ_ENEMY4,
 	OBJ_GAUGEBASE,
 	OBJ_GAUGEHP,
 	OBJ_GAUGEMP,
-	OBJ_STAGE,
+	OBJ_BLOCK,
 	OBJ_MANA,
 	OBJ_MANABASE,
 	OBJ_MANA_HP,
@@ -24,6 +26,10 @@ enum OBJ_NAME
 	OBJ_BG,
 	OBJ_GAME_CLEAR,
 	OBJ_ENEMYAMOUNT,
+	OBJ_STAGESELECT,
+	OBJ_BULLET,
+	OBJ_MODESELECT,
+	OBJ_BARRIER,
 };
 //------------------------------------------------
 
@@ -51,6 +57,9 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	int Stage;
+	int HHP;
+	int 武器;
 	
 };
 //------------------------------------------------
@@ -72,8 +81,10 @@ struct UserData
 #include "CObjHomingBullet.h"
 #include "ObjEnemy.h"
 #include "ObjEnemy2.h"
+#include "ObjEnemy3.h"
+#include "ObjEnemy4.h"
 #include "ObjGaugeBase.h"
-#include "Objstage.h"
+#include "ObjBlock.h"
 #include "ObjGaugeHP.h"
 #include "ObjGaugeMP.h"
 #include "ObjGaugeMana.h"
@@ -84,6 +95,10 @@ struct UserData
 #include "ObjBackGround.h"
 #include "ObjGameClear.h"
 #include "ObjEnemyAmount.h"
+#include "ObjStageSelect.h"
+#include "ObjBullet.h"
+#include "ObjModeSelect.h"
+#include "Objbarrier.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -91,7 +106,7 @@ struct UserData
 #include "SceneTitle.h"
 #include "SceneGameOver.h"
 #include "SceneGameClear.h"
-
+#include "SceneMenu.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

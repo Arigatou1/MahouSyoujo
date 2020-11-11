@@ -44,22 +44,22 @@ void CObjGaugeMP::Draw()
 
 	wchar_t str[128];
 	swprintf_s(str, L"%.0lf", MP);//整数を文字列か
-	Font::StrDraw(str, 300, 26, 24, c);
+	Font::StrDraw(str, 330, 26, 24, c);
 
 	//切り取り位置の設定
 	src.m_top = 96.0f;
 	//0%位置
-	src.m_left = 46.0f;
+	src.m_left = 69.0f;
 	//100%位置
-	src.m_right = GaugePercent + 46.0f;
+	src.m_right = GaugePercent + 69.0f;
 	src.m_bottom = 120.0f;
 
 	//表示位置の設定
 	dst.m_top    = 24.0f;
 	//0%位置
-	dst.m_left   = 46.0f;
+	dst.m_left   = 69.0f;
 	//100%位置
-	dst.m_right  = GaugePercent + 46.0f;
+	dst.m_right  = GaugePercent + 69.0f;
 	dst.m_bottom = 48.0f;
 
 

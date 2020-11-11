@@ -14,10 +14,12 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	int GetM_ATK();
 private:
 	float m_bx;//’eŠÛ‚ÌXˆÊ’u
 	float m_by;//’eŠÛ‚ÌYˆÊ’u
 	float m_bpostrue;//Œü‚«
 	float m_vx;//’eŠÛX‚Ì•Ï”
 	float m_vy;//’eŠÛY‚Ì•Ï”
+	float m_atk;//UŒ‚—Í
 };

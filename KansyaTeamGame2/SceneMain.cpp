@@ -6,6 +6,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawTexture.h"
 #include "GameL\DrawFont.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -23,12 +24,47 @@ CSceneMain::CSceneMain()
 //デストラクタ
 CSceneMain::~CSceneMain()
 {
-
+	
 }
 
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	
+	//外部データの読み込み
+
+	((UserData*)Save::GetData())->HHP = 0;
+
+	unique_ptr<wchar_t>p;//ステージ情報ポインター
+	int size;
+	int StageID =((UserData*)Save::GetData())->Stage;
+
+	
+	//マップデータを読み込む。
+	wchar_t s[128];
+
+	if (StageID <= 5)
+	swprintf_s(s, L"Stage/Stage1.csv", StageID);
+
+	else
+		swprintf_s(s, L"Stage/Stage%d.csv", StageID);
+
+	p = Save::ExternalDataOpen(s, &size);//外部データ読み込み
+	
+	int map[10][13];
+	int count = 1;
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 13; j++)
+		{
+			int w = 0;
+			swscanf_s(&p.get()[count], L"%d", &w);
+
+			map[i][j] = w;
+			count += 2;
+		}
+	}
+
 	//HP用Font作成
 	Font::SetStrTex(L"1234567890/.+-残り敵の数:");
 
@@ -40,7 +76,7 @@ void CSceneMain::InitScene()
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
-	Objs::InsertObj(obj, OBJ_HERO, 12);
+	Objs::InsertObj(obj, OBJ_HERO, 60);
 	
 
 	//ゲージオブジェクト作成
@@ -53,13 +89,11 @@ void CSceneMain::InitScene()
 
 	//魔法少女オブジェクト作成
 	CObjMagicalGirl* obj_magicalgirl = new CObjMagicalGirl();
-	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 11);
+	Objs::InsertObj(obj_magicalgirl, OBJ_MAGICALGIRL, 61);
 	
-	
-
-	//mana作成
-	CObjMana* obj_mana = new CObjMana();
-	Objs::InsertObj(obj_mana, OBJ_MANA, 10);
+	//Blockオブジェクト
+	CObjBlock* objb = new CObjBlock(map);
+	Objs::InsertObj(objb, OBJ_BLOCK, 11);
 
 	//MPゲージオブジェクト作成
 	CObjGaugeMP* obj_gmp = new CObjGaugeMP();
@@ -67,16 +101,15 @@ void CSceneMain::InitScene()
 	
 	//背景オブジェクト作成
 	CObjBackGround* obj_bg = new CObjBackGround();
-	Objs::InsertObj(obj_bg, OBJ_BG, 10);
+	Objs::InsertObj(obj_bg, OBJ_BG, 1);
 
-	//背景オブジェクト作成
+	//敵の数オブジェクト作成
 	CObjEnemyAmount* obj_eneamo = new CObjEnemyAmount();
 	Objs::InsertObj(obj_eneamo, OBJ_ENEMYAMOUNT, 51);
 
-	//背景オブジェクト作成
-	CObjstage* objs = new CObjstage();
-	Objs::InsertObj(objs, OBJ_STAGE,20);
 
+
+	
 
 	//タイム初期化
 	m_time = 0;
@@ -92,39 +125,59 @@ void CSceneMain::Scene()
 
 	if (m_time == 30)
 	{
-		CObjEnemy2* obj = new CObjEnemy2(800, 400);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		EnemyAmount++;
+		//CObjEnemy4* obj_Enemy4 = new CObjEnemy4(700, 200);
+		//Objs::InsertObj(obj_Enemy4, OBJ_ENEMY4, 49);
 
+		//CObjEnemy3* obj_Enemy = new CObjEnemy3(0, 440);
+		CObjEnemy3*obj_Enemy = new CObjEnemy3(700,200);
+		Objs::InsertObj(obj_Enemy, OBJ_ENEMY3, 49);
+	
+		CObjEnemy* obj = new CObjEnemy(300, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(0, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		EnemyAmount+=2;
 	}
 	else if (m_time == 60)
 	{
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 440);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy* obj_enemy2 = new CObjEnemy(700, 440);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
 	}
 	else if (m_time == 160)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 400);
+		CObjEnemy* obj = new CObjEnemy(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
 	}
 	else if (m_time == 220)
 	{
-		CObjEnemy2* obj;
-		obj = new CObjEnemy2(800, 450);
+		CObjEnemy* obj;
+		obj = new CObjEnemy(800, 450);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		obj = new CObjEnemy2(800, 350);
+		obj = new CObjEnemy(800, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		obj = new CObjEnemy(200, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		obj = new CObjEnemy(200, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		obj = new CObjEnemy(200, 350);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		//CObjEnemy2* obj_enemy2;
+		//obj_enemy2 = new CObjEnemy2(200, 350);
+		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		//obj_enemy2 = new CObjEnemy2(200, 350);
+		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+		
 		EnemyAmount+=2;
 	}
 
 	else if (m_time == 280)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 390);
+		CObjEnemy* obj = new CObjEnemy(800, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 450);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount+=2;
 	}
 	else if (m_time == 300)
@@ -147,41 +200,37 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 450)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 475);
-		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 450);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy* obj = new CObjEnemy(0, 500);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 450);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
 	}
 	else if (m_time == 500)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 450);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 400);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 400);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY3, 49);
 		EnemyAmount+=2;
 	}
 	else if (m_time == 550)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 475);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 425);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 425);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
 	}
 	else if (m_time == 600)
 	{
-		CObjEnemy* obj = new CObjEnemy(0, 475);
+		CObjEnemy* obj = new CObjEnemy(500, 475);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-		CObjEnemy2* obj_enemy = new CObjEnemy2(800, 425);
-		Objs::InsertObj(obj_enemy, OBJ_ENEMY2, 49);
+		CObjEnemy2* obj_enemy2 = new CObjEnemy2(800, 425);
+		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
 		EnemyAmount++;
 	}
 
-	if (m_time==1300)
-	{
-
-		Scene::SetScene(new CSceneGameClear());
-	}
+	
 }
 
