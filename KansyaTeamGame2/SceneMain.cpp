@@ -129,7 +129,7 @@ void CSceneMain::Scene()
 	m_time++;
 
 	//ポーズメニュー
-	if (Input::GetVKey(VK_SHIFT) == true)
+	if (Input::GetVKey(VK_ESCAPE) == true)
 	{
 		if (m_key_flag == true)
 		{

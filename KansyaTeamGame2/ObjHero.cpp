@@ -15,7 +15,7 @@ using namespace GameL;
 
 CObjHero::~CObjHero()
 {
-	
+	((UserData*)Save::GetData())->HeroHP = AllDamage;
 }
 
 //ƒCƒjƒVƒƒƒ‰ƒCƒY
@@ -55,6 +55,7 @@ void CObjHero::Init()
 
 	•Ší = ((UserData*)Save::GetData())->•Ší;
 	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+	AllDamage = 0;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -208,13 +209,14 @@ void CObjHero::Action()
 			{
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
-
+				AllDamage += 1.0f + damage;
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
 				m_mtk = true;
 				m_hp -= 1.4f + damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 1.4f + damage;
 
 			}
 
@@ -222,12 +224,14 @@ void CObjHero::Action()
 			{
 				m_mtk = true;
 				m_hp -= 2.0f+damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 2.0f + damage;
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 3.0f+damage;//“G‚ÌUŒ‚—Í
+				m_hp -= 2.5f+damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 2.5f + damage;
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½

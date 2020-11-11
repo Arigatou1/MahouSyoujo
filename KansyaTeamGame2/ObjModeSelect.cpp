@@ -111,6 +111,17 @@ void CObjModeSelect::Action()
 		}
 		
 	}
+	else if (Input::GetVKey(VK_ESCAPE) == true)
+	{
+
+			if (m_key_flag == true)
+			{
+				Scene::SetScene(new CSceneTitle());
+			}
+			m_key_flag = false;
+
+
+	}
 	else
 	{
 		m_key_flag = true;

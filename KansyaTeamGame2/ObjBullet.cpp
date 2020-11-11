@@ -22,7 +22,7 @@ void CObjBullet::Init()
 {
 	Hits::SetHitBox(this, px, py+24, 64, 16, ELEMENT_PLAYER, OBJ_BULLET, 1);
 	
-	
+	atk_power = 1;
 }
 
 //ƒAƒNƒVƒ‡ƒ“

@@ -141,6 +141,9 @@
     <ClCompile Include="ObjSetting.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBoss1.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -280,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="ObjSetting.h">
       <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBoss1.h">
+      <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

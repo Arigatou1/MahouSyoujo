@@ -142,6 +142,7 @@
     <ClInclude Include="CObjHomingBullet.h" />
     <ClInclude Include="ObjAllBullet.h" />
     <ClInclude Include="Objbarrier.h" />
+    <ClInclude Include="ObjBoss1.h" />
     <ClInclude Include="ObjBullet.h" />
     <ClInclude Include="ObjCustomize.h" />
     <ClInclude Include="ObjEnemy3.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="CObjHomingBullet.cpp" />
     <ClCompile Include="ObjAllBullet.cpp" />
     <ClCompile Include="ObjBarrier.cpp" />
+    <ClCompile Include="ObjBoss1.cpp" />
     <ClCompile Include="ObjBullet.cpp" />
     <ClCompile Include="ObjCustomize.cpp" />
     <ClCompile Include="ObjEnemy4.cpp" />

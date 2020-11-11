@@ -15,7 +15,7 @@ using namespace GameL;
 
 CObjMana::~CObjMana()
 {
-	
+	((UserData*)Save::GetData())->ManaHP = Mana_HP;
 }
 
 CObjMana::CObjMana(float x, float y)

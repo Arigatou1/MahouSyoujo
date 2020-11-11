@@ -76,6 +76,9 @@ struct UserData
 	
 	//“ïˆÕ“x
 	int Diffculty;
+
+	float HeroHP;
+	float ManaHP;
 };
 //------------------------------------------------
 

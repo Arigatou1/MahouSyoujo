@@ -34,7 +34,15 @@ void CObjGameClear::Action()
 		m_key_flag = true;
 	}
 
+	((UserData*)Save::GetData())->Score =
+		10000-(((UserData*)Save::GetData())->HeroHP*40 + 10000-((UserData*)Save::GetData())->ManaHP*60);
 
+	if (((UserData*)Save::GetData())->Score >
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
+	{
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
+			= ((UserData*)Save::GetData())->Score;
+	}
 }
 
 //ƒhƒ[

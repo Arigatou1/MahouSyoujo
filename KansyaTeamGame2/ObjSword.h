@@ -20,5 +20,6 @@ private:
 	int a_posture;
 	bool a_f;
 	int atk_time;
+	float atk_power;
 };
 
