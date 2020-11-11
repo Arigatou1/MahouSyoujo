@@ -22,5 +22,7 @@ private:
 	float Mana_x;
 	float Mana_y;
 
+	float mana_damege;
+
 };
 

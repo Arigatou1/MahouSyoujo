@@ -20,7 +20,9 @@ void CObjEnemy::Init()
 {
 	m_vx = 0.0f;
 	m_vy = 0.0f;
-	e_damege = 0;
+	e1_damege = 0;
+	e1_atk = 0.04;
+	e1_time = 0;
 
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
@@ -38,11 +40,24 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
+
+	e1_time++;
+
+	if (e1_time % 96 == 32)
+	{
+		e1_atk = 0;
+	}
+	else if (e1_time % 96 == 0)
+	{
+		e1_atk = 0.04;
+	}
+
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
-	m_vy = 9.8 / (16.0f);
+	//重力
+	m_vy += 9.8 / (16.0f);
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
@@ -84,11 +99,16 @@ void CObjEnemy::Action()
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
 	
+	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
+	{
+		e1_time = 0;
+	}
+
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
-		e_damege = obj_homing->GetM_ATK();
+		e1_damege = obj_homing->GetM_ATK();
 
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
@@ -101,7 +121,7 @@ void CObjEnemy::Action()
 	{
 
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
-		e_damege = obj_all->GetZ_ATK();
+		e1_damege = obj_all->GetZ_ATK();
 
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
@@ -145,3 +165,7 @@ void CObjEnemy::Draw()
 //{
 //	return Amount;
 //}
+float CObjEnemy::GetE1_ATK()
+{
+	return e1_atk;
+}

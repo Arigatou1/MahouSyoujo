@@ -32,6 +32,8 @@ void CObjMana::Init()
 	
 	Mana_HP = 100;
 
+	mana_damege = 0;
+
 
 	//MANAゲージベースオブジェクト作成
 	CObjGaugeMANABase* obj_managb = new CObjGaugeMANABase(Mana_x,Mana_y);
@@ -48,7 +50,6 @@ void CObjMana::Init()
 //アクション
 void CObjMana::Action()
 {
-	
 
 	if (Mana_HP <= 0)
 	{
@@ -62,7 +63,10 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP-=0.04;
+		CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
+		mana_damege = obj_enemy->GetE1_ATK();
+
+		Mana_HP-=mana_damege;
 
 	}
 
