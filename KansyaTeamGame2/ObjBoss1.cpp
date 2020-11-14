@@ -56,11 +56,15 @@ void CObjBoss1::Action()
 	hit->SetPos(m_ex, m_ey);
 
 	a_time++;	
-	if (a_time % 10 == 0)
+	if (a_time % 500 == 0)
 	{
-		CObjEnemy* obj = new CObjEnemy(m_ex,m_ey+50);
+		CObjEnemy* obj = new CObjEnemy(m_ex,m_ey+50,-5,-10);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-	
+		obj = new CObjEnemy(m_ex, m_ey + 50, -7,0);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+		obj = new CObjEnemy(m_ex, m_ey + 50, -5,10);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
 		
 	}
 

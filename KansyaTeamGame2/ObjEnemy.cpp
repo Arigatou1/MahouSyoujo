@@ -10,16 +10,17 @@
 using namespace GameL;
 
 //コンストラクタ
-CObjEnemy::CObjEnemy(float x, float y)
+CObjEnemy::CObjEnemy(float x, float y,float vx,float vy)
 {
 	m_ex = x;
 	m_ey = y;
+	m_vx = vx;
+	m_vy = vy;
 }
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	m_vx = 0.0f;
-	m_vy = 0.0f;
+	
 	e1_damege = 0;
 	e1_atk = 0.04;
 	e1_time = 0;
@@ -62,13 +63,16 @@ void CObjEnemy::Action()
 	if (obj != nullptr)
 	{
 		float m_mx = obj->GetX();
+		if (e1_hit_down == true)
+		{
 
-		if (m_mx <= m_ex)
-			m_vx = -1.0f;
-		else if (m_mx >= m_ex)
-			m_vx = 1.0f;
-		else
-			m_vx = 0;
+			if (m_mx <= m_ex)
+				m_vx = -1.0f;
+			else if (m_mx >= m_ex)
+				m_vx = 1.0f;
+			else
+				m_vx = 0;
+		}
 	}
 
 	//重力
