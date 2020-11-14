@@ -29,6 +29,10 @@ private:
 	float m_my;//マナのY位置
 	//int Amount;
 
+	int e_jkn;//
+	int e_time;//
+	bool e_mtk;
+
 	//blockとの衝突状態確認用
 	bool e1_hit_up;
 	bool e1_hit_down;

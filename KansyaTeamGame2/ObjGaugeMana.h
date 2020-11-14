@@ -14,7 +14,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-	int GetPercent();
+	float GetPercent();
 private:
 	float HP;
 	float GaugePercent;

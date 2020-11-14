@@ -35,6 +35,7 @@ enum OBJ_NAME
 	OBJ_SMALLSLIM,
 	OBJ_PAUSEMENU,
 	OBJ_SETTING,
+	OBJ_BOSS1,
 };
 //------------------------------------------------
 
@@ -76,6 +77,9 @@ struct UserData
 	
 	//難易度
 	int Diffculty;
+
+	float HeroHP;
+	float ManaHP;
 };
 //------------------------------------------------
 
@@ -119,6 +123,7 @@ struct UserData
 #include "ObjSmallSlim.h"
 #include "ObjPauseMenu.h"
 #include "ObjSetting.h"
+#include "ObjBoss1.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
