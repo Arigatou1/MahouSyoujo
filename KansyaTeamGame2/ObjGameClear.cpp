@@ -35,7 +35,7 @@ void CObjGameClear::Action()
 	}
 
 	((UserData*)Save::GetData())->Score =
-		10000-(((UserData*)Save::GetData())->HeroHP*40 + 10000-((UserData*)Save::GetData())->ManaHP*60);
+		(((UserData*)Save::GetData())->HeroHP*40 + ((UserData*)Save::GetData())->ManaHP*60);
 
 	if (((UserData*)Save::GetData())->Score >
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])

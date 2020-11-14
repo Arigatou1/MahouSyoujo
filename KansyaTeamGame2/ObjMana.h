@@ -14,7 +14,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-	int GetHP();
+	float GetHP();
 	float GetX();
 	float GetY();
 private:

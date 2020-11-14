@@ -115,7 +115,9 @@ void CSceneMain::InitScene()
 	CObjPauseMenu* obj_pause = new CObjPauseMenu();
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
-	
+	//BOSS1オブジェクト作成
+	CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
+	Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
 
 	//タイム初期化
 	m_time = 0;
@@ -142,7 +144,7 @@ void CSceneMain::Scene()
 		m_key_flag = true;
 
 
-	if (m_time == 30)
+	/*if (m_time == 30)
 	{
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 350);
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
@@ -249,7 +251,7 @@ void CSceneMain::Scene()
 		EnemyAmount++;
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 400);
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
-	}
+	}*/
 
 	
 }

@@ -21,7 +21,8 @@ void CObjStageSelect::Init()
 	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
 
-
+	((UserData*)Save::GetData())->ManaHP = 0;
+	((UserData*)Save::GetData())->HeroHP = 0;
 }
 
 //ƒAƒNƒVƒ‡ƒ“

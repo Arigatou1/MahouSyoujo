@@ -15,7 +15,7 @@ using namespace GameL;
 
 CObjMana::~CObjMana()
 {
-	((UserData*)Save::GetData())->ManaHP = Mana_HP;
+	
 }
 
 CObjMana::CObjMana(float x, float y)
@@ -46,6 +46,8 @@ void CObjMana::Init()
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_WHITE, OBJ_MANA, 1);
+
+	
 }
 
 //アクション
@@ -103,6 +105,8 @@ void CObjMana::Action()
 
 		Scene::SetScene(new CSceneGameOver());
 	}
+
+	((UserData*)Save::GetData())->ManaHP = Mana_HP;
 }
 //ドロー
 void CObjMana::Draw()
@@ -129,7 +133,7 @@ void CObjMana::Draw()
 }
 
 
-int CObjMana::GetHP()
+float CObjMana::GetHP()
 {
 	return Mana_HP;
 }

@@ -72,7 +72,7 @@ void CObjEnemy::Action()
 	}
 
 	//d—Í
-	m_vy = 9.8 / (16.0f);
+	m_vy += 9.8 / (16.0f);
 
 	//m_vx‚Ì‘¬“x‚ÅˆÚ“®
 	m_ex += m_vx;

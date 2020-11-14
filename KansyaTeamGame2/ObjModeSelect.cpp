@@ -59,6 +59,13 @@ void CObjModeSelect::Action()
 
 				break;
 			}
+			default:
+			{
+				//メニューオブジェクト作成
+				CObjStageSelect* obj = new CObjStageSelect();
+				Objs::InsertObj(obj, OBJ_STAGESELECT, 0);
+				break;
+			}
 			}
 			m_key_flag = false;
 		}

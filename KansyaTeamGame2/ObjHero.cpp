@@ -15,7 +15,7 @@ using namespace GameL;
 
 CObjHero::~CObjHero()
 {
-	((UserData*)Save::GetData())->HeroHP = AllDamage;
+
 }
 
 //イニシャライズ
@@ -34,7 +34,7 @@ void CObjHero::Init()
 	m_f = true;
 	isJump = true;
 	//最大HP
-	max_hp = 20;
+	max_hp = 20.0f;
 	m_hp = max_hp;
 	//無敵時間調整用
 	mtk_max = 100;
@@ -203,7 +203,7 @@ void CObjHero::Action()
 		{
 			//HitBoxの内容を元に戻す
 			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(m_px + 4, m_py + 4);
+			hit->SetPos(m_px + 4.0f, m_py + 4.0f);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
@@ -301,6 +301,8 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
+
+		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
 		
 	
 }
