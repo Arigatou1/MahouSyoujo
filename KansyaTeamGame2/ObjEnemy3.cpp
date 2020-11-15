@@ -23,12 +23,14 @@ void CObjEnemy3::Init()
 	m_vy = 0.0f;
 
 	
+	
 
 	e3_hit_up = false;
 	e3_hit_down = false;
 	e3_hit_left = false;
 	e3_hit_right = false;
 
+	e_t = true;
 	jump = 0;
 
 	e3_xsize = 64;
@@ -40,8 +42,16 @@ void CObjEnemy3::Init()
 //アクション
 void CObjEnemy3::Action()
 {
-	//摩擦
-	//m_vx += -(m_vx * 0.098);
+	e_time++;
+
+	if (e_time % 96 == 32 && e_t == false)
+	{
+		e_atk = 0.00;
+	}
+	else if (e_time % 96 == 0 && e_t == false)
+	{
+		e_atk = 0.04;
+	}
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
@@ -54,12 +64,17 @@ void CObjEnemy3::Action()
 		&e3_hit_up, &e3_hit_down, &e3_hit_left, &e3_hit_right,
 		&m_vx, &m_vy, &e3_xsize, &e3_ysize);
 
-	//ジャンプ
+	/*ジャンプ
 	if (obj_block3 != nullptr)
 	{
+		//e_time++;
+		if (e3_hit_down == true) 
+		{
+			m_vy = -15;
+			e3_hit_down = false;
+		}
 		
-		
-	}
+	}*/
 
 	//自由落下運動
 	m_ey += 9.8 / (16.0f);

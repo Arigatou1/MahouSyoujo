@@ -19,7 +19,7 @@ void CObjEnemy4::Init()
 	m_vy = 0.0f;
 	m_r = 0.0f;
 
-	e_jkn = 90;
+	e_jkn = 80;
 	e_time = e_jkn;
 	e_mtk = false;
 
