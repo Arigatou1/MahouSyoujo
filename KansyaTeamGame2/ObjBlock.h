@@ -26,4 +26,13 @@ private:
 
 	float ex;
 	float ey;
+
+	//float Dot(float ax, float ay, float bx, float by); //“àÏ
+	//float Cross(float ax, float ay, float bx, float by);//ŠOÏ
+
+	//ü‚Æü‚Æ‚ÌŒğ·”»’è
+	//bool CObjBlock::LineCrossPoint(
+	//	float a1x, float a1y, float a2x, float a2y,
+	//	float b1x, float b1y, float b2x, float b2y,
+	//	float* out_px, float* out_py);
 };
