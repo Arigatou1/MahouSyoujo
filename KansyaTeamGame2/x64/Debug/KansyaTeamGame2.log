@@ -1,3 +1,7 @@
-﻿  ObjBoss1.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjBoss1.cpp(44,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-  KansyaTeamGame2.vcxproj -> C:\Users\rimin\source\repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy.cpp
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(25,15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(95,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(128,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(139,8): warning C4552: '<=': 式の結果が使用されていません
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(154,8): warning C4552: '<=': 式の結果が使用されていません
+  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe

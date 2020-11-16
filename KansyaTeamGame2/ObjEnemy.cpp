@@ -50,15 +50,6 @@ void CObjEnemy::Action()
 
 	e1_time++;
 
-	if (e1_time % 96 == 32 && e1_t == false)
-	{
-		e1_atk = 0.00;
-	}
-	else if (e1_time % 96 == 0 && e1_t == false)
-	{
-		e1_atk = 0.04;
-	}
-
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
 	{
@@ -66,13 +57,38 @@ void CObjEnemy::Action()
 		if (e1_hit_down == true)
 		{
 
-			if (m_mx <= m_ex)
+			if (m_mx + 64.0f <= m_ex)
 				m_vx = -1.0f;
-			else if (m_mx >= m_ex)
+			else if (m_mx - 64.0f >= m_ex)
 				m_vx = 1.0f;
 			else
 				m_vx = 0;
 		}
+
+		/*if (e1_hit_right == true)
+	{
+		m_ex = m_ex - 25.0f;
+		m_ey = m_ey - 80.0f;
+	}
+	else if (e1_hit_left == true)
+	{
+		m_ex = m_ex + 25.0f;
+		m_ey = m_ey - 80.0f;
+	}*/
+	}
+
+	//バリアの情報
+	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
+	if (obj_barrier != nullptr)
+	{
+		b_mx = obj_barrier->GetBX();
+
+		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 128.0f)
+		{
+			m_vx = 0;
+			m_vy = 0;
+		}
+
 	}
 
 	//重力
@@ -87,34 +103,32 @@ void CObjEnemy::Action()
 	hit->SetPos(m_ex, m_ey);
 
 
-	//バリア出てる時だけ止まる
-	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
-	if (obj_barrier != nullptr)
-	{
-		b_mx = obj_barrier->GetBX();
-
-		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 160.0f)
-		{
-			m_vx = 0;
-		}
-
-	}
-
-
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
-	
+
 	//マナに当たるとカウントが0になる
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
 	{
 		if (e1_t == true)
 		{
-			e1_t = false;
 			e1_time = 0;
+			e1_t = false;
 		}
+
 	}
+
+	if (e1_time % 96 == 32)
+	{
+		e1_atk = 0.00;
+	}
+	else if (e1_time % 96 == 0)
+	{
+		e1_atk = 0.04;
+	}
+
+
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
@@ -145,7 +159,6 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-
 		e_hp -= 1;
 	}
 	if(	e_hp <= 0)

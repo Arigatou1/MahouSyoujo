@@ -23,6 +23,7 @@ private:
 	int e_hp;//“G‚ÌHP
 	int e1_damege;//ƒ_ƒ[ƒW—Ê
 	int e1_time;//“G‚ÌUŒ‚ŠÔ
+	
 
 	float e1_atk;//“G‚ÌUŒ‚—Í
 
