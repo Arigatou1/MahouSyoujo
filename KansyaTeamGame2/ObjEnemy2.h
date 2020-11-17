@@ -50,4 +50,6 @@ private:
 
 	float e2_xsize;
 	float e2_ysize;
+
+	float e_hp;
 };

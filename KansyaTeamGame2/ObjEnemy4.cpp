@@ -9,7 +9,7 @@ CObjEnemy4::CObjEnemy4(float x, float y)
 {
 	m_ex = x;
 	m_ey = y;
-	e_hp = 2;
+	
 }
 
 //イニシャライズ
@@ -25,6 +25,8 @@ void CObjEnemy4::Init()
 
 	//当たり判定HitBoxを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
+
+	e_hp = 8.0f;
 }
 
 //アクション
@@ -57,11 +59,16 @@ void CObjEnemy4::Action()
 		e_hp -= 1;
 	}
 
-	//剣に当たれば消滅
+	//剣に当たれば
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-		e_mtk = true;
-		e_hp -= 2;
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
+	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
 	}
 
 	if (e_mtk == true)

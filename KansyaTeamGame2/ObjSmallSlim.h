@@ -19,7 +19,7 @@ private:
 	float m_ey;
 	float m_vx;
 	float m_vy;
-	int e_hp;//敵のHP
+	
 	int e_damege;//ダメージ量
 
 	float b_mx;//バリアのx位置
@@ -41,4 +41,5 @@ private:
 
 	float e1_xsize;
 	float e1_ysize;
+	float e_hp;
 };
