@@ -1,7 +1,6 @@
-﻿  ObjBlock.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(252,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(255,14): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(431,17): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(431,9): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjBlock.cpp(438,15): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  SceneMenu.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
