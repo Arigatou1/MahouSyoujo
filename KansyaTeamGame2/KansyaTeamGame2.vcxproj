@@ -149,6 +149,7 @@
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
     <ClInclude Include="ObjPauseMenu.h" />
+    <ClInclude Include="ObjSlimeBall.h" />
     <ClInclude Include="ObjSmallSlim.h" />
     <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
     <ClCompile Include="ObjPauseMenu.cpp" />
+    <ClCompile Include="ObjSlimeBall.cpp" />
     <ClCompile Include="ObjSmallSlim.cpp" />
     <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />

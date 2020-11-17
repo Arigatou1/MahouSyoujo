@@ -14,6 +14,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	float GetAttackPower();
 private:
 	float a_px;
 	float a_py;
