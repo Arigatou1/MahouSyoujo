@@ -146,7 +146,6 @@ void CSceneMain::Scene()
 	else
 		m_key_flag = true;
 
-
 	/*if (m_time == 30)
 	{
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 350);
