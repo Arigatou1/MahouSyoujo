@@ -1,30 +1,8 @@
-﻿  ObjHero.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(57,51): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(85,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(95,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(103,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(116,16): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(150,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(159,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(324,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(324,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(346,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjHero.cpp(351,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-  ObjMagicalGirl.cpp
-  SceneMain.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMain.cpp(2): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMain.cpp(3): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMain.cpp(48,37): warning C4474: 'swprintf_s': 書式文字列に渡された引数の数が多すぎます
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMain.cpp(48,37): message : プレースホルダーとそのパラメーターには 0 の可変個引数が必要ですが、1 が指定されています。
-  SceneMenu.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMenu.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\SceneMenu.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
-  UtilityModule.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\UtilityModule.cpp(92,10): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  ObjGaugeBase.cpp
+﻿  ObjEnemy.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(26,15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(98,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(131,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(142,8): warning C4552: '<=': 式の結果が使用されていません
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(162,38): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(167,39): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe

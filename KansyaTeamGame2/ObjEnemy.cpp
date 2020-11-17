@@ -66,16 +66,18 @@ void CObjEnemy::Action()
 				m_vx = 0;
 		}
 
-		/*if (e1_hit_right == true)
-	{
-		m_ex = m_ex - 25.0f;
-		m_ey = m_ey - 80.0f;
-	}
-	else if (e1_hit_left == true)
-	{
-		m_ex = m_ex + 25.0f;
-		m_ey = m_ey - 80.0f;
-	}*/
+		
+		//ジョンプ
+		if (e1_hit_right == true)
+		{
+			m_ex = m_ex - 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
+		else if (e1_hit_left == true)
+		{
+			m_ex = m_ex + 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
 	}
 
 	//バリアの情報

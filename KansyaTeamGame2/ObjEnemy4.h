@@ -20,7 +20,7 @@ private:
 	float m_vy;
 	float m_r;//Šp“x
 
-	int e_hp;
+	int e_hp;  //HP
 	int e4_damege;
 	
 
@@ -30,5 +30,5 @@ private:
 	float m_hx;//hero‚ÌxˆÊ’u
 	float m_hy;//hero‚Ì‚™ˆÊ’u
 	//int Amount;
-	float e_hp;
+	//float e_hp; //HP‚©‚Ô‚Á‚Ä‚¢‚é
 };
