@@ -35,6 +35,8 @@ void CObjEnemy3::Init()
 	e3_ysize = 64;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
+
+	e_hp = 6.0f;
 }
 
 //アクション
@@ -141,6 +143,7 @@ void CObjEnemy3::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 	}
+
 }
 
 //ドロー

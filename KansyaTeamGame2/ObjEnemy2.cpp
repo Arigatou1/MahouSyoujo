@@ -2,7 +2,6 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
-
 #include "ObjEnemy2.h"
 
 //使用するネームベース
@@ -42,6 +41,8 @@ void CObjEnemy2::Init()
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
 	//Amount = 0;
+
+	e_hp = 8.0f;
 }
 
 //アクション
@@ -132,6 +133,18 @@ void CObjEnemy2::Action()
 			Hits::DeleteHitBox(this);
 			//Amount++;
 		}
+
+		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+		{
+			CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+			e_hp -= obj_sword->GetAttackPower();
+		}
+		if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+		{
+			CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+			e_hp -= obj_bullet->GetAttackPower();
+		}
+
 
 
 		

@@ -109,29 +109,19 @@ void CObjSmallSlim::Action()
 		//Amount++;
 	}
 
-	//Œ•‚É“–‚½‚ê‚ÎÁ–Å
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-		e_mtk = true;
-		e_hp -= 1;		
-		//Amount++;
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
 	}
-
-	if (e_mtk == true)
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
 	{
-		//HitBoxx‚Ì“à—e‚ðXV
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_ex + 9999, m_ey);
-		//–³“GŽžŠÔ‚ðŒ¸‚ç‚·
-		e_jkn -= 1;
-
-		if (e_jkn <= 0)
-		{
-			e_mtk = false;
-			e_jkn = e_time;
-		}
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
 	}
 
+
+	
 	if (e_hp <= 0)
 	{
 		this->SetStatus(false);

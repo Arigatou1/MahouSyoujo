@@ -23,6 +23,8 @@ void CObjEnemy4::Init()
 
 	//“–‚½‚è”»’èHitBox‚ğì¬
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
+
+	e_hp = 8.0f;
 }
 
 //ƒAƒNƒVƒ‡ƒ“

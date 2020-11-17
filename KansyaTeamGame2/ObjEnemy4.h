@@ -30,4 +30,5 @@ private:
 	float m_hx;//hero‚ÌxˆÊ’u
 	float m_hy;//hero‚Ì‚™ˆÊ’u
 	//int Amount;
+	float e_hp;
 };
