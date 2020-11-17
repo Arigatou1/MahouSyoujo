@@ -158,8 +158,8 @@ void CSceneMain::Scene()
 		obj = new CObjEnemy(0, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount+=2;
-	}
-	*/
+	}*/
+	
 	/*else if (m_time == 60)
 	{
 		CObjEnemy* obj_enemy2 = new CObjEnemy(700, 400);

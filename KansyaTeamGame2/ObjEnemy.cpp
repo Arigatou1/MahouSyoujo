@@ -66,16 +66,16 @@ void CObjEnemy::Action()
 				m_vx = 0;
 		}
 
-		/*if (e1_hit_right == true)
-	{
-		m_ex = m_ex - 25.0f;
+		if (e1_hit_right == true)
+	   {
+		m_ex = m_ex - 40.0f;
 		m_ey = m_ey - 80.0f;
-	}
-	else if (e1_hit_left == true)
-	{
+	   }
+	    else if (e1_hit_left == true)
+	   {
 		m_ex = m_ex + 25.0f;
 		m_ey = m_ey - 80.0f;
-	}*/
+	   }
 	}
 
 	//ÉoÉäÉAÇÃèÓïÒ
@@ -128,6 +128,7 @@ void CObjEnemy::Action()
 	{
 		e1_atk = 0.04;
 	}
+
 
 
 
