@@ -116,8 +116,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
 	//BOSS1オブジェクト作成
-	CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
-	Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
+	//CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
+	//Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
 
 	//タイム初期化
 	m_time = 0;
@@ -142,7 +142,6 @@ void CSceneMain::Scene()
 	
 	else
 		m_key_flag = true;
-
 
 	/*if (m_time == 30)
 	{
