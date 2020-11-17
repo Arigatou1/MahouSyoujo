@@ -116,6 +116,10 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
 	
+	//ボス作成
+	CObjBoss* obj_boss_enemy = new CObjBoss(300, 300);
+	Objs::InsertObj(obj_boss_enemy, OBJ_BOSS_ENEMY, 1);
+	
 
 	//タイム初期化
 	m_time = 0;

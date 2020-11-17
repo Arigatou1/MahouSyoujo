@@ -35,6 +35,7 @@ enum OBJ_NAME
 	OBJ_SMALLSLIM,
 	OBJ_PAUSEMENU,
 	OBJ_SETTING,
+	OBJ_BOSS_ENEMY,
 };
 //------------------------------------------------
 
@@ -119,6 +120,7 @@ struct UserData
 #include "ObjSmallSlim.h"
 #include "ObjPauseMenu.h"
 #include "ObjSetting.h"
+#include "ObjBoss.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

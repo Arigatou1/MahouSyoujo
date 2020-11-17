@@ -141,6 +141,7 @@
     <ClCompile Include="ObjSetting.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBoss.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -281,6 +282,7 @@
     <ClInclude Include="ObjSetting.h">
       <Filter>メニュー</Filter>
     </ClInclude>
+    <ClInclude Include="ObjBoss.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

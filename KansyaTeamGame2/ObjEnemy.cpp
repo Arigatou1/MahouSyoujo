@@ -23,6 +23,7 @@ void CObjEnemy::Init()
 	e1_damege = 0;
 	e1_atk = 0.04;
 	e1_time = 0;
+	e_hp=5;
 
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
@@ -40,7 +41,6 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
-
 	e1_time++;
 
 	if (e1_time % 96 == 32)
