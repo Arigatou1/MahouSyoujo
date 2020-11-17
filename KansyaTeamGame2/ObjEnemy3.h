@@ -39,4 +39,6 @@ private:
 
 	float e3_xsize;
 	float e3_ysize;
+
+	float e_hp;
 };

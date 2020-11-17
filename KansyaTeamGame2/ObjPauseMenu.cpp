@@ -60,6 +60,10 @@ void CObjPauseMenu::Draw()
 
 
 		Font::StrDraw(L"PAUSE", 336, 268, 64, c);
+
+		Font::StrDraw(L"[Esc]:ステージセレクト", 236, 368, 32, c);
+		Font::StrDraw(L"[Enter]:ゲームに戻る", 236, 468, 32, c);
+	
 	}
 }
 

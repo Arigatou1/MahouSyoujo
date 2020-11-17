@@ -4,8 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjEnemy.h"
 #include "GameL/UserData.h"
-//#include "ObjHero.h"
-#include "ObjSword.h"//武器をここで作っている
+
 #include "GameL\UserData.h"
 
 //使用するネームベース
