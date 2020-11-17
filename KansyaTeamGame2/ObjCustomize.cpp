@@ -144,7 +144,7 @@ void CObjCustomize::Draw()
 	wchar_t str1[128];
 
 	swprintf_s(str1, L"ålŒö‚Ì•Ší:%d", ((UserData*)Save::GetData())->•Ší);
-	Font::StrDraw(str1, 32, 64, 32, c);
+	Font::StrDraw(str1, 32, 64, 64, c);
 
 
 	

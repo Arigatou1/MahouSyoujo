@@ -21,7 +21,8 @@ void CObjStageSelect::Init()
 	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
 
-
+	((UserData*)Save::GetData())->ManaHP = 0;
+	((UserData*)Save::GetData())->HeroHP = 0;
 }
 
 //アクション
@@ -92,7 +93,20 @@ void CObjStageSelect::Action()
 			m_key_flag = false;
 		}
 	}
+	else if (Input::GetVKey(VK_ESCAPE) == true)
+	{
 
+		if (m_key_flag == true)
+		{
+			this->SetStatus(false);
+			//メニューオブジェクト作成
+			CObjModeSelect* obj = new CObjModeSelect();
+			Objs::InsertObj(obj, OBJ_MODESELECT, 0);
+		}
+		m_key_flag = false;
+
+
+	}
 	else
 	{
 		m_key_flag = true;
