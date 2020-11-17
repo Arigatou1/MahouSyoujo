@@ -34,6 +34,11 @@ void CObjBlock::Init()
 
 void CObjBlock::Action()
 {
+	//主人公の位置収得
+	//CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//float hx = hero->GetX();
+	//float hx = hero->GetY();
+
 	/*
 	//敵３の位置取得
 	CObjEnemy3* enemy3 = (CObjEnemy3*)Objs::GetObj(OBJ_ENEMY3);
@@ -221,7 +226,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 					float rvy = *y - by;
 
 					//長さを求める
-					float len = sqrt(rvx * rvx + rvy * rvy);
+					float len = sqrt( rvx * rvx + rvy * rvy );
 
 					//角度を求める
 					float r = atan2(rvy, rvx);
@@ -305,6 +310,12 @@ float CObjBlock::Cross(float ax, float ay, float bx, float by)
 #define SGN(x) 1 - (x <= 0) - (x < 0)
 
 //線と線との交差判定
+//引数 float 1,2 a1x , a1y  :軸ベクトルAの始点
+//引数 float 3,4 a2x , a2y  :軸ベクトルAの終点
+//引数 float 5,6 b1x , b1y  :ベクトルBの始点
+//引数 float 7,8 b2x , b2y  :ベクトルBの終点
+//戻り値　bool  :true = 交点有り　false = 交点無し
+//内容　:　引数のA・Bベクトルの交点を見つけ、out_pxとout_pyに返す
 bool CObjBlock::LineCrossPoint(
 	float a1x, float a1y, float a2x, float a2y,
 	float b1x, float b1y, float b2x, float b2y,
@@ -330,8 +341,12 @@ bool CObjBlock::LineCrossPoint(
 	if (SGN(t1) == SGN(t2))
 		return false; //交点無し
 	
+	//射影を絶対値化
+	t1 = abs(t1); t2 = abs(t2);
+
 	//交点を求める
-	float px = bx * t1 + b1x; float py = by * t1 + b1y;
+	float px = bx * (t1 / (t1 + t2)) + b1x; 
+	float py = by * (t1 / (t1 + t2)) + b1y;
 
 	//APベクトル(p←a1)
 	float apx = px - a1x; float apy = py - a1y;
@@ -351,4 +366,69 @@ bool CObjBlock::LineCrossPoint(
 	*out_px = px; *out_py = py;
 
 	return true;
+}
+
+//オブジェクトと壁の交差判定関数
+//引数1,2 float x,y  :主人公の位置
+//引数3,4 float vx,vy  :主人公の移動ベクトル
+//引数5,6 float* out_px , out_py  :Blockとの交点
+//主人公の位置+移動ベクトルと各ブロックの辺で交差判定を行い
+//最も近い交点の位置と距離を返す
+bool BlockCrossPoint(
+	float x, float y, float vx, float vy,
+	float* out_px, float* out_py, float* out_len)
+{
+	bool pb = false; //交点確認用
+	float len = 99999.0f;//交点との距離
+	//ブロックの辺ベクトル
+	float edgo[4][2] =
+	{
+		{  0,-64},//上辺
+		{+64,  0},//右辺
+		{  0,+64},//下辺
+		{-64,  0},//左辺
+	};
+
+	//m_mapの全要素にアクセス
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 13; j++)
+		{
+			if (m_map[i][j] > 0 && m_map[i][j] != 4)
+			{
+				//ブロックの4辺から交点を探す
+				for (int k = 0; k < 4; k++)
+				{
+					//交点を探す
+					float px,py;
+					bool b;
+					float l = 0.0f;
+					pb = LineCrossPoint(
+						x, y, x + vx, y + vy,
+						j * 64, i * 64, j * 64 + edgo[k][0], i * 64 + edgo[k][1],
+						&px, &py);
+					
+					//交点チェック
+					if (b == true)
+					{
+						//交点との距離を求める
+						l = sqrt((px - x) * (px - x) + (py - y) * (py - y));
+
+						//見つけた交点の中で最も距離が短いモノを探す
+						if (len > l)
+						{
+							len = l;
+							*out_px = px;
+							*out_py = py;
+							pb = true;
+						}
+					}
+				}
+			}
+		}
+	}
+	*out_len = len;
+	return pb;
+
+	//return true;
 }*/
