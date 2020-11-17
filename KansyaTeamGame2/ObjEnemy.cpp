@@ -2,9 +2,11 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
-
 #include "ObjEnemy.h"
 #include "GameL/UserData.h"
+//#include "ObjHero.h"
+#include "ObjSword.h"//武器をここで作っている
+#include "GameL\UserData.h"
 
 //使用するネームベース
 using namespace GameL;
@@ -26,7 +28,7 @@ void CObjEnemy::Init()
 	e1_time = 0;
 
 	//最大HP
-	e_hp = 1;
+	e_hp = 5;
 	
 
 	//blockとの衝突状態確認用
@@ -150,20 +152,21 @@ void CObjEnemy::Action()
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 
-		
-		e_hp <= 0;
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
 	}
 
+	
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-		//CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
-		//e1_damege = obj_all->GetZ_ATK();
-
-		e_hp -= 1;
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
 	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
+	}
+
+	//hpが0になると消滅
 	if(	e_hp <= 0)
 	{
 		this->SetStatus(false);

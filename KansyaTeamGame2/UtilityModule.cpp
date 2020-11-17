@@ -107,3 +107,26 @@ bool UnitVec(float* vx, float* vy)
 	//計算成功
 	return true;
 }
+
+//領域チェック
+bool CheckWindow(float pos_x, float pos_y, float window_x, float window_y, float window_w, float window_h)
+{
+	if (pos_x < window_x)
+	{
+		return false;//領域外
+	}
+	if (pos_x > window_w)
+	{
+		return false;//領域外
+	}
+	if (pos_y < window_y)
+	{
+		return false;//領域外
+	}
+	if (pos_y > window_h)
+	{
+		return false;//領域外
+	}
+
+	return true;
+}

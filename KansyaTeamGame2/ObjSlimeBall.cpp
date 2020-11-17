@@ -35,13 +35,30 @@ void CObjSlimeBall::Init()
 
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_SLIMEBALL, 10);
+
+
+	//主人公機で角度をとる
+
+	CObjHero* obj = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float x = obj->GetX() - m_ex;
+	float y = obj->GetY() - m_ey;
+	float ar = atan2(-y, x) * 180.0f / 3.14f;
+
+	if (ar < 0)
+		ar = 360 - abs(ar);
+
+	//m_vxの速度で移動
+
+	m_vx = cos(3.14 / 180 * ar);
+
+	m_vy = -sin(3.14 / 180 * ar);
 }
 
 //アクション
 void CObjSlimeBall::Action()
 {
+	
 
-	//m_vxの速度で移動
 	m_ex += m_vx;
 	m_ey += m_vy;
 
@@ -57,8 +74,16 @@ void CObjSlimeBall::Action()
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy, &e1_xsize, &e1_ysize);
 
-	if (e1_hit_up == true || e1_hit_down == true || e1_hit_left == true || e1_hit_up == true ||
-		hit->CheckElementHit(ELEMENT_PLAYER)==true)
+	
+	//質問
+	///スライムボールの動きってどんなのがいいかなあ？
+	/// プレイヤーの方向に打ち、方向転換はなし。
+	/// プレイヤーに当たった場合だけ消滅する。
+	/// 武器が効かない。
+	/// 
+	/// こんな感じですか？
+	
+	if (e1_hit_up == true || e1_hit_down == true || e1_hit_left == true || e1_hit_up == true ||hit->CheckObjNameHit(OBJ_HERO)!= nullptr)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);

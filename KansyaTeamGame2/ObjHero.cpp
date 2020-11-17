@@ -138,7 +138,7 @@ void CObjHero::Action()
 		m_py += m_vy;
 
 		
-		//test用　攻撃用
+		//攻撃用
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
@@ -183,7 +183,7 @@ void CObjHero::Action()
 
 
 
-		//test用　画面外に行かないように
+		//画面外に行かないように
 		if (m_px > 744)
 		{
 			m_px = 744;
