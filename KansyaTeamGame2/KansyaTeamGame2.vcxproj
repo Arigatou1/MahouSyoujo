@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="EnemyAppear.h" />
     <ClInclude Include="ObjAllBullet.h" />
     <ClInclude Include="Objbarrier.h" />
     <ClInclude Include="ObjBoss1.h" />
@@ -201,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="EnemyAppear.cpp" />
     <ClCompile Include="ObjAllBullet.cpp" />
     <ClCompile Include="ObjBarrier.cpp" />
     <ClCompile Include="ObjBoss1.cpp" />

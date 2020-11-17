@@ -43,4 +43,6 @@ private:
 
 	float e1_xsize;
 	float e1_ysize;
+
+	float damage;//“G‚ªó‚¯‚éƒ_ƒ[ƒW
 };

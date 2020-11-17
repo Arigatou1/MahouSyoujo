@@ -16,4 +16,5 @@ public:
 private:
 	int Score;
 	bool m_key_flag;//キーフラグ
+	int StageID;
 };

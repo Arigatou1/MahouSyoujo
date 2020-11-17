@@ -13,7 +13,8 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameClear::Init()
 {
-	
+	StageID = ((UserData*)Save::GetData())->Stage;
+	((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
 }
 
 //アクション
@@ -43,6 +44,8 @@ void CObjGameClear::Action()
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
 			= ((UserData*)Save::GetData())->Score;
 	}
+
+	Save::Seve();
 }
 
 //ドロー
