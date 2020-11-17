@@ -151,7 +151,7 @@ void CObjEnemy::Action()
 		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
-
+		
 	}
 
 	

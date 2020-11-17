@@ -126,6 +126,7 @@ struct UserData
 #include "ObjSetting.h"
 #include "ObjBoss1.h"
 #include "ObjSlimeBall.h"
+#include"ObjSword.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

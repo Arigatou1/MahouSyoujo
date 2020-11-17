@@ -21,10 +21,8 @@ private:
 	float m_r;//角度
 
 	int e_hp;
-
-	int e_jkn;
-	int e_time;
-	bool e_mtk;
+	int e4_damege;
+	
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置

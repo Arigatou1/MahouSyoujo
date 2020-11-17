@@ -9,7 +9,7 @@ CObjEnemy4::CObjEnemy4(float x, float y)
 {
 	m_ex = x;
 	m_ey = y;
-	e_hp = 2;
+	e_hp = 5;
 }
 
 //イニシャライズ
@@ -19,9 +19,7 @@ void CObjEnemy4::Init()
 	m_vy = 0.0f;
 	m_r = 0.0f;
 
-	e_jkn = 90;
-	e_time = e_jkn;
-	e_mtk = false;
+	
 
 	//当たり判定HitBoxを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
@@ -51,43 +49,51 @@ void CObjEnemy4::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex+0.0f, m_ey+0.0f);
 
-	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-		e_mtk = true;
 		e_hp -= 1;
-	}
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e4_damege = obj_all->GetZ_ATK();
 
-	//剣に当たれば消滅
-	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
-	{
-		e_mtk = true;
-		e_hp -= 2;
-	}
-
-	if (e_mtk == true)
-	{
-		//HitBoxの内容を更新
-		CHitBox* hit = Hits::GetHitBox(this);
-		hit->SetPos(m_ex + 9999, m_ey);
-		//無敵時間を減らす
-		e_jkn -= 1;
-
-		if (e_jkn <= 0)
-		{
-			e_mtk = false;
-			e_jkn = e_time;
-		}
-	}
-
-	//HPが0になれば消滅
-	if (e_hp <= 0)
-	{
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
 
+	//弾に当たれば消滅
+	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
+	{
+		e_hp -= 1;
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e4_damege = obj_homing->GetM_ATK();
 
+		e_hp <= 0;
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+		//Amount++;
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+		e_hp -= 1;
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e4_damege = obj_all->GetZ_ATK();
+	}
+
+	//剣に当たれば消滅
+	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
+	}
+
+	//hpが0になると消滅
+	if (e_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
 }
 
 //ドロー
