@@ -35,9 +35,21 @@ void CObjBlock::Init()
 void CObjBlock::Action()
 {
 	//主人公の位置収得
-	//CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
-	//float hx = hero->GetX();
-	//float hx = hero->GetY();
+	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
+
+	//テスト
+	float px = 999, py = 999;
+	float len;
+	bool b;
+	b = BlockCrossPoint(hx, hy,
+		hero->GetVX() * 300, hero->GetVY() * 300,
+		&px, &py, &len);
+	m_px = px;
+	m_py = py;
+	int a = 0;
+	a++;
 
 	/*
 	//敵３の位置取得
@@ -163,6 +175,18 @@ void CObjBlock::Draw()
 			}
 		}
 	}
+
+	//テスト交点表示
+	float cc[4] = { 1.0f,0.0f,0.0f,1.0f };
+	src.m_top = 0.0f;
+	src.m_left = 320.0f;
+	src.m_right = 320.0f+64.0f;
+	src.m_bottom = 64.0f;
+	dst.m_top = m_py;
+	dst.m_left = m_px;
+	dst.m_right = dst.m_left + 20.0f;
+	dst.m_bottom = dst.m_top + 20.0f;
+	Draw::Draw(0, &src, &dst, cc, 0.0f);
 }
 
 //BlockDrawMethod関数
@@ -194,7 +218,6 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 //引数9 int* bt      :下部分判定時、特殊なブロックのタイプを返す
 //判定を行うobjectとブロック64×64限定で、当たり判定と上下判定を行う
 //その結果は引数4～10に返す
-
 void CObjBlock::BlockHit(float* x, float* y,
 	bool* up, bool* down, bool* left, bool* right,
 	float* vx, float* vy,float* x_size,float* y_size )
@@ -278,7 +301,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 		}
 	}
 }
-/*
+
 //内積関数
 //引数1,2 float ax, ay :Aベクトル
 //引数3,4 float bx ,by :Bベクトル
@@ -374,19 +397,19 @@ bool CObjBlock::LineCrossPoint(
 //引数5,6 float* out_px , out_py  :Blockとの交点
 //主人公の位置+移動ベクトルと各ブロックの辺で交差判定を行い
 //最も近い交点の位置と距離を返す
-bool BlockCrossPoint(
+bool CObjBlock::BlockCrossPoint(
 	float x, float y, float vx, float vy,
 	float* out_px, float* out_py, float* out_len)
 {
 	bool pb = false; //交点確認用
 	float len = 99999.0f;//交点との距離
 	//ブロックの辺ベクトル
-	float edgo[4][2] =
+	float edgo[4][4] =
 	{
-		{  0,-64},//上辺
-		{+64,  0},//右辺
-		{  0,+64},//下辺
-		{-64,  0},//左辺
+		{  0,  0, 64,  0},//→
+		{ 64,  0, 64, 64},//↓
+		{ 64, 64,  0, 64},//←
+		{  0, 64,  0,  0},//左辺
 	};
 
 	//m_mapの全要素にアクセス
@@ -403,7 +426,7 @@ bool BlockCrossPoint(
 					float px,py;
 					bool b;
 					float l = 0.0f;
-					pb = LineCrossPoint(
+					b = LineCrossPoint(
 						x, y, x + vx, y + vy,
 						j * 64, i * 64, j * 64 + edgo[k][0], i * 64 + edgo[k][1],
 						&px, &py);
@@ -429,6 +452,4 @@ bool BlockCrossPoint(
 	}
 	*out_len = len;
 	return pb;
-
-	//return true;
-}*/
+}
