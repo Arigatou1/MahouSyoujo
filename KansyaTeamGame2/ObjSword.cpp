@@ -76,3 +76,9 @@ void CObjSword::Draw()
 	//•`‰æ
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 }
+
+//UŒ‚—Í‚ğ•Ô‚·ŠÖ”
+float CObjSword::GetAttackPower()
+{
+	return atk_power;
+}

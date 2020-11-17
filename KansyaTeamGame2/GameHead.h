@@ -36,6 +36,7 @@ enum OBJ_NAME
 	OBJ_PAUSEMENU,
 	OBJ_SETTING,
 	OBJ_BOSS1,
+	OBJ_SLIMEBALL,
 };
 //------------------------------------------------
 
@@ -124,6 +125,7 @@ struct UserData
 #include "ObjPauseMenu.h"
 #include "ObjSetting.h"
 #include "ObjBoss1.h"
+#include "ObjSlimeBall.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

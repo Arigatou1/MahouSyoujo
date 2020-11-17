@@ -237,7 +237,14 @@ void CObjHero::Action()
 			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
+			}
+
+			if (hit->CheckObjNameHit(OBJ_SLIMEBALL))
+			{
+				m_mtk = true;
+				m_hp -= 0.5f + damage;
+				AllDamage += 0.5f + damage;//“G‚ÌUŒ‚—Í
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½Žž
@@ -301,7 +308,7 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
-
+		//ƒNƒŠƒAƒV[ƒ“‚ÉƒXƒRƒA‚ð—^‚¦‚é
 		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
 		
 	

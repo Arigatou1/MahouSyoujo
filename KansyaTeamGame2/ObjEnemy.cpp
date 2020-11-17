@@ -159,6 +159,9 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
+		//CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		//e1_damege = obj_all->GetZ_ATK();
+
 		e_hp -= 1;
 	}
 	if(	e_hp <= 0)
