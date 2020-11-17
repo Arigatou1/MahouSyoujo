@@ -21,6 +21,12 @@ void CObjSmallSlim::Init()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 	
+	e_hp = 1;
+
+	e_jkn = 100;
+	e_time = e_jkn;
+	e_mtk = false;
+
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
@@ -89,7 +95,7 @@ void CObjSmallSlim::Action()
 
 	}
 
-
+	//弾が当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 
@@ -103,12 +109,33 @@ void CObjSmallSlim::Action()
 		//Amount++;
 	}
 
+	//剣に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+		e_mtk = true;
+		e_hp -= 1;		
+		//Amount++;
+	}
+
+	if (e_mtk == true)
+	{
+		//HitBoxxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_ex + 9999, m_ey);
+		//無敵時間を減らす
+		e_jkn -= 1;
+
+		if (e_jkn <= 0)
+		{
+			e_mtk = false;
+			e_jkn = e_time;
+		}
+	}
+
+	if (e_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
-		//Amount++;
 	}
 }
 

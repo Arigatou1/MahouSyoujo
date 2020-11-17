@@ -59,6 +59,13 @@ void CObjModeSelect::Action()
 
 				break;
 			}
+			default:
+			{
+				//メニューオブジェクト作成
+				CObjStageSelect* obj = new CObjStageSelect();
+				Objs::InsertObj(obj, OBJ_STAGESELECT, 0);
+				break;
+			}
 			}
 			m_key_flag = false;
 		}
@@ -110,6 +117,17 @@ void CObjModeSelect::Action()
 			m_key_flag = false;
 		}
 		
+	}
+	else if (Input::GetVKey(VK_ESCAPE) == true)
+	{
+
+			if (m_key_flag == true)
+			{
+				Scene::SetScene(new CSceneTitle());
+			}
+			m_key_flag = false;
+
+
 	}
 	else
 	{

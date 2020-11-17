@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjEnemy : public CObj
 {
 public:
-	CObjEnemy(float x,float y);
+	CObjEnemy(float x,float y,float vx=0,float vy=0);
 	~CObjEnemy() {};
 	void Init();
 	void Action();
@@ -23,6 +23,7 @@ private:
 	int e_hp;//“G‚ÌHP
 	int e1_damege;//ƒ_ƒ[ƒW—Ê
 	int e1_time;//“G‚ÌUŒ‚ŠÔ
+	
 
 	float e1_atk;//“G‚ÌUŒ‚—Í
 

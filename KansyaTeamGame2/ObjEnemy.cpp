@@ -2,30 +2,33 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
-
 #include "ObjEnemy.h"
 #include "GameL/UserData.h"
+//#include "ObjHero.h"
+#include "ObjSword.h"//武器をここで作っている
+#include "GameL\UserData.h"
 
 //使用するネームベース
 using namespace GameL;
 
 //コンストラクタ
-CObjEnemy::CObjEnemy(float x, float y)
+CObjEnemy::CObjEnemy(float x, float y,float vx,float vy)
 {
 	m_ex = x;
 	m_ey = y;
+	m_vx = vx;
+	m_vy = vy;
 }
 //イニシャライズ
 void CObjEnemy::Init()
 {
-	m_vx = 0.0f;
-	m_vy = 0.0f;
+	
 	e1_damege = 0;
 	e1_atk = 0.04;
 	e1_time = 0;
 
 	//最大HP
-	e_hp = 1;
+	e_hp = 5;
 	
 
 	//blockとの衝突状態確認用
@@ -49,60 +52,65 @@ void CObjEnemy::Action()
 
 	e1_time++;
 
-	if (e1_time % 96 == 32 && e1_t == false)
+	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
+	if (obj != nullptr)
 	{
-		e1_atk = 0;
-	}
-	else if (e1_time % 96 == 0 && e1_t == false)
+		float m_mx = obj->GetX();
+		if (e1_hit_down == true)
+		{
+
+			if (m_mx + 64.0f <= m_ex)
+				m_vx = -1.0f;
+			else if (m_mx - 64.0f >= m_ex)
+				m_vx = 1.0f;
+			else
+				m_vx = 0;
+		}
+
+		/*if (e1_hit_right == true)
 	{
-		e1_atk = 0.04;
+		m_ex = m_ex - 25.0f;
+		m_ey = m_ey - 80.0f;
 	}
+	else if (e1_hit_left == true)
+	{
+		m_ex = m_ex + 25.0f;
+		m_ey = m_ey - 80.0f;
+	}*/
+	}
+
+	//バリアの情報
+	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
+	if (obj_barrier != nullptr)
+	{
+		b_mx = obj_barrier->GetBX();
+
+		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 128.0f)
+		{
+			m_vx = 0;
+			m_vy = 0;
+		}
+
+	}
+
+	//重力
+	m_vy += 9.8 / (16.0f);
+
+	//m_vxの速度で移動
+	m_ex += m_vx;
+	m_ey += m_vy;
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey);
 
 
-
-	//重力
-	m_vy += 9.8 / (16.0f);
-
-	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
-	if (obj != nullptr)
-	{
-		float m_mx = obj->GetX();
-
-		if (m_mx <= m_ex)
-			m_vx = -1.0f;
-		else if (m_mx >= m_ex)
-			m_vx = 1.0f;
-		else
-			m_vx = 0;
-	}
-	
-	//バリア出てる時だけ止まる
-	CObjBarrier* obj_barrier = (CObjBarrier*)Objs::GetObj(OBJ_BARRIER);
-	if (obj_barrier != nullptr)
-	{
-		b_mx = obj_barrier->GetBX();
-
-		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 160.0f)
-		{
-			m_vx = 0;
-		}
-
-	}
-
-	//m_vxの速度で移動
-	m_ex += m_vx;
-	m_ey += m_vy;
-	
-
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
-	
+
+	//マナに当たるとカウントが0になる
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
 	{
 		if (e1_t == true)
@@ -110,7 +118,19 @@ void CObjEnemy::Action()
 			e1_time = 0;
 			e1_t = false;
 		}
+
 	}
+
+	if (e1_time % 96 == 32)
+	{
+		e1_atk = 0.00;
+	}
+	else if (e1_time % 96 == 0)
+	{
+		e1_atk = 0.04;
+	}
+
+
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
@@ -132,18 +152,21 @@ void CObjEnemy::Action()
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 
-		
-		e_hp <= 0;
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
 	}
 
+	
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-
-		e_hp -= 1;
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
 	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
+	}
+
+	//hpが0になると消滅
 	if(	e_hp <= 0)
 	{
 		this->SetStatus(false);
@@ -184,5 +207,5 @@ void CObjEnemy::Draw()
 //}
 float CObjEnemy::GetE1_ATK()
 {
-    return e1_atk;
+	return e1_atk;
 }

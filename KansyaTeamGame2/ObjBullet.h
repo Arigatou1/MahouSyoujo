@@ -14,6 +14,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	float GetAttackPower();
 private:
 
 	float px;
@@ -23,4 +24,5 @@ private:
 
 	int b_posture;
 	bool b_f;
+	float atk_power;
 };

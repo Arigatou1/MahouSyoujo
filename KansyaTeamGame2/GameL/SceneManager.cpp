@@ -50,13 +50,15 @@ void CSceneManager::GameLoop()
 	SceneDraw();	//ƒV[ƒ“•`‰æ
 
 
-	
-	if (Input::GetVKey(VK_RETURN) == true)
+	if (((UserData*)Save::GetData())->PauseMenu == true)
 	{
+		if (Input::GetVKey(VK_RETURN) == true)
+		{
 
 			((UserData*)Save::GetData())->PauseMenu = false;
-			
-		
+
+
+		}
 	}
 	
 	m_TimeEnd=timeGetTime();
