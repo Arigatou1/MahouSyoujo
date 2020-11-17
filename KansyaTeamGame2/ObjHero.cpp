@@ -15,7 +15,7 @@ using namespace GameL;
 
 CObjHero::~CObjHero()
 {
-	
+
 }
 
 //ƒCƒjƒVƒƒƒ‰ƒCƒY
@@ -34,7 +34,7 @@ void CObjHero::Init()
 	m_f = true;
 	isJump = true;
 	//Å‘åHP
-	max_hp = 20;
+	max_hp = 20.0f;
 	m_hp = max_hp;
 	//–³“GŽžŠÔ’²®—p
 	mtk_max = 100;
@@ -54,7 +54,8 @@ void CObjHero::Init()
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
 	•Ší = ((UserData*)Save::GetData())->•Ší;
-	
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+	AllDamage = 0;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -137,7 +138,7 @@ void CObjHero::Action()
 		m_py += m_vy;
 
 		
-		//test—p@UŒ‚—p
+		//UŒ‚—p
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
@@ -182,7 +183,7 @@ void CObjHero::Action()
 
 
 
-		//test—p@‰æ–ÊŠO‚És‚©‚È‚¢‚æ‚¤‚É
+		//‰æ–ÊŠO‚És‚©‚È‚¢‚æ‚¤‚É
 		if (m_px > 744)
 		{
 			m_px = 744;
@@ -202,32 +203,48 @@ void CObjHero::Action()
 		{
 			//HitBox‚Ì“à—e‚ðŒ³‚É–ß‚·
 			CHitBox* hit = Hits::GetHitBox(this);
-			hit->SetPos(m_px + 4, m_py + 4);
+			hit->SetPos(m_px + 4.0f, m_py + 4.0f);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
-
+				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 1.0f + damage;
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 1.4f + damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 1.4f + damage;
 
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 1;//“G‚ÌUŒ‚—Í
+				m_hp -= 2.0f+damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 2.0f + damage;
 			}
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
 				m_mtk = true;
-				m_hp -= 2;//“G‚ÌUŒ‚—Í
+				m_hp -= 2.5f+damage;//“G‚ÌUŒ‚—Í
+				AllDamage += 2.5f + damage;
+			}
+
+			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
+			{
+				m_mtk = true;
+				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
+			}
+
+			if (hit->CheckObjNameHit(OBJ_SLIMEBALL))
+			{
+				m_mtk = true;
+				m_hp -= 0.5f + damage;
+				AllDamage += 0.5f + damage;//“G‚ÌUŒ‚—Í
 			}
 		}
 		//–³“G‚ªtrue‚É‚È‚Á‚½Žž
@@ -254,7 +271,7 @@ void CObjHero::Action()
 				if (Input::GetVKey('H') == true && h_t == true && m_Skill == 1)
 				{
 					h_t = false;
-					m_hp += 3;
+					m_hp += 3.0f;
 					m_mp -= 20;
 					if (m_hp > max_hp)
 					{
@@ -291,6 +308,8 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
+		//ƒNƒŠƒAƒV[ƒ“‚ÉƒXƒRƒA‚ð—^‚¦‚é
+		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
 		
 	
 }

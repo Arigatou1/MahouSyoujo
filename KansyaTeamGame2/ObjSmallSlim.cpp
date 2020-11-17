@@ -21,6 +21,12 @@ void CObjSmallSlim::Init()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 	
+	e_hp = 1;
+
+	e_jkn = 100;
+	e_time = e_jkn;
+	e_mtk = false;
+
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
@@ -34,7 +40,7 @@ void CObjSmallSlim::Init()
 
 	e_damege = 0;
 	//当たり判定用のHITBOXを作成
-	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_SMALLSLIM, 10);
 }
 
 //アクション
@@ -89,7 +95,7 @@ void CObjSmallSlim::Action()
 
 	}
 
-
+	//弾が当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
 
@@ -105,10 +111,21 @@ void CObjSmallSlim::Action()
 
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
+	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
+	}
+
+
+	
+	if (e_hp <= 0)
+	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
-		//Amount++;
 	}
 }
 

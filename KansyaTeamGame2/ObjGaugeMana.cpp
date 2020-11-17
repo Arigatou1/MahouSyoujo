@@ -52,7 +52,7 @@ void CObjGaugeMANAHP::Draw()
 	RECT_F dst;//•`‰ææ•\¦ˆÊ’u
 
 	wchar_t str[128];
-	swprintf_s(str, L"%.0lf", HP);//®”‚ğ•¶š—ñ‚©
+	swprintf_s(str, L"%.3lf", HP);//®”‚ğ•¶š—ñ‚©
 	Font::StrDraw(str, 2, 48, 24, c);
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è

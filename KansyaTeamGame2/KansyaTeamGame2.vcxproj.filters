@@ -141,6 +141,13 @@
     <ClCompile Include="ObjSetting.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
+    <ClCompile Include="ObjBoss1.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSlimeBall.cpp">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAppear.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -281,6 +288,13 @@
     <ClInclude Include="ObjSetting.h">
       <Filter>メニュー</Filter>
     </ClInclude>
+    <ClInclude Include="ObjBoss1.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSlimeBall.h">
+      <Filter>ゲームメイン\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAppear.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">
