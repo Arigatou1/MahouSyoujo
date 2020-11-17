@@ -50,11 +50,11 @@ void CObjEnemy2::Action()
 
 	e2_time++;
 
-	if (e2_time % 96 == 32 && e2_t == false)
+	if (e2_time % 96 == 32)
 	{
 		e2_atk = 0.00;
 	}
-	else if (e2_time % 96 == 0 && e2_t == false)
+	else if (e2_time % 96 == 0)
 	{
 		e2_atk = 0.04;
 	}
