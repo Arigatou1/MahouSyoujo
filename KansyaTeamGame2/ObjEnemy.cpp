@@ -27,7 +27,7 @@ void CObjEnemy::Init()
 	e1_time = 0;
 
 	//最大HP
-	e_hp = 5;
+	e_hp = 15;
 	
 
 	//blockとの衝突状態確認用
@@ -36,13 +36,14 @@ void CObjEnemy::Init()
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50.0f;
-	e1_ysize = 50.0f;
+	e1_xsize = 64.0f;
+	e1_ysize = 64.0f;
 
 	e1_t = true;
 
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //アクション
@@ -59,14 +60,14 @@ void CObjEnemy::Action()
 		{
 
 			if (m_mx + 64.0f <= m_ex)
-				m_vx = -1.0f;
+				m_vx = -1.5f;
 			else if (m_mx - 64.0f >= m_ex)
-				m_vx = 1.0f;
+				m_vx = 1.5f;
 			else
 				m_vx = 0;
 		}
 
-		/*if (e1_hit_right == true)
+		if (e1_hit_right == true)
 	{
 		m_ex = m_ex - 25.0f;
 		m_ey = m_ey - 80.0f;
@@ -75,7 +76,7 @@ void CObjEnemy::Action()
 	{
 		m_ex = m_ex + 25.0f;
 		m_ey = m_ey - 80.0f;
-	}*/
+	}
 	}
 
 	//バリアの情報
@@ -101,7 +102,7 @@ void CObjEnemy::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
+	hit->SetPos(m_ex, m_ey+14);
 
 
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
@@ -191,10 +192,10 @@ void CObjEnemy::Draw()
 	src.m_right  = 64.0f;
 	src.m_bottom = 384.0f;
 	//表示位置の設定
-	dst.m_top    = m_ey;
+	dst.m_top    = m_ey+14;
 	dst.m_left	 = m_ex;
 	dst.m_right  = m_ex + 50.0f;
-	dst.m_bottom = m_ey + 50.0f;
+	dst.m_bottom = m_ey + 64.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);

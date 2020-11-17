@@ -42,7 +42,8 @@ void CObjEnemy2::Init()
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
 	//Amount = 0;
 
-	e_hp = 8.0f;
+	e_hp = 25.0f;
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //ÉAÉNÉVÉáÉì
@@ -127,13 +128,7 @@ void CObjEnemy2::Action()
 			//Amount++;
 		}
 
-		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-			//Amount++;
-		}
-
+		
 		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 		{
 			CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
@@ -146,6 +141,14 @@ void CObjEnemy2::Action()
 		}
 
 
+		//hpÇ™0Ç…Ç»ÇÈÇ∆è¡ñ≈
+		if (e_hp <= 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+
+			//Amount++;
+		}
 
 		
 

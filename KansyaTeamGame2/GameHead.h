@@ -37,6 +37,7 @@ enum OBJ_NAME
 	OBJ_SETTING,
 	OBJ_BOSS1,
 	OBJ_SLIMEBALL,
+	OBJ_APPEAR,
 };
 //------------------------------------------------
 
@@ -127,6 +128,8 @@ struct UserData
 #include "ObjBoss1.h"
 #include "ObjSlimeBall.h"
 #include "ObjSword.h"
+#include "EnemyAppear.h"
+#include "GameL\UserData.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

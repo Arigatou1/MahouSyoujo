@@ -32,4 +32,5 @@ private:
 	float m_hy;//hero‚Ì‚™ˆÊ’u
 	//int Amount;
 	float e_hp;
+	float damage;
 };

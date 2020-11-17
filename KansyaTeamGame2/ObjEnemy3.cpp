@@ -37,6 +37,7 @@ void CObjEnemy3::Init()
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
 
 	e_hp = 6.0f;
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -127,6 +128,14 @@ void CObjEnemy3::Action()
 	{
 		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
 		e_hp -= obj_bullet->GetAttackPower();
+	}
+	//hp‚ª0‚É‚È‚é‚ÆÁ–Å
+	if (e_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+
+		//Amount++;
 	}
 
 }

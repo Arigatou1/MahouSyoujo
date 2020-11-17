@@ -9,11 +9,13 @@ using namespace GameL;
 class EnemyAppear :public CObj
 {
 public:
-	EnemyAppear();
-	~EnemyAppear();
+	EnemyAppear() {};
+	~EnemyAppear() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
-	
+	int EnemyAmount;
+	int StageID;
+	int m_time;
 };

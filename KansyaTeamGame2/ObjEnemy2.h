@@ -52,4 +52,5 @@ private:
 	float e2_ysize;
 
 	float e_hp;
+	float damage;
 };

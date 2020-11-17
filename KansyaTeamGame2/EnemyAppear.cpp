@@ -13,37 +13,151 @@ using namespace GameL;
 //イニシャライズ
 void EnemyAppear::Init()
 {
-	
+	m_time = 0;
 	
 }
 
 //アクション
 void EnemyAppear::Action()
 {
+	//時間経過
+	//代入し続ける?させない方法はある？
+	int StageID = ((UserData*)Save::GetData())->Stage + 1;
+
+
+	m_time++;
+	switch (StageID)
+	{
+
+
+	case 1:
+	{
+		if (m_time == 100)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 200)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 350)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 400)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 500)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 600)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 194);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 650)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 750)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+			obj = new CObjEnemy(799, 190);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 800)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+
+		}
+		else if (m_time == 850)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 190);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 950)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 190);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 1050)
+		{
+
+			CObjEnemy* obj = new CObjEnemy(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+
+		else if (m_time == 1100)
+		{
+
+			CObjEnemy2* obj = new CObjEnemy2(799, 480);
+			Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+
+		else if (m_time == 1200)
+		{
+
+			CObjEnemy2* obj = new CObjEnemy2(799, 190);
+			Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+		else if (m_time == 1300)
+		{
+
+		CObjEnemy2* obj = new CObjEnemy2(799, 190);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+
+
+		break;
+	}
+	}
 
 }
 
 //ドロー
 void EnemyAppear::Draw()
 {
-	//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
-
-	//切り取り位置の設定
-	src.m_top = 320.0f;
-	src.m_left = 64.0f;
-	src.m_right = 0.0f;
-	src.m_bottom = 384.0f;
-	//表示位置の設定
-	dst.m_top = 0.0f;
-	dst.m_left = 0.0f;
-	dst.m_right = 0.0f + 250.0f;
-	dst.m_bottom = 0.00f + 250.0f;
-
-	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	
 }
 

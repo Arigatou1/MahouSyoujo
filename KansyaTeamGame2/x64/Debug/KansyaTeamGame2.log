@@ -1,6 +1,8 @@
-﻿  SceneMenu.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(4,1): warning C4005: '_SECURE_SCL': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(3): message : '_SECURE_SCL' の以前の定義を確認してください
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\GameL\SceneObjManager.h(5,1): warning C4005: '_HAS_ITERATOR_DEBUGGING': マクロが再定義されました。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\SceneMenu.cpp(4): message : '_HAS_ITERATOR_DEBUGGING' の以前の定義を確認してください
+﻿  ObjEnemy2.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy2.cpp(60,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy2.cpp(69,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+  ObjEnemy3.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(67,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(105,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  コードを生成中...
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

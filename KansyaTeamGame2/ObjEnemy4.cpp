@@ -94,7 +94,7 @@ void CObjEnemy4::Action()
 		//Amount++;
 	}
 
-
+	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //ƒhƒ[
