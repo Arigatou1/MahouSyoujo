@@ -43,7 +43,7 @@ void CObjEnemy::Init()
 
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
-	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+
 }
 
 //アクション

@@ -1,8 +1,4 @@
-﻿  ObjEnemy.cpp
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(26,15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(98,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(131,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(142,8): warning C4552: '<=': 式の結果が使用されていません
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(162,38): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(167,39): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy4.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy4.cpp(60,8): warning C4552: '<=': 式の結果が使用されていません
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy4.cpp(73,8): warning C4552: '<=': 式の結果が使用されていません
+  KansyaTeamGame2.vcxproj -> C:\Users\rimin\source\repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

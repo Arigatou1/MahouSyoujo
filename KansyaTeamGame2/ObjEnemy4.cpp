@@ -2,8 +2,8 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 
-#include"ObjEnemy4.h"
-#include"GameL/UserData.h"
+#include "ObjEnemy4.h"
+
 
 CObjEnemy4::CObjEnemy4(float x, float y)
 {
@@ -97,7 +97,6 @@ void CObjEnemy4::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //ƒhƒ[

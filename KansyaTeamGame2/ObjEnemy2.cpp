@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjEnemy2.h"
 
+
 //使用するネームベース
 using namespace GameL;
 
@@ -43,7 +44,7 @@ void CObjEnemy2::Init()
 	//Amount = 0;
 
 	e_hp = 25.0f;
-	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+
 }
 
 //アクション

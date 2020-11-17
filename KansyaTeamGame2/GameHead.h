@@ -130,7 +130,7 @@ struct UserData
 #include "ObjSlimeBall.h"
 #include "ObjSword.h"
 #include "EnemyAppear.h"
-#include "GameL\UserData.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

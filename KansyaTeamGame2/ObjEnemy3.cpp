@@ -3,6 +3,7 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 
+
 #include"ObjEnemy3.h"
 
 //使用するネームスペース
@@ -37,7 +38,7 @@ void CObjEnemy3::Init()
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
 
 	e_hp = 6.0f;
-	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+
 }
 
 //アクション

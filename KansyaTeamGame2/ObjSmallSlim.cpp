@@ -4,7 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjSmallSlim.h"
-#include "GameL/UserData.h"
+
 
 //使用するネームベース
 using namespace GameL;
@@ -41,7 +41,7 @@ void CObjSmallSlim::Init()
 	e_damege = 0;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_SMALLSLIM, 10);
-	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
+
 }
 
 //アクション

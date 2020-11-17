@@ -34,7 +34,7 @@ void CObjTitle::Init()
 		//プログラムを一回だけ実行する
 		((UserData*)Save::GetData())->Diffculty = 1;
 
-		((UserData*)Save::GetData())->Clear_Flag[0] = true;
+		
 
 		//ロード
 		Save::Open();//同フォルダ[UserDataからデータ取得]
@@ -44,6 +44,7 @@ void CObjTitle::Init()
 		//影響を受けない。
 		((UserData*)Save::GetData())->PauseMenu = false;
 		((UserData*)Save::GetData())->Score = 0;
+		((UserData*)Save::GetData())->Clear_Flag[0] = true;
 		
 		
 		init_stage = true;
@@ -75,7 +76,16 @@ void CObjTitle::Action()
 		if (m_key_flag == true)
 		{
 			for (int i = 0; i < 20; i++)
+			{
 				((UserData*)Save::GetData())->ScoreData[i] = 0;
+				((UserData*)Save::GetData())->Clear_Flag[i] = false;
+
+			}
+			((UserData*)Save::GetData())->Clear_Flag[0] = true;
+			
+			((UserData*)Save::GetData())->Stage = 1;
+			((UserData*)Save::GetData())->Diffculty = 1;
+			((UserData*)Save::GetData())->武器 = 0;
 
 			Save::Seve();
 
