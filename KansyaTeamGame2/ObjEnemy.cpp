@@ -107,8 +107,8 @@ void CObjEnemy::Action()
 	{
 		if (e1_t == true)
 		{
-			e1_t = false;
 			e1_time = 0;
+			e1_t = false;
 		}
 	}
 
