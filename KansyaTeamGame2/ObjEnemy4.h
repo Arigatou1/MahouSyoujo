@@ -20,7 +20,7 @@ private:
 	float m_vy;
 	float m_r;//Šp“x
 
-	int e_hp;
+	
 	int e4_damege;
 	
 

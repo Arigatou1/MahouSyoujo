@@ -115,10 +115,7 @@ void CSceneMain::InitScene()
 	CObjPauseMenu* obj_pause = new CObjPauseMenu();
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
-	//BOSS1オブジェクト作成
-	//CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
-	//Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
-
+	
 	//EnemyAppear
 	EnemyAppear* obj_appear = new EnemyAppear();
 	Objs::InsertObj(obj_appear, OBJ_APPEAR, 0);

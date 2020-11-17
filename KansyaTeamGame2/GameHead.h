@@ -74,6 +74,7 @@ struct UserData
 	int 武器;
 	//ステージのスコアデータ
 	int ScoreData[20];
+	bool Clear_Flag[20];
 
 	bool PauseMenu;
 	

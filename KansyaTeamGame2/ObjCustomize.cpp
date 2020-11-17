@@ -36,7 +36,7 @@ void CObjCustomize::Action()
 	{
 		if (m_key_flag == true)
 		{
-			Save::Seve();
+			
 
 			this->SetStatus(false);
 			//メニューオブジェクト作成
