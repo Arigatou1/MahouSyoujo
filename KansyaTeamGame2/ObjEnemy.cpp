@@ -67,16 +67,18 @@ void CObjEnemy::Action()
 				m_vx = 0;
 		}
 
+		
+		//ジョンプ
 		if (e1_hit_right == true)
-	{
-		m_ex = m_ex - 25.0f;
-		m_ey = m_ey - 80.0f;
-	}
-	else if (e1_hit_left == true)
-	{
-		m_ex = m_ex + 25.0f;
-		m_ey = m_ey - 80.0f;
-	}
+		{
+			m_ex = m_ex - 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
+		else if (e1_hit_left == true)
+		{
+			m_ex = m_ex + 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
 	}
 
 	//バリアの情報
@@ -108,7 +110,7 @@ void CObjEnemy::Action()
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
+		&m_vx, &m_vy);
 
 	//マナに当たるとカウントが0になる
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)

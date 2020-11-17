@@ -102,7 +102,7 @@ void CObjEnemy2::Action()
 		CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 		obj_block1->BlockHit(&m_ex, &m_ey,
 			&e2_hit_up, &e2_hit_down, &e2_hit_left, &e2_hit_right,
-			&m_vx, &m_vy, &e2_xsize, &e2_ysize);
+			&m_vx, &m_vy);
 
 		//マナに当たるとカウントが0になる
 		if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)

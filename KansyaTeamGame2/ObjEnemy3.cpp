@@ -55,7 +55,7 @@ void CObjEnemy3::Action()
 	CObjBlock* obj_block3 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block3->BlockHit(&m_ex, &m_ey,
 		&e3_hit_up, &e3_hit_down, &e3_hit_left, &e3_hit_right,
-		&m_vx, &m_vy, &e3_xsize, &e3_ysize);
+		&m_vx, &m_vy);
 
 	//ƒWƒƒƒ“ƒv
 	if (obj_block3 != nullptr)

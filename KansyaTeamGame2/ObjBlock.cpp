@@ -128,7 +128,7 @@ void CObjBlock::BlockDraw(float x, float y, RECT_F* dst, float c[])
 //その結果は引数4～10に返す
 void CObjBlock::BlockHit(float* x, float* y,
 	bool* up, bool* down, bool* left, bool* right,
-	float* vx, float* vy,float* x_size,float* y_size )
+	float* vx, float* vy)
 {
 	//敵衝突状態確認用フラグの初期化
 	*up = false;
@@ -148,7 +148,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 				float by = i * 64.0f;
 
 				//主人公のブロックの当たり判定
-				if ((*x + 64 > bx) && (*x < bx + 64) && (*y + *y_size > by) && (*y < by + *y_size))
+				if ((*x + 64 > bx) && (*x < bx + 64) && (*y + 64 > by) && (*y < by + 64))
 				{
 					//上下左右判定
 
@@ -168,10 +168,10 @@ void CObjBlock::BlockHit(float* x, float* y,
 					else
 						r = 360.0f - abs(r);
 
-					if (len < 86.0f)
+					if (len < 88.0f)
 					{
 						//角度で上下左右判定
-						if ((r < 35 && r>5) || r > 320)
+						if ((r < 45 && r>0) || r > 315)
 						{
 							//右
 							*right = true;//主人公の左側が衝突
@@ -182,10 +182,10 @@ void CObjBlock::BlockHit(float* x, float* y,
 						{
 							//上
 							*down = true;//オブジェクトから見て、下の部分が衝突している
-							*y    = by - *y_size;//ブロックの位置-主人公の幅
+							*y    = by - 64;//ブロックの位置-主人公の幅
 							*vy   = 0.0f;
 						}
-						if (r > 145 && r < 215)
+						if (r > 135 && r < 225)
 						{
 							//左
 							*left = true;//オブジェクトの側が衝突
@@ -196,7 +196,7 @@ void CObjBlock::BlockHit(float* x, float* y,
 						{
 							//下
 							*up = true;//オブジェクトの下側が衝突
-							*y = by + *y_size;//ブロックの位置-主人公の幅
+							*y = by + 64;//ブロックの位置-主人公の幅
 
 							if (*vy < 0)
 							{
