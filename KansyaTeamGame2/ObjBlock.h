@@ -32,9 +32,6 @@ private:
 	float ex;
 	float ey;
 
-	//テスト用変数
-	float m_px, m_py;//テスト好
-
 	float Dot(float ax, float ay, float bx, float by); //内積
 	float Cross(float ax, float ay, float bx, float by);//外積
 
