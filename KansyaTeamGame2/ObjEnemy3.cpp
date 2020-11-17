@@ -21,8 +21,8 @@ void CObjEnemy3::Init()
 
 	m_vx = 1.0f;
 	m_vy = 0.0f;
-
-	
+	e_hp = 5;
+	e_damege = 0;
 
 	e3_hit_up = false;
 	e3_hit_down = false;
@@ -100,10 +100,11 @@ void CObjEnemy3::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e_damege = obj_all->GetZ_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
@@ -112,9 +113,21 @@ void CObjEnemy3::Action()
 	//íeÇ…ìñÇΩÇÍÇŒè¡ñ≈
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
+		e_hp -= 1;
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+		e_hp -= 1;
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e_damege = obj_all->GetZ_ATK();
 	}
 
 	//åïÇ…ìñÇΩÇÍÇŒè¡ñ≈
@@ -123,10 +136,12 @@ void CObjEnemy3::Action()
 		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
 		e_hp -= obj_sword->GetAttackPower();
 	}
-	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+
+	//hpÇ™0Ç…Ç»ÇÈÇ∆è¡ñ≈
+	if (e_hp <= 0)
 	{
-		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
-		e_hp -= obj_bullet->GetAttackPower();
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 	}
 
 }
