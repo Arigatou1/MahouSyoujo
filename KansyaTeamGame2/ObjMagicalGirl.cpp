@@ -163,7 +163,7 @@ void CObjMagicalGirl::Action()
 				CObjBarrier* objbarrier;
 				objbarrier = new CObjBarrier(m_gx + 64.0f, m_gy);
 				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
-				objbarrier = new CObjBarrier(m_gx - 64.0f, m_gy);
+				objbarrier = new CObjBarrier(m_gx - 32.0f, m_gy);
 				Objs::InsertObj(objbarrier, OBJ_BARRIER, 48);
 			}
 		}

@@ -140,14 +140,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CObjHomingBullet.h" />
+    <ClInclude Include="EnemyAppear.h" />
     <ClInclude Include="ObjAllBullet.h" />
     <ClInclude Include="Objbarrier.h" />
+    <ClInclude Include="ObjBoss1.h" />
     <ClInclude Include="ObjBullet.h" />
     <ClInclude Include="ObjCustomize.h" />
     <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
     <ClInclude Include="ObjPauseMenu.h" />
+    <ClInclude Include="ObjSlimeBall.h" />
     <ClInclude Include="ObjSmallSlim.h" />
     <ClInclude Include="ObjStageSelect.h" />
     <ClInclude Include="GameHead.h" />
@@ -200,14 +203,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
+    <ClCompile Include="EnemyAppear.cpp" />
     <ClCompile Include="ObjAllBullet.cpp" />
     <ClCompile Include="ObjBarrier.cpp" />
+    <ClCompile Include="ObjBoss1.cpp" />
     <ClCompile Include="ObjBullet.cpp" />
     <ClCompile Include="ObjCustomize.cpp" />
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
     <ClCompile Include="ObjPauseMenu.cpp" />
+    <ClCompile Include="ObjSlimeBall.cpp" />
     <ClCompile Include="ObjSmallSlim.cpp" />
     <ClCompile Include="ObjStageSelect.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />

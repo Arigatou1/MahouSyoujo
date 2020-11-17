@@ -19,7 +19,7 @@ private:
 	float m_ey;
 	float m_vx;
 	float m_vy;
-	int e_hp;//敵のHP
+	
 	int e_damege;//ダメージ量
 
 	float b_mx;//バリアのx位置
@@ -29,6 +29,10 @@ private:
 	float m_my;//マナのY位置
 	//int Amount;
 
+	int e_jkn;//
+	int e_time;//
+	bool e_mtk;
+
 	//blockとの衝突状態確認用
 	bool e1_hit_up;
 	bool e1_hit_down;
@@ -37,4 +41,5 @@ private:
 
 	float e1_xsize;
 	float e1_ysize;
+	float e_hp;
 };

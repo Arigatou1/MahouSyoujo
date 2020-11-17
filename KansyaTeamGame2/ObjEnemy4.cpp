@@ -9,6 +9,7 @@ CObjEnemy4::CObjEnemy4(float x, float y)
 {
 	m_ex = x;
 	m_ey = y;
+	
 }
 
 //イニシャライズ
@@ -18,8 +19,14 @@ void CObjEnemy4::Init()
 	m_vy = 0.0f;
 	m_r = 0.0f;
 
+	e_jkn = 90;
+	e_time = e_jkn;
+	e_mtk = false;
+
 	//当たり判定HitBoxを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
+
+	e_hp = 8.0f;
 }
 
 //アクション
@@ -27,16 +34,12 @@ void CObjEnemy4::Action()
 {
 	m_ex += 2*m_vx;
 
-
-
 	//
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
-//	CObjHero* obj_h = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	//CObjHero* obj_h = (CObjHero*)Objs::GetObj(OBJ_HERO);
 	if (obj != nullptr)
 	{
 		float m_mx = obj->GetX();
-	//	float m_hx = obj_h->GetX();
-	//	float m_hy = obj_h->GetY();
 
 		if (m_mx <= m_ex)
 			m_vx = -1.0f;
@@ -44,46 +47,54 @@ void CObjEnemy4::Action()
 			m_vx = 1.0f;
 		else
 			m_vx = 0;
-
-		/*if (m_hx - m_ex == 5 && m_hx - m_ex == -5 && m_hy - m_ey == 5 && m_hy - m_ey == -5)
-		{
-
-		}*/
 	}
 
-	
-
-	//
-	/*CObjHero*)Objs::GetObj(OBJ_HERO);
-	if (obj != nullptr)
-	{
-		float m_px = obj->GetX();
-
-		if (m_px <= m_ex)
-			m_vx = -1.0f;
-		else if (m_px >= m_ex)
-			m_vx = 1.0f;
-		else
-			m_vx = 0;
-	}*/
-
-	//
+	//HitBoxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex+0.0f, m_ey+0.0f);
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
+		e_mtk = true;
+		e_hp -= 1;
 	}
 
+	//剣に当たれば
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
+	{
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
+	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
+	}
+
+	if (e_mtk == true)
+	{
+		//HitBoxの内容を更新
+		CHitBox* hit = Hits::GetHitBox(this);
+		hit->SetPos(m_ex + 9999, m_ey);
+		//無敵時間を減らす
+		e_jkn -= 1;
+
+		if (e_jkn <= 0)
+		{
+			e_mtk = false;
+			e_jkn = e_time;
+		}
+	}
+
+	//HPが0になれば消滅
+	if (e_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
 	}
+
+
 }
 
 //ドロー

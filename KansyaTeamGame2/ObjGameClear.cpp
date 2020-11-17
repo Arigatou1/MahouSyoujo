@@ -13,19 +13,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameClear::Init()
 {
-	//Score = 0;
 	
-	//現在のハイスコアよりも高い場合結果を保存
-	if (((UserData*)Save::GetData())->Score >
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
-
-	{
-		//スコアを保存
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
-			= ((UserData*)Save::GetData())->Score;
-
-	}
-	Save::Seve();//セーブ
 }
 
 //アクション
@@ -46,6 +34,15 @@ void CObjGameClear::Action()
 		m_key_flag = true;
 	}
 
+	((UserData*)Save::GetData())->Score =
+		(((UserData*)Save::GetData())->HeroHP*40 + ((UserData*)Save::GetData())->ManaHP*60);
+
+	if (((UserData*)Save::GetData())->Score >
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
+	{
+		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
+			= ((UserData*)Save::GetData())->Score;
+	}
 }
 
 //ドロー

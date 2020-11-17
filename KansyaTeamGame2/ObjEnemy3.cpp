@@ -22,17 +22,21 @@ void CObjEnemy3::Init()
 	m_vx = 1.0f;
 	m_vy = 0.0f;
 
+	
+
 	e3_hit_up = false;
 	e3_hit_down = false;
 	e3_hit_left = false;
 	e3_hit_right = false;
 
-	jump = false;
+	jump = 0;
 
 	e3_xsize = 64;
 	e3_ysize = 64;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
+
+	e_hp = 6.0f;
 }
 
 //アクション
@@ -55,14 +59,8 @@ void CObjEnemy3::Action()
 	//ジャンプ
 	if (obj_block3 != nullptr)
 	{
-		if (e3_hit_down == true && jump == false)
-		{
-			m_vy = -15;
-		}
-		else if(e3_hit_down==false)
-		{
-			jump == true;
-		}
+		
+		
 	}
 
 	//自由落下運動
@@ -122,10 +120,15 @@ void CObjEnemy3::Action()
 	//剣に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
 	}
+	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+	{
+		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
+		e_hp -= obj_bullet->GetAttackPower();
+	}
+
 }
 
 //ドロー

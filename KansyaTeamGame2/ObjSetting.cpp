@@ -151,7 +151,7 @@ void CObjSetting::Draw()
 
 
 	swprintf_s(str1, L"“ïˆÕ“x:%s",Diff);
-	Font::StrDraw(str1, 32, 64, 32, c);
+	Font::StrDraw(str1, 32, 64, 64, c);
 
 
 }

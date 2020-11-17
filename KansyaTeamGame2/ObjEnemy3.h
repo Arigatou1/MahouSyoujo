@@ -24,12 +24,13 @@ private:
 
 	float b_mx;//バリアの位置
 	float b_my;
-
+	
 
 	float m_mx; //マナの座標
 	float m_my;
 
-	bool jump;
+	float jump;
+
 	//blockとの衝突状態確認用
 	bool e3_hit_up;
 	bool e3_hit_down;
@@ -38,4 +39,6 @@ private:
 
 	float e3_xsize;
 	float e3_ysize;
+
+	float e_hp;
 };
