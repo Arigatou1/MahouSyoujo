@@ -18,7 +18,7 @@ public :
 
 	void BlockHit(float* x, float* y,
 		bool* up, bool* down, bool* left, bool* right,
-		float* vx, float* vy,float* x_size, float* y_size);
+		float* vx, float* vy);
 
 	bool BlockCrossPoint(
 		float x, float y, float vx, float vy,
