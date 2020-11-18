@@ -75,12 +75,12 @@ struct UserData
 	//ステージのスコアデータ
 	int ScoreData[20];
 	bool Clear_Flag[20];
-
+	//ポーズメニュー用変数
 	bool PauseMenu;
 	
 	//難易度
 	int Diffculty;
-
+	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
 };
