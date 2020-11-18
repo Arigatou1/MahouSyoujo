@@ -128,14 +128,14 @@ void CObjEnemy::Action()
 	}
 
 
-	if (e1_time % 96 == 32)
-	{
-		e1_atk = 0.00;
-	}
-	else if (e1_time % 96 == 0)
-	{
-		e1_atk = 0.04;
-	}
+//	if (e1_time % 96 == 32)
+//	{
+//		e1_atk = 0.00;
+//	}
+//	else if (e1_time % 96 == 0)
+//	{
+//		e1_atk = 0.04;
+//	}
 
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
