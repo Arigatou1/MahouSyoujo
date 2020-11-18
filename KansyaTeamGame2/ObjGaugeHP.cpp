@@ -15,7 +15,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjGaugeHP::Init()
 {
-	Clear_Flag = false;
+	
 }
 
 //アクション

@@ -20,7 +20,9 @@ private:
 	float GaugePercent;
 	float gb_x;
 	float gb_y;
-	bool Clear_Flag;
+
+	float xoffset;
+	float yoffset;
 
 };
 
