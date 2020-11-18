@@ -1,4 +1,2 @@
-﻿  ObjStageSelect.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(38,64): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(163,37): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+﻿  ObjTitle.cpp
   KansyaTeamGame2.vcxproj -> C:\Users\rimin\source\repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

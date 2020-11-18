@@ -46,11 +46,11 @@ void CObjStageSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
-		//	if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
-		//	{
+			if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
+			{
 				if (cursor_y < 512)
 					Scene::SetScene(new CSceneMain());
-		//}
+		}
 			if (cursor_y >= 512)
 			{
 				this->SetStatus(false);
@@ -172,7 +172,7 @@ void CObjStageSelect::Draw()
 	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
 	Font::StrDraw(Score, 2,2, 48, c);
 
-	//if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
+	if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
 	Font::StrDraw(L"このステージは遊ぶことができます。", 400, 2, 24, c);
 }
 

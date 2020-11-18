@@ -14,7 +14,7 @@ using namespace GameL;
 void CObjGameClear::Init()
 {
 	StageID = ((UserData*)Save::GetData())->Stage;
-	//((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
+	((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
