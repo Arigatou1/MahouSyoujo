@@ -47,7 +47,7 @@ void CObjGameClear::Action()
 			= ((UserData*)Save::GetData())->Score;
 	}
 
-	
+	Save::Seve();
 }
 
 //ƒhƒ[
