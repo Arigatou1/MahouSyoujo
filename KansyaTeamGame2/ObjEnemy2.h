@@ -23,6 +23,8 @@ private:
 	float m_ey;
 	float m_vx;
 	float m_vy;
+	int e2_hp;//“G‚Q‚ÌHP
+	int e2_damege;//ƒ_ƒ[ƒW—Ê
 
 	float e2_atk;//“G‚Q‚ÌUŒ‚—Í
 
