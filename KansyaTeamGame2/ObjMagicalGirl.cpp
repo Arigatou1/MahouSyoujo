@@ -89,7 +89,7 @@ void CObjMagicalGirl::Action()
 	}
 
 	//魔法少女の通常攻撃
-	if (m_mp >= 1)
+	if (m_mp >= 5)
 	{
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
@@ -105,7 +105,7 @@ void CObjMagicalGirl::Action()
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 1;
+				m_mp -= 5;
 
 				if (m_mp < 0)
 				{
@@ -119,9 +119,9 @@ void CObjMagicalGirl::Action()
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 1;
+				m_mp -= 5;
 
-				if (m_mp < 0)
+				if (m_mp < 5)
 				{
 					m_mp = 0;
 				}

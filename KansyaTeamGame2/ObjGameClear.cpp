@@ -24,7 +24,8 @@ void CObjGameClear::Action()
 	//スコアを計算
 	///おそらく、ここの処理でバグが発生していることが分かったんで、
 	/// 書き直していくことにする。
-	/// 
+	/// しかし、スコアの情報だけでなく、クリアフラグの情報までも巻き込んで消してしまうのは
+	/// なぜだろうか？
 	//((UserData*)Save::GetData())->Score =
 	//	(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 

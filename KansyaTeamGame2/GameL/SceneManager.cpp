@@ -44,21 +44,47 @@ void CSceneManager::GameLoop()
 
 	Swap();			//シーン切り替え
 
-	if (((UserData*)Save::GetData())->PauseMenu==false)
-	SceneAction();	//シーンアクション実行
-	
+	//Pauseメニューがfalseの場合、アクションを進める
+	if (((UserData*)Save::GetData())->PauseMenu == false)
+	{
+		SceneAction();	//シーンアクション実行
+	}
+
 	SceneDraw();	//シーン描画
+
+	static bool m_key_flag = false;
 
 
 	if (((UserData*)Save::GetData())->PauseMenu == true)
 	{
-		if (Input::GetVKey(VK_RETURN) == true)
-		{
+		
+			if (Input::GetVKey(VK_RETURN) == true)
+			{
+				if (m_key_flag == true)
+				{
+					((UserData*)Save::GetData())->PauseMenu = false;
+					
+				}
+				m_key_flag = false;
 
-			((UserData*)Save::GetData())->PauseMenu = false;
+			}
+			
+			else if (Input::GetVKey(VK_ESCAPE) == true)
+			{
+				if (m_key_flag == true)
+				{
+					((UserData*)Save::GetData())->PauseMenu = false;
+					Scene::SetScene(new CSceneMenu());
+					m_key_flag = false;
+				}
+				m_key_flag = false;
+			}
+			else
+			{
+				m_key_flag = true;
 
-
-		}
+			}
+		
 	}
 	
 	m_TimeEnd=timeGetTime();
