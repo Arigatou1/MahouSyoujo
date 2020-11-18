@@ -1,6 +1,5 @@
-﻿  ObjEnemy2.cpp
-C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy2.cpp(65,16): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy2.cpp(74,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy2.cpp(160,39): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy2.cpp(168,40): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Source\Repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjGaugeBaseMana.cpp
+  ObjGaugeMana.cpp
+C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeMana.cpp(46,31): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  コードを生成中...
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

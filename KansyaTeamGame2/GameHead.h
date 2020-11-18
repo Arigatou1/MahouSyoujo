@@ -38,6 +38,7 @@ enum OBJ_NAME
 	OBJ_BOSS1,
 	OBJ_SLIMEBALL,
 	OBJ_APPEAR,
+	OBJ_BOSS_ENEMY,
 };
 //------------------------------------------------
 
@@ -74,13 +75,14 @@ struct UserData
 	int weapon;
 	//ステージのスコアデータ
 	int ScoreData[20];
-	bool Clear_Flag[20];
-
+	//最大ステージ数は20だが、２０のクリア判定をつけるため
+	bool Clear_Flag[21];
+	//ポーズメニュー用変数
 	bool PauseMenu;
 	
 	//難易度
 	int Diffculty;
-
+	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
 };

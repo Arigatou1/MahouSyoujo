@@ -21,4 +21,5 @@ private:
 	int nowSelect;
 	float cursor_sx;
 	float cursor_sy;
+	int countStage;
 };

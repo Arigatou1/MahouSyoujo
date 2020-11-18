@@ -20,34 +20,37 @@ void CObjGameClear::Init()
 //アクション
 void CObjGameClear::Action()
 {
-	//エンターキーを押してシーン:ゲームMenuに移行する
-	if (Input::GetVKey(VK_RETURN) == true)
-	{
-		if (m_key_flag == true)
-		{
-			Scene::SetScene(new CSceneMenu());
-			m_key_flag = false;
-		}
-	}
-
-	else
-	{
-		m_key_flag = true;
-	}
 
 	//スコアを計算
-	((UserData*)Save::GetData())->Score =
-		(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
+	///おそらく、ここの処理でバグが発生していることが分かったんで、
+	/// 書き直していくことにする。
+	/// しかし、スコアの情報だけでなく、クリアフラグの情報までも巻き込んで消してしまうのは
+	/// なぜだろうか？
+	//((UserData*)Save::GetData())->Score =
+	//	(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 
 	//すこあを保存
-	if (((UserData*)Save::GetData())->Score >
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
-	{
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
-			= ((UserData*)Save::GetData())->Score;
-	}
+	//ここは問題なさそう。
+	((UserData*)Save::GetData())->ScoreData[StageID] = 1;
+
 
 	
+					
+
+	//エンターキーを押してシーン:ゲームMenuに移行する
+		if (Input::GetVKey(VK_RETURN) == true)
+		{
+			if (m_key_flag == true)
+			{
+				Scene::SetScene(new CSceneMenu());
+				m_key_flag = false;
+			}
+		}
+
+		else
+		{
+			m_key_flag = true;
+		}
 }
 
 //ドロー

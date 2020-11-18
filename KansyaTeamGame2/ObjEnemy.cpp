@@ -6,6 +6,8 @@
 #include "GameL\UserData.h"
 
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
+
 
 //使用するネームベース
 using namespace GameL;
@@ -25,10 +27,13 @@ void CObjEnemy::Init()
 	e1_damege = 0;
 	e1_atk = 0.3;
 	e1_time = 0;
+	e_hp=5;
 
 	//最大HP
 	e_hp = 15;
 	
+	//敵1の個体名
+	e1_num = 0;
 
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
@@ -49,7 +54,6 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
-
 	e1_time++;
 
 	//マナの位置で停止
@@ -118,11 +122,12 @@ void CObjEnemy::Action()
 	{
 		if (e1_t == true)
 		{
-			e1_time = 0;
 			e1_t = false;
 		}
 
+
 	}
+
 
 	if (e1_time % 96 == 32)
 	{
@@ -132,7 +137,6 @@ void CObjEnemy::Action()
 	{
 		e1_atk = 0.04;
 	}
-
 
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
@@ -146,6 +150,14 @@ void CObjEnemy::Action()
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
 		}
+		e_hp <= 0;
+
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+		
 		
 		//Amount++;
 	}
@@ -155,7 +167,6 @@ void CObjEnemy::Action()
 		e_hp -= 10;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
-		
 	}
 
 	
@@ -173,6 +184,9 @@ void CObjEnemy::Action()
 	//hpが0になると消滅
 	if(	e_hp <= 0)
 	{
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		

@@ -15,6 +15,7 @@ using namespace GameL;
 #include "SceneMain.h"
 #include "GameHead.h"
 #include "GameL\WinInputs.h"
+#include "GameL/Audio.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -31,6 +32,10 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//音楽読み込み
+	Audio::LoadAudio(0, L"swordSE.wav", EFFECT);
+	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
+	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
 	
 	//外部データの読み込み
 
@@ -44,7 +49,7 @@ void CSceneMain::InitScene()
 	//マップデータを読み込む。
 	wchar_t s[128];
 
-	if (StageID >= 5)
+	if (StageID >= 9)
 	swprintf_s(s, L"Stage/Stage1.csv", StageID);
 
 	else
@@ -139,15 +144,9 @@ void CSceneMain::Scene()
 			m_key_flag = false;
 		}
 	}
-	
+
 	else
 		m_key_flag = true;
-
-	if (m_time == 30)
-	{
-		CObjEnemy* obj = new CObjEnemy(800, 400);
-		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-	}
 
 	/*if (m_time == 30)
 	{
@@ -163,8 +162,8 @@ void CSceneMain::Scene()
 		obj = new CObjEnemy(0, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount+=2;
-	}
-	*/
+	}*/
+	
 	/*else if (m_time == 60)
 	{
 		CObjEnemy* obj_enemy2 = new CObjEnemy(700, 400);
@@ -196,8 +195,8 @@ void CSceneMain::Scene()
 		
 		EnemyAmount+=2;
 	}*/
-	/*
-	else if (m_time == 280)
+	
+	/*else if (m_time == 280)
 	{
 		CObjEnemy* obj = new CObjEnemy(800, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
@@ -210,8 +209,8 @@ void CSceneMain::Scene()
 		CObjEnemy* obj = new CObjEnemy(0, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
-	}
-	/*
+	}*/
+/*
 	else if (m_time == 350)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 450);

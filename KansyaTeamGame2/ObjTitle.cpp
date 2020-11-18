@@ -44,7 +44,6 @@ void CObjTitle::Init()
 		//影響を受けない。
 		((UserData*)Save::GetData())->PauseMenu = false;
 		((UserData*)Save::GetData())->Score = 0;
-		((UserData*)Save::GetData())->Clear_Flag[0] = true;
 		
 		init_stage = true;
 
@@ -75,7 +74,23 @@ void CObjTitle::Action()
 		if (m_key_flag == true)
 		{
 			for (int i = 0; i < 20; i++)
+			{
 				((UserData*)Save::GetData())->ScoreData[i] = 0;
+				((UserData*)Save::GetData())->Clear_Flag[i] = false;
+
+			}
+			Save::Seve();
+
+			m_key_flag = false;
+		}
+	}
+	//デバッグ用　全ステージ開放
+	else if (Input::GetVKey('4') == true)
+	{
+		if (m_key_flag == true)
+		{
+			for (int i = 0; i < 20; i++)
+				((UserData*)Save::GetData())->Clear_Flag[i] = true;
 
 			Save::Seve();
 
@@ -86,6 +101,10 @@ void CObjTitle::Action()
 	{
 		m_key_flag = true;
 	}
+
+	//0は絶対にtrueにする
+	((UserData*)Save::GetData())->Clear_Flag[0] = true;
+
 }
 
 //ドロー
@@ -99,5 +118,9 @@ void CObjTitle::Draw()
 	if (Input::GetVKey('3') == true)
 	{
 		Font::StrDraw(L"セーブデータを削除しました", 0, 0, 32, c);
+	}
+	if (Input::GetVKey('4') == true)
+	{
+		Font::StrDraw(L"全ステージ開放しました。", 0, 0, 32, c);
 	}
 }

@@ -53,6 +53,31 @@ void CObjEnemy2::Init()
 //アクション
 void CObjEnemy2::Action()
 {
+
+
+	if (e1_hit_right == true)
+	{
+		m_ex = m_ex - 40.0f;
+		m_ey = m_ey - 80.0f;
+	}
+	else if (e1_hit_left == true)
+	{
+		m_ex = m_ex + 25.0f;
+		m_ey = m_ey - 80.0f;
+	}
+
+	e2_time++;
+
+	if (e2_time % 96 == 32)
+	{
+		e2_atk = 0.00;
+	}
+	else if (e2_time % 96 == 0)
+	{
+		e2_atk = 0.04;
+	}
+
+
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex, m_ey+14);

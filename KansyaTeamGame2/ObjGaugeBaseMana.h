@@ -18,7 +18,8 @@ private:
 	float gb_x;
 	float gb_y;
 
-	
+	float xoffset;
+	float yoffset;
 
 };
 
