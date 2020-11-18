@@ -75,7 +75,8 @@ struct UserData
 	int weapon;
 	//ステージのスコアデータ
 	int ScoreData[20];
-	bool Clear_Flag[20];
+	//最大ステージ数は20だが、２０のクリア判定をつけるため
+	bool Clear_Flag[21];
 	//ポーズメニュー用変数
 	bool PauseMenu;
 	
