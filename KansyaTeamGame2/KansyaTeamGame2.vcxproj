@@ -199,7 +199,6 @@
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="ObjSetting.h" />
     <ClInclude Include="UtilityModule.h" />
-    <ClInclude Include="ObjBoss.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CObjHomingBullet.cpp" />
@@ -262,7 +261,6 @@
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="ObjSetting.cpp" />
     <ClCompile Include="UtilityModule.cpp" />
-    <ClCompile Include="ObjBoss.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
