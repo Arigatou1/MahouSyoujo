@@ -38,6 +38,7 @@ enum OBJ_NAME
 	OBJ_BOSS1,
 	OBJ_SLIMEBALL,
 	OBJ_APPEAR,
+	OBJ_BOSS_ENEMY,
 };
 //------------------------------------------------
 

@@ -44,7 +44,7 @@ void CSceneMain::InitScene()
 	//マップデータを読み込む。
 	wchar_t s[128];
 
-	if (StageID >= 5)
+	if (StageID >= 9)
 	swprintf_s(s, L"Stage/Stage1.csv", StageID);
 
 	else
@@ -139,7 +139,7 @@ void CSceneMain::Scene()
 			m_key_flag = false;
 		}
 	}
-	
+
 	else
 		m_key_flag = true;
 
@@ -196,8 +196,8 @@ void CSceneMain::Scene()
 		
 		EnemyAmount+=2;
 	}*/
-	/*
-	else if (m_time == 280)
+	
+	/*else if (m_time == 280)
 	{
 		CObjEnemy* obj = new CObjEnemy(800, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
@@ -210,8 +210,8 @@ void CSceneMain::Scene()
 		CObjEnemy* obj = new CObjEnemy(0, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
-	}
-	/*
+	}*/
+/*
 	else if (m_time == 350)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 450);
