@@ -123,7 +123,9 @@ void CObjCustomize::Action()
 	if (cursor_y > 176)
 		cursor_y = 176;
 
-
+	//defaultセッティング
+	if(((UserData*)Save::GetData())->weapon >1 || ((UserData*)Save::GetData())->weapon < 0)
+	((UserData*)Save::GetData())->weapon = 0;
 
 }
 
