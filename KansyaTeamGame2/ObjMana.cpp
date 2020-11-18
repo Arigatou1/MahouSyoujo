@@ -81,8 +81,8 @@ void CObjMana::Action()
 		mana_damege2 = obj_enemy2->GetE2_ATK();
 
 		Mana_HP -= mana_damege2;
-
 	}
+
 	//“G3‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é
 	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 	{
@@ -90,7 +90,7 @@ void CObjMana::Action()
 
 	}
 	
-	//“G3‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é
+	//“G4‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é
 	if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 	{
 		Mana_HP -= 0.05;
