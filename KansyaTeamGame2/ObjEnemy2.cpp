@@ -51,6 +51,18 @@ void CObjEnemy2::Init()
 void CObjEnemy2::Action()
 {
 
+
+	if (e1_hit_right == true)
+	{
+		m_ex = m_ex - 40.0f;
+		m_ey = m_ey - 80.0f;
+	}
+	else if (e1_hit_left == true)
+	{
+		m_ex = m_ex + 25.0f;
+		m_ey = m_ey - 80.0f;
+	}
+
 	e2_time++;
 
 	if (e2_time % 96 == 32)
