@@ -43,7 +43,6 @@ void CObjTitle::Init()
 		//ロードの後に初期化しているため、前回の終了時にポーズ画面でも
 		//影響を受けない。
 		((UserData*)Save::GetData())->PauseMenu = false;
-		((UserData*)Save::GetData())->Score = 0;
 		
 		init_stage = true;
 
@@ -79,6 +78,9 @@ void CObjTitle::Action()
 				((UserData*)Save::GetData())->Clear_Flag[i] = false;
 
 			}
+
+			((UserData*)Save::GetData())->Diffculty = 1;
+
 			Save::Seve();
 
 			m_key_flag = false;

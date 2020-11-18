@@ -68,7 +68,6 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	//ステージIDを取得する
 	int Stage;
-	int Score;
 
 
 	//主人公の武器。剣 0 銃 1
