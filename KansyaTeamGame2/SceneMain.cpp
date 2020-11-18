@@ -124,7 +124,7 @@ void CSceneMain::InitScene()
 	
 	//EnemyAppear
 	EnemyAppear* obj_appear = new EnemyAppear();
-	Objs::InsertObj(obj_appear, OBJ_APPEAR, 0);
+	Objs::InsertObj(obj_appear, OBJ_APPEAR, 101);
 
 	//É^ÉCÉÄèâä˙âª
 	m_time = 0;
@@ -150,12 +150,6 @@ void CSceneMain::Scene()
 
 	else
 		m_key_flag = true;
-
-	if (m_time == 30)
-	{
-		CObjEnemy* obj = new CObjEnemy(800, 400);
-		Objs::InsertObj(obj, OBJ_ENEMY, 49);
-	}
 
 	/*if (m_time == 30)
 	{

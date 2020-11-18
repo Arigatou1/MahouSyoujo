@@ -20,8 +20,7 @@ private:
 	float HP;
 	float MAXHP;
 	float GaugePercent;
-	bool Clear_Flag;
-
+	
 
 };
 

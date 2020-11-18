@@ -32,6 +32,8 @@ void CObjEnemy::Init()
 	//Å‘åHP
 	e_hp = 15;
 	
+	//“G1‚ÌŒÂ‘Ì–¼
+	e1_num = 0;
 
 	//block‚Æ‚ÌÕ“Ëó‘ÔŠm”F—p
 	e1_hit_up = false;
@@ -119,11 +121,12 @@ void CObjEnemy::Action()
 	{
 		if (e1_t == true)
 		{
-			e1_time = 0;
 			e1_t = false;
 		}
 
+
 	}
+
 
 	if (e1_time % 96 == 32)
 	{
@@ -133,7 +136,6 @@ void CObjEnemy::Action()
 	{
 		e1_atk = 0.04;
 	}
-
 
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
@@ -159,7 +161,6 @@ void CObjEnemy::Action()
 		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
-		
 	}
 
 	
