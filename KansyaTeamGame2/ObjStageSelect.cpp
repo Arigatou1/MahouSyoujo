@@ -168,10 +168,16 @@ void CObjStageSelect::Draw()
 
 	Font::StrDraw(L"カスタマイズ", 156, 512 , 80, c);
 	wchar_t Score[16];
+
+	//そのときのスコア表示
 	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
 	Font::StrDraw(Score, 2,2, 48, c);
 
+	//遊べるか遊べないかの表示
 	if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
 	Font::StrDraw(L"このステージは遊ぶことができます。", 400, 2, 24, c);
+	else 
+		Font::StrDraw(L"このステージは遊べません。", 400, 2, 24, c);
+
 }
 
