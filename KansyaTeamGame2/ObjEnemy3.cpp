@@ -3,6 +3,7 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 
+
 #include"ObjEnemy3.h"
 
 //使用するネームスペース
@@ -21,8 +22,8 @@ void CObjEnemy3::Init()
 
 	m_vx = 1.0f;
 	m_vy = 0.0f;
-
-	
+	e_hp = 5;
+	e_damege = 0;
 
 	e3_hit_up = false;
 	e3_hit_down = false;
@@ -37,6 +38,7 @@ void CObjEnemy3::Init()
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
 
 	e_hp = 6.0f;
+
 }
 
 //アクション
@@ -54,7 +56,7 @@ void CObjEnemy3::Action()
 	CObjBlock* obj_block3 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block3->BlockHit(&m_ex, &m_ey,
 		&e3_hit_up, &e3_hit_down, &e3_hit_left, &e3_hit_right,
-		&m_vx, &m_vy, &e3_xsize, &e3_ysize);
+		&m_vx, &m_vy);
 
 	//ジャンプ
 	if (obj_block3 != nullptr)
@@ -100,10 +102,11 @@ void CObjEnemy3::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e_damege = obj_all->GetZ_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
@@ -112,9 +115,21 @@ void CObjEnemy3::Action()
 	//弾に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
+		e_hp -= 1;
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+		e_hp -= 1;
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e_damege = obj_all->GetZ_ATK();
 	}
 
 	//剣に当たれば消滅
@@ -123,10 +138,20 @@ void CObjEnemy3::Action()
 		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
 		e_hp -= obj_sword->GetAttackPower();
 	}
-	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
+
+	//hpが0になると消滅
+	if (e_hp <= 0)
 	{
-		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
-		e_hp -= obj_bullet->GetAttackPower();
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
+	//hpが0になると消滅
+	if (e_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+
+		//Amount++;
 	}
 
 }

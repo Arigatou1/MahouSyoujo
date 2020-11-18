@@ -4,7 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjSmallSlim.h"
-#include "GameL/UserData.h"
+
 
 //使用するネームベース
 using namespace GameL;
@@ -41,6 +41,7 @@ void CObjSmallSlim::Init()
 	e_damege = 0;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 32, 32, ELEMENT_ENEMY, OBJ_SMALLSLIM, 10);
+
 }
 
 //アクション
@@ -54,7 +55,7 @@ void CObjSmallSlim::Action()
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy, &e1_xsize, &e1_ysize);
+		&m_vx, &m_vy);
 
 	//重力
 	m_vy += 9.8 / (16.0f);

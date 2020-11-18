@@ -115,9 +115,10 @@ void CSceneMain::InitScene()
 	CObjPauseMenu* obj_pause = new CObjPauseMenu();
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
-	//BOSS1オブジェクト作成
-	CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
-	Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
+	
+	//EnemyAppear
+	EnemyAppear* obj_appear = new EnemyAppear();
+	Objs::InsertObj(obj_appear, OBJ_APPEAR, 0);
 
 	//タイム初期化
 	m_time = 0;
@@ -128,7 +129,6 @@ void CSceneMain::InitScene()
 //実行中メソッド
 void CSceneMain::Scene()
 {
-	m_time++;
 
 	//ポーズメニュー
 	if (Input::GetVKey(VK_ESCAPE) == true)
@@ -143,6 +143,11 @@ void CSceneMain::Scene()
 	else
 		m_key_flag = true;
 
+	if (m_time == 30)
+	{
+		CObjEnemy* obj = new CObjEnemy(800, 400);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+	}
 
 	/*if (m_time == 30)
 	{
@@ -168,6 +173,7 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 160)
 	{
+
 		CObjEnemy* obj = new CObjEnemy(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
@@ -253,8 +259,8 @@ void CSceneMain::Scene()
 		EnemyAmount++;
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 400);
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
-	}*/
+	}
 
-	
+	*/
 }
 
