@@ -20,34 +20,34 @@ void CObjGameClear::Init()
 //アクション
 void CObjGameClear::Action()
 {
-	//エンターキーを押してシーン:ゲームMenuに移行する
-	if (Input::GetVKey(VK_RETURN) == true)
-	{
-		if (m_key_flag == true)
-		{
-			Scene::SetScene(new CSceneMenu());
-			m_key_flag = false;
-		}
-	}
-
-	else
-	{
-		m_key_flag = true;
-	}
+	
 
 	//スコアを計算
 	((UserData*)Save::GetData())->Score =
 		(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 
 	//すこあを保存
-	if (((UserData*)Save::GetData())->Score >
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
-	{
+//	if (((UserData*)Save::GetData())->Score >
+//		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
+//	{
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
 			= ((UserData*)Save::GetData())->Score;
-	}
+//	}
 
-	Save::Seve();
+	//エンターキーを押してシーン:ゲームMenuに移行する
+		if (Input::GetVKey(VK_RETURN) == true)
+		{
+			if (m_key_flag == true)
+			{
+				Scene::SetScene(new CSceneMenu());
+				m_key_flag = false;
+			}
+		}
+
+		else
+		{
+			m_key_flag = true;
+		}
 }
 
 //ドロー

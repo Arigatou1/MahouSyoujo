@@ -44,7 +44,6 @@ void CObjTitle::Init()
 		//‰e‹¿‚ğó‚¯‚È‚¢B
 		((UserData*)Save::GetData())->PauseMenu = false;
 		((UserData*)Save::GetData())->Score = 0;
-		((UserData*)Save::GetData())->Clear_Flag[0] = true;
 		
 		init_stage = true;
 
@@ -75,8 +74,11 @@ void CObjTitle::Action()
 		if (m_key_flag == true)
 		{
 			for (int i = 0; i < 20; i++)
+			{
 				((UserData*)Save::GetData())->ScoreData[i] = 0;
+				((UserData*)Save::GetData())->Clear_Flag[i] = false;
 
+			}
 			Save::Seve();
 
 			m_key_flag = false;
@@ -99,6 +101,10 @@ void CObjTitle::Action()
 	{
 		m_key_flag = true;
 	}
+
+	//0‚Íâ‘Î‚Étrue‚É‚·‚é
+	((UserData*)Save::GetData())->Clear_Flag[0] = true;
+
 }
 
 //ƒhƒ[
