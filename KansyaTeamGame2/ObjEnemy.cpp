@@ -57,14 +57,26 @@ void CObjEnemy::Action()
 		if (e1_hit_down == true)
 		{
 
-			if (m_mx + 64.0f <= m_ex)
+			if (m_mx + 65.0f <= m_ex)
 				m_vx = -1.5f;
-			else if (m_mx - 64.0f >= m_ex)
+			else if (m_mx - 65.0f >= m_ex)
 				m_vx = 1.5f;
 			else
 				m_vx = 0;
 		}
-
+		/*
+		//マナの手前に停止して攻撃する間隔
+		//120ごとに攻撃する(マナより右側)
+		if (e1_time % 120 == 0 && m_mx + 65.0f == m_ex)
+		{
+			m_ex = m_ex - 10.0f;
+		}
+		//120ごとに攻撃する（マナより左側）
+		else if (e1_time % 120 == 0 && m_mx - 65.0f == m_ex)
+		{
+			m_ex = m_ex + 10.0f;
+		}
+		*/
 		
 		//ジョンプ
 		if (e1_hit_right == true)
@@ -109,27 +121,6 @@ void CObjEnemy::Action()
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy);
-
-	//マナに当たるとカウントが0になる
-	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
-	{
-		if (e1_t == true)
-		{
-			e1_t = false;
-		}
-
-		if (e1_time % 96 == 32)
-		{
-			;
-		}
-		else if (e1_time % 96 == 0)
-		{
-			;
-		}
-	}
-
-
-	
 
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)

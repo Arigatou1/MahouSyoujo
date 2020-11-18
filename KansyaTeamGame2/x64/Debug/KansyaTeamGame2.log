@@ -1,1 +1,5 @@
-﻿  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjEnemy.cpp
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(117,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(163,38): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\User\Desktop\新しいフォルダー\KansyaTeamGame2\ObjEnemy.cpp(168,39): warning C4244: '-=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\User\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
