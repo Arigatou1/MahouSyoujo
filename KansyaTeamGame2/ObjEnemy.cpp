@@ -25,6 +25,7 @@ void CObjEnemy::Init()
 	e1_damege = 0;
 	e1_atk = 0.04;
 	e1_time = 0;
+	e_hp=5;
 
 	//ç≈ëÂHP
 	e_hp = 15;
@@ -49,7 +50,6 @@ void CObjEnemy::Init()
 //ÉAÉNÉVÉáÉì
 void CObjEnemy::Action()
 {
-
 	e1_time++;
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
