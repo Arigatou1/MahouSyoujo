@@ -5,6 +5,7 @@
 #include "GameL/SceneObjManager.h"
 #include "EnemyAppear.h"
 #include "GameL\UserData.h"
+#include "GameL\DrawFont.h"
 
 
 //使用するネームベース
@@ -151,6 +152,41 @@ void EnemyAppear::Action()
 
 		}
 
+		else if (m_time == 1600)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 190);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+		else if (m_time == 1650)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+		else if (m_time == 1700)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 190);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+		else if (m_time == 1750)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+		else if (m_time == 2100)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
 
 		break;
 	}
@@ -161,7 +197,12 @@ void EnemyAppear::Action()
 //ドロー
 void EnemyAppear::Draw()
 {
+	float c[4] = { 0.0f,0.0f,0.0f,1.0f };
+	wchar_t str[128];
 	
+	swprintf_s(str, L"タイム:%d", m_time);//整数を文字列か
+
+	Font::StrDraw(str, 2, 120, 24, c);
 }
 
 //int EnemyAppear::GetNUM()

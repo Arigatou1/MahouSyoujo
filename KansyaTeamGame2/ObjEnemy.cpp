@@ -25,7 +25,7 @@ void CObjEnemy::Init()
 {
 	
 	e1_damege = 0;
-	e1_atk = 0.04;
+	e1_atk = 0.3;
 	e1_time = 0;
 	e_hp=5;
 
@@ -56,6 +56,7 @@ void CObjEnemy::Action()
 {
 	e1_time++;
 
+	//マナの位置で停止
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
 	{
@@ -140,10 +141,15 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 3;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 
+		if (e_hp <= 0) 
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+		}
 		e_hp <= 0;
 
 		//モンスターが倒された時の効果音
@@ -158,7 +164,7 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 10;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 	}
@@ -205,8 +211,8 @@ void CObjEnemy::Draw()
 	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top    = m_ey+14;
-	dst.m_left	 = m_ex;
-	dst.m_right  = m_ex + 50.0f;
+	dst.m_left	 = m_ex+50.0f;
+	dst.m_right  = m_ex + 0.0f;
 	dst.m_bottom = m_ey + 64.0f;
 
 	//描画
