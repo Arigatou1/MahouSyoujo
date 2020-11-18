@@ -37,7 +37,7 @@ enum OBJ_NAME
 	OBJ_SETTING,
 	OBJ_BOSS1,
 	OBJ_SLIMEBALL,
-	OBJ_BOSS_ENEMY,
+	OBJ_APPEAR,
 };
 //------------------------------------------------
 
@@ -71,15 +71,16 @@ struct UserData
 
 
 	//主人公の武器。剣 0 銃 1
-	int 武器;
+	int weapon;
 	//ステージのスコアデータ
 	int ScoreData[20];
-
+	bool Clear_Flag[20];
+	//ポーズメニュー用変数
 	bool PauseMenu;
 	
 	//難易度
 	int Diffculty;
-
+	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
 };
@@ -128,6 +129,8 @@ struct UserData
 #include "ObjBoss1.h"
 #include "ObjSlimeBall.h"
 #include "ObjSword.h"
+#include "EnemyAppear.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

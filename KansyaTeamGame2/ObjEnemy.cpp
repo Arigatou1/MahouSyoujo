@@ -3,7 +3,7 @@
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
 #include "ObjEnemy.h"
-#include "GameL/UserData.h"
+#include "GameL\UserData.h"
 
 #include "GameL\UserData.h"
 
@@ -28,7 +28,7 @@ void CObjEnemy::Init()
 	e_hp=5;
 
 	//最大HP
-	e_hp = 5;
+	e_hp = 15;
 	
 
 	//blockとの衝突状態確認用
@@ -37,13 +37,14 @@ void CObjEnemy::Init()
 	e1_hit_left = false;
 	e1_hit_right = false;
 
-	e1_xsize = 50.0f;
-	e1_ysize = 50.0f;
+	e1_xsize = 64.0f;
+	e1_ysize = 64.0f;
 
 	e1_t = true;
 
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY, 10);
+
 }
 
 //アクション
@@ -59,23 +60,25 @@ void CObjEnemy::Action()
 		{
 
 			if (m_mx + 64.0f <= m_ex)
-				m_vx = -1.0f;
+				m_vx = -1.5f;
 			else if (m_mx - 64.0f >= m_ex)
-				m_vx = 1.0f;
+				m_vx = 1.5f;
 			else
 				m_vx = 0;
 		}
 
-		/*if (e1_hit_right == true)
-	{
-		m_ex = m_ex - 25.0f;
-		m_ey = m_ey - 80.0f;
-	}
-	else if (e1_hit_left == true)
-	{
-		m_ex = m_ex + 25.0f;
-		m_ey = m_ey - 80.0f;
-	}*/
+		
+		//ジョンプ
+		if (e1_hit_right == true)
+		{
+			m_ex = m_ex - 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
+		else if (e1_hit_left == true)
+		{
+			m_ex = m_ex + 5.0f;
+			m_ey = m_ey - 60.0f;
+		}
 	}
 
 	//バリアの情報
@@ -101,13 +104,13 @@ void CObjEnemy::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey);
+	hit->SetPos(m_ex, m_ey+14);
 
 
 	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block1->BlockHit(&m_ex, &m_ey,
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy, &e1_xsize,&e1_ysize);
+		&m_vx, &m_vy);
 
 	//マナに当たるとカウントが0になる
 	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
@@ -150,7 +153,7 @@ void CObjEnemy::Action()
 		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
-
+		
 	}
 
 	
@@ -191,10 +194,10 @@ void CObjEnemy::Draw()
 	src.m_right  = 64.0f;
 	src.m_bottom = 384.0f;
 	//表示位置の設定
-	dst.m_top    = m_ey;
+	dst.m_top    = m_ey+14;
 	dst.m_left	 = m_ex;
 	dst.m_right  = m_ex + 50.0f;
-	dst.m_bottom = m_ey + 50.0f;
+	dst.m_bottom = m_ey + 64.0f;
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);

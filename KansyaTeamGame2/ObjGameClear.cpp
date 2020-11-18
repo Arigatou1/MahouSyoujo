@@ -13,36 +13,41 @@ using namespace GameL;
 //イニシャライズ
 void CObjGameClear::Init()
 {
-	
+	StageID = ((UserData*)Save::GetData())->Stage;
+	((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
 }
 
 //アクション
 void CObjGameClear::Action()
 {
-	//エンターキーを押してシーン:ゲームMenuに移行する
-	if (Input::GetVKey(VK_RETURN) == true)
-	{
-		if (m_key_flag == true)
-		{
-			Scene::SetScene(new CSceneMenu());
-			m_key_flag = false;
-		}
-	}
+	
 
-	else
-	{
-		m_key_flag = true;
-	}
-
+	//スコアを計算
 	((UserData*)Save::GetData())->Score =
-		(((UserData*)Save::GetData())->HeroHP*40 + ((UserData*)Save::GetData())->ManaHP*60);
+		(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 
-	if (((UserData*)Save::GetData())->Score >
-		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
-	{
+	//すこあを保存
+//	if (((UserData*)Save::GetData())->Score >
+//		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
+//	{
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
 			= ((UserData*)Save::GetData())->Score;
-	}
+//	}
+
+	//エンターキーを押してシーン:ゲームMenuに移行する
+		if (Input::GetVKey(VK_RETURN) == true)
+		{
+			if (m_key_flag == true)
+			{
+				Scene::SetScene(new CSceneMenu());
+				m_key_flag = false;
+			}
+		}
+
+		else
+		{
+			m_key_flag = true;
+		}
 }
 
 //ドロー
