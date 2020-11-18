@@ -36,6 +36,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(0, L"swordSE.wav", EFFECT);
 	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
 	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
+	Audio::LoadAudio(3, L"menuSE.wav", EFFECT);
 	
 	//外部データの読み込み
 
@@ -138,6 +139,8 @@ void CSceneMain::Scene()
 	//ポーズメニュー
 	if (Input::GetVKey(VK_ESCAPE) == true)
 	{
+		//ポーズメニューSE
+		Audio::Start(3);
 		if (m_key_flag == true)
 		{
 			((UserData*)Save::GetData())->PauseMenu = true;
