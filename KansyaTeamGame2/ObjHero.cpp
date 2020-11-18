@@ -53,7 +53,7 @@ void CObjHero::Init()
 	//Ç†ÇΩÇËîªíËópHitboxÇçÏê¨
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	ïêäÌ = ((UserData*)Save::GetData())->ïêäÌ;
+	Weapon = ((UserData*)Save::GetData())->weapon;
 	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 	AllDamage = 0;
 }
@@ -142,7 +142,7 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (ïêäÌ == 1)
+			if (Weapon == 1)
 			{
 				m_f = false;
 				atk_anime = 2;

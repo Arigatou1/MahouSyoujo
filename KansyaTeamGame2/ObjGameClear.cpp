@@ -14,7 +14,7 @@ using namespace GameL;
 void CObjGameClear::Init()
 {
 	StageID = ((UserData*)Save::GetData())->Stage;
-	((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
+	//((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
 }
 
 //アクション
@@ -35,15 +35,19 @@ void CObjGameClear::Action()
 		m_key_flag = true;
 	}
 
+	//スコアを計算
 	((UserData*)Save::GetData())->Score =
 		(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 
+	//すこあを保存
 	if (((UserData*)Save::GetData())->Score >
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage])
 	{
 		((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]
 			= ((UserData*)Save::GetData())->Score;
 	}
+
+	
 }
 
 //ドロー

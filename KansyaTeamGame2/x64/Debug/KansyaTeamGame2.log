@@ -1,4 +1,4 @@
-﻿  ObjEnemy4.cpp
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy4.cpp(60,8): warning C4552: '<=': 式の結果が使用されていません
-C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjEnemy4.cpp(73,8): warning C4552: '<=': 式の結果が使用されていません
+﻿  ObjStageSelect.cpp
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(38,64): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\rimin\source\repos\MahouSyoujo\KansyaTeamGame2\ObjStageSelect.cpp(163,37): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
   KansyaTeamGame2.vcxproj -> C:\Users\rimin\source\repos\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe

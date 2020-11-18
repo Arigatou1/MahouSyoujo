@@ -72,9 +72,9 @@ void CObjCustomize::Action()
 			switch (nowSelect)
 			{
 			case 0:
-				if (((UserData*)Save::GetData())->•Ší==1)
+				if (((UserData*)Save::GetData())->weapon==1)
 				{
-					((UserData*)Save::GetData())->•Ší = 0;
+					((UserData*)Save::GetData())->weapon = 0;
 				}
 				break;
 
@@ -98,9 +98,9 @@ void CObjCustomize::Action()
 			switch (nowSelect)
 			{
 			case 0:
-				if (((UserData*)Save::GetData())->•Ší == 0)
+				if (((UserData*)Save::GetData())->weapon == 0)
 				{
-					((UserData*)Save::GetData())->•Ší = 1;
+					((UserData*)Save::GetData())->weapon = 1;
 				}
 				break;
 
@@ -143,7 +143,7 @@ void CObjCustomize::Draw()
 
 	wchar_t str1[128];
 
-	swprintf_s(str1, L"ŽålŒö‚Ì•Ší:%d", ((UserData*)Save::GetData())->•Ší);
+	swprintf_s(str1, L"ŽålŒö‚Ì•Ší:%d", ((UserData*)Save::GetData())->weapon);
 	Font::StrDraw(str1, 32, 64, 64, c);
 
 

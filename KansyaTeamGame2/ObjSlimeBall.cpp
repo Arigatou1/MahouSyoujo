@@ -4,7 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjSlimeBall.h"
-#include "GameL/UserData.h"
+#include "GameL\UserData.h"
 #include "UtilityModule.h"
 
 //使用するネームベース

@@ -71,10 +71,10 @@ struct UserData
 
 
 	//主人公の武器。剣 0 銃 1
-	int 武器;
+	int weapon;
 	//ステージのスコアデータ
 	int ScoreData[20];
-	bool Clear_Flag[20];
+//	bool Clear_Flag[20];
 
 	bool PauseMenu;
 	

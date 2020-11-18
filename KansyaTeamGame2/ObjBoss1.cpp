@@ -4,7 +4,7 @@
 #include "GameL\HitBoxManager.h"
 
 #include "ObjBoss1.h"
-#include "GameL/UserData.h"
+#include "GameL\UserData.h"
 
 //使用するネームベース
 using namespace GameL;
