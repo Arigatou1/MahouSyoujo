@@ -123,7 +123,7 @@ void CSceneMain::InitScene()
 	
 	//EnemyAppear
 	EnemyAppear* obj_appear = new EnemyAppear();
-	Objs::InsertObj(obj_appear, OBJ_APPEAR, 0);
+	Objs::InsertObj(obj_appear, OBJ_APPEAR, 101);
 
 	//ƒ^ƒCƒ€‰Šú‰»
 	m_time = 0;

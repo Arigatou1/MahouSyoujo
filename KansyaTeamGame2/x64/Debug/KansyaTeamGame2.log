@@ -1,5 +1,2 @@
-﻿  ObjGaugeBaseMana.cpp
-  ObjGaugeMana.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjGaugeMana.cpp(46,31): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  コードを生成中...
+﻿  EnemyAppear.cpp
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
