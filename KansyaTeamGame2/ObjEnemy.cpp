@@ -6,6 +6,8 @@
 #include "GameL\UserData.h"
 
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
+
 
 //使用するネームベース
 using namespace GameL;
@@ -141,6 +143,10 @@ void CObjEnemy::Action()
 		e1_damege = obj_homing->GetM_ATK();
 
 		e_hp <= 0;
+
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -171,6 +177,9 @@ void CObjEnemy::Action()
 	//hpが0になると消滅
 	if(	e_hp <= 0)
 	{
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		

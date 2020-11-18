@@ -15,6 +15,7 @@ using namespace GameL;
 #include "SceneMain.h"
 #include "GameHead.h"
 #include "GameL\WinInputs.h"
+#include "GameL/Audio.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -31,6 +32,10 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//音楽読み込み
+	Audio::LoadAudio(0, L"swordSE.wav", EFFECT);
+	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
+	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
 	
 	//外部データの読み込み
 

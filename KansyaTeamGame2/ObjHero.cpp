@@ -8,6 +8,7 @@
 #include "ObjHero.h"
 #include "ObjSword.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 
 //使用するネームスペース
@@ -61,7 +62,6 @@ void CObjHero::Init()
 //アクション
 void CObjHero::Action()
 {
-	
 	
 	CObjMagicalGirl* obj_magicalgirl = (CObjMagicalGirl*)Objs::GetObj(OBJ_MAGICALGIRL);
 	if (obj_magicalgirl != nullptr)
@@ -142,10 +142,12 @@ void CObjHero::Action()
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
+		
 			if (Weapon == 1)
 			{
 				m_f = false;
 				atk_anime = 2;
+
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -155,6 +157,10 @@ void CObjHero::Action()
 			{
 				m_f = false;
 				atk_anime = 1;
+
+
+				//剣を振る音
+				Audio::Start(0);
 
 				CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
 				Objs::InsertObj(obj_b, OBJ_SWORD, 1);

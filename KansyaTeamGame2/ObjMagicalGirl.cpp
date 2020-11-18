@@ -6,6 +6,7 @@
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -93,6 +94,9 @@ void CObjMagicalGirl::Action()
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
 			m_atk_animation = 3;//杖持った姿になる
+
+				//魔法攻撃SE
+			Audio::Start(1);
 
 			if (m_postrue == 0.0f)
 			{
