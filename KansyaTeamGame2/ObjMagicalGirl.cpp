@@ -6,6 +6,7 @@
 
 #include "GameHead.h"
 #include "ObjMagicalGirl.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -88,11 +89,14 @@ void CObjMagicalGirl::Action()
 	}
 
 	//魔法少女の通常攻撃
-	if (m_mp >= 1)
+	if (m_mp >= 5)
 	{
 		if (Input::GetVKey('D') == true && m_t == true)
 		{
 			m_atk_animation = 3;//杖持った姿になる
+
+				//魔法攻撃SE
+			Audio::Start(1);
 
 			if (m_postrue == 0.0f)
 			{
@@ -101,7 +105,7 @@ void CObjMagicalGirl::Action()
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx - 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 1;
+				m_mp -= 5;
 
 				if (m_mp < 0)
 				{
@@ -115,9 +119,9 @@ void CObjMagicalGirl::Action()
 				CObjHomingBullet* obj_homingbullet = new CObjHomingBullet(m_gx + 25.0f, m_gy, m_postrue);//ホーミング弾作成
 				Objs::InsertObj(obj_homingbullet, OBJ_HOMINGBULLET, 60);//オブジェクトマネーに登録
 
-				m_mp -= 1;
+				m_mp -= 5;
 
-				if (m_mp < 0)
+				if (m_mp < 5)
 				{
 					m_mp = 0;
 				}

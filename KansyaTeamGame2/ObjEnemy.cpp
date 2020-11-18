@@ -6,6 +6,8 @@
 #include "GameL\UserData.h"
 
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
+
 
 //使用するネームベース
 using namespace GameL;
@@ -25,6 +27,7 @@ void CObjEnemy::Init()
 	e1_damege = 0;
 	e1_atk = 0.04;
 	e1_time = 0;
+	e_hp=5;
 
 	//最大HP
 	e_hp = 15;
@@ -51,7 +54,6 @@ void CObjEnemy::Init()
 //アクション
 void CObjEnemy::Action()
 {
-
 	e1_time++;
 
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
@@ -143,6 +145,10 @@ void CObjEnemy::Action()
 		e1_damege = obj_homing->GetM_ATK();
 
 		e_hp <= 0;
+
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
@@ -172,6 +178,9 @@ void CObjEnemy::Action()
 	//hpが0になると消滅
 	if(	e_hp <= 0)
 	{
+		//モンスターが倒された時の効果音
+		Audio::Start(2);
+
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		
