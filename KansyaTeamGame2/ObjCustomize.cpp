@@ -36,7 +36,7 @@ void CObjCustomize::Action()
 	{
 		if (m_key_flag == true)
 		{
-			Save::Seve();
+			
 
 			this->SetStatus(false);
 			//メニューオブジェクト作成
@@ -72,9 +72,9 @@ void CObjCustomize::Action()
 			switch (nowSelect)
 			{
 			case 0:
-				if (((UserData*)Save::GetData())->武器==1)
+				if (((UserData*)Save::GetData())->weapon==1)
 				{
-					((UserData*)Save::GetData())->武器 = 0;
+					((UserData*)Save::GetData())->weapon = 0;
 				}
 				break;
 
@@ -98,9 +98,9 @@ void CObjCustomize::Action()
 			switch (nowSelect)
 			{
 			case 0:
-				if (((UserData*)Save::GetData())->武器 == 0)
+				if (((UserData*)Save::GetData())->weapon == 0)
 				{
-					((UserData*)Save::GetData())->武器 = 1;
+					((UserData*)Save::GetData())->weapon = 1;
 				}
 				break;
 
@@ -143,7 +143,7 @@ void CObjCustomize::Draw()
 
 	wchar_t str1[128];
 
-	swprintf_s(str1, L"主人公の武器:%d", ((UserData*)Save::GetData())->武器);
+	swprintf_s(str1, L"主人公の武器:%d", ((UserData*)Save::GetData())->weapon);
 	Font::StrDraw(str1, 32, 64, 64, c);
 
 

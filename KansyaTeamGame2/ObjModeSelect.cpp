@@ -7,6 +7,7 @@
 #include "ObjModeSelect.h"
 #include "GameL\WinInputs.h"
 #include "UtilityModule.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -20,6 +21,8 @@ void CObjModeSelect::Init()
 	nowSelect = 0;
 	cursor_sx = 320;
 	cursor_sy = 256;
+
+	Save::Seve();
 }
 
 //アクション

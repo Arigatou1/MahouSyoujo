@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjEnemy2.h"
 
+
 //使用するネームベース
 using namespace GameL;
 
@@ -42,7 +43,8 @@ void CObjEnemy2::Init()
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
 	//Amount = 0;
 
-	e_hp = 8.0f;
+	e_hp = 25.0f;
+
 }
 
 //アクション
@@ -101,7 +103,7 @@ void CObjEnemy2::Action()
 		CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 		obj_block1->BlockHit(&m_ex, &m_ey,
 			&e2_hit_up, &e2_hit_down, &e2_hit_left, &e2_hit_right,
-			&m_vx, &m_vy, &e2_xsize, &e2_ysize);
+			&m_vx, &m_vy);
 
 		//マナに当たるとカウントが0になる
 		if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
@@ -127,13 +129,7 @@ void CObjEnemy2::Action()
 			//Amount++;
 		}
 
-		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
-		{
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-			//Amount++;
-		}
-
+		
 		if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 		{
 			CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
@@ -146,6 +142,14 @@ void CObjEnemy2::Action()
 		}
 
 
+		//hpが0になると消滅
+		if (e_hp <= 0)
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+
+			//Amount++;
+		}
 
 		
 

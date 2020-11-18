@@ -68,7 +68,7 @@ private:
 	float h_xsize;
 	float h_ysize;
 
-	int 武器;//主人公の武器
+	int Weapon;//主人公の武器
 	float damage;//主人公が受けるダメージ
 	float AllDamage;//主人公が受けたダメージ
 };
