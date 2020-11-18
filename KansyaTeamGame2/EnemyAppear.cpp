@@ -16,7 +16,7 @@ using namespace GameL;
 void EnemyAppear::Init()
 {
 	m_time = 0;
-	
+	//e_num = 0;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -40,6 +40,8 @@ void EnemyAppear::Action()
 			CObjEnemy* obj = new CObjEnemy(799, 480);
 			Objs::InsertObj(obj, OBJ_ENEMY, 49);
 
+			//e_num++;
+
 		}
 
 		else if (m_time == 200)
@@ -47,7 +49,7 @@ void EnemyAppear::Action()
 
 			CObjEnemy* obj = new CObjEnemy(799, 480);
 			Objs::InsertObj(obj, OBJ_ENEMY, 49);
-
+			//e_num++;
 		}
 		else if (m_time == 350)
 		{
@@ -203,3 +205,7 @@ void EnemyAppear::Draw()
 	Font::StrDraw(str, 2, 120, 24, c);
 }
 
+//int EnemyAppear::GetNUM()
+//{
+//	return e_num;
+//}
