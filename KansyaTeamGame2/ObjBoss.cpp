@@ -5,6 +5,7 @@
 
 #include "ObjEnemy.h"
 #include "GameL/UserData.h"
+#include"ObjBoss.h"
 
 //使用するネームベース
 using namespace GameL;
