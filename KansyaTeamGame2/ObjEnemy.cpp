@@ -25,24 +25,17 @@ void CObjEnemy::Init()
 {
 	
 	e1_damege = 0;
-	e1_atk = 0.3;
 	e1_time = 0;
-	e_hp=5;
 
 	//最大HP
 	e_hp = 15;
 	
-	//敵1の個体名
-	e1_num = 0;
 
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
-
-	e1_xsize = 64.0f;
-	e1_ysize = 64.0f;
 
 	e1_t = true;
 
@@ -125,18 +118,18 @@ void CObjEnemy::Action()
 			e1_t = false;
 		}
 
-
+		if (e1_time % 96 == 32)
+		{
+			;
+		}
+		else if (e1_time % 96 == 0)
+		{
+			;
+		}
 	}
 
 
-	if (e1_time % 96 == 32)
-	{
-		e1_atk = 0.00;
-	}
-	else if (e1_time % 96 == 0)
-	{
-		e1_atk = 0.04;
-	}
+	
 
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
@@ -223,58 +216,3 @@ void CObjEnemy::Draw()
 //{
 //	return Amount;
 //}
-float CObjEnemy::GetE1_ATK()
-{
-	return e1_atk;
-}
-
-
-/*
-void CObjEnemy::CObjEnemy_NUM()
-{
-	e1_time++;
-
-	//HitBOxの内容を変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey + 14);
-
-
-	CObjBlock* obj_block1 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-	obj_block1->BlockHit(&m_ex, &m_ey,
-		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
-		&m_vx, &m_vy);
-
-	//マナに当たるとカウントが0になる
-	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
-	{
-		if (e1_t == true)
-		{
-			e1_t = false;
-		}
-	}
-
-
-	if (e1_time % 96 == 32)
-	{
-		e1_atk = 0.00;
-	}
-	else if (e1_time % 96 == 0)
-	{
-		e1_atk = 0.04;
-	}
-
-
-	
-	//hpが0になると消滅
-	if (e_hp <= 0)
-	{
-		//モンスターが倒された時の効果音
-		Audio::Start(2);
-
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-
-		//Amount++;
-	}
-}
-*/

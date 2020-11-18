@@ -48,8 +48,6 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 
-	h_xsize = 64;
-	h_ysize = 64;
 
 	//‚ ‚½‚è”»’è—pHitbox‚ğì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);

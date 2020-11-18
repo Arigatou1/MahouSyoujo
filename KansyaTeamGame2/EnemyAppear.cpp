@@ -155,7 +155,7 @@ void EnemyAppear::Action()
 		else if (m_time == 1600)
 		{
 
-		CObjEnemy* obj = new CObjEnemy(799, 190);
+		CObjEnemy2* obj = new CObjEnemy2(799, 190);
 		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 
 		}

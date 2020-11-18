@@ -40,9 +40,6 @@ void CObjEnemy2::Init()
 	e2_hit_left = false;
 	e2_hit_right = false;
 
-	e2_xsize =50.0f;
-	e2_ysize = 50.0f;
-
 	e2_t = true;
 	//“–‚½‚è”»’è—p‚ÌHITBOX‚ğì¬
 	Hits::SetHitBox(this, m_ex, m_ey, 50, 50, ELEMENT_ENEMY, OBJ_ENEMY2, 10);
@@ -152,11 +149,11 @@ void CObjEnemy2::Action()
 
 	if (e2_time % 96 == 32)
 	{
-		e2_atk = 0.00;
+		;
 	}
 	else if (e2_time % 96 == 0)
 	{
-		e2_atk = 0.04;
+		;
 	}
 
 	//–‚–@­—‚Ì’e‚É“–‚½‚ê‚ÎÁ–Å
