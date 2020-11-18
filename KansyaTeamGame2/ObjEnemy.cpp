@@ -149,15 +149,10 @@ void CObjEnemy::Action()
 		{
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
+			
+			//モンスターが倒された時の効果音
+			Audio::Start(2);
 		}
-		e_hp <= 0;
-
-		//モンスターが倒された時の効果音
-		Audio::Start(2);
-
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		
 		
 		//Amount++;
 	}

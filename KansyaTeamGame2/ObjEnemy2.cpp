@@ -22,7 +22,7 @@ void CObjEnemy2::Init()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 
-	e2_hp = 25;
+	e2_hp = 18;
 	e2_atk = 0.5;
 	e2_damege = 0;
 	e2_time = 0;
