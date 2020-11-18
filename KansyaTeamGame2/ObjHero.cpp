@@ -314,8 +314,9 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
+
 		//クリアシーンにスコアを与える
-		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
+		((UserData*)Save::GetData())->HeroHP = AllDamage;
 		
 	
 }

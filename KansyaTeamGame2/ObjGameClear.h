@@ -14,7 +14,7 @@ public:
 	void Action();
 	void Draw();
 private:
-	int Score;
+	float Score;
 	bool m_key_flag;//キーフラグ
 	int StageID;
 };
