@@ -1,15 +1,3 @@
-﻿  EnemyAppear.cpp
-  ObjHero.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(56,51): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(85,24): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(95,15): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(103,15): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(116,16): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(153,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(166,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(345,39): warning C4838: 'int' から 'float' への変換には縮小変換が必要です
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(345,39): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(367,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjHero.cpp(372,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe
+﻿  ObjAllBullet.cpp
+C:\Users\GA1B\Desktop\新しいフォルダー\KansyaTeamGame2\ObjAllBullet.cpp(92,9): warning C4244: 'return': 'float' から 'int' への変換です。データが失われる可能性があります。
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\Desktop\新しいフォルダー\x64\Debug\KansyaTeamGame2.exe
