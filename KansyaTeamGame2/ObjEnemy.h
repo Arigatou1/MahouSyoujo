@@ -22,6 +22,7 @@ private:
 	int e_hp;//敵のHP
 	int e1_damege;//ダメージ量
 	int e1_time;//敵の攻撃時間
+	int e1_anime;
 
 	float b_mx;//バリアのx位置
 
