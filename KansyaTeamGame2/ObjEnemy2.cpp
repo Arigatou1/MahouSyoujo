@@ -191,6 +191,11 @@ void CObjEnemy2::Action()
 	}
 
 
+	//hp‚ª0‚É‚È‚é‚ÆÁ–Å
+	if (e2_hp <= 0)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
 		//hp‚ª0‚É‚È‚é‚ÆÁ–Å
 		if (e_hp <= 0)
 		{
@@ -199,11 +204,6 @@ void CObjEnemy2::Action()
 
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
-	//hp‚ª0‚É‚È‚é‚ÆÁ–Å
-	if (e2_hp <= 0)
-	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
 
 		//Amount++;
 	}
