@@ -61,6 +61,7 @@ void CObjSetting::Action()
 		
 		if (m_key_flag == true)
 		{
+
 			cursor_y += 112;
 
 			m_key_flag = false;

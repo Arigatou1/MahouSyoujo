@@ -45,5 +45,5 @@ void CObjBackGround::Draw()
 
 
 	//•`‰æ
-	Draw::Draw(52, &src, &dst, c, 0.0f);
+	Draw::Draw(51, &src, &dst, c, 0.0f);
 }

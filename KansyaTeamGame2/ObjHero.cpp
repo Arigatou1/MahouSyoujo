@@ -38,7 +38,7 @@ void CObjHero::Init()
 	max_hp = 20.0f;
 	m_hp = max_hp;
 	//–³“GŽžŠÔ’²®—p
-	mtk_max = 100;
+	mtk_max = 130-((UserData*)Save::GetData())->Diffculty * 30;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	

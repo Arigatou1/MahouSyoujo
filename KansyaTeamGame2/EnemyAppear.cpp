@@ -373,8 +373,276 @@ void EnemyAppear::Action()
 
 		}
 
+		else if (m_time == 2200)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(1, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+	
+		}
+		else if (m_time == 2240)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 2280)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(1, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 2320)
+		{
+
+		CObjEnemy* obj = new CObjEnemy(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+		}
+		else if (m_time == 2360)
+		{
+
+		CObjEnemy2* obj = new CObjEnemy2(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		obj = new CObjEnemy2(1, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+
+		else if (m_time == 2400)
+		{
+
+		CObjEnemy2* obj = new CObjEnemy2(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		obj = new CObjEnemy2(1, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
+
+		else if (m_time == 2440)
+		{
+
+		CObjEnemy2* obj = new CObjEnemy2(799, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		obj = new CObjEnemy2(1, 480);
+		Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+		}
 		break;
 	}
+
+		case 3:
+		{
+			if (m_time == 100)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63,350);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 160)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 220)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+
+			else if (m_time == 340)
+			{
+
+				CObjEnemy3* obj = new CObjEnemy3(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+
+			}
+			else if (m_time == 400)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 460)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 520)
+			{
+
+				CObjEnemy2* obj = new CObjEnemy2(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+				obj = new CObjEnemy2(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+			}
+			else if (m_time == 560)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(799, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+
+			else if (m_time == 680)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 710)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 740)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 770)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 800)
+			{
+
+				CObjEnemy* obj = new CObjEnemy(-63, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+
+			else if (m_time == 860)
+			{
+
+				CObjEnemy2* obj = new CObjEnemy2(799, 170);
+				Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+			}
+			else if (m_time == 920)
+			{
+
+			CObjEnemy3* obj = new CObjEnemy3(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+
+			}
+
+			else if (m_time == 1040)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 1080)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(799, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+
+			else if (m_time == 1200)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+			}
+			else if (m_time == 1260)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+			CObjEnemy2* obj2 = new CObjEnemy2(-63, 350);
+			Objs::InsertObj(obj2, OBJ_ENEMY2, 49);
+
+			}
+			else if (m_time == 1380)
+			{
+
+			CObjEnemy3* obj = new CObjEnemy3(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+			
+
+			}
+			else if (m_time == 1440)
+			{
+
+			CObjEnemy3* obj = new CObjEnemy3(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+
+
+			}
+			else if (m_time == 1560)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+			obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+
+			}
+			else if (m_time == 1620)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+			obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+
+			}
+			else if (m_time == 1680)
+			{
+
+			CObjEnemy* obj = new CObjEnemy(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+			obj = new CObjEnemy(-63, 170);
+			Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+
+			}
+			else if (m_time == 1780)
+			{
+
+				CObjEnemy2* obj = new CObjEnemy2(799, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+				obj = new CObjEnemy2(-63, 350);
+				Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+			}
+
+			else if (m_time == 2000)
+			{
+
+			CObjEnemy3* obj = new CObjEnemy3(-63, 350);
+			Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+			}
+			break;
+		}
 	}
 }
 
