@@ -78,7 +78,7 @@ void CObjEnemy2::Action()
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_ex, m_ey+14);
+	hit->SetPos(m_ex, m_ey + 14);
 
 	//重力
 	m_vy += 9.8 / (16.0f);
@@ -88,7 +88,7 @@ void CObjEnemy2::Action()
 	if (obj != nullptr)
 	{
 		float m_mx = obj->GetX();
-		if (e2_hit_down==true) 
+		if (e2_hit_down == true)
 		{
 			if (m_mx + 64.0f <= m_ex)
 				m_vx = -1.5f;
@@ -98,7 +98,7 @@ void CObjEnemy2::Action()
 				m_vx = 0;
 		}
 	}
-		
+
 
 	//ジョンプ
 	if (e2_hit_right == true)
@@ -117,7 +117,7 @@ void CObjEnemy2::Action()
 	if (obj_barrier != nullptr)
 	{
 		b_mx = obj_barrier->GetBX();
-			
+
 		if (m_ex == b_mx - 48.0f || m_ex == b_mx + 160.0f)
 		{
 			m_vx = 0;
@@ -160,7 +160,7 @@ void CObjEnemy2::Action()
 	//魔法少女の弾に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		e2_hp -=3;
+		e2_hp -= 3;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e2_damege = obj_homing->GetM_ATK();
 
@@ -205,10 +205,12 @@ void CObjEnemy2::Action()
 			this->SetStatus(false);
 			Hits::DeleteHitBox(this);
 
-		//Amount++;
-	}
+			//Amount++;
+		}
 
+	}
 }
+
 
 //ドロー
 void CObjEnemy2::Draw()

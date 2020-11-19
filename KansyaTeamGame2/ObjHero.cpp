@@ -71,6 +71,8 @@ void CObjHero::Action()
 		//Spaceキーを押すとジャンプする処理
 		if (Input::GetVKey(' ') == true && m_hit_down == true && isJump == true)
 		{
+			//jump
+			Audio::Start(6);
 			m_vy = -15;
 			isJump = false;
 		}
@@ -205,13 +207,15 @@ void CObjHero::Action()
 
 		//無敵時間が無効になった時
 		if (m_mtk == false)
-		{
+		{ 
 			//HitBoxの内容を元に戻す
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(m_px + 4.0f, m_py + 4.0f);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//敵の攻撃力
 				AllDamage += 1.0f + damage;
@@ -219,6 +223,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.4f + damage;//敵の攻撃力
 				AllDamage += 1.4f + damage;
@@ -227,6 +233,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.0f+damage;//敵の攻撃力
 				AllDamage += 2.0f + damage;
@@ -234,6 +242,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.5f+damage;//敵の攻撃力
 				AllDamage += 2.5f + damage;
@@ -241,12 +251,16 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//敵の攻撃力
 			}
 
 			if (hit->CheckObjNameHit(OBJ_SLIMEBALL))
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 0.5f + damage;
 				AllDamage += 0.5f + damage;//敵の攻撃力
@@ -266,6 +280,7 @@ void CObjHero::Action()
 				m_mtk = false;
 				mtk_jkn = mtk_max;
 			}
+	
 		}
 
 		//魔法少女の回復魔法

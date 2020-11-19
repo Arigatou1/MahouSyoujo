@@ -82,6 +82,7 @@ void CObjStageSelect::Action()
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
 		
+		
 		if (m_key_flag == true)
 		{
 			if (PageID > 0)
@@ -92,6 +93,7 @@ void CObjStageSelect::Action()
 
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
+		
 	
 		if (m_key_flag == true)
 		{

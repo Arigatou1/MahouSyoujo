@@ -45,6 +45,8 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+		//‘I‘ð
+		Audio::Start(4);
 		
 		if (m_key_flag == true)
 		{
@@ -67,6 +69,7 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+		
 	
 		if (m_key_flag == true)
 		{
@@ -90,7 +93,7 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
-	
+
 		if (m_key_flag == true)
 		{
 

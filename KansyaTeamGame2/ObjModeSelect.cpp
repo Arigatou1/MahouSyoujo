@@ -78,6 +78,7 @@ void CObjModeSelect::Action()
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
 	
+	
 		if (m_key_flag == true)
 		{
 			//どこにいてもステージセレクトにカーソルを合わせる。
@@ -92,7 +93,6 @@ void CObjModeSelect::Action()
 		
 		if (m_key_flag == true)
 		{
-		
 			//どこにいてもエンドレスモードにカーソルを合わせる。
 			nowSelect=1;
 			cursor_x = 440;
@@ -115,6 +115,7 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+	
 		
 		if (cursor_y >= 450)
 		{
