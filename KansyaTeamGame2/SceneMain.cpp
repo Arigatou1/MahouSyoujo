@@ -37,6 +37,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
 	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
 	Audio::LoadAudio(3, L"menuSE.wav", EFFECT);
+	Audio::LoadAudio(5, L"bulletSE.wav", EFFECT);
 	
 	//外部データの読み込み
 

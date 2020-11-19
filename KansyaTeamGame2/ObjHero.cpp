@@ -147,7 +147,8 @@ void CObjHero::Action()
 			{
 				m_f = false;
 				atk_anime = 2;
-
+				//èeê∫
+				Audio::Start(5);
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
