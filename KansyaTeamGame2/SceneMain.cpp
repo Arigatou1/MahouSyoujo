@@ -41,8 +41,6 @@ void CSceneMain::InitScene()
 	
 	//外部データの読み込み
 
-	((UserData*)Save::GetData())->Score = 0;
-
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
 	int StageID =((UserData*)Save::GetData())->Stage+1;

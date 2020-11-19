@@ -48,8 +48,6 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 
-	h_xsize = 64;
-	h_ysize = 64;
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -315,8 +313,9 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
+
 		//クリアシーンにスコアを与える
-		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
+		((UserData*)Save::GetData())->HeroHP = AllDamage;
 		
 	
 }

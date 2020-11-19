@@ -25,24 +25,17 @@ void CObjEnemy::Init()
 {
 	
 	e1_damege = 0;
-	e1_atk = 0.04;
 	e1_time = 0;
-	e_hp=5;
 
 	//最大HP
 	e_hp = 15;
 	
-	//敵1の個体名
-	e1_num = 0;
 
 	//blockとの衝突状態確認用
 	e1_hit_up = false;
 	e1_hit_down = false;
 	e1_hit_left = false;
 	e1_hit_right = false;
-
-	e1_xsize = 64.0f;
-	e1_ysize = 64.0f;
 
 	e1_t = true;
 
@@ -56,6 +49,7 @@ void CObjEnemy::Action()
 {
 	e1_time++;
 
+	//マナの位置で停止
 	CObjMana* obj = (CObjMana*)Objs::GetObj(OBJ_MANA);
 	if (obj != nullptr)
 	{
@@ -63,14 +57,26 @@ void CObjEnemy::Action()
 		if (e1_hit_down == true)
 		{
 
-			if (m_mx + 64.0f <= m_ex)
+			if (m_mx + 65.0f <= m_ex)
 				m_vx = -1.5f;
-			else if (m_mx - 64.0f >= m_ex)
+			else if (m_mx - 65.0f >= m_ex)
 				m_vx = 1.5f;
 			else
 				m_vx = 0;
 		}
-
+		/*
+		//マナの手前に停止して攻撃する間隔
+		//120ごとに攻撃する(マナより右側)
+		if (e1_time % 120 == 0 && m_mx + 65.0f == m_ex)
+		{
+			m_ex = m_ex - 10.0f;
+		}
+		//120ごとに攻撃する（マナより左側）
+		else if (e1_time % 120 == 0 && m_mx - 65.0f == m_ex)
+		{
+			m_ex = m_ex + 10.0f;
+		}
+		*/
 		
 		//ジョンプ
 		if (e1_hit_right == true)
@@ -116,49 +122,28 @@ void CObjEnemy::Action()
 		&e1_hit_up, &e1_hit_down, &e1_hit_left, &e1_hit_right,
 		&m_vx, &m_vy);
 
-	//マナに当たるとカウントが0になる
-	if (hit->CheckObjNameHit(OBJ_MANA) != nullptr)
-	{
-		if (e1_t == true)
-		{
-			e1_t = false;
-		}
-
-
-	}
-
-
-	if (e1_time % 96 == 32)
-	{
-		e1_atk = 0.00;
-	}
-	else if (e1_time % 96 == 0)
-	{
-		e1_atk = 0.04;
-	}
-
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 3;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 
-		e_hp <= 0;
-
-		//モンスターが倒された時の効果音
-		Audio::Start(2);
-
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		
+		if (e_hp <= 0) 
+		{
+			this->SetStatus(false);
+			Hits::DeleteHitBox(this);
+			
+			//モンスターが倒された時の効果音
+			Audio::Start(2);
+		}
 		
 		//Amount++;
 	}
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 10;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e1_damege = obj_all->GetZ_ATK();
 	}
@@ -205,8 +190,8 @@ void CObjEnemy::Draw()
 	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top    = m_ey+14;
-	dst.m_left	 = m_ex;
-	dst.m_right  = m_ex + 50.0f;
+	dst.m_left	 = m_ex+50.0f;
+	dst.m_right  = m_ex + 0.0f;
 	dst.m_bottom = m_ey + 64.0f;
 
 	//描画
@@ -217,7 +202,3 @@ void CObjEnemy::Draw()
 //{
 //	return Amount;
 //}
-float CObjEnemy::GetE1_ATK()
-{
-	return e1_atk;
-}
