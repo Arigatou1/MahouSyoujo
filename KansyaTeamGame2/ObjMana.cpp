@@ -65,7 +65,7 @@ void CObjMana::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		Mana_HP -= 0.04 + mana_damege * 0.05;
+		Mana_HP -= 0.10 + mana_damege * 0.05;
 	}
 
 	//“G2‚É“–‚½‚é‚ÆHP‚ªŒ¸‚é

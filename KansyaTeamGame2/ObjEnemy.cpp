@@ -62,21 +62,38 @@ void CObjEnemy::Action()
 			else if (m_mx - 65.0f >= m_ex)
 				m_vx = 1.5f;
 			else
+			{
 				m_vx = 0;
+				e1_t = false;
+			}
 		}
-		/*
+		
+		
 		//マナの手前に停止して攻撃する間隔
-		//120ごとに攻撃する(マナより右側)
-		if (e1_time % 120 == 0 && m_mx + 65.0f == m_ex)
+				//120ごとに攻撃する(マナより右側)
+		if (m_mx <= m_ex && e1_t ==false)
 		{
-			m_ex = m_ex - 10.0f;
+			if (e1_time % 120 == 0)
+			{
+				m_ex = m_ex - 10.0f;
+			}
+			else
+			{
+				m_ex = m_mx + 66.0f;
+			}
 		}
-		//120ごとに攻撃する（マナより左側）
-		else if (e1_time % 120 == 0 && m_mx - 65.0f == m_ex)
+		//120ごとに攻撃する(マナより左側)
+		else if (m_mx >= m_ex && e1_t ==false)
 		{
-			m_ex = m_ex + 10.0f;
+			if (e1_time % 120 == 0)
+			{
+				m_ex = m_ex + 10.0f;
+			}
+			else
+			{
+				m_ex = m_mx - 66.0f;
+			}
 		}
-		*/
 		
 		//ジョンプ
 		if (e1_hit_right == true)
