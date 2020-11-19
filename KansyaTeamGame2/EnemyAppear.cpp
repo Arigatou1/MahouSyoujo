@@ -643,6 +643,52 @@ void EnemyAppear::Action()
 			}
 			break;
 		}
+				case 4:
+				{
+					if (m_time == 100)
+					{
+
+						CObjEnemy* obj = new CObjEnemy(799, 350);
+						Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+					}
+					else if (m_time == 160)
+					{
+
+						CObjEnemy* obj = new CObjEnemy(799, 350);
+						Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+					}
+					else if (m_time == 220)
+					{
+
+						CObjEnemy* obj = new CObjEnemy(799, 350);
+						Objs::InsertObj(obj, OBJ_ENEMY, 49);
+
+					}
+					else if (m_time == 270)
+					{
+
+						CObjEnemy2* obj = new CObjEnemy2(799, 350);
+						Objs::InsertObj(obj, OBJ_ENEMY2, 49);
+
+					}
+					else if (m_time ==370)
+					{
+
+						CObjEnemy3* obj = new CObjEnemy3(799, 350);
+						Objs::InsertObj(obj, OBJ_ENEMY3, 49);
+
+					}
+					else if (m_time == 770)
+					{
+
+						CObjBoss1* obj = new CObjBoss1(576, 192);
+						Objs::InsertObj(obj, OBJ_BOSS1, 49);
+
+					}
+					break;
+				}
 	}
 }
 

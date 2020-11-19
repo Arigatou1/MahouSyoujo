@@ -136,6 +136,15 @@ void CSceneMain::InitScene()
 	EnemyAppear* obj_appear = new EnemyAppear();
 	Objs::InsertObj(obj_appear, OBJ_APPEAR, 101);
 
+	//ゲージオブジェクト作成
+	CObjGaugeBaseBoss* obj_gbb = new CObjGaugeBaseBoss();
+	Objs::InsertObj(obj_gbb, OBJ_GAUGEBASEBOSS, 50);
+
+	//ゲージオブジェクト作成
+	CObjGaugeBoss* obj_gboss = new CObjGaugeBoss();
+	Objs::InsertObj(obj_gboss, OBJ_GAUGEBOSS, 51);
+
+
 	//タイム初期化
 	m_time = 0;
 

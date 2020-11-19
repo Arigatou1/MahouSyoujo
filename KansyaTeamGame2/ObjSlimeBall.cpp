@@ -83,7 +83,7 @@ void CObjSlimeBall::Action()
 	/// 
 	/// ‚±‚ñ‚ÈŠ´‚¶‚Å‚·‚©H
 	
-	if (e1_hit_up == true || e1_hit_down == true || e1_hit_left == true || e1_hit_up == true ||hit->CheckObjNameHit(OBJ_HERO)!= nullptr)
+	if (e1_hit_up == true || e1_hit_down == true || e1_hit_left == true || e1_hit_up == true ||hit->CheckElementHit(ELEMENT_PLAYER)== true)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);

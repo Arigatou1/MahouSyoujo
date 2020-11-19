@@ -13,6 +13,9 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	int GetMAXHP();
+	int GetHP();
+
 	
 private:
 	float m_ex;
@@ -31,4 +34,7 @@ private:
 	float e1_ysize;
 	
 	int a_time ;
+
+	float e_hp;
+	float maxhp;
 };

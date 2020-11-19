@@ -149,6 +149,8 @@
     <ClInclude Include="ObjEnemy3.h" />
     <ClInclude Include="ObjEnemy4.h" />
     <ClInclude Include="ObjEnemyAmount.h" />
+    <ClInclude Include="ObjGaugeBaseBoss.h" />
+    <ClInclude Include="ObjGaugeBoss.h" />
     <ClInclude Include="ObjPauseMenu.h" />
     <ClInclude Include="ObjSlimeBall.h" />
     <ClInclude Include="ObjSmallSlim.h" />
@@ -211,6 +213,8 @@
     <ClCompile Include="ObjEnemy4.cpp" />
     <ClCompile Include="ObjEnemy3.cpp" />
     <ClCompile Include="ObjEnemyAmount.cpp" />
+    <ClCompile Include="ObjGaugeBaseBoss.cpp" />
+    <ClCompile Include="ObjGaugeBoss.cpp" />
     <ClCompile Include="ObjPauseMenu.cpp" />
     <ClCompile Include="ObjSlimeBall.cpp" />
     <ClCompile Include="ObjSmallSlim.cpp" />
