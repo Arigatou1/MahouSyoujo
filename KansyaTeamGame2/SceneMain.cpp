@@ -78,6 +78,15 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
 	Draw::LoadImageW(L"Hero.png", 3, TEX_SIZE_512);
+
+	for (int i = 1; i <= 10; i++)
+	{
+		wchar_t bgid[128];
+
+		swprintf_s(bgid, L"BackGrounds/bg_%02d.png", i);
+
+		Draw::LoadImageW(bgid, i+50, TEX_SIZE_512);
+	}
 	
 
 	//主人公オブジェクト作成
