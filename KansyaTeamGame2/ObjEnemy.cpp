@@ -26,6 +26,7 @@ void CObjEnemy::Init()
 	
 	e1_damege = 0;
 	e1_time = 0;
+	e1_anime = 1;
 
 	//最大HP
 	e_hp = 15;
@@ -76,10 +77,12 @@ void CObjEnemy::Action()
 			if (e1_time % 120 == 0)
 			{
 				m_ex = m_ex - 10.0f;
+				e1_anime = 3;
 			}
 			else
 			{
 				m_ex = m_mx + 66.0f;
+				e1_anime = 1;
 			}
 		}
 		//120ごとに攻撃する(マナより左側)
@@ -88,10 +91,12 @@ void CObjEnemy::Action()
 			if (e1_time % 120 == 0)
 			{
 				m_ex = m_ex + 10.0f;
+				e1_anime = 3;
 			}
 			else
 			{
 				m_ex = m_mx - 66.0f;
+				e1_anime = 1;
 			}
 		}
 		
@@ -202,8 +207,8 @@ void CObjEnemy::Draw()
 
 	//切り取り位置の設定
 	src.m_top    = 320.0f;
-	src.m_left   = 0.0f;
-	src.m_right  = 64.0f;
+	src.m_left   = e1_anime * 64.0f - 64.0f;
+	src.m_right  = e1_anime * 64.0f;
 	src.m_bottom = 384.0f;
 	//表示位置の設定
 	dst.m_top    = m_ey+14;
