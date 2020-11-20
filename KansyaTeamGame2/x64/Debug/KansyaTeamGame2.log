@@ -1,9 +1,2 @@
 ﻿  EnemyAppear.cpp
-  ObjEnemy3.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(70,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy3.cpp(110,8): warning C4552: '<=': 式の結果が使用されていません
-  ObjEnemy4.cpp
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy4.cpp(60,8): warning C4552: '<=': 式の結果が使用されていません
-C:\Users\GA1B\source\repos\KansyaTeamGame2\KansyaTeamGame2\ObjEnemy4.cpp(73,8): warning C4552: '<=': 式の結果が使用されていません
-  コードを生成中...
   KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

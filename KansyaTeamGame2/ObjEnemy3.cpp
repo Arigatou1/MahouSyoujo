@@ -52,6 +52,7 @@ void CObjEnemy3::Action()
 	hit->SetPos(m_ex , m_ey);
 	
 	m_ex += m_vx;
+	m_ey += m_vy;
 
 	CObjBlock* obj_block3 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block3->BlockHit(&m_ex, &m_ey,

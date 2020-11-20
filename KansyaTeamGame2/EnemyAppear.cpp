@@ -25,6 +25,8 @@ void EnemyAppear::Init()
 		((UserData*)Save::GetData())->enemyRemain = 21;
 	case 2:
 		((UserData*)Save::GetData())->enemyRemain = 39;
+	default:
+		((UserData*)Save::GetData())->enemyRemain = 999;
 	}
 }
 
