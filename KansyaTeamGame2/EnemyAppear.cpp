@@ -17,6 +17,9 @@ void EnemyAppear::Init()
 {
 	m_time = 0;
 	//e_num = 0;
+
+	if (m_time == 0)
+		((UserData*)Save::GetData())->enemyRemain = 21;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -34,6 +37,8 @@ void EnemyAppear::Action()
 
 	case 1:
 	{
+		
+
 		if (m_time == 100)
 		{
 

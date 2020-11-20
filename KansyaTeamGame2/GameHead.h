@@ -86,6 +86,8 @@ struct UserData
 	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
+	//残り敵の数の表示
+	int enemyRemain;
 };
 //------------------------------------------------
 

@@ -43,7 +43,9 @@ void CObjTitle::Init()
 		//ロードの後に初期化しているため、前回の終了時にポーズ画面でも
 		//影響を受けない。
 		((UserData*)Save::GetData())->PauseMenu = false;
-		
+		((UserData*)Save::GetData())->enemyRemain = 1;
+
+
 		init_stage = true;
 
 	}

@@ -185,7 +185,7 @@ void CObjEnemy::Action()
 
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		
+		((UserData*)Save::GetData())->enemyRemain -= 1;
 		//Amount++;
 	}
 

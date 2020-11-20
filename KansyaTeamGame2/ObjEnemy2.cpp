@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjEnemy2.h"
 #include "GameL/Audio.h"
+#include "GameL\UserData.h"
 
 
 //使用するネームベース
@@ -196,18 +197,10 @@ void CObjEnemy2::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-		//hpが0になると消滅
-		if (e_hp <= 0)
-		{
+		
 			//モンスターが倒された時の効果音
 			Audio::Start(2);
-
-			this->SetStatus(false);
-			Hits::DeleteHitBox(this);
-
-			//Amount++;
-		}
-
+			((UserData*)Save::GetData())->enemyRemain -= 1;
 	}
 }
 

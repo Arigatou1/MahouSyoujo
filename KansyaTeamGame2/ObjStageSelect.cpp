@@ -25,6 +25,7 @@ void CObjStageSelect::Init()
 	((UserData*)Save::GetData())->ManaHP = 0;
 	((UserData*)Save::GetData())->HeroHP = 0;
 
+	((UserData*)Save::GetData())->enemyRemain = 1;
 }
 
 //ƒAƒNƒVƒ‡ƒ“

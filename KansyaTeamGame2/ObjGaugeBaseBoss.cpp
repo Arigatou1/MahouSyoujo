@@ -39,7 +39,7 @@ void CObjGaugeBaseBoss::Draw()
 	src.m_right = 320.0f;
 	src.m_bottom = 72.0f;
 	//ï\é¶à íuÇÃê›íË
-	dst.m_top = 576.0f;
+	dst.m_top = 552.0f;
 	dst.m_left = 480.0f;
 	dst.m_right = dst.m_left+294.0f;
 	dst.m_bottom = dst.m_top+24;
