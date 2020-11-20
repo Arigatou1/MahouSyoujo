@@ -2,7 +2,7 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
-
+#include "GameL\UserData.h"
 
 #include"ObjEnemy3.h"
 
@@ -142,7 +142,7 @@ void CObjEnemy3::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-
+		((UserData*)Save::GetData())->enemyRemain -= 1;
 		//Amount++;
 	}
 
