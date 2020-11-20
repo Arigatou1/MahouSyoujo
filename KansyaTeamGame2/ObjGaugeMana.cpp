@@ -14,6 +14,12 @@ using namespace GameL;
 //コンストラクタ
 CObjGaugeMANAHP::CObjGaugeMANAHP(float x, float y)
 {
+
+	if (x < 113.0f)
+		x = 113.0f;
+	if (x > 687.0f)
+		x = 687.0f;
+
 	gb_x = x;
 	gb_y = y;
 
@@ -21,7 +27,7 @@ CObjGaugeMANAHP::CObjGaugeMANAHP(float x, float y)
 //イニシャライズ
 void CObjGaugeMANAHP::Init()
 {
-	Clear_Flag = false;
+	
 }
 
 //アクション

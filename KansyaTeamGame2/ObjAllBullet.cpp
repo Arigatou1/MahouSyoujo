@@ -84,7 +84,7 @@ void CObjAllBullet::Draw()
 	dst.m_bottom = 64.0f + m_ay;
 
 	//•`‰æ
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	Draw::Draw(0, &src, &dst, c, 90.0f);
 }
 
 int CObjAllBullet::GetZ_ATK()

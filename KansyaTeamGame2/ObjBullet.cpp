@@ -4,6 +4,7 @@
 #include "GameL\HitBoxManager.h"
 #include "ObjBullet.h"
 #include "UtilityModule.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -23,7 +24,7 @@ void CObjBullet::Init()
 {
 	Hits::SetHitBox(this, px, py+24, 64, 16, ELEMENT_PLAYER, OBJ_BULLET, 1);
 	
-	atk_power = 3;
+	atk_power = 5 - ((UserData*)Save::GetData())->Diffculty;
 }
 
 //アクション

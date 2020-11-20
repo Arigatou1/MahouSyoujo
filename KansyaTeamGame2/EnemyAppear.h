@@ -14,8 +14,11 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	//int GetNUM();
 private:
 	int EnemyAmount;
 	int StageID;
 	int m_time;
+
+	//int e_num;//“G‚ÌŒÂ‘Ì–¼
 };
