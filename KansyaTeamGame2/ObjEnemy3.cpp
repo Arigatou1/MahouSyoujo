@@ -2,6 +2,7 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\UserData.h"
 
 #include"ObjEnemy3.h"
 
@@ -21,6 +22,8 @@ void CObjEnemy3::Init()
 
 	m_vx = 1.0f;
 	m_vy = 0.0f;
+	e_hp = 5;
+	e_damege = 0;
 
 	
 	
@@ -37,6 +40,9 @@ void CObjEnemy3::Init()
 	e3_ysize = 64;
 	//当たり判定用のHITBOXを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY3, 1);
+
+	e_hp = 6.0f;
+
 }
 
 //アクション
@@ -58,13 +64,15 @@ void CObjEnemy3::Action()
 	hit->SetPos(m_ex , m_ey);
 	
 	m_ex += m_vx;
+	m_ey += m_vy;
 
 	CObjBlock* obj_block3 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block3->BlockHit(&m_ex, &m_ey,
 		&e3_hit_up, &e3_hit_down, &e3_hit_left, &e3_hit_right,
-		&m_vx, &m_vy, &e3_xsize, &e3_ysize);
+		& m_vx, &m_vy);
 
-	/*ジャンプ
+
+	//ジャンプ
 	if (obj_block3 != nullptr)
 	{
 		//e_time++;
@@ -113,10 +121,11 @@ void CObjEnemy3::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-
+		e_hp -= 1;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e_damege = obj_all->GetZ_ATK();
 
+		e_hp <= 0;
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 		//Amount++;
@@ -125,18 +134,36 @@ void CObjEnemy3::Action()
 	//弾に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
+		e_hp -= 1;
+		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
+		e_damege = obj_homing->GetM_ATK();
+
 		//Amount++;
+	}
+
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+		e_hp -= 10;
+		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e_damege = obj_all->GetZ_ATK();
 	}
 
 	//剣に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
+		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
+		e_hp -= obj_sword->GetAttackPower();
+	}
+
+	//hpが0になると消滅
+	if (e_hp <= 0)
+	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+		((UserData*)Save::GetData())->enemyRemain -= 1;
 		//Amount++;
 	}
+
 }
 
 //ドロー

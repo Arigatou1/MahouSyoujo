@@ -8,6 +8,7 @@
 #include "ObjHero.h"
 #include "ObjSword.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 
 //使用するネームスペース
@@ -37,7 +38,7 @@ void CObjHero::Init()
 	max_hp = 20.0f;
 	m_hp = max_hp;
 	//無敵時間調整用
-	mtk_max = 100;
+	mtk_max = 130-((UserData*)Save::GetData())->Diffculty * 30;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
@@ -47,13 +48,11 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 
-	h_xsize = 64;
-	h_ysize = 64;
 
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	武器 = ((UserData*)Save::GetData())->武器;
+	Weapon = ((UserData*)Save::GetData())->weapon;
 	damage = ((UserData*)Save::GetData())->Diffculty * 0.5;
 	AllDamage = 0;
 }
@@ -61,7 +60,6 @@ void CObjHero::Init()
 //アクション
 void CObjHero::Action()
 {
-	
 	
 	CObjMagicalGirl* obj_magicalgirl = (CObjMagicalGirl*)Objs::GetObj(OBJ_MAGICALGIRL);
 	if (obj_magicalgirl != nullptr)
@@ -73,6 +71,8 @@ void CObjHero::Action()
 		//Spaceキーを押すとジャンプする処理
 		if (Input::GetVKey(' ') == true && m_hit_down == true && isJump == true)
 		{
+			//jump
+			Audio::Start(6);
 			m_vy = -15;
 			isJump = false;
 		}
@@ -87,7 +87,7 @@ void CObjHero::Action()
 		CObjBlock* obj_block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 		obj_block->BlockHit(&m_px, &m_py,
 			&m_hit_up, &m_hit_down, &m_hit_left, &m_hit_right,
-			&m_vx, &m_vy,&h_xsize,&h_ysize);
+			&m_vx, &m_vy);
 
 		//キーを押すと移動
 		if (Input::GetVKey(VK_LEFT) == true)
@@ -138,14 +138,17 @@ void CObjHero::Action()
 		m_py += m_vy;
 
 		
-		//test用　攻撃用
+		//攻撃用
 		if (Input::GetVKey('F') == true && m_f == true)
 		{
 			
-			if (武器 == 1)
+		
+			if (Weapon == 1)
 			{
 				m_f = false;
 				atk_anime = 2;
+				//銃声
+				Audio::Start(5);
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -155,6 +158,10 @@ void CObjHero::Action()
 			{
 				m_f = false;
 				atk_anime = 1;
+
+
+				//剣を振る音
+				Audio::Start(0);
 
 				CObjSword* obj_b = new CObjSword(m_px, m_py, m_posture, m_f);
 				Objs::InsertObj(obj_b, OBJ_SWORD, 1);
@@ -183,7 +190,7 @@ void CObjHero::Action()
 
 
 
-		//test用　画面外に行かないように
+		//画面外に行かないように
 		if (m_px > 744)
 		{
 			m_px = 744;
@@ -200,13 +207,15 @@ void CObjHero::Action()
 
 		//無敵時間が無効になった時
 		if (m_mtk == false)
-		{
+		{ 
 			//HitBoxの内容を元に戻す
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(m_px + 4.0f, m_py + 4.0f);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//敵の攻撃力
 				AllDamage += 1.0f + damage;
@@ -214,6 +223,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.4f + damage;//敵の攻撃力
 				AllDamage += 1.4f + damage;
@@ -222,6 +233,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.0f+damage;//敵の攻撃力
 				AllDamage += 2.0f + damage;
@@ -229,6 +242,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.5f+damage;//敵の攻撃力
 				AllDamage += 2.5f + damage;
@@ -236,8 +251,19 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
 			{
+				//ダメージ
+				Audio::Start(4);
 				m_mtk = true;
-				m_hp -= 1;//敵の攻撃力
+				m_hp -= 1.0f + damage;//敵の攻撃力
+			}
+
+			if (hit->CheckObjNameHit(OBJ_SLIMEBALL))
+			{
+				//ダメージ
+				Audio::Start(4);
+				m_mtk = true;
+				m_hp -= 0.5f + damage;
+				AllDamage += 0.5f + damage;//敵の攻撃力
 			}
 		}
 		//無敵がtrueになった時
@@ -254,6 +280,7 @@ void CObjHero::Action()
 				m_mtk = false;
 				mtk_jkn = mtk_max;
 			}
+	
 		}
 
 		//魔法少女の回復魔法
@@ -302,7 +329,8 @@ void CObjHero::Action()
 		}
 
 
-		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
+		//クリアシーンにスコアを与える
+		((UserData*)Save::GetData())->HeroHP = AllDamage;
 		
 	
 }

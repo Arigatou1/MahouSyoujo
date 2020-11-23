@@ -22,8 +22,9 @@ private:
 	float m_vx;		//移動ベクトル
 	float m_vy;
 
-	float e_damege;
 	
+	int e_damege;
+
 	float b_mx;//バリアの位置
 	float b_my;
 	
@@ -43,4 +44,7 @@ private:
 
 	float e3_xsize;
 	float e3_ysize;
+
+	float e_hp;
+	float damage;
 };

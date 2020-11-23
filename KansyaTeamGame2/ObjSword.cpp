@@ -5,6 +5,7 @@
 #include "GameL\WinInputs.h"
 #include "GameHead.h"
 #include "ObjSword.h"
+#include "GameL\UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -24,10 +25,10 @@ CObjSword::CObjSword(float x, float y,int posture,bool m_f)
 void CObjSword::Init()
 {
 	
-	Hits::SetHitBox(this,a_px, a_py, 56, 56, ELEMENT_PLAYER, OBJ_SWORD, 1);
+	Hits::SetHitBox(this, a_px + (a_posture * 60), a_py, 56, 56, ELEMENT_PLAYER, OBJ_SWORD, 1);
 	atk_time = 0;
 
-	atk_power = 2;
+	atk_power = 10 - ((UserData*)Save::GetData())->Diffculty;
 }
 
 //アクション
@@ -45,12 +46,12 @@ void CObjSword::Action()
 		atk_time++;
 	}
 
-	if (atk_time>=10)
-	{
+	//if (atk_time>=2)
+	//{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-	}
+	//}
 
 }
 //ドロー
@@ -75,4 +76,10 @@ void CObjSword::Draw()
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+}
+
+//攻撃力を返す関数
+float CObjSword::GetAttackPower()
+{
+	return atk_power;
 }

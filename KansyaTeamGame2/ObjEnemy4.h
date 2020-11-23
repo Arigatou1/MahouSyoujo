@@ -20,11 +20,9 @@ private:
 	float m_vy;
 	float m_r;//角度
 
-	int e_hp;
-
-	int e_jkn;
-	int e_time;
-	bool e_mtk;
+	
+	int e4_damege;
+	
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置
@@ -32,4 +30,6 @@ private:
 	float m_hx;//heroのx位置
 	float m_hy;//heroのｙ位置
 	//int Amount;
+	float e_hp;
+	float damage;
 };

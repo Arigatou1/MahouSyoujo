@@ -1,6 +1,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneManager.h"
 #include "GameHead.h"
+#include <math.h>
 //MenuBlockDraw関数
 //表示位置dstの値を受け取って、描画だけできる。
 void MenuBlockDraw(float x, float y, float width, float height, float r, float g, float b, float a)
@@ -83,3 +84,49 @@ bool Gravity(float *x ,float* y,float* b_x,float* b_y)
 		
 	}
 }*/
+bool UnitVec(float* vx, float* vy)
+{
+	//ベクトルの正規化を行う
+	float r = 0.0f;
+	r = (*vx) * (*vx) + (*vy) * (*vy);
+	r = sqrt(r);
+
+	//長さ０がどうか調べる
+	if (r == 0.0f)
+	{
+		//0なら計算失敗
+		return false;
+	}
+	else
+	{
+		//正規化を行い、vxとvyの参照先の値を変更
+		(*vx) = 3.0f / r * (*vx);
+		(*vy) = 3.0f / r * (*vy);
+	}
+
+	//計算成功
+	return true;
+}
+
+//領域チェック
+bool CheckWindow(float pos_x, float pos_y, float window_x, float window_y, float window_w, float window_h)
+{
+	if (pos_x < window_x)
+	{
+		return false;//領域外
+	}
+	if (pos_x > window_w)
+	{
+		return false;//領域外
+	}
+	if (pos_y < window_y)
+	{
+		return false;//領域外
+	}
+	if (pos_y > window_h)
+	{
+		return false;//領域外
+	}
+
+	return true;
+}

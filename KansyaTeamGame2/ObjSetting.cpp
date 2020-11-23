@@ -8,6 +8,7 @@
 #include "GameL\WinInputs.h"
 #include "UtilityModule.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -44,6 +45,9 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+		//選択
+		Audio::Start(4);
+		
 		if (m_key_flag == true)
 		{
 			cursor_y -= 112;
@@ -54,8 +58,10 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_DOWN) == true)
 	{
+		
 		if (m_key_flag == true)
 		{
+
 			cursor_y += 112;
 
 			m_key_flag = false;
@@ -64,6 +70,8 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+		
+	
 		if (m_key_flag == true)
 		{
 			switch (nowSelect)
@@ -86,6 +94,7 @@ void CObjSetting::Action()
 
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
+
 		if (m_key_flag == true)
 		{
 

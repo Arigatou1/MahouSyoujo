@@ -18,12 +18,21 @@ void CObjGameOver::Init()
 //アクション
 void CObjGameOver::Action()
 {
-	//エンターキーを押してシーン:ゲームTitleに移行する
-	if (Input::GetVKey(VK_RETURN) == true)
+	//Escキーを押してシーン:ゲームTitleに移行する
+	if (Input::GetVKey(VK_ESCAPE) == true)
 	{
 		if (m_key_flag == true)
 		{
 			Scene::SetScene(new CSceneTitle());
+			m_key_flag = false;
+		}
+	}
+	//Enterキーを押してリトライする
+	else if (Input::GetVKey(VK_RETURN) == true)
+	{
+		if (m_key_flag == true)
+		{
+			Scene::SetScene(new CSceneMain());
 			m_key_flag = false;
 		}
 	}
@@ -38,7 +47,9 @@ void CObjGameOver::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"YOU LOSE", 200, 200, 96, c);
 
-	Font::StrDraw(L"GAME OVER", 230, 340, 72, c);
+	Font::StrDraw(L"GAME OVER", 230, 240, 72, c);
+
+	Font::StrDraw(L"[Esc]:タイトルへ", 236, 368, 32, c);
+	Font::StrDraw(L"[Enter]:リトライ", 236, 468, 32, c);
 }

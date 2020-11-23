@@ -7,6 +7,7 @@
 #include "UtilityModule.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -17,12 +18,14 @@ void CObjStageSelect::Init()
 	m_key_flag = false;//キーフラグ
 	cursor_x = 140;
 	cursor_y = 64;
-	StageID = 0;
+	 
 	PageID = ((UserData*)Save::GetData())->Stage / 4;
 	MaxPage = 4;
 
 	((UserData*)Save::GetData())->ManaHP = 0;
 	((UserData*)Save::GetData())->HeroHP = 0;
+
+	((UserData*)Save::GetData())->enemyRemain = 1;
 }
 
 //アクション
@@ -33,7 +36,7 @@ void CObjStageSelect::Action()
 	//ステージIDを計算し設定するには？？
 
 	if(cursor_y<512)
-	((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 112) +(PageID*4);
+		((UserData*)Save::GetData())->Stage = ((cursor_y - 32) / 112) +(PageID*4);
 
 	//cursor_y = 16,96,176,256,336,416,496
 	//カーソルの初期位置は16なので、
@@ -44,9 +47,11 @@ void CObjStageSelect::Action()
 	{
 		if (m_key_flag == true)
 		{
-			if(cursor_y<512)
-			Scene::SetScene(new CSceneMain());
-
+			if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
+			{
+				if (cursor_y < 512)
+					Scene::SetScene(new CSceneMain());
+		}
 			if (cursor_y >= 512)
 			{
 				this->SetStatus(false);
@@ -59,6 +64,7 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+	
 		if (m_key_flag == true)
 		{
 			cursor_y -= 112;
@@ -67,6 +73,7 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_DOWN) == true )
 	{
+
 		if (m_key_flag == true)
 		{
 			cursor_y += 112;
@@ -75,6 +82,8 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+		
+		
 		if (m_key_flag == true)
 		{
 			if (PageID > 0)
@@ -85,6 +94,8 @@ void CObjStageSelect::Action()
 
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
+		
+	
 		if (m_key_flag == true)
 		{
 			if (PageID < MaxPage )
@@ -165,7 +176,16 @@ void CObjStageSelect::Draw()
 
 	Font::StrDraw(L"カスタマイズ", 156, 512 , 80, c);
 	wchar_t Score[16];
+
+	//そのときのスコア表示
 	swprintf_s(Score, L"スコア:%d", ((UserData*)Save::GetData())->ScoreData[((UserData*)Save::GetData())->Stage]);
 	Font::StrDraw(Score, 2,2, 48, c);
+
+	//遊べるか遊べないかの表示
+	if (((UserData*)Save::GetData())->Clear_Flag[((UserData*)Save::GetData())->Stage] == true)
+	Font::StrDraw(L"このステージは遊ぶことができます。", 400, 2, 24, c);
+	else 
+		Font::StrDraw(L"このステージは遊べません。", 400, 2, 24, c);
+
 }
 

@@ -1,4 +1,2 @@
-﻿  ObjEnemy3.cpp
-C:\Users\t1208\source\repos\Arigatou1\MahouSyoujo\KansyaTeamGame2\ObjEnemy3.cpp(71,23): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
-C:\Users\t1208\source\repos\Arigatou1\MahouSyoujo\KansyaTeamGame2\ObjEnemy3.cpp(109,31): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-  KansyaTeamGame2.vcxproj -> C:\Users\t1208\Source\Repos\Arigatou1\MahouSyoujo\x64\Debug\KansyaTeamGame2.exe
+﻿  EnemyAppear.cpp
+  KansyaTeamGame2.vcxproj -> C:\Users\GA1B\source\repos\KansyaTeamGame2\x64\Debug\KansyaTeamGame2.exe

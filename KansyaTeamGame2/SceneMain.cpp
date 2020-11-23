@@ -15,6 +15,7 @@ using namespace GameL;
 #include "SceneMain.h"
 #include "GameHead.h"
 #include "GameL\WinInputs.h"
+#include "GameL/Audio.h"
 
 //コンストラクタ
 CSceneMain::CSceneMain()
@@ -31,10 +32,16 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//音楽読み込み
+	Audio::LoadAudio(0, L"swordSE.wav", EFFECT);
+	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
+	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
+	Audio::LoadAudio(3, L"menuSE.wav", EFFECT);
+	Audio::LoadAudio(4, L"herodamageSE2.wav", EFFECT);
+	Audio::LoadAudio(5, L"bulletSE.wav", EFFECT);
+	Audio::LoadAudio(6, L"herojumpSE.wav", EFFECT);
 	
 	//外部データの読み込み
-
-	((UserData*)Save::GetData())->Score = 0;
 
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
@@ -44,7 +51,7 @@ void CSceneMain::InitScene()
 	//マップデータを読み込む。
 	wchar_t s[128];
 
-	if (StageID >= 5)
+	if (StageID >= 9)
 	swprintf_s(s, L"Stage/Stage1.csv", StageID);
 
 	else
@@ -75,6 +82,15 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
 	Draw::LoadImageW(L"Hero.png", 3, TEX_SIZE_512);
+
+	for (int i = 1; i <= 10; i++)
+	{
+		wchar_t bgid[128];
+
+		swprintf_s(bgid, L"BackGrounds/bg_%02d.png", i);
+
+		Draw::LoadImageW(bgid, i+50, TEX_SIZE_512);
+	}
 	
 
 	//主人公オブジェクト作成
@@ -115,9 +131,10 @@ void CSceneMain::InitScene()
 	CObjPauseMenu* obj_pause = new CObjPauseMenu();
 	Objs::InsertObj(obj_pause, OBJ_PAUSEMENU, 100);
 
-	//BOSS1オブジェクト作成
-	CObjBoss1* obj_boss1 = new CObjBoss1(600,200);
-	Objs::InsertObj(obj_boss1, OBJ_BOSS1, 100);
+	
+	//EnemyAppear
+	EnemyAppear* obj_appear = new EnemyAppear();
+	Objs::InsertObj(obj_appear, OBJ_APPEAR, 101);
 
 	//タイム初期化
 	m_time = 0;
@@ -128,22 +145,25 @@ void CSceneMain::InitScene()
 //実行中メソッド
 void CSceneMain::Scene()
 {
-	m_time++;
 
 	//ポーズメニュー
 	if (Input::GetVKey(VK_ESCAPE) == true)
 	{
+		//ポーズメニューSE
+		Audio::Start(3);
 		if (m_key_flag == true)
 		{
 			((UserData*)Save::GetData())->PauseMenu = true;
 			m_key_flag = false;
 		}
 	}
-	
+
 	else
 		m_key_flag = true;
 
 
+	if(((UserData*)Save::GetData())->enemyRemain == 0)
+		Scene::SetScene(new CSceneGameClear());
 	/*if (m_time == 30)
 	{
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 350);

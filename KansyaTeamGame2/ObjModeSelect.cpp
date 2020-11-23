@@ -7,6 +7,8 @@
 #include "ObjModeSelect.h"
 #include "GameL\WinInputs.h"
 #include "UtilityModule.h"
+#include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -20,6 +22,9 @@ void CObjModeSelect::Init()
 	nowSelect = 0;
 	cursor_sx = 320;
 	cursor_sy = 256;
+	countStage = 0;
+
+	Save::Seve();
 }
 
 //アクション
@@ -72,6 +77,8 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+	
+	
 		if (m_key_flag == true)
 		{
 			//どこにいてもステージセレクトにカーソルを合わせる。
@@ -83,6 +90,7 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_RIGHT)==true)
 	{
+		
 		if (m_key_flag == true)
 		{
 			//どこにいてもエンドレスモードにカーソルを合わせる。
@@ -94,8 +102,10 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_DOWN) == true)
 	{
+	
 		if (m_key_flag == true)
 		{
+			
 			//どこにいても設定にカーソルを合わせる。
 			nowSelect = 2;
 			cursor_x = 200;
@@ -105,6 +115,8 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+	
+		
 		if (cursor_y >= 450)
 		{
 			if (m_key_flag == true)
@@ -172,13 +184,42 @@ void CObjModeSelect::Draw()
 	//カーソル描画
 	MenuBlockDraw(cursor_x, cursor_y, cursor_sx, cursor_sy, 1, 0.8, 0, 1);
 	
-	Font::StrDraw(L"GAME ModeSelect", 2, 2, 32, c);
+	//Font::StrDraw(L"GAME ModeSelect", 2, 2, 32, c);
 
 	Font::StrDraw(L"ステージセレクト", 72, 200, 32, c);
 
 	Font::StrDraw(L"エンドレスモード", 472, 200, 32, c);
 
 	Font::StrDraw(L"設定", 360, 460, 48, c);
-}
 
-//MenuBlockDraw関数
+	switch (nowSelect)
+	{
+	case 0:
+
+		countStage = 0;
+		//ClearFlagは0はかならずtrue.
+		//falseかそれ以外になるまで続ける。
+		for (int i = 0; ((UserData*)Save::GetData())->Clear_Flag[i] != false; i++)
+		{
+			countStage++;
+		}
+
+
+		wchar_t str[128];
+		swprintf_s(str, L"現在のステージ到達数:%d", countStage - 1);
+		Font::StrDraw(str, 2, 2, 32, c);
+
+		break;
+	
+	case 2:
+	
+		break;
+
+	default:
+	
+		break;
+
+	}
+
+	
+}

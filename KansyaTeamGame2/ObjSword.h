@@ -1,7 +1,7 @@
 #pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
-#include "ObjHero.h"
+//#include "ObjHero.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -14,6 +14,7 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	float GetAttackPower();
 private:
 	float a_px;
 	float a_py;

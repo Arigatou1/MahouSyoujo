@@ -32,9 +32,6 @@ void CObjMana::Init()
 	
 	Mana_HP = 100;
 
-	mana_damege = 0;
-	mana_damege2 = 0;
-
 
 	//MANAゲージベースオブジェクト作成
 	CObjGaugeMANABase* obj_managb = new CObjGaugeMANABase(Mana_x,Mana_y);
@@ -47,7 +44,8 @@ void CObjMana::Init()
 	//あたり判定用Hitboxを作成
 	Hits::SetHitBox(this, Mana_x , Mana_y, 64, 64, ELEMENT_WHITE, OBJ_MANA, 1);
 
-	
+
+	mana_damege = ((UserData*)Save::GetData())->Diffculty * 0.5;
 }
 
 //アクション
@@ -65,24 +63,17 @@ void CObjMana::Action()
 	hit->SetPos(Mana_x,Mana_y);
 
 
-	CObjEnemy* obj_enemy = (CObjEnemy*)Objs::GetObj(OBJ_ENEMY);
 	if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 	{
-		mana_damege = obj_enemy->GetE1_ATK();
-
-		Mana_HP -= mana_damege;
-
+		Mana_HP -= 0.10 + mana_damege * 0.05;
 	}
 
 	//敵2に当たるとHPが減る
-	CObjEnemy2* obj_enemy2 = (CObjEnemy2*)Objs::GetObj(OBJ_ENEMY2);
 	if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 	{
-		mana_damege2 = obj_enemy2->GetE2_ATK();
-
-		Mana_HP -= mana_damege2;
-
+		Mana_HP -= 0.04;
 	}
+
 	//敵3に当たるとHPが減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 	{
@@ -90,7 +81,7 @@ void CObjMana::Action()
 
 	}
 	
-	//敵3に当たるとHPが減る
+	//敵4に当たるとHPが減る
 	if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 	{
 		Mana_HP -= 0.05;

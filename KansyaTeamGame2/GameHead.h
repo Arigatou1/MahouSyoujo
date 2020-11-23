@@ -36,6 +36,11 @@ enum OBJ_NAME
 	OBJ_PAUSEMENU,
 	OBJ_SETTING,
 	OBJ_BOSS1,
+	OBJ_SLIMEBALL,
+	OBJ_APPEAR,
+	OBJ_BOSS_ENEMY,
+	OBJ_GAUGEBASEBOSS,
+	OBJ_GAUGEBOSS,
 };
 //------------------------------------------------
 
@@ -65,21 +70,24 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	//ステージIDを取得する
 	int Stage;
-	int Score;
 
 
 	//主人公の武器。剣 0 銃 1
-	int 武器;
+	int weapon;
 	//ステージのスコアデータ
 	int ScoreData[20];
-
+	//最大ステージ数は20だが、２０のクリア判定をつけるため
+	bool Clear_Flag[21];
+	//ポーズメニュー用変数
 	bool PauseMenu;
 	
 	//難易度
 	int Diffculty;
-
+	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
+	//残り敵の数の表示
+	int enemyRemain;
 };
 //------------------------------------------------
 
@@ -124,6 +132,12 @@ struct UserData
 #include "ObjPauseMenu.h"
 #include "ObjSetting.h"
 #include "ObjBoss1.h"
+#include "ObjSlimeBall.h"
+#include "ObjSword.h"
+#include "EnemyAppear.h"
+#include "ObjGaugeBaseBoss.h"
+#include "ObjGaugeBoss.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
