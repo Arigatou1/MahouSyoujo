@@ -50,6 +50,5 @@ private:
 	bool e2_hit_left;
 	bool e2_hit_right;
 
-	float e_hp;
 	float damage;
 };

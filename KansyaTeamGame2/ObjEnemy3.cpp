@@ -75,7 +75,7 @@ void CObjEnemy3::Action()
 	//ジャンプ
 	if (obj_block3 != nullptr)
 	{
-		//e_time++;
+		/*e_time++;
 		if (e3_hit_down == true) 
 		{
 			m_vy = -15;
@@ -167,25 +167,25 @@ void CObjEnemy3::Action()
 }
 
 //ドロー
-void CObjEnemy3::Draw()
-{
-	//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	void CObjEnemy3::Draw()
+	{
+		//描画カラー情報
+		float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
+		RECT_F src;//描画元切り取り位置
+		RECT_F dst;//描画先表示位置
 
-	//切り取り位置の設定
-	src.m_top = 384.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 448.0f;
-	//表示位置の設定
-	dst.m_top =m_ey;
-	dst.m_left = m_ex;
-	dst.m_right =  m_ex+64.0f;
-	dst.m_bottom =  m_ey+64.0f;
+		//切り取り位置の設定
+		src.m_top = 384.0f;
+		src.m_left = 0.0f;
+		src.m_right = 64.0f;
+		src.m_bottom = 448.0f;
+		//表示位置の設定
+		dst.m_top = m_ey;
+		dst.m_left = m_ex;
+		dst.m_right = m_ex + 64.0f;
+		dst.m_bottom = m_ey + 64.0f;
 
-	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-}
+		//描画
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}

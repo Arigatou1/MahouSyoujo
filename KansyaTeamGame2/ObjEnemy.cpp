@@ -147,7 +147,7 @@ void CObjEnemy::Action()
 
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		e_hp -= 3;
+		e_hp -= 5;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e1_damege = obj_homing->GetM_ATK();
 

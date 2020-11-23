@@ -9,7 +9,7 @@ CObjEnemy4::CObjEnemy4(float x, float y)
 {
 	m_ex = x;
 	m_ey = y;
-	e_hp = 5;
+	e_hp = 12;
 }
 
 //イニシャライズ
@@ -19,9 +19,9 @@ void CObjEnemy4::Init()
 	m_vy = 0.0f;
 	m_r = 0.0f;
 
-	e_jkn = 80;
-	e_time = e_jkn;
-	e_mtk = false;
+	
+	e4_time = 1;
+	
 
 	//当たり判定HitBoxを作成
 	Hits::SetHitBox(this, m_ex, m_ey, 64, 64, ELEMENT_ENEMY, OBJ_ENEMY4, 10);
@@ -49,26 +49,26 @@ void CObjEnemy4::Action()
 			m_vx = 0;
 	}
 
+	//攻撃間隔
+	e4_time++;
+
+	if (e4_time % 96 == 32)
+	{
+		;
+	}
+	else if (e4_time % 96 == 0)
+	{
+		;
+	}
+
 	//HitBoxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex+0.0f, m_ey+0.0f);
 
-	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
-	{
-		e_hp -= 1;
-		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
-		e4_damege = obj_all->GetZ_ATK();
-
-		e_hp <= 0;
-		this->SetStatus(false);
-		Hits::DeleteHitBox(this);
-		//Amount++;
-	}
-
 	//弾に当たれば消滅
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 4;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e4_damege = obj_homing->GetM_ATK();
 
@@ -80,7 +80,7 @@ void CObjEnemy4::Action()
 
 	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
 	{
-		e_hp -= 1;
+		e_hp -= 10;
 		CObjAllBullet* obj_all = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
 		e4_damege = obj_all->GetZ_ATK();
 	}
