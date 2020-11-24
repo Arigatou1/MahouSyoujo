@@ -7,6 +7,7 @@
 #include "UtilityModule.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -24,6 +25,7 @@ void CObjStageSelect::Init()
 	((UserData*)Save::GetData())->ManaHP = 0;
 	((UserData*)Save::GetData())->HeroHP = 0;
 
+	((UserData*)Save::GetData())->enemyRemain = 1;
 }
 
 //アクション
@@ -62,6 +64,7 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+	
 		if (m_key_flag == true)
 		{
 			cursor_y -= 112;
@@ -70,6 +73,7 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_DOWN) == true )
 	{
+
 		if (m_key_flag == true)
 		{
 			cursor_y += 112;
@@ -78,6 +82,8 @@ void CObjStageSelect::Action()
 	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+		
+		
 		if (m_key_flag == true)
 		{
 			if (PageID > 0)
@@ -88,6 +94,8 @@ void CObjStageSelect::Action()
 
 	else if (Input::GetVKey(VK_RIGHT) == true)
 	{
+		
+	
 		if (m_key_flag == true)
 		{
 			if (PageID < MaxPage )

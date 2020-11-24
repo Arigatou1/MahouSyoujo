@@ -13,7 +13,6 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-	float GetE1_ATK();
 //	int EneAmo();
 private:
 	float m_ex;
@@ -23,11 +22,7 @@ private:
 	int e_hp;//“G‚ÌHP
 	int e1_damege;//ƒ_ƒ[ƒW—Ê
 	int e1_time;//“G‚ÌUŒ‚ŠÔ
-
-	int e1_num;//“G‚ÌŒÂ‘Ì–¼
-	
-
-	float e1_atk;//“G‚ÌUŒ‚—Í
+	int e1_anime;
 
 	float b_mx;//ƒoƒŠƒA‚ÌxˆÊ’u
 
@@ -42,9 +37,6 @@ private:
 	bool e1_hit_right;
 
 	bool e1_t;//“G‚ÌUŒ‚ŠÔŠu
-
-	float e1_xsize;
-	float e1_ysize;
 
 	float damage;//“G‚ªó‚¯‚éƒ_ƒ[ƒW
 };

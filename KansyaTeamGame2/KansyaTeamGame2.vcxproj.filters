@@ -148,6 +148,12 @@
       <Filter>ゲームメイン\敵</Filter>
     </ClCompile>
     <ClCompile Include="EnemyAppear.cpp" />
+    <ClCompile Include="ObjGaugeBaseBoss.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGaugeBoss.cpp">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameHead.h" />
@@ -295,6 +301,12 @@
       <Filter>ゲームメイン\敵</Filter>
     </ClInclude>
     <ClInclude Include="EnemyAppear.h" />
+    <ClInclude Include="ObjGaugeBoss.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGaugeBaseBoss.h">
+      <Filter>ゲームメイン\ゲージ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ソースファイル">

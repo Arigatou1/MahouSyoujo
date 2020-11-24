@@ -21,7 +21,7 @@ void CObjSmallSlim::Init()
 	m_vx = 0.0f;
 	m_vy = 0.0f;
 	
-	e_hp = 1;
+	e5_hp = 5;
 
 	e_jkn = 100;
 	e_time = e_jkn;
@@ -99,7 +99,7 @@ void CObjSmallSlim::Action()
 	//’e‚ª“–‚½‚ê‚ÎÁ–Å
 	if (hit->CheckObjNameHit(OBJ_HOMINGBULLET) != nullptr)
 	{
-
+		e5_hp = 3;
 		CObjHomingBullet* obj_homing = (CObjHomingBullet*)Objs::GetObj(OBJ_HOMINGBULLET);
 		e_damege = obj_homing->GetM_ATK();
 
@@ -113,17 +113,25 @@ void CObjSmallSlim::Action()
 	if (hit->CheckObjNameHit(OBJ_SWORD) != nullptr)
 	{
 		CObjSword* obj_sword = (CObjSword*)Objs::GetObj(OBJ_SWORD);
-		e_hp -= obj_sword->GetAttackPower();
+		e5_hp -= obj_sword->GetAttackPower();
 	}
 	if (hit->CheckObjNameHit(OBJ_BULLET) != nullptr)
 	{
+		e5_hp = 2;
 		CObjBullet* obj_bullet = (CObjBullet*)Objs::GetObj(OBJ_BULLET);
-		e_hp -= obj_bullet->GetAttackPower();
+		e5_hp -= obj_bullet->GetAttackPower();
 	}
 
-
+	//‘S‘ÌUŒ‚‚Ì–‚–@‚É“–‚½‚ê‚ÎÁ–Å
+	if (hit->CheckObjNameHit(OBJ_ALLBULLET) != nullptr)
+	{
+		e5_hp -= 10;
+		CObjAllBullet* obj_allb = (CObjAllBullet*)Objs::GetObj(OBJ_ALLBULLET);
+		e_damege = obj_allb->GetZ_ATK();
+		//Amount++;
+	}
 	
-	if (e_hp <= 0)
+	if (e5_hp <= 0)
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);

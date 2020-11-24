@@ -8,6 +8,7 @@
 #include "GameL\WinInputs.h"
 #include "UtilityModule.h"
 #include "GameL\UserData.h"
+#include "GameL/Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -76,6 +77,8 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_LEFT) == true)
 	{
+	
+	
 		if (m_key_flag == true)
 		{
 			//どこにいてもステージセレクトにカーソルを合わせる。
@@ -87,6 +90,7 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_RIGHT)==true)
 	{
+		
 		if (m_key_flag == true)
 		{
 			//どこにいてもエンドレスモードにカーソルを合わせる。
@@ -98,8 +102,10 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_DOWN) == true)
 	{
+	
 		if (m_key_flag == true)
 		{
+			
 			//どこにいても設定にカーソルを合わせる。
 			nowSelect = 2;
 			cursor_x = 200;
@@ -109,6 +115,8 @@ void CObjModeSelect::Action()
 	}
 	else if (Input::GetVKey(VK_UP) == true)
 	{
+	
+		
 		if (cursor_y >= 450)
 		{
 			if (m_key_flag == true)

@@ -15,6 +15,8 @@ public:
 	void Draw();
 
 private:
+	int e_time;
+
 	float m_ex;		//X座標
 	float m_ey;		//Y座標
 	float m_vx;		//移動ベクトル
@@ -31,8 +33,10 @@ private:
 	float m_my;
 
 	float jump;
+	float e_atk;
 
 	//blockとの衝突状態確認用
+	bool e_t;
 	bool e3_hit_up;
 	bool e3_hit_down;
 	bool e3_hit_right;

@@ -15,6 +15,8 @@ void CObjGameClear::Init()
 {
 	StageID = ((UserData*)Save::GetData())->Stage;
 	((UserData*)Save::GetData())->Clear_Flag[StageID+1] = true;
+
+	Score = 0;
 }
 
 //アクション
@@ -29,10 +31,20 @@ void CObjGameClear::Action()
 	//((UserData*)Save::GetData())->Score =
 	//	(((UserData*)Save::GetData())->HeroHP * 40 + ((UserData*)Save::GetData())->ManaHP * 60);
 
+
+	//追記
+	//うまくいったかもしれない。
+
+    Score =	(30-((UserData*)Save::GetData())->HeroHP)*40 + ((UserData*)Save::GetData())->ManaHP*60;
+
+
+
 	//すこあを保存
 	//ここは問題なさそう。
-	((UserData*)Save::GetData())->ScoreData[StageID] = 1;
-
+	if(((UserData*)Save::GetData())->ScoreData[StageID]<Score)
+	{
+		((UserData*)Save::GetData())->ScoreData[StageID] = Score;
+	}
 
 	
 					
@@ -64,7 +76,7 @@ void CObjGameClear::Draw()
 	
 
 	wchar_t str[128];
-	swprintf_s(str, L"スコア:%d", ((UserData*)Save::GetData())->Score);//整数を文字列か
+	swprintf_s(str, L"スコア:%.0f", Score);//整数を文字列か
 	Font::StrDraw(str, 300, 2, 24, c);
 
 }

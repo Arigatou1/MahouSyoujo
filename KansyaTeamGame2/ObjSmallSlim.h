@@ -29,6 +29,7 @@ private:
 	float m_my;//ƒ}ƒi‚ÌYˆÊ’u
 	//int Amount;
 
+	int e5_hp;
 	int e_jkn;//
 	int e_time;//
 	bool e_mtk;
@@ -41,6 +42,6 @@ private:
 
 	float e1_xsize;
 	float e1_ysize;
-	float e_hp;
+	
 	float damage;
 };

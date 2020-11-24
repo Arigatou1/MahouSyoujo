@@ -22,7 +22,7 @@ private:
 
 	
 	int e4_damege;
-	
+	int e4_time;
 
 	float m_mx;//マナのX位置
 	float m_my;//マナのY位置

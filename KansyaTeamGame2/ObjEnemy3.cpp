@@ -2,7 +2,7 @@
 #include "GameL/DrawTexture.h"
 #include "GameHead.h"
 #include "GameL\HitBoxManager.h"
-
+#include "GameL\UserData.h"
 
 #include"ObjEnemy3.h"
 
@@ -25,11 +25,15 @@ void CObjEnemy3::Init()
 	e_hp = 5;
 	e_damege = 0;
 
+	
+	
+
 	e3_hit_up = false;
 	e3_hit_down = false;
 	e3_hit_left = false;
 	e3_hit_right = false;
 
+	e_t = true;
 	jump = 0;
 
 	e3_xsize = 64;
@@ -44,14 +48,23 @@ void CObjEnemy3::Init()
 //アクション
 void CObjEnemy3::Action()
 {
-	//摩擦
-	//m_vx += -(m_vx * 0.098);
+	e_time++;
+
+	if (e_time % 96 == 32 && e_t == false)
+	{
+		e_atk = 0.00;
+	}
+	else if (e_time % 96 == 0 && e_t == false)
+	{
+		e_atk = 0.04;
+	}
 
 	//HitBOxの内容を変更
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_ex , m_ey);
 	
 	m_ex += m_vx;
+	m_ey += m_vy;
 
 	CObjBlock* obj_block3 = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 	obj_block3->BlockHit(&m_ex, &m_ey,
@@ -62,9 +75,14 @@ void CObjEnemy3::Action()
 	//ジャンプ
 	if (obj_block3 != nullptr)
 	{
+		/*e_time++;
+		if (e3_hit_down == true) 
+		{
+			m_vy = -15;
+			e3_hit_down = false;
+		}
 		
-		
-	}
+	}*/
 
 	//自由落下運動
 	m_ey += 9.8 / (16.0f);
@@ -142,32 +160,32 @@ void CObjEnemy3::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
-
+		((UserData*)Save::GetData())->enemyRemain -= 1;
 		//Amount++;
 	}
 
 }
 
 //ドロー
-void CObjEnemy3::Draw()
-{
-	//描画カラー情報
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	void CObjEnemy3::Draw()
+	{
+		//描画カラー情報
+		float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
+		RECT_F src;//描画元切り取り位置
+		RECT_F dst;//描画先表示位置
 
-	//切り取り位置の設定
-	src.m_top = 384.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 448.0f;
-	//表示位置の設定
-	dst.m_top =m_ey;
-	dst.m_left = m_ex;
-	dst.m_right =  m_ex+64.0f;
-	dst.m_bottom =  m_ey+64.0f;
+		//切り取り位置の設定
+		src.m_top = 384.0f;
+		src.m_left = 0.0f;
+		src.m_right = 64.0f;
+		src.m_bottom = 448.0f;
+		//表示位置の設定
+		dst.m_top = m_ey;
+		dst.m_left = m_ex;
+		dst.m_right = m_ex + 64.0f;
+		dst.m_bottom = m_ey + 64.0f;
 
-	//描画
-	Draw::Draw(0, &src, &dst, c, 0.0f);
-}
+		//描画
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}

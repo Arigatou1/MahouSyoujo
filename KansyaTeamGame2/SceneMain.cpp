@@ -36,10 +36,12 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(0, L"swordSE.wav", EFFECT);
 	Audio::LoadAudio(1, L"girlSE.wav", EFFECT);
 	Audio::LoadAudio(2, L"bakuhatuSE.wav", EFFECT);
+	Audio::LoadAudio(3, L"menuSE.wav", EFFECT);
+	Audio::LoadAudio(4, L"herodamageSE2.wav", EFFECT);
+	Audio::LoadAudio(5, L"bulletSE.wav", EFFECT);
+	Audio::LoadAudio(6, L"herojumpSE.wav", EFFECT);
 	
 	//外部データの読み込み
-
-	((UserData*)Save::GetData())->Score = 0;
 
 	unique_ptr<wchar_t>p;//ステージ情報ポインター
 	int size;
@@ -80,6 +82,15 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Gauge.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"BackGround.png", 2, TEX_SIZE_512);
 	Draw::LoadImageW(L"Hero.png", 3, TEX_SIZE_512);
+
+	for (int i = 1; i <= 10; i++)
+	{
+		wchar_t bgid[128];
+
+		swprintf_s(bgid, L"BackGrounds/bg_%02d.png", i);
+
+		Draw::LoadImageW(bgid, i+50, TEX_SIZE_512);
+	}
 	
 
 	//主人公オブジェクト作成
@@ -138,6 +149,8 @@ void CSceneMain::Scene()
 	//ポーズメニュー
 	if (Input::GetVKey(VK_ESCAPE) == true)
 	{
+		//ポーズメニューSE
+		Audio::Start(3);
 		if (m_key_flag == true)
 		{
 			((UserData*)Save::GetData())->PauseMenu = true;
@@ -148,6 +161,9 @@ void CSceneMain::Scene()
 	else
 		m_key_flag = true;
 
+
+	if(((UserData*)Save::GetData())->enemyRemain == 0)
+		Scene::SetScene(new CSceneGameClear());
 	/*if (m_time == 30)
 	{
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 350);
@@ -162,9 +178,9 @@ void CSceneMain::Scene()
 		obj = new CObjEnemy(0, 350);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount+=2;
-	}*/
+	}
 	
-	/*else if (m_time == 60)
+	else if (m_time == 60)
 	{
 		CObjEnemy* obj_enemy2 = new CObjEnemy(700, 400);
 		Objs::InsertObj(obj_enemy2, OBJ_ENEMY2, 49);
@@ -172,7 +188,6 @@ void CSceneMain::Scene()
 	}
 	else if (m_time == 160)
 	{
-
 		CObjEnemy* obj = new CObjEnemy(800, 400);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
@@ -194,9 +209,9 @@ void CSceneMain::Scene()
 		//Objs::InsertObj(obj, OBJ_ENEMY2, 49);
 		
 		EnemyAmount+=2;
-	}*/
-	
-	/*else if (m_time == 280)
+	}
+
+	else if (m_time == 280)
 	{
 		CObjEnemy* obj = new CObjEnemy(800, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
@@ -209,8 +224,7 @@ void CSceneMain::Scene()
 		CObjEnemy* obj = new CObjEnemy(0, 390);
 		Objs::InsertObj(obj, OBJ_ENEMY, 49);
 		EnemyAmount++;
-	}*/
-/*
+	}
 	else if (m_time == 350)
 	{
 		CObjEnemy* obj = new CObjEnemy(0, 450);
@@ -258,8 +272,8 @@ void CSceneMain::Scene()
 		EnemyAmount++;
 		CObjEnemy4* obj_enemy4 = new CObjEnemy4(700, 400);
 		Objs::InsertObj(obj_enemy4, OBJ_ENEMY4, 49);
-	}
+	}*/
 
-	*/
+	
 }
 

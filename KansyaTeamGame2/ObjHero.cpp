@@ -38,7 +38,7 @@ void CObjHero::Init()
 	max_hp = 20.0f;
 	m_hp = max_hp;
 	//–³“GŽžŠÔ’²®—p
-	mtk_max = 100;
+	mtk_max = 130-((UserData*)Save::GetData())->Diffculty * 30;
 	mtk_jkn = mtk_max;
 	m_mtk = false;
 	
@@ -48,8 +48,6 @@ void CObjHero::Init()
 	m_hit_left = false;
 	m_hit_right = false;
 
-	h_xsize = 64;
-	h_ysize = 64;
 
 	//‚ ‚½‚è”»’è—pHitbox‚ðì¬
 	Hits::SetHitBox(this, m_px+8, m_py+8, 56, 56, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -73,6 +71,8 @@ void CObjHero::Action()
 		//SpaceƒL[‚ð‰Ÿ‚·‚ÆƒWƒƒƒ“ƒv‚·‚éˆ—
 		if (Input::GetVKey(' ') == true && m_hit_down == true && isJump == true)
 		{
+			//jump
+			Audio::Start(6);
 			m_vy = -15;
 			isJump = false;
 		}
@@ -147,7 +147,8 @@ void CObjHero::Action()
 			{
 				m_f = false;
 				atk_anime = 2;
-
+				//eº
+				Audio::Start(5);
 
 				CObjBullet* obj_bullet = new CObjBullet(m_px+(m_posture*48), m_py, m_posture, m_f);
 				Objs::InsertObj(obj_bullet, OBJ_BULLET, 51);
@@ -206,13 +207,15 @@ void CObjHero::Action()
 
 		//–³“GŽžŠÔ‚ª–³Œø‚É‚È‚Á‚½Žž
 		if (m_mtk == false)
-		{
+		{ 
 			//HitBox‚Ì“à—e‚ðŒ³‚É–ß‚·
 			CHitBox* hit = Hits::GetHitBox(this);
 			hit->SetPos(m_px + 4.0f, m_py + 4.0f);
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY) != nullptr)
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
 				AllDamage += 1.0f + damage;
@@ -220,6 +223,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY2) != nullptr)
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.4f + damage;//“G‚ÌUŒ‚—Í
 				AllDamage += 1.4f + damage;
@@ -228,6 +233,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY3) != nullptr)
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.0f+damage;//“G‚ÌUŒ‚—Í
 				AllDamage += 2.0f + damage;
@@ -235,6 +242,8 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_ENEMY4) != nullptr)
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 2.5f+damage;//“G‚ÌUŒ‚—Í
 				AllDamage += 2.5f + damage;
@@ -242,12 +251,16 @@ void CObjHero::Action()
 
 			if (hit->CheckObjNameHit(OBJ_SMALLSLIM))
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 1.0f + damage;//“G‚ÌUŒ‚—Í
 			}
 
 			if (hit->CheckObjNameHit(OBJ_SLIMEBALL))
 			{
+				//ƒ_ƒ[ƒW
+				Audio::Start(4);
 				m_mtk = true;
 				m_hp -= 0.5f + damage;
 				AllDamage += 0.5f + damage;//“G‚ÌUŒ‚—Í
@@ -267,6 +280,7 @@ void CObjHero::Action()
 				m_mtk = false;
 				mtk_jkn = mtk_max;
 			}
+	
 		}
 
 		//–‚–@­—‚Ì‰ñ•œ–‚–@
@@ -314,8 +328,9 @@ void CObjHero::Action()
 			Scene::SetScene(new CSceneMain());
 		}
 
+
 		//ƒNƒŠƒAƒV[ƒ“‚ÉƒXƒRƒA‚ð—^‚¦‚é
-		((UserData*)Save::GetData())->HeroHP = 20.0f-AllDamage;
+		((UserData*)Save::GetData())->HeroHP = AllDamage;
 		
 	
 }

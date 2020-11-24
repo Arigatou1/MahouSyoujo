@@ -39,6 +39,8 @@ enum OBJ_NAME
 	OBJ_SLIMEBALL,
 	OBJ_APPEAR,
 	OBJ_BOSS_ENEMY,
+	OBJ_GAUGEBASEBOSS,
+	OBJ_GAUGEBOSS,
 };
 //------------------------------------------------
 
@@ -68,7 +70,6 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	//ステージIDを取得する
 	int Stage;
-	int Score;
 
 
 	//主人公の武器。剣 0 銃 1
@@ -85,6 +86,8 @@ struct UserData
 	//スコアの計算するためのもの
 	float HeroHP;
 	float ManaHP;
+	//残り敵の数の表示
+	int enemyRemain;
 };
 //------------------------------------------------
 
@@ -132,6 +135,8 @@ struct UserData
 #include "ObjSlimeBall.h"
 #include "ObjSword.h"
 #include "EnemyAppear.h"
+#include "ObjGaugeBaseBoss.h"
+#include "ObjGaugeBoss.h"
 
 //------------------------------------------------
 
